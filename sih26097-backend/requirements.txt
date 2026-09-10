@@ -1,0 +1,27 @@
+# ============================================================
+# requirements.txt — Python packages this project needs
+# ============================================================
+# HOW TO INSTALL:
+#   pip install -r requirements.txt
+#
+# WHAT EACH PACKAGE DOES:
+#   fastapi     → The web framework (handles HTTP requests)
+#   uvicorn     → The server that runs FastAPI
+#   pydantic    → Validates data (makes sure age is a number, etc.)
+#   python-dotenv → Reads the .env file for secret settings
+#   httpx       → Makes HTTP calls to external APIs (Bhashini, Groq)
+#   pytest      → Runs automated tests
+# ============================================================
+
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-dotenv>=1.0.0
+httpx>=0.25.0
+sentence-transformers>=2.2.0
+numpy>=1.24.0
+groq>=0.9.0
+gTTS>=2.4.0
+python-multipart>=0.0.9
+pytest>=7.4.0

@@ -1,0 +1,62 @@
+[
+    {
+        "sector": "Electrical",
+        "roles": ["Assistant Electrician", "Solar PV Installer", "Wireman"]
+    },
+    {
+        "sector": "Plumbing",
+        "roles": ["Plumber", "Pipe Fitter"]
+    },
+    {
+        "sector": "Textile & Apparel",
+        "roles": ["Sewing Machine Operator", "Embroidery Artisan", "Tailor"]
+    },
+    {
+        "sector": "Beauty & Wellness",
+        "roles": ["Beauty Therapist Assistant", "Hair Stylist", "Mehendi Artist"]
+    },
+    {
+        "sector": "IT-ITES",
+        "roles": ["Data Entry Operator", "Computer Operator", "Help Desk Attendant"]
+    },
+    {
+        "sector": "Healthcare",
+        "roles": ["Home Health Aide", "Nursing Assistant", "Medical Lab Assistant"]
+    },
+    {
+        "sector": "Agriculture",
+        "roles": ["Organic Farmer", "Dairy Worker", "Mushroom Grower", "Poultry Worker"]
+    },
+    {
+        "sector": "Construction",
+        "roles": ["Mason", "Welder", "Carpenter Assistant", "Painter"]
+    },
+    {
+        "sector": "Retail",
+        "roles": ["Sales Associate", "Cashier", "Store Assistant"]
+    },
+    {
+        "sector": "Automotive",
+        "roles": ["Service Technician", "Two-Wheeler Mechanic"]
+    },
+    {
+        "sector": "Food Processing",
+        "roles": ["Processing Technician", "Quality Inspector"]
+    },
+    {
+        "sector": "Electronics",
+        "roles": ["Mobile Repair Technician", "CCTV Installation Technician"]
+    },
+    {
+        "sector": "Tourism & Hospitality",
+        "roles": ["Front Desk Agent", "Room Attendant", "Tour Guide"]
+    },
+    {
+        "sector": "Handicrafts",
+        "roles": ["Bamboo Artisan", "Pottery Maker", "Jute Craft Worker"]
+    },
+    {
+        "sector": "Manufacturing",
+        "roles": ["CNC Operator", "Fitter", "Turner"]
+    }
+]

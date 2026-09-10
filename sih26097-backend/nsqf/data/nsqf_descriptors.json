@@ -1,0 +1,500 @@
+[
+  {
+    "level_code": "1",
+    "level_range": "Level 1",
+    "typical_role": "Helper / Ground Level Worker",
+    "brief_outline": {
+      "knowledge": "Elementary Knowledge; Elementary knowledge in work demonstrable by recognition or recall for understanding the context of work.",
+      "technical_skills": "Role confined Skills; Narrow range of basic skills while carrying out directed activities and processes that are repetitive & predictable in nature requiring no previous practice.",
+      "employability_and_entrepreneurship": "Basic employment readiness; Very narrow/basic Employability Skills, including communication skills & basic understanding of Financial and Digital literacy, digital payments and Aadhaar.",
+      "learning_outcomes": "Routine/Repetitive Tasks; Perform Routine & Repetitive tasks under full instructions and close supervision.",
+      "responsibility": "Helper; Works as helper/Ground level worker, always works under continuous instruction and close supervision."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Elementary knowledge in the area of work demonstrable by recognition or recall.",
+        "Becomes familiar with narrow and defined range of common trade terminology & instructional words meaning and understanding.",
+        "Able to use individual knowledge for understanding the context of work and some quality parameters."
+      ],
+      "technical_skills": [
+        "Narrow range of basic skills.",
+        "Has very basic practical skills. Able to understand and perform instruction based tasks and carries out directed activities and processes repetitive & predictable in nature requiring no previous practice.",
+        "Carries out directed activity using basic tools."
+      ],
+      "employability_and_entrepreneurship": [
+        "Very narrow/basic Employability Skills, including communication skills in native Indian language.",
+        "May have basic reading and writing skills; basic arithmetic skills.",
+        "Has basic understanding of Financial and Digital literacy, digital payments and Aadhaar."
+      ],
+      "learning_outcomes": [
+        "Perform a well-defined task that is routine & repetitive.",
+        "Acts in a limited pre-defined basic role of a helper/assistant.",
+        "Task is performed under full instructions and close supervision.",
+        "Focus on practice of repetitive work.",
+        "Familiarity with basic safety and general hygiene norms."
+      ],
+      "responsibility": [
+        "Works as first level helper/Ground level worker.",
+        "No direct responsibility; OR responsibility limited to the assigned task.",
+        "Always works under continuous instruction and close supervision."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "1-2",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "2",
+    "level_range": "Level 2",
+    "typical_role": "Assistant / Micro-entrepreneur / Self-Help Group Member",
+    "brief_outline": {
+      "knowledge": "Fundamental knowledge; Basic working/operational knowledge in the area of work with understanding of basic materials, tools, applications in a limited context.",
+      "technical_skills": "Limited finite skills; Performs structured tasks in a limited range of functional roles. Uses known solutions to familiar problems.",
+      "employability_and_entrepreneurship": "Employment readiness; Receive and transmit written and oral messages/communication clearly. Have broader but basic Employability Skills including basic self-employment/entrepreneurial Mind-set for mini businesses.",
+      "learning_outcomes": "Carry out the Predefined tasks; The candidate may carry out a job requiring limited range of routine and predictable activities. Understands basic safety and quality norms.",
+      "responsibility": "Assistant; Limited responsibility for delivery and quality of work as an Assistant."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Basic working/operational knowledge in the area of work.",
+        "Understands basic materials, tools, applications in a limited context.",
+        "For self-help group member/micro-entrepreneur basic working knowledge of business activity, raw material, finished product/service and local market.",
+        "Able to understand and perform repetitive tasks under instructions and supervision.",
+        "Understand the basic quality, safety and general hygiene norms. Familiarity with environmental aspects."
+      ],
+      "technical_skills": [
+        "Limited related skills in predefined context.",
+        "Performs structured tasks in a limited range of functional roles.",
+        "Uses known solutions to familiar problems.",
+        "Skill to identify and use relevant tools and materials in a limited context of work and quality.",
+        "For self-help group members, micro-entrepreneurs working skills for making or manufacturing (handicraft, traditional items, etc) service & marketing etc."
+      ],
+      "employability_and_entrepreneurship": [
+        "Ability to read and write and do simple computational math – numeracy and literacy.",
+        "Receive and transmit written and oral messages/communication clearly.",
+        "Works within a team as assistant.",
+        "Understanding of safety, hygiene and environment, social, political and religious diversity.",
+        "Have broader but basic Employability Skills including basic self-employment/entrepreneurial Mind-set for mini businesses.",
+        "Have understanding of use of Financial and Digital literacy, Aadhaar and Mobile, digital payments etc."
+      ],
+      "learning_outcomes": [
+        "The candidate may carry out a job requiring limited range of routine and predictable activities.",
+        "Tasks are mostly performed under instructions and supervision.",
+        "Focus on practice of skill and work, both predefined and new.",
+        "For self-help group members, micro-entrepreneurs (JSS) end to end clear understanding of process and delivery.",
+        "Understands basic safety and general hygiene norms."
+      ],
+      "responsibility": [
+        "Works mostly under instruction and supervision.",
+        "Limited responsibility for delivery and quality of work.",
+        "For self-help group members, micro-entrepreneurs (JSS) end to end responsibility of production and marketing in local markets."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "2-3",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "2.5-3",
+    "level_range": "Level 2.5 to 3",
+    "typical_role": "Jr. Technician (Level 2.5) & Technician / Skilled Worker (Level 3) [ITI after 8th]",
+    "brief_outline": {
+      "knowledge": "Range of knowledge; Knowledge involving a defined range of standard procedures, uses limited discretion and judgement over a range of known responses to familiar problems.",
+      "technical_skills": "Range of technical skills; Required skills for Identification of the problem and issues within the range of familiar contexts.",
+      "employability_and_entrepreneurship": "Team readiness & Entrepreneurial readiness; Team worker, with broad employability skills who displays motivation and positive attitude for work.",
+      "learning_outcomes": "Carry out Range of tasks and may provide range of solutions; The candidate carries out a job in familiar, predictable, routine, situation of clear choice, can focus on range of application of standard procedures or operations in production/services. Must be able to identify/anticipate the problems and possible range of solutions.",
+      "responsibility": "Accountable/responsible - Jr. Technician & Technician; Takes responsibility for delivery and quality of own work and tangible output. Can assist in the planning of the routine and predictable tasks within a specific field."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Possesses knowledge involving a defined range of standard procedures employed in routine contexts.",
+        "Understands the basic concept of timely delivery and Quality.",
+        "Can interpret the available information & communicate the same.",
+        "Basic knowledge of collecting and organizing information for problem identification and solution.",
+        "Understands the basic financial principles.",
+        "Uses limited discretion and judgement over a range of known responses to familiar problems.",
+        "Possesses operational knowledge and understanding of the work/job."
+      ],
+      "technical_skills": [
+        "A range of skills and technical capabilities of carrying out a choice of processes and procedures within the range of familiar contexts.",
+        "The ability to gain, and where relevant apply a range of knowledge, skills and understanding.",
+        "Has the required skills for Identification of the problem and issues within the range of familiar contexts and generate possible solution.",
+        "Skills to identify the relevant tools and materials in given context.",
+        "Skill to deliver job/work with reasonable precision."
+      ],
+      "employability_and_entrepreneurship": [
+        "Working as a member of a team/within a team. Display Personal Motivation, Positive Attitude & Passion for Work.",
+        "Good skills in written and oral communication with some clarity, basic knowledge of Language to support such communication.",
+        "Intermediate literacy and Numeracy skills.",
+        "Skills for workshop calculations and basic of arithmetic and algebraic principles.",
+        "Have broader Employability Skills including self-employment and mini-entrepreneurship skills creating job for more than 1 person.",
+        "Can use digital tools, has basic Financial and Digital literacy, Aadhaar and Mobile, digital payments etc with some proficiency.",
+        "Basic understanding of social, political, natural and work environment.",
+        "Basic understanding of Constitutional values & Citizenship, inclusion and Diversity."
+      ],
+      "learning_outcomes": [
+        "The candidate must be able to carry out job/work/tasks/small project/assignments in a familiar, predictable, routine, situation of clear choice.",
+        "Focus on range of application of standard procedures or operations in production/services.",
+        "Able to identify/anticipate the problems and possible range of solutions in production/services.",
+        "Tasks are mostly performed by own and require little instructions and supervision.",
+        "Understands all safety & general hygiene norms and environmental aspects, together with Risks.",
+        "For self-help group members, mini-entrepreneurs end to end clear understanding of production process, quality parameters, delivery and local marketing."
+      ],
+      "responsibility": [
+        "Takes responsibility for delivery and quality of own work and tangible output.",
+        "At Level 2.5 the candidate is a Junior Technician.",
+        "At level 3.0 the candidate works as a skilled worker/technician.",
+        "Take work from the helpers or assistants and collaboratively work with junior technician.",
+        "Able to assist in the planning of the routine and predictable tasks within a specific field."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "3-4",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "3.5-4",
+    "level_range": "Level 3.5 to 4",
+    "typical_role": "Senior Skilled Technician (Level 3.5) / Highly Skilled Master Technician (Level 4) [ITI after 10th]",
+    "brief_outline": {
+      "knowledge": "Specialized knowledge; Specialized knowledge OR/AND Proficient with diverse procedural knowledge, operational understanding, time and quality management, data interpretation, and financial feasibility analysis.",
+      "technical_skills": "Specialized skills; Professionally skilled with advanced knowledge, capable of successfully implementing techniques and delivering work with precision.",
+      "employability_and_entrepreneurship": "Team readiness, self-entrepreneurship readiness; Highly skilled and versatile professional with proficiency in employability skills including communication, leadership, entrepreneurship, and digital and financial literacy.",
+      "learning_outcomes": "Specialized/complex jobs/tasks; Versatile candidate adept at executing specialized tasks with minimal supervision, applying technical skills and problem-solving with clarity.",
+      "responsibility": "Self and team responsibility – Sr. Technician or Master Technician; Individually accountable, collectively responsible; Capable and confident in non-standard and non-routine tasks."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Possesses specialized knowledge of procedures employed in both routine and non-routine contexts.",
+        "Possesses specialized operational knowledge and understanding of the work.",
+        "Has complete knowledge of concept of time required for delivery; and Quality for a range of issues.",
+        "Has knowledge of collecting and interpreting the available information, drawing conclusions & communicating the same.",
+        "Understands the financial and feasibility aspect of various work/solutions options."
+      ],
+      "technical_skills": [
+        "Possesses specialized professional and technical skills; displays clarity of professional knowledge and technical skills in broad range of activities/tasks.",
+        "Can apply the required knowledge for successfully implementing or applying techniques/processes in a specific field/job role.",
+        "The ability to gain, and where relevant apply a range of knowledge, skills and understanding.",
+        "Can clearly identify the relevant tools; and has advanced knowledge of materials in most routine/non-routine contexts.",
+        "Possesses the required operational skills for the work/job. Skill to deliver job/work with the required precision and in the estimated timelines.",
+        "Capabilities of carrying out a choice of processes and procedures within the range of familiar/unfamiliar contexts."
+      ],
+      "employability_and_entrepreneurship": [
+        "Have much broader Employability Skills including understanding of career planning, digital skills, financial and legal literacy.",
+        "Good Communication skills, both oral and written.",
+        "Initiative and Leadership Abilities.",
+        "Advanced literacy and Numeracy skills.",
+        "Has good skills for self-employment and entrepreneurship skills/entrepreneurial Mind-set which may potentially create job for more persons (say 3 to 5).",
+        "Skills for accurate workshop/mathematical calculation and estimations, and understanding of arithmetic and algebraic principles.",
+        "Can comfortably use most of the basic digital tools, has clear understanding of Financial and Digital literacy, Aadhaar and Mobile, uses digital payments etc. with proficiency.",
+        "Good understanding of Constitutional values & Citizenship, inclusion and Diversity.",
+        "Very Good understanding of social, political and work environment."
+      ],
+      "learning_outcomes": [
+        "The candidate must be able to carry out a specialized job/work/tasks in a familiar/unfamiliar, predictable/unpredictable, routine/non-routine, situation of multiple options/choices.",
+        "Focus on range of application of standard and non-standard procedures and somewhat complex operations in production/services.",
+        "Able to identify the problems and a wider possible range of solutions with pros and cons in production/services.",
+        "Complex tasks are performed by himself without much instructions and supervision.",
+        "Apply related occupational safety & general hygiene norms and environmental aspects.",
+        "For mini-entrepreneurs end to end clear understanding of development, production, quality parameters, and delivery and marketing processes.",
+        "Applies range of well-developed technical skills with clarity of activities involving clear choices within familiar contexts.",
+        "Has knowledge and is able to continuously improve processes which the individual uses for concerned job roles.",
+        "Has information of associated Risks with related job roles.",
+        "Uses discretion and judgement over a range of known responses to familiar problems."
+      ],
+      "responsibility": [
+        "At Level 3.5 the candidate is a senior skilled technician.",
+        "Takes complete responsibility for delivery and quality of own work and output as also the subordinates.",
+        "Shares responsibility for the group tasks.",
+        "At level 4 the candidate is a highly skilled master technician.",
+        "Can perform all non-standard procedures and non-routine tasks with confidence."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "4-5",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "4.5-5",
+    "level_range": "Level 4.5 to 5",
+    "typical_role": "Junior Technical Supervisor (Level 4.5) / Technical Supervisor or Junior/Deputy Manager (Level 5.0) [Diploma / UG]",
+    "brief_outline": {
+      "knowledge": "Multidisciplinary and specialized knowledge; Possesses broad and deep knowledge and skills to solve problems in specialized fields.",
+      "technical_skills": "Range of skills along with specialized domain skills; Excellent cognitive skills and technical prowess utilized to perform complex tasks with ease, project management expertise, and adept at data analysis for informed decision-making.",
+      "employability_and_entrepreneurship": "Entrepreneurial mindset, self-management; A versatile professional with excellent communication, digital and financial literacy, ethical values, self-management and may have entrepreneurial mindset.",
+      "learning_outcomes": "Judgement / decision making – specialized; A skilled professional with technical expertise, adept at solving complex problems and improving output.",
+      "responsibility": "Team leader – Junior technical supervisor, Technical supervisor or junior/deputy manager; Highly skilled Technical Supervisor responsible for achieving tangible outcomes, managing change, building teams, and mentoring the workforce."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Possesses knowledge in multidisciplinary contexts, broadly, within the chosen fields of technology/skills/job role.",
+        "Deeper knowledge and understanding of specialized field of technology/skills/job role and its underlying principles.",
+        "Acquired specialized knowledge and a range of cognitive and practical skills to accomplish tasks like basic design, prototyping, testing so as to solve a problem by selecting appropriate information, methods, tools, and materials."
+      ],
+      "technical_skills": [
+        "Demonstrates cognitive specialised professional and technical skills required for performing and accomplishing difficult tasks relating to the chosen field/s of technology/skills/job role; successfully applying techniques in routine or non-routine.",
+        "Possesses a range of professional and technical skills, displays clarity of knowledge and practice in broad range of activities/tasks.",
+        "Project Management Skills.",
+        "Skill to clearly identify the relevant tools or sometimes improvise the available tools and techniques; and has advance knowledge of materials in difficult situations and different contexts.",
+        "Very good in data collecting organizing information, analysis and communication of results for informed decision making."
+      ],
+      "employability_and_entrepreneurship": [
+        "Possesses excellent oral and written communication and collaboration skills for clearly taking the vision of the leaders to the shop floor level workforce.",
+        "Possesses very good Digital, Financial and Legal Literacy to use them effectively.",
+        "Has a good understanding of the constitutional, humanistic, ethical, and moral values.",
+        "Organisation and Time Management.",
+        "Very good in complex calculations, and mathematical and financial analysis skills for applied solutions.",
+        "Has well informed practical understanding of the social, political and work environment.",
+        "Exercise self-management within the work contexts.",
+        "Emotional Intelligence.",
+        "May have an entrepreneurial Mind-set for creating a start-up/small businesses and its end to end management."
+      ],
+      "learning_outcomes": [
+        "Demonstrates a wide range of specialized professional and technical skill in broad range of activity involving standard and non-standard practices.",
+        "Apply the acquired specialized knowledge and a range of cognitive and practical skills to accomplish tasks like basic design, prototyping, testing so as to solve problems by selecting appropriate information, methods, tools, and materials.",
+        "Communication and collaboration skills to act as a layer between the senior management and workforce/shopfloor.",
+        "Should be able to listen and understand properly and present complex information in a clear and concise manner.",
+        "Make judgement and take decision, based on the analysis and evaluation of information, for determining solutions to a variety of unpredictable problems associated with the chosen fields of learning.",
+        "Takes responsibility for the nature and quality of outputs. Is able to work on processes to improve the quality of outputs.",
+        "Can analyze and synthesize ideas.",
+        "Uses discretion and judgement over a range of known and innovative responses to familiar and un-familiar problems and issues."
+      ],
+      "responsibility": [
+        "Is accountable for determining and achieving personal and/or group tangible outcomes.",
+        "Handles/adapts/accommodates change requirements and change management at the ground/shop floor level.",
+        "Team Building.",
+        "Manages processes and procedures within broad parameters for defined activities.",
+        "Supervises the routine work of others, takes the required responsibility for the evaluation and improvement of work or study activities.",
+        "At level 4.5 the candidate is Highly skilled and works as a Junior Technical Supervisor. Constantly motivates, guides, mentors and trains the workforce.",
+        "At level 5.0 the candidate is a Technical supervisor or junior/deputy manager. Is responsible for managing an independent work unit/shop floor/section/business activity/assignment."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "5-6",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "5.5-6",
+    "level_range": "Level 5.5 to 6",
+    "typical_role": "Manager / Technical Manager (Level 5.5) & Senior Manager / Sr. Technical Manager (Level 6.0) [UG / PG]",
+    "brief_outline": {
+      "knowledge": "Advanced multidisciplinary and specialized knowledge; Proficient in interdisciplinary knowledge including tech with specialized expertise in related fields; knowledgeable in emerging trends, change management, and problem-solving.",
+      "technical_skills": "Advanced Technical and Managerial Skills; Proficiently skilled in advanced cognitive abilities, project management, techno-commercial aspects, and future adaptability, with social intelligence.",
+      "employability_and_entrepreneurship": "Leadership, effective resource management; Dynamic leader with exceptional organizational, communication and mentoring skills, capable of driving innovation for optimal group performance.",
+      "learning_outcomes": "Judgement in complex problems; Applies advanced technical skills, monitors critical parameters, evaluates and improves processes, and solves complex problems with evidence-based judgement in complex problems.",
+      "responsibility": "Vertical/Business unit management – Manager or Senior Manager; Accountable leader effectively manages independent units/projects, delegates, supervises and drives change with full responsibility & team building."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Advanced knowledge about a multi-disciplinary/interdisciplinary/cross-disciplinary field of technology/skills/job role, with specialized in depth knowledge in one or more related fields.",
+        "Has awareness and knowledge of the emerging and futuristic developments and issues in the chosen fields of technology/skills/job role.",
+        "Has advanced understanding and Knowledge about the Change management processes and systems.",
+        "Acquired advanced knowledge and skills on a wide range of sources for identifying problems and issues relating to the chosen fields of learning, and future improvements."
+      ],
+      "technical_skills": [
+        "Possesses a range of advanced cognitive, professional and technical skills required for performing and accomplishing complex tasks relating to the chosen fields of technology/skills/job role.",
+        "Wide range of cognitive and practical skills required to create innovative and feasible solutions to complex problems and situations in uncertain environment.",
+        "Project Management Skills.",
+        "Understanding and application of techno-commercial aspect of technology/associated skills or job role.",
+        "Skills to adapt to the future of work and to the demands of the fast pace of innovations and technological developments.",
+        "Social Intelligence."
+      ],
+      "employability_and_entrepreneurship": [
+        "Excellent leadership, Communication, collaboration and organizational skills.",
+        "Possesses Administrative outlook and leadership traits for managing technical workforce.",
+        "Effective mentoring, people management, listening, delegation skills.",
+        "Organisation and Time Management.",
+        "Creative thinking and Innovation.",
+        "Good logical and mathematical analysis/simulation modelling skills.",
+        "Complete understanding of social, political, natural and work environment.",
+        "Organizing, analyzing, interpreting and acting on the information and effectively communicating and presenting/using its outcome for decision making.",
+        "A keen sense of observation, enquiry, and capability for asking relevant/appropriate questions.",
+        "Managing complex technical or professional activities or projects, requiring effective envisioning, planning & full personal responsibility for output of own work as well as for the outputs of the group as a member of the group/team.",
+        "Apply leadership skills to manage people and resources for achieving organizational objectives and outcomes. Emotional Intelligence."
+      ],
+      "learning_outcomes": [
+        "Applies advance theoretical knowledge and specialized professional and technical skills involving complex variable environment and contexts.",
+        "Effective understanding, monitoring and supervision of critical parameters and KPIs or others.",
+        "Evaluation and improvement of processes, procedures and work or study activities.",
+        "Examine and assess the implications and consequences of emerging developments and critical issues.",
+        "Make judgement in a range of situations by critically reviewing and consolidating evidences & risks.",
+        "Constantly and regularly pursue self-paced and self-directed learning to upgrade knowledge and skills that will help accomplish complex tasks or pursue education & research.",
+        "Can identify problems and issues relating to the chosen fields of learning, and ways of future improvements.",
+        "Exercises judgement based on evaluation of evidence from a range of sources to arrive at solutions to complex real-life problems in chosen fields of technology/skills/job role."
+      ],
+      "responsibility": [
+        "At level 5.5 the candidate is a Manager/Technical Manager/Product Manager or equivalent.",
+        "At level 6.0 the candidate is a Senior Manager/Senior Technical Manager/Sr. Product Manager or equivalent.",
+        "Is responsible for managing a bigger independent unit/business activity/project.",
+        "Responsible for managing activities like planning, resourcing, processes, people, within broad parameters and with complete accountability for determining, achieving and evaluating personal and group outcomes.",
+        "Effective delegation & monitoring.",
+        "Exercise full management and supervision of unpredictable work.",
+        "Responsible for the work of others.",
+        "Change agent, Team Building.",
+        "The exercise of full personal responsibility and accountability for the initiatives undertaken and the outputs/outcomes of own work as well as of the group as a team member/leader."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "7-8",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "6.5-7",
+    "level_range": "Level 6.5 to 7",
+    "typical_role": "Director / CXO / Dy CEO (Level 6.5) & Director / CEO (Level 7) [PG / PG Engg]",
+    "brief_outline": {
+      "knowledge": "Advanced knowledge with critical understanding of emerging developments; A capable expert with extensive knowledge, critical thinking, and application of technology to specialized fields while pursuing continuous self-development.",
+      "technical_skills": "Highly specialized skills, transdisciplinary skills, leadership skills; Highly skilled and innovative professional with expertise in complex problem-solving, change management, leadership, and project management.",
+      "employability_and_entrepreneurship": "Cross cultural competency, transformational leadership; Highly skilled professional with cross-cultural competency, strategic ideation, time management, and leadership abilities for excellence.",
+      "learning_outcomes": "Apply acquired advanced technical skills, technical appraisal and reviews; Proficiently analyzes and creatively resolves practical problems, utilizing statistical tools while showing leadership and technical mastery in decision-making for achieving goals.",
+      "responsibility": "Business Management (like CEO / CXO, etc.); Visionary leader accountable for organizational growth, complex problem-solving, staff development, and data-driven decisions."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Possesses advanced knowledge including processes, methods, and techniques about a specialized field.",
+        "Has a critical understanding of the emerging developments relating to one or more fields of learning.",
+        "Understands technological advancements and usage and applies it in one or more specific fields.",
+        "Knowledge required for performing complex, specialized tasks including those relating to teaching, and research and development.",
+        "Undertakes self-study for advancement in skills; demonstrates intellectual independence, analytical rigour and good communication."
+      ],
+      "technical_skills": [
+        "Has highly specialized professional and technical skills required for performing and accomplishing the complex tasks in the given discipline/area of specialization.",
+        "Has the cognitive and technical skills required for generating original ideas, conceptualizing, designing, and implementing innovative solutions.",
+        "Has skills to lead the change management process.",
+        "Project Management Skills.",
+        "Has skills required for transdisciplinary application of skills to innovatively solve a problem.",
+        "Leadership and effective decision-making skills.",
+        "Is able to develop innovative evidence-based practical solutions to complex and unpredictable situations and problems.",
+        "Social Intelligence."
+      ],
+      "employability_and_entrepreneurship": [
+        "Highest levels of soft-skills and competencies including Social intelligence, Cognitive load management, Cross-cultural competency.",
+        "Specialized higher order skills including creative and persuasive communication, critical thinking and problem solving skills.",
+        "Emotional Intelligence, analytical rigor, good communication and innovation skills; Strategic and forward-looking ideation capabilities.",
+        "Organisation and Time Management.",
+        "Creative thinking and Innovation.",
+        "Adapting to the future of work and responding to the demands of the fast pace of technological developments and innovations that drive shift in skill needs relating to work and professional practices.",
+        "Exercising given authority, innovation, autonomy, professional integrity, and sustained commitment to the development of new ideas, business models, and processes including research and development at the forefront of work or study contexts.",
+        "Understands and appreciates full constitutional, humanistic, ethical, and moral values in workplace/personal life, global and local citizenship, Leadership skills to motivate people for achieving personal and organizational goals for growth.",
+        "Pursuit of excellence."
+      ],
+      "learning_outcomes": [
+        "Demonstrates comprehensive, cognitive, theoretical knowledge and practical skills to develop creative and viable solutions to practical problems.",
+        "Exhibits ability to use appropriate statistical and other analytical tools and techniques for analysis of data collected.",
+        "Critical understanding of the subject, demonstrating mastery and innovation, completion of substantial research and dissertation (where applicable).",
+        "Skills to evaluate the evidence; identify logical flaws and risks in the arguments of others; analyze and synthesize data from a variety of sources; draw conclusions and support them with evidence and examples, while addressing/accommodating opposing viewpoints; make judgements and take appropriate decisions.",
+        "Processes information for decision making and planning.",
+        "Undertakes technical appraisal and reviews and takes corrective actions.",
+        "Applies the acquired advanced technical knowledge of a specialized field to solve a problem.",
+        "Applies knowledge and leadership skills to manage people and resources for achieving organizational goals."
+      ],
+      "responsibility": [
+        "At level 6.5 the candidate is a Director/CXO/Dy CEO or equivalent.",
+        "At level 7 the candidate is a Director/CEO or equivalent Responsible for vision and strategic thinking in a given field/environment/market.",
+        "Responsible for development of self and other staff members.",
+        "Responsible for organisational growth and development.",
+        "Responsible for decision making in complex technical activities/tasks involving unpredictable work/study situations, generate original responses to complicated and unpredictable problems and situations.",
+        "Exercising personal responsibility for output of own work as well as for group/team outputs.",
+        "Data based decision making in complex situations/work environment.",
+        "Appraisal and review of the financial and HR resources.",
+        "Crisis Manager.",
+        "Takes decisions across functions requiring the exercise of responsibility to find solutions to specific problems work/vocation, or professional practice."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "8-9",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  },
+  {
+    "level_code": "8",
+    "level_range": "Level 8",
+    "typical_role": "Board Member / CMD / Chairperson (Highest Level Skills) [PhD / >19 Years]",
+    "brief_outline": {
+      "knowledge": "Mastery of knowledge / Innovation driven / Comprehensive knowledge; Mastery of knowledge, critical innovation, and specialized problem-solving skills to generate evidence-based solutions for complex problems.",
+      "technical_skills": "Most advanced Technical and Managerial skills; Highly specialized professional with superior project management, cognitive, technical, transdisciplinary, and leadership skills. Redefining practices with a cross-cultural mindset.",
+      "employability_and_entrepreneurship": "Significant authority, transformational leadership, Social intelligence; Possess highly specialized, creative, and transformative skills with values for global citizenship and excellence.",
+      "learning_outcomes": "Lead large transformational projects; High-performing leader with adaptive thinking, analytical skills, and innovative mindset to drive large-scale transformation and manage resources effectively.",
+      "responsibility": "(Business Vision Chairperson / Board Member / CMD); Strategic thinker and innovator, accountable for organizational growth and development, making data-driven decisions."
+    },
+    "detailed_descriptor": {
+      "knowledge": [
+        "Mastery alongwith critical & innovative understanding of the subject/disciplines.",
+        "Possesses highly specialized knowledge for problem-solving to provide original contribution to the knowledge creation through research, and development in the given area.",
+        "Has comprehensive and in-depth expertise over the chosen disciplines/fields of knowledge, research, analytical and/or creative requirements.",
+        "Present the professional knowledge & information pertaining to the results/findings of research studies undertaken in a well-structured and logical manner.",
+        "Is a keen learner and applies the acquired highly specialized knowledge to generate evidence-based solutions to complex problems and unpredictable situations."
+      ],
+      "technical_skills": [
+        "Has most advanced and highly specialized professional and technical skills required for performing and accomplishing unpredictable and complex tasks in the given discipline/area of specialization.",
+        "Highest Project Management Skills.",
+        "Has the cognitive and technical skills required for generating original ideas, conceptualizing, designing, and implementing innovative solutions, with or without application of fundamental and/or applied research in the chosen field(s).",
+        "Specialised skills required for transdisciplinary application of skills to innovatively solve a problem.",
+        "Transformational leadership skills to motivate and mentor people for achieving organizational goals for effective growth.",
+        "Design mindset, redefine existing knowledge or professional practice.",
+        "Cross-cultural competency."
+      ],
+      "employability_and_entrepreneurship": [
+        "Highest levels of soft-skills and competencies including Social intelligence, Cognitive load management, Virtual Collaboration, Cross-cultural competency, etc.",
+        "Highly specialized higher order skills including creative and persuasive communication, critical thinking, and problem-solving skills. Emotional Intelligence.",
+        "Creative thinking and Innovation.",
+        "Adapting to the future of work and responding to the demands of the fast pace of technological developments and innovations that drive shift in skill needs relating to work and professional practices.",
+        "Exercising substantial authority, innovation, autonomy, professional integrity, and sustained commitment to the development of new ideas, business models, and processes including research and development at the forefront of work or study contexts.",
+        "Understands and Appreciates full constitutional, humanistic, ethical, and moral values in workplace/personal life, global and local citizenship, Work for environment preservation and global good of society.",
+        "Applies transformational leadership skills to motivate and mentor people for achieving organizational goals for effective growth. Pursuit of excellence."
+      ],
+      "learning_outcomes": [
+        "Highest levels of professional competencies for leadership roles in professional skills and working including novel and adaptive & innovative thinking, Trans-disciplinarity, Design mind-set, quality concepts Computational thinking, new media Literacy, sustainability etc.",
+        "To be able to make judgements and take decisions on the problems, including real-life problems, based on the analysis and evaluation of info and empirical evidence.",
+        "Master Integrator and Disruptive thinker.",
+        "Higher order skills to evaluate the reliability and relevance of evidence; identify flaws in the arguments of others; analyze and synthesize data from a variety of sources; draw valid conclusions and support them with evidence and examples and addressing opposing viewpoints.",
+        "Applies knowledge and leadership skills to manage people and resources for achieving organizational goals and strategizing for effective growth.",
+        "Is able to lead large transformation projects."
+      ],
+      "responsibility": [
+        "At Level 8 a candidate is a Board Member/CMD or Chairperson.",
+        "Responsible for overall strategizing/strategic thinking and envisioning in a given field/environment/market.",
+        "Trusted Innovator and Thought Leader.",
+        "Exercising full personal responsibility for all outputs/outcomes of own work and outputs/outcomes of other including various departments, (Managerial Ratios & Roles) group efforts etc.",
+        "Responsible for horizontal and vertical/multi-dimensional growth of the organization and development of self and people of the organization.",
+        "Data based decision making in unpredictable complex situations/work environment of work/study.",
+        "Overall appraisal and review align with improvement of the financial and HR resources & processes.",
+        "Makes significant judgement and take decisions across broad range of functions."
+      ]
+    },
+    "source": {
+      "document": "level_description.pdf",
+      "pages": "10-11",
+      "title": "Level Descriptors for NSQF Levels",
+      "version": "2024-2025",
+      "verification_status": "verified"
+    }
+  }
+]

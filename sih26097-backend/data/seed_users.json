@@ -1,0 +1,41 @@
+[
+    {
+        "name": "Ramesh Kumar",
+        "age": 22,
+        "gender": "male",
+        "caste_category": "SC",
+        "state": "Uttar Pradesh",
+        "district": "Lucknow",
+        "education_level": "10th Pass",
+        "annual_income": 120000,
+        "language": "hi",
+        "skills": ["basic wiring", "farming"],
+        "interests": ["electrical work", "solar energy"]
+    },
+    {
+        "name": "Anitha Devi",
+        "age": 28,
+        "gender": "female",
+        "caste_category": "SC",
+        "state": "Tamil Nadu",
+        "district": "Madurai",
+        "education_level": "8th Pass",
+        "annual_income": 90000,
+        "language": "ta",
+        "skills": ["sewing", "embroidery"],
+        "interests": ["tailoring", "beauty therapy"]
+    },
+    {
+        "name": "Suresh Meghwal",
+        "age": 19,
+        "gender": "male",
+        "caste_category": "SC",
+        "state": "Rajasthan",
+        "district": "Jodhpur",
+        "education_level": "12th Pass",
+        "annual_income": 150000,
+        "language": "hi",
+        "skills": ["computer basics", "typing"],
+        "interests": ["IT jobs", "data entry", "mobile repair"]
+    }
+]

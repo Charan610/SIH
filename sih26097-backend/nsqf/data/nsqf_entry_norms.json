@@ -1,0 +1,563 @@
+[
+  {
+    "level_code": "1",
+    "stt_norms": [
+      {
+        "min_education": "No formal education",
+        "min_experience": "No Experience",
+        "notional_hours": "150-210 Hours",
+        "employability_skills_hours": "30 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "No LTT course",
+      "notional_hours": "Nil",
+      "employability_skills_hours": "Nil"
+    },
+    "source_page": 12
+  },
+  {
+    "level_code": "2",
+    "stt_norms": [
+      {
+        "min_education": "No formal education (May require ability to read and write for some qualifications)",
+        "min_experience": "No Experience. However, 1 year relevant experience may be desirable for some qualifications",
+        "notional_hours": "210-270 Hours",
+        "employability_skills_hours": "30 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 1",
+        "min_experience": "No Experience",
+        "notional_hours": "210-270 Hours",
+        "employability_skills_hours": "30 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "No LTT courses",
+      "notional_hours": "Nil",
+      "employability_skills_hours": "Nil"
+    },
+    "source_page": 12
+  },
+  {
+    "level_code": "2.5",
+    "stt_norms": [
+      {
+        "min_education": "9th Grade pass OR 8th Grade pass and pursuing continuous schooling",
+        "min_experience": "No Experience",
+        "notional_hours": "240-300 Hours",
+        "employability_skills_hours": "30 hours"
+      },
+      {
+        "min_education": "8th grade pass",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "240-300 Hours",
+        "employability_skills_hours": "30 hours"
+      },
+      {
+        "min_education": "5th grade pass",
+        "min_experience": "4 year relevant experience",
+        "notional_hours": "240-300 Hours",
+        "employability_skills_hours": "30 hours"
+      },
+      {
+        "min_education": "Ability to read and write",
+        "min_experience": "5 year relevant experience",
+        "notional_hours": "240-300 Hours",
+        "employability_skills_hours": "30 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 2",
+        "min_experience": "6 months of relevant experience",
+        "notional_hours": "240-300 Hours",
+        "employability_skills_hours": "30 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 1",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "240-300 Hours",
+        "employability_skills_hours": "30 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "8th Grade Pass",
+      "notional_hours": "1200 hours AND (for NTC only) 150 hours of project work",
+      "employability_skills_hours": "120 hours"
+    },
+    "source_page": 12
+  },
+  {
+    "level_code": "3",
+    "stt_norms": [
+      {
+        "min_education": "Grade 10 pass / Grade 8 pass with two year of (NTC/NAC) after 8th / Grade 8 pass and pursuing continuous schooling in regular school / Grade 9 pass and pursuing continuous schooling in regular school",
+        "min_experience": "No Experience required",
+        "notional_hours": "270-390 Hours",
+        "employability_skills_hours": "30/ 60 hours"
+      },
+      {
+        "min_education": "9th Grade pass",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "270-390 Hours",
+        "employability_skills_hours": "30/ 60 hours"
+      },
+      {
+        "min_education": "8th grade pass",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "270-390 Hours",
+        "employability_skills_hours": "30/ 60 hours"
+      },
+      {
+        "min_education": "5th grade pass",
+        "min_experience": "5 year relevant experience",
+        "notional_hours": "270-390 Hours",
+        "employability_skills_hours": "30/ 60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 2.5",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "270-390 Hours",
+        "employability_skills_hours": "30/ 60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 2",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "270-390 Hours",
+        "employability_skills_hours": "30/ 60 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "9th Grade Pass (1200 hrs) OR 8th Grade Pass (2400 hrs AND 150 hrs project work for NTC)",
+      "notional_hours": "1200 hours / 2400 hours",
+      "employability_skills_hours": "120 hours / 180 hours (min 90 hours module in 1st year)"
+    },
+    "source_page": 12
+  },
+  {
+    "level_code": "3.5",
+    "stt_norms": [
+      {
+        "min_education": "11th Grade pass / Completed 1st year of 3-year diploma after 10th / 10th grade pass and pursuing continuous schooling / 8th grade pass with two years of NTC plus 1 year NAC/CITS",
+        "min_experience": "No Experience required",
+        "notional_hours": "360-420 Hours",
+        "employability_skills_hours": "30 /60 hours"
+      },
+      {
+        "min_education": "10th Grade pass / 8th grade pass with two years of any combination of NTC/NAC/CITS or equivalent",
+        "min_experience": "One year relevant Experience required",
+        "notional_hours": "360-420 Hours",
+        "employability_skills_hours": "30 /60 hours"
+      },
+      {
+        "min_education": "8th Grade pass",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "360-420 Hours",
+        "employability_skills_hours": "30 /60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 3",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "360-420 Hours",
+        "employability_skills_hours": "30 /60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 2.5",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "360-420 Hours",
+        "employability_skills_hours": "30 /60 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "10th Grade Pass",
+      "notional_hours": "1200 hours AND (for NTC only) 150 hours of project work",
+      "employability_skills_hours": "120 hours"
+    },
+    "source_page": 13
+  },
+  {
+    "level_code": "4",
+    "stt_norms": [
+      {
+        "min_education": "12th grade pass / Completed 2nd year of 3-year diploma (after 10th) / Pursuing 2nd year of 3-year regular Diploma (after 10th) / 10th grade pass with two years of any combination of NTC/NAC/CITS / 8th pass plus 2-year NTC plus 1-Year NAC plus 1-Year CITS / 10th grade pass and pursuing continuous schooling (for 2 year program) / 11th Grade Pass and pursuing continuous schooling",
+        "min_experience": "No Experience required",
+        "notional_hours": "390-480 Notional Hours of Training",
+        "employability_skills_hours": "30 hours/ 60 hours"
+      },
+      {
+        "min_education": "11th Grade Pass",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "390-480 Notional Hours of Training",
+        "employability_skills_hours": "30 hours/ 60 hours"
+      },
+      {
+        "min_education": "10th Grade Pass",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "390-480 Notional Hours of Training",
+        "employability_skills_hours": "30 hours/ 60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 3.5",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "390-480 Notional Hours of Training",
+        "employability_skills_hours": "30 hours/ 60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 3.0",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "390-480 Notional Hours of Training",
+        "employability_skills_hours": "30 hours/ 60 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "11th Grade Pass or equivalent (1200 hrs) OR 10th Grade Pass or equivalent (2400 hrs AND 150 hrs project work for NTC)",
+      "notional_hours": "1200 hours / 2400 hours",
+      "employability_skills_hours": "120 hours / 180 hours (min 90 hours module in 1st year)"
+    },
+    "source_page": 13
+  },
+  {
+    "level_code": "4.5",
+    "stt_norms": [
+      {
+        "min_education": "Completed 1st year of 3-year/ 4-years UG / Pursuing 1st year UG / Pursuing 3rd year diploma after 10th / Completed 3-year diploma after 10 / Completed 1st year of 2 year diploma after 12th / Pursuing 2nd year of 2-year diploma after 12 / 12th Grade pass with 1-year NTC/NAC / 10th grade pass with 3 year of any combination of NTC/NAC/CITS",
+        "min_experience": "No Experience required",
+        "notional_hours": "450-510 Notional Hours OR (UG: 450 Hours Internship + project work)",
+        "employability_skills_hours": "60 Hours"
+      },
+      {
+        "min_education": "12th Grade Pass",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "450-510 Notional Hours",
+        "employability_skills_hours": "60 Hours"
+      },
+      {
+        "min_education": "10th grade pass with 2 year of any combination of NTC/NAC/CITS",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "450-510 Notional Hours",
+        "employability_skills_hours": "60 Hours"
+      },
+      {
+        "min_education": "8th Grade pass with 2-year NTC plus 1year NAC plus 1-year CITS",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "450-510 Notional Hours",
+        "employability_skills_hours": "60 Hours"
+      },
+      {
+        "min_education": "10th Grade pass",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "450-510 Notional Hours",
+        "employability_skills_hours": "60 Hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 4",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "450-510 Notional Hours",
+        "employability_skills_hours": "60 Hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 3.5",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "450-510 Notional Hours",
+        "employability_skills_hours": "60 Hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "12th grade pass or equivalent (1200 hrs) OR 10th Grade pass or equivalent (3600 hrs)",
+      "notional_hours": "1200 hours / 3600 hours",
+      "employability_skills_hours": "120 hours / 240 hours (Min 90 hours module in 1st year)"
+    },
+    "source_page": 14
+  },
+  {
+    "level_code": "5",
+    "stt_norms": [
+      {
+        "min_education": "Completed 2nd year of 3-year/ 4-years UG / Pursuing 2nd year UG / Completed 2nd year of diploma (after 12th) / Pursuing 2nd year of 2-year diploma after 12th / 12th pass with 2 year of any combination of NTC/NAC/CITS",
+        "min_experience": "No Experience required",
+        "notional_hours": "480 to 570 Notional Hours OR (UG: 510 Hours Internship + project work)",
+        "employability_skills_hours": "60 hours"
+      },
+      {
+        "min_education": "Completed 3-year diploma after 10th / 12th Grade pass with 1-year of NTC/NAC / Completed 1st year of 3-year/ 4-years UG",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "480 to 570 Notional Hours",
+        "employability_skills_hours": "60 hours"
+      },
+      {
+        "min_education": "12th Grade pass",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "480 to 570 Notional Hours",
+        "employability_skills_hours": "60 hours"
+      },
+      {
+        "min_education": "10th Grade pass",
+        "min_experience": "4 year relevant experience",
+        "notional_hours": "480 to 570 Notional Hours",
+        "employability_skills_hours": "60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 4.5",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "480 to 570 Notional Hours",
+        "employability_skills_hours": "60 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 4",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "480 to 570 Notional Hours",
+        "employability_skills_hours": "60 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "Completed 3 year diploma after 10th (1200 hrs) OR Completed 1st year UG (1200 hrs) OR 12th Grade pass (2400 hrs) OR 10th Grade pass + 2 yr NTC + 1 yr exp (CITS)",
+      "notional_hours": "1200 hours / 2400 hours",
+      "employability_skills_hours": "120 hours / 180 hours"
+    },
+    "source_page": 14
+  },
+  {
+    "level_code": "5.5",
+    "stt_norms": [
+      {
+        "min_education": "Completed 3rd year of 3-year/ 4-years UG / Pursuing 3rd year UG / Completed 12th grade with 1-years of NTC plus 1-year NAC plus 1-year CITS",
+        "min_experience": "No Experience required",
+        "notional_hours": "540 to 600 Notional Hours OR (UG: 550 Hours Internship + project work)",
+        "employability_skills_hours": "60 hours/ 90 hours"
+      },
+      {
+        "min_education": "12th Grade Pass with 2 years of any combination of NTC/NAC/CITS / Completed 2nd year diploma after 12 / Completed 2nd year of 3-year UG",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "540 to 600 Notional Hours",
+        "employability_skills_hours": "60 hours/ 90 hours"
+      },
+      {
+        "min_education": "12th Grade pass with 1-year NTC/ NAC / Completed 3-year diploma (after 10th)",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "540 to 600 Notional Hours",
+        "employability_skills_hours": "60 hours/ 90 hours"
+      },
+      {
+        "min_education": "12th Grade pass",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "540 to 600 Notional Hours",
+        "employability_skills_hours": "60 hours/ 90 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 5",
+        "min_experience": "1.5 year relevant experience",
+        "notional_hours": "540 to 600 Notional Hours",
+        "employability_skills_hours": "60 hours/ 90 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 4.5",
+        "min_experience": "3 years relevant experience",
+        "notional_hours": "540 to 600 Notional Hours",
+        "employability_skills_hours": "60 hours/ 90 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "Completed UG 1st year or equivalent (2400 hrs) OR Completed UG 2nd year (1200 hrs)",
+      "notional_hours": "1200 hours / 2400 hours",
+      "employability_skills_hours": "120 hours / 180 hours (Min 90 hours module in 1st year)"
+    },
+    "source_page": 15
+  },
+  {
+    "level_code": "6",
+    "stt_norms": [
+      {
+        "min_education": "Pursuing first year of 2-year PG program after completing 3-year UG degree / Pursuing 1-year PG diploma after 3-year UG degree / Completed 4th year UG / Pursuing 4th year UG",
+        "min_experience": "No Experience Required",
+        "notional_hours": "570 to 660 Notional Hours OR (Diploma: 600 Hours Internship + project work)",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Completed 3-Year UG Degree",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "570 to 660 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "12th Grade Pass with 2 years of any combination of NTC/NAC/CITS / Completed 2 year of diploma after 12th",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "570 to 660 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Completed 1st year of 2 year diploma after 12th Grade",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "570 to 660 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "12th Grade pass",
+        "min_experience": "4 years of relevant experience",
+        "notional_hours": "570 to 660 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 5.5",
+        "min_experience": "1.5 years relevant experience",
+        "notional_hours": "570 to 660 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 5",
+        "min_experience": "3 years relevant experience",
+        "notional_hours": "570 to 660 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "Completed UG degree (3 year) OR Equivalent",
+      "notional_hours": "1200 hours",
+      "employability_skills_hours": "120 hours"
+    },
+    "source_page": 15
+  },
+  {
+    "level_code": "6.5",
+    "stt_norms": [
+      {
+        "min_education": "Pursuing PhD (after 4-year UG honours with research) / Pursuing 2nd year of 2-year PG / Pursuing 1st year of 2-year PG / Completed 2-year PG degree (after 4 year UG)",
+        "min_experience": "No Experience Required",
+        "notional_hours": "630 to 690 Notional Hours OR (PG: 660 Hours Internship + project work)",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Completed 4-year UG program / Completed 1st year of 2-year PG after 3-year UG degree",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "630 to 690 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Completed 3-years UG",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "630 to 690 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Completed 2-year Diploma after 12th Grade (in any field) / 12 Grade Pass with 2 years of any combination of NTC/NAC/CITS",
+        "min_experience": "3 years relevant experience",
+        "notional_hours": "630 to 690 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 6",
+        "min_experience": "1.5 years relevant experience",
+        "notional_hours": "630 to 690 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 5.5",
+        "min_experience": "3 years relevant experience",
+        "notional_hours": "630 to 690 Notional Hours",
+        "employability_skills_hours": "90 hours"
+      }
+    ],
+    "ltt_norms": {
+      "min_entry_criteria": "Completed 4 year UG degree OR Completed PG Diploma after 3 year degree OR completed 1st year of 2 year PG program",
+      "notional_hours": "1200 hours",
+      "employability_skills_hours": "120 hours"
+    },
+    "source_page": 16
+  },
+  {
+    "level_code": "7",
+    "stt_norms": [
+      {
+        "min_education": "Pursuing PhD / Pursuing 2nd year of 2-year PG after 4 year UG program",
+        "min_experience": "No Experience Required",
+        "notional_hours": "660 to 750 Notional Hours OR (PG: 720 Hours Internship + project work)",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Completed 2-year PG degree after 3-year UG",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "660 to 750 Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Completed 4-year UG degree",
+        "min_experience": "2 year relevant experience",
+        "notional_hours": "660 to 750 Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Completed 3-year UG degree",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "660 to 750 Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 6.5",
+        "min_experience": "1.5 years relevant experience",
+        "notional_hours": "660 to 750 Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 6",
+        "min_experience": "3 years relevant experience",
+        "notional_hours": "660 to 750 Notional Hours",
+        "employability_skills_hours": "120 hours"
+      }
+    ],
+    "ltt_norms": null,
+    "source_page": 16
+  },
+  {
+    "level_code": "8",
+    "stt_norms": [
+      {
+        "min_education": "PhD in the relevant field",
+        "min_experience": "No Experience Required",
+        "notional_hours": "750 onwards Notional Hours OR 810 Hours Internship & project",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "PhD in any field",
+        "min_experience": "1 year relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "2-year PG in relevant field",
+        "min_experience": "3 year relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "2-year PG in any field",
+        "min_experience": "4 year relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "3-year UG in relevant field or 4-years UG",
+        "min_experience": "5 year relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "3-year UG in any field",
+        "min_experience": "6 year relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 6.5",
+        "min_experience": "4.5 years relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      },
+      {
+        "min_education": "Previous relevant Qualification of NSQF Level 7",
+        "min_experience": "3 years relevant experience",
+        "notional_hours": "750 onwards Notional Hours",
+        "employability_skills_hours": "120 hours"
+      }
+    ],
+    "ltt_norms": null,
+    "source_page": 17
+  }
+]

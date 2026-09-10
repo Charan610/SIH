@@ -1,0 +1,25 @@
+# Files that Git should ignore (never upload to GitHub)
+
+# Your secret settings file
+.env
+
+# The SQLite database file
+*.db
+
+# Python cache files (auto-generated, not needed in Git)
+__pycache__/
+*.py[cod]
+
+# Virtual environment folder
+venv/
+.venv/
+
+# IDE settings
+.vscode/
+.idea/
+
+# Mac system files
+.DS_Store
+
+# Test cache
+.pytest_cache/
