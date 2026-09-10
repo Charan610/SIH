@@ -46,8 +46,15 @@ export default function ResourcesPage() {
   });
 
   return (
-    <div className="flex-1 bg-slate-50 py-10 px-4 sm:px-8">
-      <div className="max-w-6xl mx-auto space-y-8">
+    <div className="relative flex-1 min-h-[calc(100vh-64px)] py-10 px-4 sm:px-8 overflow-hidden bg-sky-50/40">
+      {/* Background illustration with document pages, books, and educational motifs */}
+      <div 
+        className="absolute inset-0 bg-cover bg-top pointer-events-none opacity-80"
+        style={{ backgroundImage: "url('/images/resources_bg.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/70 pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto space-y-8 relative z-10">
         {/* Header Breadcrumbs & Title */}
         <div className="border-b border-slate-200 pb-5">
           <div className="flex items-center gap-2 text-xs text-slate-500 mb-1.5">

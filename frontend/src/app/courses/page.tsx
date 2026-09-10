@@ -73,8 +73,15 @@ export default function CoursesCatalogPage() {
   }, [courses, selectedSector, searchTerm]);
 
   return (
-    <div className="flex-1 bg-slate-50 py-10 px-4 sm:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="relative flex-1 min-h-[calc(100vh-64px)] py-10 px-4 sm:px-8 overflow-hidden bg-sky-50/40">
+      {/* Background illustration with graduation cap, books, gears and growth sprigs */}
+      <div 
+        className="absolute inset-0 bg-cover bg-top pointer-events-none opacity-80"
+        style={{ backgroundImage: "url('/images/courses_catalog_bg.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-white/70 pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Breadcrumb & Header */}
         <div className="mb-8 pb-4 border-b border-slate-200">
           <div className="flex items-center gap-2 text-xs text-slate-500 mb-1">
