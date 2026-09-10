@@ -75,6 +75,15 @@ export function ProfileMenu() {
                 </Link>
 
                 <Link
+                  href="/verified-profile"
+                  onClick={() => setIsOpen(false)}
+                  className="flex items-center gap-2 p-1.5 rounded-md hover:bg-slate-100 text-slate-700 font-medium"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>{t("nav.verifiedProfile", "Verified Profile & Registry")}</span>
+                </Link>
+
+                <Link
                   href="/skill-gap"
                   onClick={() => setIsOpen(false)}
                   className="flex items-center gap-2 p-1.5 rounded-md hover:bg-slate-100 text-slate-700 font-medium"

@@ -12,7 +12,8 @@ import {
   Bell, 
   ChevronRight,
   Globe,
-  Sliders
+  Sliders,
+  ShieldCheck
 } from "lucide-react";
 import { useApp } from "@/lib/AppContext";
 import { LanguageSelector } from "./LanguageSelector";
@@ -204,6 +205,19 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
         </Link>
 
+        {/* Verified Profile & Registry */}
+        <Link
+          href="/verified-profile"
+          onClick={onClose}
+          className="flex items-center justify-between p-2 rounded-lg font-bold text-slate-800 hover:bg-slate-50"
+        >
+          <span className="flex items-center gap-2">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Verified Profile & Registry</span>
+          </span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+        </Link>
+
         {/* Notifications */}
         <Link
           href="/notifications"
@@ -239,25 +253,33 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
               </div>
             </div>
 
-            <div className="pt-2 border-t border-slate-200 flex gap-2">
+            <div className="pt-2 border-t border-slate-200 grid grid-cols-2 gap-2">
               <Link
                 href="/profile"
                 onClick={onClose}
-                className="flex-1 py-1.5 text-center bg-white border border-slate-300 rounded-lg text-slate-700 font-semibold"
+                className="py-1.5 text-center bg-white border border-slate-300 rounded-lg text-slate-700 font-semibold"
               >
                 Profile
               </Link>
-              <button
-                onClick={() => {
-                  logout();
-                  onClose();
-                }}
-                className="flex items-center justify-center gap-1 px-3 py-1.5 bg-rose-50 border border-rose-200 rounded-lg text-rose-700 font-semibold"
+              <Link
+                href="/verified-profile"
+                onClick={onClose}
+                className="py-1.5 text-center bg-emerald-50 border border-emerald-300 rounded-lg text-emerald-900 font-semibold flex items-center justify-center gap-1"
               >
-                <LogOut className="w-3.5 h-3.5" />
-                <span>Sign Out</span>
-              </button>
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Verified</span>
+              </Link>
             </div>
+            <button
+              onClick={() => {
+                logout();
+                onClose();
+              }}
+              className="w-full flex items-center justify-center gap-1 py-1.5 bg-rose-50 border border-rose-200 rounded-lg text-rose-700 font-semibold"
+            >
+              <LogOut className="w-3.5 h-3.5" />
+              <span>Sign Out</span>
+            </button>
           </div>
         ) : (
           <Link

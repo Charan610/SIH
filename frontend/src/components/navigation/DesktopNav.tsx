@@ -129,6 +129,18 @@ export function DesktopNav() {
         items={aboutItems}
       />
 
+      {/* Verified Profile */}
+      <Link
+        href="/verified-profile"
+        className={`px-2.5 py-1.5 rounded-md transition flex items-center gap-1 ${
+          pathname === "/verified-profile" || pathname === "/profile/verified"
+            ? "text-blue-950 font-bold bg-blue-50 border border-blue-200"
+            : "hover:text-blue-950 hover:bg-slate-50"
+        }`}
+      >
+        <span>Verified Profile</span>
+      </Link>
+
       {/* Dashboard */}
       <Link
         href="/dashboard"

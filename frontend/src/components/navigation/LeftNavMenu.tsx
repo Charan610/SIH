@@ -18,6 +18,7 @@ import {
   Smartphone, 
   LogIn, 
   LogOut,
+  Info,
   X
 } from "lucide-react";
 import { useApp } from "@/lib/AppContext";
@@ -75,7 +76,8 @@ export function LeftNavMenu() {
     { label: t("nav.courses", "Courses"), href: "/courses", icon: BookOpen },
     { label: t("nav.resources", "Resources"), href: "/resources", icon: BookOpen },
     { label: t("nav.profile", "Profile"), href: "/profile", icon: User },
-    { label: t("nav.about", "About"), href: "/about", icon: ShieldCheck },
+    { label: t("nav.verifiedProfile", "Verified Profile & Registry"), href: "/verified-profile", icon: ShieldCheck },
+    { label: t("nav.about", "About"), href: "/about", icon: Info },
     { label: t("nav.help", "Help & Support"), href: "/help", icon: HelpCircle },
     { label: t("nav.download", "Download App"), href: "/download", icon: Smartphone },
   ];

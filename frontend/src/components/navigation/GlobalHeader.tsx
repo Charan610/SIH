@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Award, Mic } from "lucide-react";
 import { useApp } from "@/lib/AppContext";
 import { LeftNavMenu } from "./LeftNavMenu";
+import { DesktopNav } from "./DesktopNav";
 import { LanguageSelector } from "./LanguageSelector";
 import { SearchButton } from "./SearchButton";
 import { NotificationMenu } from "./NotificationMenu";
@@ -61,6 +62,11 @@ export function GlobalHeader() {
               </p>
             </div>
           </Link>
+        </div>
+
+        {/* CENTER: Desktop Navigation Bar with Tabs */}
+        <div className="hidden xl:flex items-center">
+          <DesktopNav />
         </div>
 
         {/* RIGHT: [Language] [Search] [Notifications] [Profile] [Primary CTA] */}

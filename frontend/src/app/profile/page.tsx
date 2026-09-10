@@ -107,8 +107,29 @@ export default function ProfilePage() {
           </div>
         )}
 
+        {/* ── PROFILE TABS NAVIGATION ── */}
+        <div className="flex border-b border-slate-300 bg-white rounded-t-xl px-4 pt-3 shadow-2xs">
+          <div className="flex gap-2">
+            <Link
+              href="/profile"
+              className="px-4 py-2.5 text-xs font-bold text-blue-900 border-b-2 border-blue-900 flex items-center gap-2 bg-blue-50/50 rounded-t-md transition"
+            >
+              <User className="w-4 h-4 text-blue-900" />
+              <span>Candidate Demographics & Profile</span>
+            </Link>
+            <Link
+              href="/verified-profile"
+              className="px-4 py-2.5 text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-2 border-b-2 border-transparent transition"
+            >
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>Verified Profile & Statutory Registry</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            </Link>
+          </div>
+        </div>
+
         {/* ── Section 1: Basic Profile Form ── */}
-        <form onSubmit={handleSubmit} className="bg-white border border-slate-300 rounded-xl p-6 sm:p-8 shadow-2xs space-y-6">
+        <form onSubmit={handleSubmit} className="bg-white border border-slate-300 rounded-b-xl rounded-t-none p-6 sm:p-8 shadow-2xs space-y-6">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h2 className="text-sm font-bold text-slate-900 flex items-center gap-2">
               <User className="w-4 h-4 text-blue-900" />
