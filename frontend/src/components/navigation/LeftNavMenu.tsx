@@ -127,7 +127,7 @@ export function LeftNavMenu() {
           {/* Header row in dropdown */}
           <div className="flex items-center justify-between px-2 py-1.5 border-b border-slate-100 mb-1">
             <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-              {t("header.menuLabel", "Menu")} • Skill Sphere
+              {t("header.menuLabel", "Menu")} • Sarathi AI
             </span>
             <button
               type="button"

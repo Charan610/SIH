@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Skill Sphere — PM-AJAY GIA Skilling & Livelihood Assistant",
+  title: "Sarathi AI — PM-AJAY GIA Skilling & Livelihood Assistant",
   description:
     "AI-driven voice assistant for livelihood mapping and NSQF-aligned skilling recommendations for SC communities under the GIA component of PM-AJAY.",
 };

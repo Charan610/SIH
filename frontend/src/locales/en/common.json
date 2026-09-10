@@ -1,5 +1,5 @@
 {
-  "title": "Skill Sphere",
+  "title": "Sarathi AI",
   "gov_subtitle": "Government of India — Ministry of Social Justice and Empowerment",
   "initiative": "PM-AJAY GIA Component — NSQF-Aligned Skilling & Livelihood Assistant",
   "nav": {
@@ -117,7 +117,7 @@
     "verifiedDoc": "Verified Public Documentation"
   },
   "about": {
-    "title": "About Skill Sphere — PM-AJAY GIA Platform",
+    "title": "About Sarathi AI — PM-AJAY GIA Platform",
     "subtitle": "AI-driven voice assistant for livelihood mapping and NSQF-aligned skilling recommendations for SC communities under the GIA component of PM-AJAY.",
     "howItWorks": "How It Works: The Structured Advisory Pipeline",
     "whyVoice": "Why Voice-First?",
@@ -126,7 +126,7 @@
     "accessibility": "Accessibility Commitments (GIGW Compliant)",
     "privacy": "Privacy, Consent & Data Protection",
     "terms": "Terms of Use & Advisory Disclaimer",
-    "disclaimerText": "Notice: Skill Sphere is an official assistive portal designed for PM-AJAY GIA livelihood enablement. Recommended courses and livelihood opportunities are aligned with the National Skills Qualification Framework (NSQF). Formal disbursement of benefits is governed by district nodal verifications."
+    "disclaimerText": "Notice: Sarathi AI is an official assistive portal designed for PM-AJAY GIA livelihood enablement. Recommended courses and livelihood opportunities are aligned with the National Skills Qualification Framework (NSQF). Formal disbursement of benefits is governed by district nodal verifications."
   },
   "login": {
     "heading": "Sign in to Continue",
@@ -140,7 +140,7 @@
     "otpNotice": "Enter your 10-digit mobile number to receive your secure login OTP."
   },
   "download": {
-    "title": "Access Skill Sphere on Mobile & Desktop",
+    "title": "Access Sarathi AI on Mobile & Desktop",
     "subtitle": "Carry your voice career counselor everywhere. Use the platform via web, download the progressive mobile application, or install desktop client tools.",
     "scanQr": "Scan to Open on Mobile",
     "android": "Download for Android",
@@ -295,13 +295,13 @@
     "int4_title": "Placement and Apprenticeship Assistance",
     "int4_desc": "Linkages to District Employment Exchanges and regional industrial clusters.",
     "authority_title": "Implementation Authority",
-    "authority_desc": "GIA components are executed through State Scheduled Castes Development Corporations (SCDCs), National Skill Development Corporation (NSDC), and accredited Government ITIs. Skill Sphere acts as an advisory and livelihood mapping intake portal designed to help beneficiaries identify eligible courses and training facilities in their district.",
+    "authority_desc": "GIA components are executed through State Scheduled Castes Development Corporations (SCDCs), National Skill Development Corporation (NSDC), and accredited Government ITIs. Sarathi AI acts as an advisory and livelihood mapping intake portal designed to help beneficiaries identify eligible courses and training facilities in their district.",
     "notice_title": "Notice",
     "notice_desc": "Submission of information via this public assistant provides advisory recommendations. Formal sanction of PM-AJAY GIA grant stipends is subject to statutory document verification by the competent district authority."
   },
   "schemes_info": {
     "title": "Central Government Allied Skilling & Livelihood Schemes",
-    "subtitle": "Accredited welfare and skill initiatives connected to the Skill Sphere recommendation engine.",
+    "subtitle": "Accredited welfare and skill initiatives connected to the Sarathi AI recommendation engine.",
     "cta": "Assess Eligibility for this Scheme",
     "entitlement": "Beneficiary Entitlement:",
     "s1_name": "PM-AJAY (Grant-in-Aid Component)",
@@ -364,7 +364,7 @@
     "mission_title": "Platform Mandate & Public Purpose",
     "mission_desc": "The platform is dedicated to helping beneficiaries understand their livelihood profile and discover relevant skilling and livelihood pathways. Operating under the aegis of the Ministry of Social Justice and Empowerment, it addresses structural hurdles faced by rural and semi-urban artisans and wage earners from Scheduled Caste (SC) communities.",
     "public_focus_title": "Public Service Focus:",
-    "public_focus_desc": "Rather than commercial job placement or promotional training, Skill Sphere maps traditional, unorganized, and informal trade competencies against the National Skills Qualification Framework (NSQF) to unlock state-funded Grant-in-Aid (GIA) under PM-AJAY.",
+    "public_focus_desc": "Rather than commercial job placement or promotional training, Sarathi AI maps traditional, unorganized, and informal trade competencies against the National Skills Qualification Framework (NSQF) to unlock state-funded Grant-in-Aid (GIA) under PM-AJAY.",
     "step1_title": "Voice / Text Intake",
     "step1_desc": "Spoken or typed regional input",
     "step2_title": "Profile Extraction",
@@ -381,7 +381,7 @@
     "step7_desc": "Spoken counselor reasoning",
     "step8_title": "Decision Audit Log",
     "step8_desc": "Traceable compliance ledger",
-    "why_voice_p1": "Conventional career counselling portals require lengthy text forms, English fluency, and digital literacy that exclude many rural grassroots workers. By prioritizing spoken interaction in regional languages (Telugu, Hindi, and Indian English), Skill Sphere enables beneficiaries to describe their real-world experience, tools handled, and aspirations naturally.",
+    "why_voice_p1": "Conventional career counselling portals require lengthy text forms, English fluency, and digital literacy that exclude many rural grassroots workers. By prioritizing spoken interaction in regional languages (Telugu, Hindi, and Indian English), Sarathi AI enables beneficiaries to describe their real-world experience, tools handled, and aspirations naturally.",
     "why_voice_b1": "Zero typing required to complete an initial livelihood assessment.",
     "why_voice_b2": "Acoustic processing tuned for regional Indian dialects and vernacular phrasing.",
     "why_voice_b3": "Voice output synthesis explains complex NSQF qualification standards in everyday language."
@@ -493,7 +493,7 @@
   },
   "download_page": {
     "badge": "Multi-Device Platform Access",
-    "title": "Access Skill Sphere on Mobile & Desktop",
+    "title": "Access Sarathi AI on Mobile & Desktop",
     "subtitle": "Carry your voice career counselor everywhere. Use the platform via web, download the progressive mobile application, or install desktop client tools.",
     "mobile_label": "Mobile Experience",
     "mobile_title": "Available on Android & iOS",

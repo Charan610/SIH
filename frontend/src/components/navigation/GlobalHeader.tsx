@@ -50,7 +50,7 @@ export function GlobalHeader() {
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-extrabold text-blue-950 text-base sm:text-lg tracking-tight">
-                  {t("title", "Skill Sphere")}
+                  {t("title", "Sarathi AI")}
                 </span>
                 <span className="text-[9px] font-bold tracking-wider uppercase px-1.5 py-0.5 bg-emerald-50 text-emerald-800 rounded border border-emerald-200">
                   PM-AJAY GIA
