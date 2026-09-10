@@ -13,8 +13,7 @@ import {
   GitBranch,
   ShieldCheck,
   BarChart3,
-  Target,
-  Sparkles
+  Target
 } from "lucide-react";
 import Link from "next/link";
 import { useApp } from "@/lib/AppContext";
@@ -55,7 +54,7 @@ export default function ServicesPage() {
       flowSteps: lang.startsWith("te")
         ? ["వాయిస్ ఇన్‌పుట్", "స్పీచ్-టు-టెక్స్ట్", "AI విశ్లేషణ", "ప్రొఫైల్ డేటా"]
         : lang.startsWith("hi")
-        ? ["वॉयस इनपुट", "स्पीच-टू-टेक्स्ट", "एआई विश्लेषण", "संरचित प्रोफ़ाइल"]
+        ? ["वॉयस इनपुट", "स्पीच-టు-టెక్స్ట్", "एआई विश्लेषण", "संरचित प्रोफ़ाइल"]
         : ["Voice Input", "Speech-to-Text", "AI Processing", "Structured Profile"],
       icon: Mic,
       cta: lang.startsWith("te") 
@@ -63,18 +62,15 @@ export default function ServicesPage() {
         : lang.startsWith("hi") 
         ? "वॉयस मूल्यांकन शुरू करें" 
         : "Start Voice Assessment",
-      // Very subtle lavender/blue tint
-      cardBg: "bg-gradient-to-br from-indigo-50/40 via-white to-blue-50/20",
-      borderColor: "border-indigo-100 hover:border-indigo-300/80",
-      badgeBg: "bg-indigo-50 text-indigo-700 border-indigo-200/60",
-      ctaColor: "text-indigo-900 hover:text-indigo-950",
+      iconBg: "bg-blue-50 text-blue-600 border-blue-200/80",
+      ctaColor: "text-blue-900 hover:text-blue-950",
       microGraphic: (
-        <div className="flex items-center gap-0.5 px-2 py-1 bg-indigo-50/70 border border-indigo-200/50 rounded-md">
-          <div className="w-1 h-2 bg-indigo-400 rounded-full animate-pulse" />
-          <div className="w-1 h-3.5 bg-indigo-600 rounded-full" />
-          <div className="w-1 h-2.5 bg-indigo-500 rounded-full" />
-          <div className="w-1 h-4 bg-indigo-600 rounded-full" />
-          <div className="w-1 h-2 bg-indigo-400 rounded-full" />
+        <div className="flex items-center gap-0.5 px-2 py-1 bg-blue-50/80 border border-blue-200/60 rounded-md">
+          <div className="w-1 h-2 bg-blue-400 rounded-full animate-pulse" />
+          <div className="w-1 h-3.5 bg-blue-600 rounded-full" />
+          <div className="w-1 h-2 bg-blue-500 rounded-full" />
+          <div className="w-1 h-4 bg-blue-600 rounded-full" />
+          <div className="w-1 h-2 bg-blue-400 rounded-full" />
         </div>
       ),
     },
@@ -117,13 +113,10 @@ export default function ServicesPage() {
         : lang.startsWith("hi") 
         ? "आजीविका मानचित्र देखें" 
         : "Explore Livelihood Map",
-      // Very subtle mint/green tint
-      cardBg: "bg-gradient-to-br from-emerald-50/40 via-white to-teal-50/20",
-      borderColor: "border-emerald-100 hover:border-emerald-300/80",
-      badgeBg: "bg-emerald-50 text-emerald-700 border-emerald-200/60",
+      iconBg: "bg-emerald-50 text-emerald-600 border-emerald-200/80",
       ctaColor: "text-emerald-900 hover:text-emerald-950",
       microGraphic: (
-        <div className="flex items-center gap-1 px-2 py-1 bg-emerald-50/70 border border-emerald-200/50 rounded-md text-[10px] font-semibold text-emerald-800">
+        <div className="flex items-center gap-1 px-2 py-0.5 bg-emerald-50/90 border border-emerald-200/80 rounded-full text-[10px] font-semibold text-emerald-800">
           <MapPin className="w-3 h-3 text-emerald-600" />
           <span>Cluster</span>
         </div>
@@ -156,7 +149,7 @@ export default function ServicesPage() {
         ? "అభ్యర్థి నైపుణ్యాలు ∩ కోర్సు NOS నైపుణ్యాలు ➔ గ్యాప్ డెల్టా స్కోరు."
         : lang.startsWith("hi")
         ? "उम्मीदवार कौशल ∩ पाठ्यक्रम NOS दक्षताएं ➔ अंतराल स्कोर।"
-        : "Candidate skill set ∩ Course NOS competencies ➔ Gap delta score.",
+        : "Candidate skill set ➔ Course NOS competencies ➔ Gap data score.",
       flowSteps: lang.startsWith("te")
         ? ["ప్రస్తుత నైపుణ్యాలు", "NOS ప్రమాణాలు", "స్కిల్ గ్యాప్", "కోర్సు సరిపోలిక"]
         : lang.startsWith("hi")
@@ -168,15 +161,12 @@ export default function ServicesPage() {
         : lang.startsWith("hi") 
         ? "NOS कौशल अंतराल मैट्रिक्स देखें" 
         : "View NOS Skill Gap Matrix",
-      // Very subtle peach/amber tint
-      cardBg: "bg-gradient-to-br from-amber-50/40 via-white to-orange-50/20",
-      borderColor: "border-amber-100 hover:border-amber-300/80",
-      badgeBg: "bg-amber-50 text-amber-800 border-amber-200/60",
+      iconBg: "bg-amber-50 text-amber-700 border-amber-200/80",
       ctaColor: "text-amber-900 hover:text-amber-950",
       microGraphic: (
-        <div className="flex items-center gap-1 px-2 py-1 bg-amber-50/70 border border-amber-200/50 rounded-md text-[10px] font-semibold text-amber-800">
+        <div className="flex items-center gap-1 px-2 py-0.5 bg-amber-50/90 border border-amber-200/80 rounded-full text-[10px] font-semibold text-amber-800">
           <BarChart3 className="w-3 h-3 text-amber-600" />
-          <span>Δ Matrix</span>
+          <span>Matrix</span>
         </div>
       ),
     },
@@ -194,20 +184,20 @@ export default function ServicesPage() {
         ? "राष्ट्रीय व्यावसायिक शिक्षा परिषद (NCVET) मानकों के अनुरूप मान्यता प्राप्त प्रशिक्षण कार्यक्रम।"
         : "Accredited training programs conforming to National Council for Vocational Education (NCVET) standards.",
       what: lang.startsWith("te")
-        ? "NSQF లెవెల్ 1 నుండి లెవెల్ 7 వరకు ఉన్న పాఠ్యప్రణాళికను అందిస్తుంది."
+        ? "గుర్తించిన నైపుణ్య అంతరాలను NSQF స్థాయిలు మరియు సర్టిఫికేషన్లతో మ్యాప్ చేస్తుంది."
         : lang.startsWith("hi")
-        ? "NSQF स्तर 1 से स्तर 7 तक संरेखित पाठ्यक्रम प्रदान करता है।"
-        : "Curriculum aligned from NSQF Level 1 up to Level 7 qualifications.",
+        ? "पहचाने गए कौशल अंतरालों को एनएसक्यूएफ स्तरों और प्रमाणित योग्यताओं में मैप करता है।"
+        : "Maps identified skill gaps to NSQF levels and certified qualifications.",
       why: lang.startsWith("te")
-        ? "దేశవ్యాప్తంగా యజమానులు గుర్తించే ప్రభుత్వ సర్టిఫికేషన్లను అందజేస్తుంది."
+        ? "జాతీయంగా గుర్తింపు పొందిన పరిశ్రమ సంబంధిత నైపుణ్యాలను నిర్ధారిస్తుంది."
         : lang.startsWith("hi")
-        ? "अखिल भारतीय नियोक्ताओं द्वारा स्वीकृत सरकार-मान्यता प्राप्त प्रमाणपत्र प्रदान करता है।"
-        : "Delivers government-recognized certifications accepted by pan-India employers.",
+        ? "राष्ट्रीय स्तर पर मान्यता प्राप्त और उद्योग-प्रासंगिक कौशल सुनिश्चित करता है।"
+        : "Ensures nationally recognized and industry-relevant skilling.",
       how: lang.startsWith("te")
-        ? "అభ్యర్థి విద్య & వయస్సు ➔ QP కోడ్‌ల ధృవీకరణ ➔ GIA గ్రాంట్ మద్దతు నిర్ధారణ."
+        ? "స్కిల్ గ్యాప్ ➔ NSQF లెవెల్ మ్యాపింగ్ ➔ ట్రైనింగ్ భాగస్వామి మ్యాచ్."
         : lang.startsWith("hi")
-        ? "उम्मीदवार शिक्षा एवं आयु ➔ QP कोड सत्यापन ➔ GIA अनुदान समर्थन पुष्टि।"
-        : "Filters candidate education & age ➔ Validates QP codes ➔ Confirms GIA grant support.",
+        ? "कौशल अंतराल ➔ एनएसक्यूएफ स्तर मिलान ➔ प्रशिक्षण भागीदार मिलान।"
+        : "Skill gap ➔ NSQF level mapping ➔ Training partner match.",
       flowSteps: lang.startsWith("te")
         ? ["అభ్యర్థి ప్రొఫైల్", "NSQF స్థాయి", "శిక్షణా కోర్సు", "సర్టిఫికేషన్"]
         : lang.startsWith("hi")
@@ -215,18 +205,15 @@ export default function ServicesPage() {
         : ["User Profile", "NSQF Level", "Relevant Course", "Certification"],
       icon: Award,
       cta: lang.startsWith("te") 
-        ? "శిక్షణా కార్యక్రమాలను చూడండి" 
+        ? "NSQF కోర్సులను చూడండి" 
         : lang.startsWith("hi") 
-        ? "प्रशिक्षण कार्यक्रम देखें" 
-        : "Explore Training Programs",
-      // Very subtle blue/lavender tint
-      cardBg: "bg-gradient-to-br from-sky-50/40 via-white to-blue-50/20",
-      borderColor: "border-sky-100 hover:border-sky-300/80",
-      badgeBg: "bg-sky-50 text-sky-700 border-sky-200/60",
-      ctaColor: "text-sky-900 hover:text-sky-950",
+        ? "एनएसक्यूएफ पाठ्यक्रम देखें" 
+        : "View NSQF Courses",
+      iconBg: "bg-purple-50 text-purple-600 border-purple-200/80",
+      ctaColor: "text-purple-900 hover:text-purple-950",
       microGraphic: (
-        <div className="flex items-center gap-1 px-2 py-1 bg-sky-50/70 border border-sky-200/50 rounded-md text-[10px] font-bold text-sky-800">
-          <ShieldCheck className="w-3 h-3 text-sky-600" />
+        <div className="flex items-center gap-1 px-2 py-0.5 bg-purple-50/90 border border-purple-200/80 rounded-full text-[10px] font-bold text-purple-800">
+          <ShieldCheck className="w-3 h-3 text-purple-600" />
           <span>L1–L7</span>
         </div>
       ),
@@ -240,29 +227,29 @@ export default function ServicesPage() {
         : "5. Opportunity Discovery",
       slug: "/services/opportunities",
       desc: lang.startsWith("te")
-        ? "నైపుణ్య కోర్సులను జిల్లా స్థాయి ఉద్యోగ మరియు స్వయం ఉపాధి డిమాండ్‌తో అనుసంధానిస్తుంది."
+        ? "నైపుణ్య మార్గాలను నిజమైన జిల్లా స్థాయి వేతన మరియు స్వయం ఉపాధి డిమాండ్‌తో అనుసంధానిస్తుంది."
         : lang.startsWith("hi")
-        ? "कौशल मार्गों को वास्तविक जिला-स्तरीय रोजगार और स्वरोजगार की मांग से जोड़ता है।"
-        : "Connects skilling pathways to actual district-level wage and self-employment demand.",
+        ? "कौशल मार्गों को वास्तविक जिला-स्तरीय वेतन और स्वरोजगार मांग से जोड़ता है।"
+        : "Connects skilling pathways to actual district level wage and self-employment demand.",
       what: lang.startsWith("te")
-        ? "జిల్లా నైపుణ్యాభివృద్ధి ప్రణాళికలు (DSDP) మరియు PLFS డిమాండ్ డేటాను అనుసంధానిస్తుంది."
+        ? "ధృవీకరించబడిన మూలాల నుండి స్థానిక ఉద్యోగ మరియు వ్యాపార అవకాశాలను సేకరిస్తుంది."
         : lang.startsWith("hi")
-        ? "आवधिक श्रम बल सर्वेक्षण (PLFS) और जिला कौशल विकास योजनाओं (DSDP) को एकीकृत करता है।"
-        : "Integrates Periodic Labour Force Survey (PLFS) and District Skill Development Plans (DSDP).",
+        ? "सत्यापित स्रोतों से स्थानीय नौकरी और उद्यम अवसरों को सामने लाता है।"
+        : "Pulls local job and enterprise opportunities from verified sources.",
       why: lang.startsWith("te")
-        ? "శిక్షణ పూర్తి చేసిన వెంటనే స్థానికంగా నిజమైన ఉపాధి లభించేలా చూస్తుంది."
+        ? "ఉపాధి అవకాశాలను పెంచుతుంది మరియు స్థానిక జీవనోపాధికి మద్దతు ఇస్తుంది."
         : lang.startsWith("hi")
-        ? "यह सुनिश्चित करता है कि प्रशिक्षण स्थानीय भूगोल में वास्तविक आय के अवसरों में परिवर्तित हो।"
-        : "Ensures training translates into real income opportunities in the local geography.",
+        ? "रोजगार क्षमता बढ़ाता है और स्थानीय आजीविका का समर्थन करता है।"
+        : "Increases employability and supports local livelihoods.",
       how: lang.startsWith("te")
-        ? "అభ్యర్థి జిల్లా ➔ పరిశ్రమ డిమాండ్ సంకేతాలు ➔ సమగ్ర ర్యాంకింగ్."
+        ? "ప్రాంత ఫిల్టర్ ➔ అవకాశాల డేటాబేస్ ➔ ఉత్తమ సరిపోలిక ర్యాంకింగ్."
         : lang.startsWith("hi")
-        ? "उम्मीदवार जिला ➔ उद्योग मांग संकेत ➔ समग्र मार्ग रैंकिंग।"
-        : "Candidate district ➔ Industry demand signals ➔ Composite pathway ranking.",
+        ? "स्थान फ़िल्टर ➔ अवसर डेटाबेस ➔ सर्वश्रेष्ठ मिलान रैंकिंग।"
+        : "Location filter ➔ Opportunity database ➔ Best match ranking.",
       flowSteps: lang.startsWith("te")
-        ? ["నైపుణ్యాలు", "జిల్లా డిమాండ్", "ఉపాధి / స్వయం ఉపాధి", "మార్కెట్ లింకేజ్"]
+        ? ["నైపుణ్యాలు", "జిల్లా డిమాండ్", "ఉపాధి అవకాశాలు", "మార్కెట్ లింకేజ్"]
         : lang.startsWith("hi")
-        ? ["कौशल", "जिला मांग", "रोजगार / स्वरोजगार", "मार्केट लिंकेज"]
+        ? ["कौशल", "जिला मांग", "अवसर", "मार्केट लिंकेज"]
         : ["Skills", "District Demand", "Jobs / Self-Emp", "Market Linkage"],
       icon: TrendingUp,
       cta: lang.startsWith("te") 
@@ -270,14 +257,11 @@ export default function ServicesPage() {
         : lang.startsWith("hi") 
         ? "अवसर खोजें" 
         : "Explore Opportunities",
-      // Very subtle lavender tint
-      cardBg: "bg-gradient-to-br from-purple-50/40 via-white to-fuchsia-50/20",
-      borderColor: "border-purple-100 hover:border-purple-300/80",
-      badgeBg: "bg-purple-50 text-purple-700 border-purple-200/60",
-      ctaColor: "text-purple-900 hover:text-purple-950",
+      iconBg: "bg-sky-50 text-sky-600 border-sky-200/80",
+      ctaColor: "text-sky-900 hover:text-sky-950",
       microGraphic: (
-        <div className="flex items-center gap-1 px-2 py-1 bg-purple-50/70 border border-purple-200/50 rounded-md text-[10px] font-semibold text-purple-800">
-          <Target className="w-3 h-3 text-purple-600" />
+        <div className="flex items-center gap-1 px-2 py-0.5 bg-sky-50/90 border border-sky-200/80 rounded-full text-[10px] font-semibold text-sky-800">
+          <Target className="w-3 h-3 text-sky-600" />
           <span>DSDP</span>
         </div>
       ),
@@ -293,42 +277,39 @@ export default function ServicesPage() {
       desc: lang.startsWith("te")
         ? "అంచనాలు, శిక్షణ ప్రవేశాలు మరియు ఉపాధి ఫలితాల యొక్క పారదర్శక రికార్డును నిర్వహిస్తుంది."
         : lang.startsWith("hi")
-        ? "मूल्यांकन, प्रशिक्षण नामांकन और रोजगार परिणामों का एक ऑडिट-योग्य रिकॉर्ड बनाए रखता है।"
+        ? "मूल्यांकन, प्रशिक्षण नामांकन और प्लेसमेंट फीडबैक का एक ऑडिट योग्य रिकॉर्ड बनाए रखता है।"
         : "Maintains an auditable record of assessments, training enrollments, and placement feedback.",
       what: lang.startsWith("te")
-        ? "మొదటి వాయిస్ సంభాషణ నుండి కోర్సు పూర్తి వరకు అభ్యర్థి ప్రయాణాన్ని పర్యవేక్షిస్తుంది."
+        ? "శిక్షణ పూర్తి, ఉపాధి మరియు జీవనోపాధి పురోగతిని ట్రాక్ చేస్తుంది."
         : lang.startsWith("hi")
-        ? "पहली वॉइस बातचीत से लेकर पाठ्यक्रम पूरा होने तक उम्मीदवार की यात्रा की निगरानी करता है।"
-        : "Monitors candidate journey from first voice inquiry to course completion.",
+        ? "प्रशिक्षण पूरा होने, प्लेसमेंट और आजीविका की प्रगति को ट्रैक करता है।"
+        : "Tracks training completion, placement and livelihood progress.",
       why: lang.startsWith("te")
-        ? "PM-AJAY GIA భాగం కింద చట్టబద్ధమైన నివేదిక నిబంధనలను పూర్తి చేస్తుంది."
+        ? "డేటా ఆధారిత నిర్ణయాలు మరియు జవాబుదారీతనాన్ని సాధ్యం చేస్తుంది."
         : lang.startsWith("hi")
-        ? "PM-AJAY GIA घटक के तहत वैधानिक रिपोर्टिंग आवश्यकताओं को पूरा करता है।"
-        : "Fulfills statutory reporting requirements under the PM-AJAY GIA component.",
+        ? "डेटा-संचालित निर्णय और जवाबदेही सक्षम बनाता है।"
+        : "Enables data-driven decisions and accountability.",
       how: lang.startsWith("te")
-        ? "SQLite ఆడిట్ లెడ్జర్ ➔ మైలురాళ్ల స్థితి ట్రాకింగ్ ➔ ప్రోగ్రామ్ అధికారి డ్యాష్‌బోర్డులు."
+        ? "స్థితి అప్‌డేట్ ➔ మైలురాళ్ల ట్రాకింగ్ ➔ నివేదికలు రూపొందించడం."
         : lang.startsWith("hi")
-        ? "SQLite ऑडिट लेज़र ➔ मील का पत्थर ट्रैकिंग ➔ कार्यक्रम अधिकारी डैशबोर्ड।"
-        : "SQLite audit ledger ➔ Milestone status tracking ➔ Program officer dashboards.",
+        ? "स्थिति अपडेट ➔ मील के पत्थर ट्रैक ➔ रिपोर्ट तैयार करना।"
+        : "Update status ➔ Track milestones ➔ Generate reports.",
       flowSteps: lang.startsWith("te")
         ? ["వాయిస్ అంచనా", "శిక్షణ నమోదు", "ఉపాధి ఫలితం", "ఆడిట్ ఫీడ్‌బ్యాక్"]
         : lang.startsWith("hi")
-        ? ["मूल्यांकन", "प्रशिक्षण नामांकन", "रोजगार परिणाम", "ऑडिट फीडबैक"]
+        ? ["मूल्यांकन", "प्रशिक्षण नामांकन", "प्लेसमेंट", "फीडबैक"]
         : ["Assessment", "Training", "Placement", "Feedback"],
       icon: CheckCircle2,
       cta: lang.startsWith("te") 
-        ? "పురోగతిని ట్రాక్ చేయండి" 
+        ? "ట్రాకింగ్ డ్యాష్‌బోర్డ్ చూడండి" 
         : lang.startsWith("hi") 
-        ? "प्रगति ट्रैक करें" 
-        : "Track Progress",
-      // Very subtle teal/cyan tint
-      cardBg: "bg-gradient-to-br from-teal-50/40 via-white to-cyan-50/20",
-      borderColor: "border-teal-100 hover:border-teal-300/80",
-      badgeBg: "bg-teal-50 text-teal-700 border-teal-200/60",
-      ctaColor: "text-teal-900 hover:text-teal-950",
+        ? "ट्रैकिंग डैशबोर्ड देखें" 
+        : "View Tracking Dashboard",
+      iconBg: "bg-emerald-50 text-emerald-600 border-emerald-200/80",
+      ctaColor: "text-emerald-900 hover:text-emerald-950",
       microGraphic: (
-        <div className="flex items-center gap-1 px-2 py-1 bg-teal-50/70 border border-teal-200/50 rounded-md text-[10px] font-semibold text-teal-800">
-          <GitBranch className="w-3 h-3 text-teal-600" />
+        <div className="flex items-center gap-1 px-2 py-0.5 bg-emerald-50/90 border border-emerald-200/80 rounded-full text-[10px] font-semibold text-emerald-800">
+          <GitBranch className="w-3 h-3 text-emerald-600" />
           <span>Audited</span>
         </div>
       ),
@@ -336,87 +317,94 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="flex-1 bg-slate-50 py-10 px-4 sm:px-8">
-      <div className="max-w-6xl mx-auto space-y-8">
-        {/* Header - Identical clean government header */}
-        <div className="border-b border-slate-200 pb-4">
-          <div className="flex items-center gap-2 text-xs text-slate-500 mb-1">
-            <Link href="/" className="hover:text-blue-900 transition-colors">{t("nav.home", "Home")}</Link>
-            <span>/</span>
-            <span className="text-slate-800 font-medium">{t("nav.services", "Public Services")}</span>
-          </div>
-          <h1 className="text-2xl font-extrabold text-slate-900">
-            {t("services.title", "Government Public Service Architecture")}
-          </h1>
-          <p className="text-xs text-slate-600 mt-1">
-            {t("services.subtitle", "Six integrated public-service components designed to transition rural candidates from informal work into certified livelihood opportunities.")}
-          </p>
-        </div>
+    <div className="relative min-h-[calc(100vh-64px)] w-full flex flex-col justify-between overflow-x-hidden bg-sky-100">
+      {/* 
+        Scenic Background Image:
+        Rural landscape with prominent mountains in depth, morning sun on the horizon, 
+        green rolling hills, small houses, and rural workers.
+      */}
+      <div 
+        className="absolute inset-0 bg-cover bg-bottom pointer-events-none fixed-layer"
+        style={{ 
+          backgroundImage: "url('/images/rural_hero_bg.jpg')",
+          backgroundAttachment: "scroll"
+        }}
+      />
 
-        {/* 6 Services Grid - 3x2 exactly matching order & layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Atmospheric depth overlays for soft mountain haze & sun rays */}
+      <div className="absolute inset-0 bg-gradient-to-b from-sky-100/60 via-white/30 to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 w-[550px] h-[550px] bg-amber-200/25 blur-3xl rounded-full pointer-events-none" />
+
+      {/* Main Container hosting ONLY the 6 Services Cards */}
+      <main className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-28 sm:pb-36">
+        {/* 6 Services Grid - 3 columns x 2 rows, matching screenshot exactly */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((s, idx) => {
             const Icon = s.icon;
             return (
               <div
                 key={idx}
-                className={`${s.cardBg} border ${s.borderColor} rounded-2xl p-6 shadow-xs hover:shadow-md transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between group`}
+                className="bg-white/92 backdrop-blur-md border border-slate-200/85 rounded-2xl p-5 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between group"
               >
                 <div>
-                  {/* Top Bar: Icon badge + Title + Micro illustration */}
-                  <div className="flex items-start justify-between gap-3 mb-3.5">
+                  {/* Top Bar: Icon circle + Title + Micro-badge graphic */}
+                  <div className="flex items-start justify-between gap-2.5 mb-3">
                     <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-xl ${s.badgeBg} flex items-center justify-center border shrink-0 transition-transform group-hover:scale-105`}>
-                        <Icon className="w-5 h-5" />
+                      <div className={`w-9 h-9 rounded-xl ${s.iconBg} flex items-center justify-center border shrink-0 shadow-2xs group-hover:scale-105 transition-transform`}>
+                        <Icon className="w-4.5 h-4.5" />
                       </div>
-                      <div>
-                        <h3 className="text-base font-bold text-slate-900 leading-snug">
-                          {s.title}
-                        </h3>
-                      </div>
+                      <h2 className="text-[15px] font-bold text-slate-900 leading-snug tracking-tight">
+                        {s.title}
+                      </h2>
                     </div>
-                    {/* Small professional illustration/badge */}
+                    {/* Micro badge (Cluster, Matrix, L1-L7, DSDP, Audited, Voice wave) */}
                     <div className="shrink-0 mt-0.5">
                       {s.microGraphic}
                     </div>
                   </div>
 
                   {/* Short Description */}
-                  <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                  <p className="text-[11.5px] text-slate-600 leading-relaxed mb-3.5">
                     {s.desc}
                   </p>
 
-                  {/* Structured Internal Architecture Box */}
-                  <div className="space-y-3 text-xs bg-white/85 p-3.5 rounded-xl border border-slate-200/70 shadow-2xs mb-4">
+                  {/* Structured Internal Architecture Box (WHAT IT DOES / WHY IT MATTERS / HOW IT WORKS) */}
+                  <div className="space-y-2.5 text-xs bg-slate-50/75 p-3 rounded-xl border border-slate-200/70 mb-4">
                     <div>
-                      <span className="font-bold text-[10px] text-blue-900 tracking-wider uppercase block mb-0.5">
+                      <span className="font-bold text-[9.5px] text-slate-700 tracking-wider uppercase block mb-0.5">
                         {t("services.what", "WHAT IT DOES")}
                       </span>
-                      <p className="text-[11px] text-slate-600 leading-relaxed">{s.what}</p>
+                      <p className="text-[11px] text-slate-600 leading-relaxed">
+                        {s.what}
+                      </p>
                     </div>
 
                     <div>
-                      <span className="font-bold text-[10px] text-emerald-800 tracking-wider uppercase block mb-0.5">
+                      <span className="font-bold text-[9.5px] text-slate-700 tracking-wider uppercase block mb-0.5">
                         {t("services.why", "WHY IT MATTERS")}
                       </span>
-                      <p className="text-[11px] text-slate-600 leading-relaxed">{s.why}</p>
+                      <p className="text-[11px] text-slate-600 leading-relaxed">
+                        {s.why}
+                      </p>
                     </div>
 
                     <div>
-                      <span className="font-bold text-[10px] text-slate-600 tracking-wider uppercase block mb-1">
+                      <span className="font-bold text-[9.5px] text-slate-700 tracking-wider uppercase block mb-0.5">
                         {t("services.how", "HOW IT WORKS")}
                       </span>
-                      <p className="text-[11px] text-slate-600 leading-relaxed mb-2">{s.how}</p>
+                      <p className="text-[11px] text-slate-600 leading-relaxed mb-2">
+                        {s.how}
+                      </p>
 
-                      {/* Visual Flow Mini-Pills */}
+                      {/* Visual Pipeline Pills */}
                       <div className="flex flex-wrap items-center gap-1 pt-0.5">
                         {s.flowSteps.map((step, sIdx) => (
                           <React.Fragment key={sIdx}>
-                            <span className="text-[10px] font-medium bg-slate-50 text-slate-700 px-1.5 py-0.5 rounded border border-slate-200/80 shadow-2xs">
+                            <span className="text-[9.5px] font-medium bg-white text-slate-700 px-1.5 py-0.5 rounded border border-slate-200 shadow-2xs">
                               {step}
                             </span>
                             {sIdx < s.flowSteps.length - 1 && (
-                              <span className="text-slate-400 text-[9px] font-bold">➔</span>
+                              <span className="text-slate-400 text-[8.5px] font-bold">➔</span>
                             )}
                           </React.Fragment>
                         ))}
@@ -425,8 +413,8 @@ export default function ServicesPage() {
                   </div>
                 </div>
 
-                {/* Card Bottom CTA */}
-                <div className="pt-3 border-t border-slate-200/60 flex items-center justify-between">
+                {/* Card Bottom: CTA Link + PM-AJAY */}
+                <div className="pt-2.5 border-t border-slate-200/70 flex items-center justify-between">
                   <Link
                     href={s.slug}
                     className={`text-xs font-bold ${s.ctaColor} inline-flex items-center gap-1.5 transition-colors group/link`}
@@ -442,7 +430,7 @@ export default function ServicesPage() {
             );
           })}
         </div>
-      </div>
+      </main>
     </div>
   );
 }

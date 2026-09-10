@@ -19,58 +19,74 @@ export default function HomePage() {
 
   return (
     <div className="flex-1 flex flex-col">
-      {/* Hero Banner Section */}
-      <section className="bg-slate-900 text-white py-14 sm:py-20 px-4 sm:px-8 border-b border-slate-800 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+      {/* Hero Scenic Landscape Section with Depth in Mountains and Rising Sun */}
+      <section className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center border-b border-slate-200 overflow-hidden bg-sky-50">
+        {/* Background Landscape Image with depth: rolling green hills, tiered mountains, rural path, village homes */}
+        <div 
+          className="absolute inset-0 bg-cover bg-bottom sm:bg-center pointer-events-none transform scale-105 transition-transform duration-1000 ease-out"
+          style={{ backgroundImage: "url('/images/rural_hero_bg.jpg')" }}
+        />
 
-        <div className="max-w-5xl mx-auto relative z-10">
-          {/* Scheme Authority Tag */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-950/80 border border-blue-700/60 text-amber-400 text-xs font-semibold uppercase tracking-wider mb-6">
-            <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-            <span>{t("hero.tag", "Pradhan Mantri Anusuchit Jaati Abhyuday Yojana (PM-AJAY)")}</span>
-          </div>
+        {/* Soft atmospheric gradient overlays to give depth and ensure high text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/20 via-transparent to-white/40 pointer-events-none" />
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6">
-            {t("hero.title", "Find the right livelihood pathway for your skills and goals.")}
-          </h1>
+        {/* Depth Ambient Sun Glow Effect */}
+        <div className="absolute right-[12%] sm:right-[18%] top-[25%] sm:top-[20%] w-72 sm:w-96 h-72 sm:h-96 rounded-full bg-amber-300/30 blur-3xl pointer-events-none animate-pulse" />
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed mb-8">
-            {t("hero.subtitle", "Speak or type in your regional language. Our system helps rural candidates discover accredited NSQF-aligned skilling opportunities and personalized career pathways under PM-AJAY GIA norms.")}
-          </p>
-
-          {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Link
-              href="/assistant"
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm tracking-wide shadow-md transition transform active:scale-98"
-            >
-              <Mic className="w-4 h-4 text-slate-950" />
-              <span>{t("hero.start_voice", "Start Voice Assessment")}</span>
-              <ArrowRight className="w-4 h-4 text-slate-950" />
-            </Link>
-
-            <Link
-              href="/courses"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-sm tracking-wide transition"
-            >
-              <BookOpen className="w-4 h-4 text-slate-400" />
-              <span>{t("hero.exploreCourses", "Explore NSQF Courses")}</span>
-            </Link>
-          </div>
-
-          {/* Key Assurance Badges */}
-          <div className="mt-10 pt-8 border-t border-slate-800/80 flex flex-wrap items-center gap-6 text-xs text-slate-400">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>{t("hero.badge_rural", "Voice-First in Telugu, Hindi & English")}</span>
+        {/* Content Container */}
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 py-16 sm:py-24 relative z-10 w-full">
+          <div className="max-w-2xl">
+            {/* Scheme Authority Tag */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50/90 border border-blue-200 text-blue-800 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-6 shadow-xs backdrop-blur-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-blue-700" />
+              <span>{t("hero.tag", "Pradhan Mantri Anusuchit Jaati Abhyuday Yojana (PM-AJAY)")}</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-              <span>{t("hero.badge_gia", "100% Deterministic Scheme Eligibility")}</span>
+
+            {/* Main Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.18] mb-5 drop-shadow-xs">
+              {t("hero.title", "Find the right livelihood pathway for your skills and goals.")}
+            </h1>
+
+            {/* Subtitle Description */}
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed mb-8 max-w-xl font-normal">
+              {t("hero.subtitle", "Speak or type in your regional language. Our system helps rural candidates discover accredited NSQF-aligned skilling opportunities and personalized career pathways under PM-AJAY GIA norms.")}
+            </p>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-4 mb-10">
+              <Link
+                href="/assistant"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm tracking-wide shadow-md hover:shadow-lg transition-all transform active:scale-98"
+              >
+                <Mic className="w-4 h-4 text-slate-950" />
+                <span>{t("hero.start_voice", "Start Voice Assessment")}</span>
+                <ArrowRight className="w-4 h-4 text-slate-950" />
+              </Link>
+
+              <Link
+                href="/courses"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/90 hover:bg-white text-slate-800 border border-slate-300 font-semibold text-sm tracking-wide shadow-xs transition backdrop-blur-xs"
+              >
+                <BookOpen className="w-4 h-4 text-slate-600" />
+                <span>{t("hero.exploreCourses", "Explore NSQF Courses")}</span>
+              </Link>
             </div>
-            <div className="flex items-center gap-2">
-              <Lock className="w-4 h-4 text-blue-400" />
-              <span>{t("header.badgeVerified", "Verified Public Service")}</span>
+
+            {/* Key Assurance Badges with clean icons and frosted pills */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-700 font-medium">
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{t("hero.badge_rural", "Voice-First in Telugu, Hindi & English")}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>{t("hero.badge_gia", "100% Deterministic Scheme Eligibility")}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
+                <Lock className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>{t("header.badgeVerified", "Verified Public Service")}</span>
+              </div>
             </div>
           </div>
         </div>
