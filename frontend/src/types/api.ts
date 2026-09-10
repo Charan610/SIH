@@ -35,6 +35,7 @@ export interface NSQFCourse {
   job_role?: string;
   min_education?: string;
   nsqf_level: number;
+  estimated_salary?: string;
   description?: string;
   skills?: string[];
   score?: number;

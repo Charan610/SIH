@@ -18,5 +18,51 @@ export const voiceService = {
     }
 
     return res.json();
+  },
+
+  async saveAssessmentAnswer(payload: {
+    session_id: string;
+    user_id?: number;
+    step_number: number;
+    question_id: string;
+    question_text: string;
+    answer_text: string;
+    language?: string;
+  }): Promise<{ status: string; answer_id: number; step_number: number }> {
+    const res = await fetch(`${getApiBaseUrl()}/voice/assessment/answer`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ detail: res.statusText }));
+      throw new Error(err.detail || "Failed to save assessment answer");
+    }
+
+    return res.json();
+  },
+
+  async completeAssessment(payload: {
+    session_id: string;
+    user_id?: number;
+    language?: string;
+    answers?: any[];
+    user_profile?: any;
+    top_k?: number;
+  }): Promise<any> {
+    const res = await fetch(`${getApiBaseUrl()}/voice/assessment/complete`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({ detail: res.statusText }));
+      throw new Error(err.detail || "Failed to complete voice assessment");
+    }
+
+    return res.json();
   }
 };
+

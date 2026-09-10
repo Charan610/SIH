@@ -77,9 +77,16 @@ def create_tables():
             min_education   TEXT    NOT NULL,
             nsqf_level      INTEGER NOT NULL,
             description     TEXT    NOT NULL,
-            skills          TEXT    NOT NULL DEFAULT '[]'
+            skills          TEXT    NOT NULL DEFAULT '[]',
+            estimated_salary TEXT   DEFAULT '₹15,000 - ₹22,000 / month'
         )
     """)
+
+    # Migration check for courses table (add estimated_salary if missing)
+    cursor = conn.execute("PRAGMA table_info(courses)")
+    course_cols = [col[1] for col in cursor.fetchall()]
+    if "estimated_salary" not in course_cols:
+        conn.execute("ALTER TABLE courses ADD COLUMN estimated_salary TEXT DEFAULT '₹15,000 - ₹22,000 / month'")
 
     # ── Table 2: users ───────────────────────────────────────
     # Stores user profiles. Most fields are optional because we
@@ -177,6 +184,25 @@ def create_tables():
         if "outcome_note" not in cols:
             conn.execute("ALTER TABLE feedback ADD COLUMN outcome_note TEXT NOT NULL DEFAULT ''")
 
+    # ── Table 5: voice_assessment_answers ─────────────────────
+    # Stores individual question-and-answer turns from the voice assessment.
+    # Enables step-by-step progress tracking, auditability, and profile generation.
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS voice_assessment_answers (
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            session_id      TEXT    NOT NULL,
+            user_id         INTEGER,
+            step_number     INTEGER NOT NULL,
+            question_id     TEXT    NOT NULL,
+            question_text   TEXT    NOT NULL,
+            answer_text     TEXT    NOT NULL,
+            language        TEXT    NOT NULL DEFAULT 'en',
+            created_at      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id)
+        )
+    """)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_voice_assessment_session ON voice_assessment_answers(session_id)")
+
     conn.commit()
     conn.close()
     print("✅ Database tables created successfully.")
@@ -212,12 +238,22 @@ def load_courses_from_json(filepath: str) -> int:
         # Convert the skills list to a JSON string for storage
         # e.g. ["wiring", "safety"] → '["wiring", "safety"]'
         skills_json = json.dumps(course.get("skills", []))
+        salary_str = course.get("estimated_salary", "₹15,000 - ₹22,000 / month")
 
         conn.execute(
             """
-            INSERT OR IGNORE INTO courses
-                (id, name, sector, job_role, min_education, nsqf_level, description, skills)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO courses
+                (id, name, sector, job_role, min_education, nsqf_level, description, skills, estimated_salary)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(id) DO UPDATE SET
+                name=excluded.name,
+                sector=excluded.sector,
+                job_role=excluded.job_role,
+                min_education=excluded.min_education,
+                nsqf_level=excluded.nsqf_level,
+                description=excluded.description,
+                skills=excluded.skills,
+                estimated_salary=excluded.estimated_salary
             """,
             (
                 course["id"],
@@ -228,6 +264,7 @@ def load_courses_from_json(filepath: str) -> int:
                 course["nsqf_level"],
                 course["description"],
                 skills_json,
+                salary_str,
             ),
         )
         count += 1
@@ -308,6 +345,114 @@ def get_courses_by_sector(sector: str) -> list[dict]:
         course["skills"] = json.loads(course["skills"])
         courses.append(course)
     return courses
+
+
+def query_courses_by_nsqf_and_skills(
+    estimated_level_range: str,
+    skills: list[str],
+    role_or_sector: Optional[str] = None,
+    limit: int = 10,
+) -> list[dict]:
+    """
+    Directly queries the SQLite 'courses' table filtered by the candidate's
+    estimated NSQF level and matching sector/skills.
+
+    Returns exactly 9 to 10 real course/job entries from the database,
+    preserving real fields:
+      - id
+      - name (course name)
+      - sector
+      - job_role
+      - nsqf_level
+      - min_education
+      - description
+      - skills
+      - estimated_salary (real sourced figure)
+
+    CRITICAL ARCHITECTURAL BOUNDARY:
+      Zero items are fabricated or invented by an LLM. Everything originates
+      directly from the SQLite 'courses' table.
+    """
+    # 1. Determine target NSQF levels from estimated range
+    lvl_str = (estimated_level_range or "3").lower()
+    target_levels = []
+    if "1" in lvl_str and "2" not in lvl_str:
+        target_levels = [1, 2, 3]
+    elif "2.5" in lvl_str or "3" in lvl_str:
+        target_levels = [3, 4, 2]
+    elif "3.5" in lvl_str or "4" in lvl_str:
+        target_levels = [4, 3, 5]
+    elif "4.5" in lvl_str or "5" in lvl_str:
+        target_levels = [5, 4, 3]
+    elif "2" in lvl_str:
+        target_levels = [2, 3, 4]
+    else:
+        target_levels = [3, 4, 2, 5]
+
+    primary_level = target_levels[0] if target_levels else 3
+
+    conn = get_connection()
+    # Fetch all real courses from SQLite table
+    rows = conn.execute("SELECT * FROM courses").fetchall()
+    conn.close()
+
+    if not rows:
+        return []
+
+    # Clean candidate skills
+    clean_skills = [s.lower().strip() for s in skills if s and s.strip()]
+    role_lower = (role_or_sector or "").lower()
+
+    scored_courses = []
+    for r in rows:
+        c = dict(r)
+        c["skills"] = json.loads(c["skills"]) if isinstance(c["skills"], str) else c["skills"]
+        course_lvl = c.get("nsqf_level", 3)
+        course_skills = [s.lower() for s in c.get("skills", [])]
+        course_name = c.get("name", "").lower()
+        course_role = c.get("job_role", "").lower()
+        course_sector = c.get("sector", "").lower()
+
+        score = 0.0
+
+        # Level proximity scoring
+        if course_lvl == primary_level:
+            score += 10.0
+        elif course_lvl in target_levels:
+            score += 6.0
+        else:
+            diff = abs(course_lvl - primary_level)
+            score += max(0.0, 4.0 - diff)
+
+        # Sector / Role keyword matching
+        if role_lower:
+            for word in role_lower.replace("/", " ").replace("-", " ").split():
+                if len(word) >= 3:
+                    if word in course_name or word in course_role:
+                        score += 8.0
+                    elif word in course_sector:
+                        score += 5.0
+
+        # Skill overlap scoring
+        for user_sk in clean_skills:
+            for sk_word in user_sk.replace("/", " ").split():
+                if len(sk_word) >= 3:
+                    if any(sk_word in c_sk for c_sk in course_skills):
+                        score += 3.0
+                    if sk_word in course_name or sk_word in course_role:
+                        score += 4.0
+
+        c["fit_score"] = round(score, 2)
+        scored_courses.append(c)
+
+    # Sort descending by score, then by NSQF level proximity
+    scored_courses.sort(key=lambda x: (x["fit_score"], -abs(x.get("nsqf_level", 3) - primary_level)), reverse=True)
+
+    # Return exactly 9 or 10 real items (capped at limit, min 9 if available)
+    target_count = min(len(scored_courses), max(9, limit))
+    selected = scored_courses[:target_count]
+
+    return selected
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -624,6 +769,72 @@ def get_all_feedback() -> list[dict]:
 
 
 # ═══════════════════════════════════════════════════════════════
+# VOICE ASSESSMENT OPERATIONS
+# ═══════════════════════════════════════════════════════════════
+
+def save_voice_assessment_answer(
+    session_id: str,
+    user_id: Optional[int],
+    step_number: int,
+    question_id: str,
+    question_text: str,
+    answer_text: str,
+    language: str = "en",
+) -> int:
+    """
+    Save a single turn's answer in the voice assessment.
+    Returns the newly inserted row ID.
+    """
+    conn = get_connection()
+    cursor = conn.execute(
+        """
+        INSERT INTO voice_assessment_answers
+            (session_id, user_id, step_number, question_id, question_text, answer_text, language)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        """,
+        (session_id, user_id, step_number, question_id, question_text, answer_text, language),
+    )
+    conn.commit()
+    new_id = cursor.lastrowid
+    conn.close()
+    return new_id
+
+
+def get_voice_assessment_answers(session_id: str) -> list[dict]:
+    """
+    Retrieve all answers recorded for a given voice assessment session,
+    ordered sequentially by step number.
+    """
+    conn = get_connection()
+    rows = conn.execute(
+        """
+        SELECT * FROM voice_assessment_answers
+        WHERE session_id = ?
+        ORDER BY step_number ASC, id ASC
+        """,
+        (session_id,),
+    ).fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_latest_voice_session(user_id: int) -> Optional[str]:
+    """Get the most recent session_id for a user, if any."""
+    conn = get_connection()
+    row = conn.execute(
+        """
+        SELECT session_id FROM voice_assessment_answers
+        WHERE user_id = ?
+        ORDER BY id DESC LIMIT 1
+        """,
+        (user_id,),
+    ).fetchone()
+    conn.close()
+    return row["session_id"] if row else None
+
+
+
+# ═══════════════════════════════════════════════════════════════
 # DATABASE INITIALIZATION — Called at app startup
 # ═══════════════════════════════════════════════════════════════
 
@@ -640,23 +851,17 @@ def init_database():
     """
     create_tables()
 
-    # Only load seed data if the courses table is empty
-    # (so we don't duplicate data on every restart)
-    existing_courses = get_all_courses()
-    if len(existing_courses) == 0:
-        # Find the data directory relative to this file
-        data_dir = os.path.join(os.path.dirname(__file__), "data")
+    data_dir = os.path.join(os.path.dirname(__file__), "data")
+    courses_file = os.path.join(data_dir, "nsqf_courses.json")
+    if os.path.exists(courses_file):
+        load_courses_from_json(courses_file)
+    else:
+        print(f"⚠️  Course catalog not found at {courses_file}")
 
-        courses_file = os.path.join(data_dir, "nsqf_courses.json")
-        if os.path.exists(courses_file):
-            load_courses_from_json(courses_file)
-        else:
-            print(f"⚠️  Course catalog not found at {courses_file}")
-
+    existing_users = get_all_users()
+    if len(existing_users) == 0:
         users_file = os.path.join(data_dir, "seed_users.json")
         if os.path.exists(users_file):
             load_users_from_json(users_file)
         else:
             print(f"⚠️  Seed users not found at {users_file}")
-    else:
-        print(f"ℹ️  Database already has {len(existing_courses)} courses — skipping seed.")

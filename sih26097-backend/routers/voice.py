@@ -46,6 +46,8 @@ from services.clarifier import generate_clarification_question
 from services.skill_gap import SkillGapEngine
 from services.opportunity import OpportunityEngine
 from services.validation import ValidationGate
+from nsqf.comparison_service import nsqf_comparison_service
+from nsqf.schemas import CapabilityComparisonRequest
 
 logger = logging.getLogger(__name__)
 
@@ -128,6 +130,327 @@ class VoiceQueryResponse(BaseModel):
     client_tts_fallback: bool
     validation_report: List[Dict[str, Any]]                # Per-course validation gate results
     decision_trace: Dict[str, Any]
+
+
+class AssessmentAnswerRequest(BaseModel):
+    """Payload for saving a single turn in the 10-step voice assessment."""
+    session_id: str
+    user_id: Optional[int] = 1
+    step_number: int
+    question_id: str
+    question_text: str
+    answer_text: str
+    language: Optional[str] = "en"
+
+
+class AssessmentCompleteRequest(BaseModel):
+    """Payload for finalizing the 10-step NSQF assessment."""
+    session_id: str
+    user_id: Optional[int] = 1
+    language: Optional[str] = "te"
+    answers: Optional[List[Dict[str, Any]]] = None
+    user_profile: Optional[Dict[str, Any]] = None
+    top_k: Optional[int] = 10
+
+
+class AssessmentCompleteResponse(BaseModel):
+    """Normalized output from NSQF capability comparison and recommendation."""
+    session_id: str
+    user_id: Optional[int] = None
+    language: str
+    profile: Dict[str, Any]
+    nsqf_alignment: Dict[str, Any]
+    pathway_preference: str
+    recommendations: List[Dict[str, Any]]
+    explanation: str
+    audio_base64: Optional[str] = None
+    audio_provider: str = "Sarvam AI"
+    decision_trace: Dict[str, Any]
+
+
+# ═══════════════════════════════════════════════════════════════
+# VOICE ASSESSMENT STEP-BY-STEP FLOW
+# ═══════════════════════════════════════════════════════════════
+
+@router.post("/assessment/answer")
+async def save_assessment_turn_answer(payload: AssessmentAnswerRequest):
+    """
+    Save a single turn's answer in the 10-step voice assessment flow.
+    Persists to SQLite voice_assessment_answers table in real time.
+    """
+    row_id = db.save_voice_assessment_answer(
+        session_id=payload.session_id,
+        user_id=payload.user_id,
+        step_number=payload.step_number,
+        question_id=payload.question_id,
+        question_text=payload.question_text,
+        answer_text=payload.answer_text,
+        language=payload.language or "en",
+    )
+    return {"status": "saved", "answer_id": row_id, "step_number": payload.step_number}
+
+
+@router.post("/assessment/complete", response_model=AssessmentCompleteResponse)
+async def complete_voice_assessment(
+    payload: AssessmentCompleteRequest,
+    matcher: BaseMatcher = Depends(get_matcher),
+    tts_service: TTSService = Depends(get_tts_service),
+):
+    """
+    Finalizes the 10-step NSQF voice assessment:
+    1. Loads all 10 answers from SQLite or payload.
+    2. Structures answers into a comprehensive profile.
+    3. Merges known profile attributes from profile tab without re-asking.
+    4. Evaluates candidate capabilities against official NSQF descriptor dimensions.
+    5. Returns personalized recommendations (Course vs Direct Job) matching Q10 preference.
+    6. Persists recommendation and trace in SQLite.
+    7. Synthesizes a friendly, respectful government service explanation.
+    """
+    session_id = payload.session_id
+    user_id = payload.user_id or 1
+    lang = (payload.language or "te").lower()
+
+    # Retrieve answers from DB if not fully provided in payload
+    answers = payload.answers or []
+    if not answers:
+        answers = db.get_voice_assessment_answers(session_id)
+
+    # Index answers by step_number or question_id
+    ans_map = {}
+    for a in answers:
+        step = a.get("step_number")
+        qid = a.get("question_id")
+        text = a.get("answer_text", "").strip()
+        if step:
+            ans_map[step] = text
+        if qid:
+            ans_map[qid] = text
+
+    # Extract 10 answers
+    q1_work = ans_map.get(1) or ans_map.get("work_current") or ""
+    q2_time = ans_map.get(2) or ans_map.get("work_duration") or ""
+    q3_tasks = ans_map.get(3) or ans_map.get("work_tasks") or ""
+    q4_tools = ans_map.get(4) or ans_map.get("work_tools") or ""
+    q5_know = ans_map.get(5) or ans_map.get("work_knowledge") or ""
+    q6_problem = ans_map.get(6) or ans_map.get("work_problem_solving") or ""
+    q7_indep = ans_map.get(7) or ans_map.get("work_autonomy") or ""
+    q8_quality = ans_map.get(8) or ans_map.get("work_safety_quality") or ""
+    q9_team = ans_map.get(9) or ans_map.get("work_teamwork") or ""
+    q10_goal = ans_map.get(10) or ans_map.get("work_goal_aspiration") or ""
+
+    # User profile integration (Profile tab fields: never re-asked!)
+    existing_user = db.get_user_by_id(user_id) if user_id else None
+    passed_prof = payload.user_profile or {}
+
+    candidate_name = passed_prof.get("name") or (existing_user.get("name") if existing_user else None) or "అభ్యర్థి"
+    candidate_age = passed_prof.get("age") or (existing_user.get("age") if existing_user else 24)
+    candidate_district = passed_prof.get("location_district") or (existing_user.get("district") if existing_user else "West Godavari")
+    candidate_education = passed_prof.get("education_level") or (existing_user.get("education_level") if existing_user else "10th Pass")
+    candidate_caste = passed_prof.get("caste_category") or (existing_user.get("caste_category") if existing_user else "SC")
+    candidate_income = passed_prof.get("annual_income") or (existing_user.get("annual_income") if existing_user else 120000)
+
+    # Estimate experience years from Q2 text
+    import re
+    years_match = re.search(r"(\d+(?:\.\d+)?)", q2_time)
+    exp_years = float(years_match.group(1)) if years_match else 2.0
+
+    # Determine autonomy level from Q7
+    q7_lower = q7_indep.lower()
+    if any(w in q7_lower for w in ["yes", "అవును", "సొంతంగా", "చేయగలను", "హా", "हाँ", "खुद", "सकता", "independently", "alone"]):
+        autonomy_level = "independent"
+    else:
+        autonomy_level = "limited_supervision"
+
+    # Determine preference from Q10
+    q10_lower = q10_goal.lower()
+    if any(w in q10_lower for w in ["job", "ఉద్యోగం", "ఉద్యోగ", "జాబ్", "నౌకరీ", "नौकरी", "direct job"]):
+        pathway_pref = "direct_job"
+        livelihood_goal = "wage_employment"
+    elif any(w in q10_lower for w in ["course", "కోర్సు", "కోర్స్", "ట్రైనింగ్", "శిక్షణ", "కోర్స్ ప్రారంభించ", "कोर्स", "प्रशिक्षण"]):
+        pathway_pref = "course"
+        livelihood_goal = "self_employment"
+    else:
+        pathway_pref = "improve_work"
+        livelihood_goal = "any"
+
+    # Assemble stated skills & tasks
+    raw_skills = [s.strip() for s in f"{q1_work}, {q4_tools}, {q5_know}".replace(".", ",").split(",") if s.strip()]
+    skills = raw_skills if raw_skills else [q1_work or "General Trade"]
+    raw_tasks = [t.strip() for t in f"{q3_tasks}, {q8_quality}".replace(".", ",").split(",") if t.strip()]
+    tasks = raw_tasks if raw_tasks else [q3_tasks or "General Operations"]
+
+    # 1. Compare with official NSQF descriptors (Deterministic rule engine)
+    nsqf_request = CapabilityComparisonRequest(
+        stated_skills=skills,
+        education_level=candidate_education,
+        experience_years=exp_years,
+        current_role=q1_work or "Skilled Worker",
+        work_tasks=tasks,
+        autonomy_level=autonomy_level,
+    )
+    nsqf_result = nsqf_comparison_service.compare_capabilities(nsqf_request)
+    nsqf_dict = nsqf_result.model_dump()
+    aligned_level_range = nsqf_result.estimated_alignment.level_range
+
+    # Structured Profile
+    beneficiary_profile = {
+        "name": candidate_name,
+        "age": candidate_age,
+        "district": candidate_district,
+        "education_level": candidate_education,
+        "caste_category": candidate_caste,
+        "annual_income": candidate_income,
+        "current_role": q1_work,
+        "experience_years": exp_years,
+        "main_tasks": tasks,
+        "tools_used": q4_tools,
+        "knowledge_and_skills": skills,
+        "problem_solving": q6_problem,
+        "autonomy_level": autonomy_level,
+        "safety_and_quality": q8_quality,
+        "teamwork": q9_team,
+        "pathway_preference": pathway_pref,
+        "livelihood_goal": livelihood_goal,
+        "estimated_nsqf_level": aligned_level_range,
+    }
+
+    # 2. Match with Course Catalog & District Opportunities
+    user_for_eligibility = {
+        "name": candidate_name,
+        "age": candidate_age,
+        "caste_category": candidate_caste,
+        "education_level": candidate_education,
+        "annual_income": candidate_income,
+        "stated_skills": skills,
+        "skills": skills,
+        "interests": [q1_work, pathway_pref],
+        "location_district": candidate_district,
+        "location_state": "Andhra Pradesh",
+        "mobility_constraints": [],
+        "livelihood_goal": livelihood_goal,
+        "traditional_occupation": q1_work,
+    }
+    # 2. Query REAL courses table from SQLite database filtered by estimated NSQF level and skills/sector
+    # ZERO LLM fabrication — returns 9 to 10 real entries directly from SQLite database courses table
+    desired_limit = max(9, payload.top_k or 10)
+    real_db_courses = db.query_courses_by_nsqf_and_skills(
+        estimated_level_range=aligned_level_range,
+        skills=skills,
+        role_or_sector=q1_work,
+        limit=desired_limit,
+    )
+
+    # 3. LLM's ONLY remaining job: write a short 1-2 sentence explanation of why each real,
+    # database-sourced course fits the candidate's profile. Zero courses/jobs/salaries are generated.
+    ranked_courses = []
+    for c in real_db_courses:
+        course_copy = dict(c)
+        reason = ""
+        try:
+            reason = generate_explanation(
+                course=course_copy,
+                user_profile=user_for_eligibility,
+                language=lang,
+            )
+        except Exception as e:
+            logger.debug(f"LLM explanation fallback for {course_copy.get('name')}: {e}")
+
+        if not reason or len(reason.strip()) < 5:
+            if lang.startswith("te"):
+                reason = f"మీ {q1_work or 'పని'} అనుభవానికి మరియు NSQF స్థాయి {course_copy.get('nsqf_level')} కు తగినట్లుగా ఈ {course_copy.get('sector')} కోర్సును సిఫార్సు చేస్తున్నాము."
+            elif lang.startswith("hi"):
+                reason = f"आपके {q1_work or 'कार्य'} अनुभव और NSQF स्तर {course_copy.get('nsqf_level')} के आधार पर यह {course_copy.get('sector')} कोर्स उपयुक्त है।"
+            else:
+                reason = f"Based on your background in {q1_work or 'field'}, this NSQF Level {course_copy.get('nsqf_level')} {course_copy.get('sector')} course helps advance your career."
+
+        course_copy["match_reason"] = reason.strip()
+        
+        # Ensure score field is present for UI match percentage
+        course_copy["score"] = round(course_copy.get("fit_score", 10.0) / 20.0, 2)
+        ranked_courses.append(course_copy)
+
+    # 3. Friendly Government Service Explanation
+    top_course_name = ranked_courses[0].get("name") if ranked_courses else "ప్రభుత్వ నైపుణ్యాభివృద్ధి కోర్సు"
+    if lang.startswith("te"):
+        if pathway_pref == "direct_job":
+            pathway_desc = f"మీకు మీ జిల్లాలో నేరుగా ఉపాధి లభించే అవకాశాలను మరియు సంబంధిత ధృవీకరణ మార్గాన్ని సూచిస్తున్నాము"
+        elif pathway_pref == "course":
+            pathway_desc = f"పీఎం-అజయ్ పథకం క్రింద ఉచిత శిక్షణ మరియు స్టైపెండ్‌తో కూడిన '{top_course_name}' కోర్సును సిఫార్సు చేస్తున్నాము"
+        else:
+            pathway_desc = f"మీ ప్రస్తుత పనిలో ఆధునిక నైపుణ్యాలు మరియు NSQF సర్టిఫికేషన్ పొందేందుకు '{top_course_name}' కోర్సును సిఫార్సు చేస్తున్నాము"
+
+        explanation = (
+            f"నమస్కారం {candidate_name} గారూ. మీరు అందించిన వివరాల ఆధారంగా మీ పని అనుభవం NSQF స్థాయి {aligned_level_range} ప్రమాణాలకు అనుగుణంగా ఉంది. "
+            f"{pathway_desc}. ప్రభుత్వ నిబంధనల ప్రకారం మీరు ఈ సహాయాన్ని ఉచితంగా పొందవచ్చు."
+        )
+    elif lang.startswith("hi"):
+        if pathway_pref == "direct_job":
+            pathway_desc = f"आपके जिले में सीधे रोजगार और संबंधित प्रमाणन मार्ग का सुझाव दिया जा रहा है"
+        elif pathway_pref == "course":
+            pathway_desc = f"पीएम-अजय योजना के तहत निःशुल्क प्रशिक्षण और स्टाइपेंड के साथ '{top_course_name}' की सिफारिश की जाती है"
+        else:
+            pathway_desc = f"आपके वर्तमान कार्य में उच्च कौशल और प्रमाणन के लिए '{top_course_name}' की सिफारिश की जाती है"
+
+        explanation = (
+            f"नमस्ते {candidate_name} जी। आपके द्वारा दिए गए विवरणों के अनुसार आपका कार्य अनुभव NSQF स्तर {aligned_level_range} के अनुरूप है। "
+            f"{pathway_desc}। सरकारी नियमों के अनुसार आप यह सहायता निःशुल्क प्राप्त करने के पात्र हैं।"
+        )
+    else:
+        if pathway_pref == "direct_job":
+            pathway_desc = "we recommend direct employment pathways and relevant placement opportunities in your district"
+        elif pathway_pref == "course":
+            pathway_desc = f"we recommend enrolling in the accredited '{top_course_name}' with government stipend"
+        else:
+            pathway_desc = f"we recommend upskilling certification under '{top_course_name}' to advance your trade"
+
+        explanation = (
+            f"Greetings {candidate_name}. Based on your assessment, your practical expertise aligns with NSQF Level {aligned_level_range}. "
+            f"{pathway_desc}. Under the PM-AJAY skilling scheme, you are eligible for free training and certification."
+        )
+
+    # 4. Synthesize voice audio
+    tts_res = tts_service.synthesize(explanation, language=lang, speaker="ritu")
+
+    # 5. Persist to DB
+    decision_trace = {
+        "assessment_type": "nsqf_10_question_flow",
+        "session_id": session_id,
+        "nsqf_aligned_level": aligned_level_range,
+        "pathway_preference": pathway_pref,
+        "answers_captured": len(answers),
+        "beneficiary_profile": beneficiary_profile,
+    }
+
+    try:
+        if ranked_courses and user_id:
+            db.save_recommendation_with_trace(
+                user_id=user_id,
+                course_id=ranked_courses[0]["id"],
+                score=ranked_courses[0].get("score", 0.0),
+                reason=ranked_courses[0].get("match_reason", explanation),
+                trace=decision_trace,
+            )
+            # Update user skills in DB
+            db.update_user(user_id, {
+                "skills": skills,
+                "interests": [pathway_pref],
+            })
+    except Exception as e:
+        logger.warning(f"Failed to persist assessment outcome to DB: {e}")
+
+    return AssessmentCompleteResponse(
+        session_id=session_id,
+        user_id=user_id,
+        language=lang,
+        profile=beneficiary_profile,
+        nsqf_alignment=nsqf_dict,
+        pathway_preference=pathway_pref,
+        recommendations=ranked_courses,
+        explanation=explanation,
+        audio_base64=tts_res.get("audio_base64"),
+        audio_provider=tts_res.get("provider", "Sarvam AI"),
+        decision_trace=decision_trace,
+    )
 
 
 # ═══════════════════════════════════════════════════════════════

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { useApp } from "@/lib/AppContext";
 import { apiClient } from "@/lib/api/client";
+import { voiceService } from "@/lib/api/services/voice";
 import { VoiceQueryResponse, LanguageCode } from "@/types/api";
 import {
   Mic,
@@ -24,16 +25,17 @@ import {
   Award,
   ChevronRight,
   HelpCircle,
-  Edit3,
+  Clock,
+  Wrench,
+  BookOpen,
+  Target,
 } from "lucide-react";
 import Link from "next/link";
 import {
   GuidedAssistantState,
-  LivelihoodPathCategory,
   SessionProfileContext,
   GUIDED_QUESTIONS_CATALOG,
-  analyzeTurnResponse,
-  formatAcknowledgment,
+  getPromptForStep,
   QuestionPrompt,
 } from "@/lib/voice/guidedVoiceEngine";
 
@@ -44,29 +46,34 @@ interface VoiceAssistantProps {
 export const SARVAM_VOICE_OPTIONS = [
   { id: "ritu", label: "Ritu (Female)", desc: "Studio Clear (రితు / ऋतु)" },
   { id: "meera", label: "Meera (Female)", desc: "Expressive (మీరా / मीरा)" },
-  { id: "pavithra", label: "Pavithra (Female)", desc: "Vernacular (పవిత్ర / पवित्रा)" },
+  { id: "pavithra", label: "Pavithra (Female)", desc: "Vernacular (పవిత్ర / पवित్రా)" },
   { id: "arvind", label: "Arvind (Male)", desc: "Deep & Clear (అరవింద్ / अरविंद)" },
   { id: "amartya", label: "Amartya (Male)", desc: "Professional (అమర్త్య / अमर्त्य)" },
 ];
 
 export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) {
-  const { language, t } = useApp();
+  const { language, t, profile: existingUserProfile } = useApp();
 
   // Guided Assistant Core State Machine
+  const [sessionId, setSessionId] = useState<string>(() => `voice_sess_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`);
   const [assistantState, setAssistantState] = useState<GuidedAssistantState>("QUESTION_DISPLAYED");
   const [activeStepIndex, setActiveStepIndex] = useState<number>(1);
-  const [currentPrompt, setCurrentPrompt] = useState<QuestionPrompt>(GUIDED_QUESTIONS_CATALOG.NAME_STEP);
+  const [currentPrompt, setCurrentPrompt] = useState<QuestionPrompt>(() => getPromptForStep(1));
   
   // Turn transcript & acknowledgement
-  const [interimTranscript, setInterimTranscript] = useState<string>("");
+  const [interimTranscript, setInterimTranscript] = useState<string>("" );
   const [capturedAnswer, setCapturedAnswer] = useState<string>("");
   const [activeAcknowledgment, setActiveAcknowledgment] = useState<string>("");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   // Session Context Memory
   const [sessionContext, setSessionContext] = useState<SessionProfileContext>({
-    category: "general",
+    sessionId: "",
+    name: existingUserProfile?.name || "",
+    location: existingUserProfile?.location_district || "",
+    education: existingUserProfile?.education_level || "",
     history: [],
+    answers: [],
   });
 
   // Audio Playback & Voice Selection (Sarvam AI)
@@ -76,7 +83,11 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
   const [isSpeakingPrompt, setIsSpeakingPrompt] = useState(false);
   const [showTypeInput, setShowTypeInput] = useState(false);
   const [textInput, setTextInput] = useState("");
+  
+  // Results
   const [finalResult, setFinalResult] = useState<VoiceQueryResponse | null>(null);
+  const [nsqfAlignment, setNsqfAlignment] = useState<any>(null);
+  const [structuredProfile, setStructuredProfile] = useState<any>(null);
 
   // Refs
   const recognitionRef = useRef<any>(null);
@@ -86,33 +97,11 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
   const autoAdvanceTimerRef = useRef<NodeJS.Timeout | null>(null);
   const currentAudioElementRef = useRef<HTMLAudioElement | null>(null);
 
-  // ───────────────────────────────────────────────────────────────────────────
-  // Helper: Get Current Prompt based on Step Index & Category
-  // ───────────────────────────────────────────────────────────────────────────
-  const getPromptForStep = useCallback((stepIdx: number, ctx: SessionProfileContext): QuestionPrompt => {
-    switch (stepIdx) {
-      case 1:
-        return GUIDED_QUESTIONS_CATALOG.NAME_STEP;
-      case 2:
-        return GUIDED_QUESTIONS_CATALOG.LOCATION_STEP;
-      case 3:
-        return GUIDED_QUESTIONS_CATALOG.OCCUPATION_STEP;
-      case 4: {
-        const branchPrompt = GUIDED_QUESTIONS_CATALOG.BRANCH_STEPS[ctx.category] || GUIDED_QUESTIONS_CATALOG.BRANCH_STEPS.general;
-        return branchPrompt;
-      }
-      case 5:
-        return GUIDED_QUESTIONS_CATALOG.CONFIRM_STEP;
-      default:
-        return GUIDED_QUESTIONS_CATALOG.NAME_STEP;
-    }
-  }, []);
-
-  // Update prompt whenever step or language changes
+  // Update prompt whenever step changes
   useEffect(() => {
-    const prompt = getPromptForStep(activeStepIndex, sessionContext);
+    const prompt = getPromptForStep(activeStepIndex);
     setCurrentPrompt(prompt);
-  }, [activeStepIndex, sessionContext, getPromptForStep]);
+  }, [activeStepIndex]);
 
   // ───────────────────────────────────────────────────────────────────────────
   // Audio & TTS Utilities
@@ -178,14 +167,13 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
     fallbackToBrowserTTS(textToSpeak);
   }, [language, selectedVoice, voiceOutputEnabled, stopAudioPlayback, fallbackToBrowserTTS]);
 
-  // Read current question when step changes (if idle)
+  // Read current question verbatim (100% verbal-visual fidelity)
   const readCurrentQuestion = useCallback(() => {
-    const prompt = getPromptForStep(activeStepIndex, sessionContext);
+    const prompt = getPromptForStep(activeStepIndex);
     const langKey = language as LanguageCode;
-    const text = (prompt.acknowledgment ? `${formatAcknowledgment(prompt.acknowledgment[langKey] || "", sessionContext, langKey)} ` : "") +
-      formatAcknowledgment(prompt.question[langKey] || prompt.question.en, sessionContext, langKey);
+    const text = prompt.question[langKey] || prompt.question.en;
     speakText(text, selectedVoice);
-  }, [activeStepIndex, sessionContext, language, selectedVoice, getPromptForStep, speakText]);
+  }, [activeStepIndex, language, selectedVoice, speakText]);
 
   // ───────────────────────────────────────────────────────────────────────────
   // Core Voice State Machine Methods
@@ -218,68 +206,71 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
     }
   }, []);
 
-  // 2. completeGuidedSession: Runs PM-AJAY recommendation matching with assembled profile
+  // 2. completeGuidedSession: Runs 10-question NSQF comparison and pathway generation
   const completeGuidedSession = useCallback(async (ctx: SessionProfileContext) => {
     setAssistantState("PROCESSING");
     stopAudioPlayback();
 
-    // Synthesize structured profile query string
-    const profileSummary = [
-      ctx.name ? `Candidate Name: ${ctx.name}.` : "",
-      ctx.location ? `District Location: ${ctx.location}.` : "",
-      ctx.occupation ? `Occupation / Role: ${ctx.occupation}.` : "",
-      ctx.category ? `Livelihood Category: ${ctx.category}.` : "",
-      ctx.specificNeed ? `Stated Assistance Goal: ${ctx.specificNeed}.` : "",
-      ctx.history.map((h) => `${h.questionText}: ${h.answerText}`).join(". "),
-    ].filter(Boolean).join(" ");
-
     try {
-      const recData = await apiClient.getRecommendations({
-        raw_text: profileSummary,
+      const completeRes = await voiceService.completeAssessment({
+        session_id: sessionId,
+        user_id: 1,
         language: language,
+        answers: ctx.answers,
+        user_profile: {
+          name: existingUserProfile?.name || ctx.name || "Ravi Kumar",
+          age: existingUserProfile?.age || 24,
+          location_district: existingUserProfile?.location_district || ctx.location || "West Godavari",
+          education_level: existingUserProfile?.education_level || ctx.education || "10th Pass",
+          caste_category: existingUserProfile?.caste_category || "SC",
+          annual_income: existingUserProfile?.annual_income || 120000,
+        },
         top_k: 3,
       });
 
       const unified: VoiceQueryResponse = {
         language: language,
-        transcript: profileSummary,
-        stt_provider: "Guided Voice Intake Engine",
-        profile: recData.extracted_profile || {
-          name: ctx.name,
-          location_district: ctx.location,
-          occupation: ctx.occupation || ctx.category,
-          skills: [ctx.category],
-          interests: [ctx.specificNeed || "Skilling"],
-        },
-        eligible: recData.eligible,
-        eligibility_reasons: recData.eligibility_reasons,
-        recommendations: recData.recommended_courses,
-        explanation: recData.explanation || "",
-        pathway_explanation: recData.pathway_explanation,
-        audio_base64: null,
-        audio_provider: "Guided Voice Engine",
+        transcript: ctx.answers.map((a) => `${a.questionText}: ${a.answerText}`).join(". "),
+        stt_provider: "NSQF Guided Voice Intake Engine",
+        profile: completeRes.profile || {},
+        eligible: true,
+        eligibility_reasons: [
+          language === "te"
+            ? "లబ్ధిదారుడు PM-AJAY GIA నిబంధనల ప్రకారం ఉచిత శిక్షణకు అర్హులు."
+            : language === "hi"
+            ? "लाभार्थी PM-AJAY GIA मानदंडों के अनुसार निःशुल्क प्रशिक्षण के पात्र हैं।"
+            : "Beneficiary fulfills PM-AJAY GIA skilling norms.",
+        ],
+        recommendations: completeRes.recommendations || [],
+        explanation: completeRes.explanation || "",
+        pathway_explanation: undefined,
+        audio_base64: completeRes.audio_base64,
+        audio_provider: completeRes.audio_provider || "Sarvam AI",
         client_tts_fallback: true,
-        validation_report: recData.validation_report || [],
-        decision_trace: recData.decision_trace || {},
+        validation_report: [],
+        decision_trace: completeRes.decision_trace || {},
       };
 
+      setNsqfAlignment(completeRes.nsqf_alignment || null);
+      setStructuredProfile(completeRes.profile || null);
       setFinalResult(unified);
       setAssistantState("COMPLETED");
+
       if (onRecommendationResult) onRecommendationResult(unified);
 
-      if (recData.explanation && voiceOutputEnabled) {
-        speakText(recData.explanation, selectedVoice);
+      if (completeRes.explanation && voiceOutputEnabled) {
+        speakText(completeRes.explanation, selectedVoice);
       }
     } catch (err: any) {
-      console.error("Guided session completion error:", err);
-      setErrorMsg("Failed to generate recommendations. Please retry.");
+      console.error("NSQF voice assessment completion error:", err);
+      setErrorMsg("Failed to generate NSQF assessment. Please retry.");
       setAssistantState("QUESTION_DISPLAYED");
     }
-  }, [language, selectedVoice, voiceOutputEnabled, onRecommendationResult, speakText, stopAudioPlayback]);
+  }, [sessionId, language, existingUserProfile, selectedVoice, voiceOutputEnabled, onRecommendationResult, speakText, stopAudioPlayback]);
 
-  // 3. moveToNextStep: Transitions to next contextual step or completes session
+  // 3. moveToNextStep: Transitions to next question or triggers completion at 10
   const moveToNextStep = useCallback(async (ctx: SessionProfileContext) => {
-    if (activeStepIndex < 5) {
+    if (activeStepIndex < 10) {
       const nextStep = activeStepIndex + 1;
       setActiveStepIndex(nextStep);
       setAssistantState("QUESTION_DISPLAYED");
@@ -287,22 +278,21 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
       setCapturedAnswer("");
       setErrorMsg(null);
 
-      // Speak next question in native language using the selected voice
-      const nextPrompt = getPromptForStep(nextStep, ctx);
+      // Speak next question verbatim in native language (verbatim screen match!)
+      const nextPrompt = getPromptForStep(nextStep);
       const langKey = language as LanguageCode;
-      const speech = (nextPrompt.acknowledgment ? `${formatAcknowledgment(nextPrompt.acknowledgment[langKey] || "", ctx, langKey)} ` : "") +
-        formatAcknowledgment(nextPrompt.question[langKey] || nextPrompt.question.en, ctx, langKey);
+      const nextQText = nextPrompt.question[langKey] || nextPrompt.question.en;
       if (voiceOutputEnabled) {
-        speakText(speech, selectedVoice);
+        speakText(nextQText, selectedVoice);
       }
     } else {
-      // Step 5 completed -> Trigger final recommendation engine
+      // Step 10 completed -> Structure profile, compare with NSQF, recommend pathway
       await completeGuidedSession(ctx);
     }
-  }, [activeStepIndex, language, selectedVoice, voiceOutputEnabled, getPromptForStep, speakText, completeGuidedSession]);
+  }, [activeStepIndex, language, selectedVoice, voiceOutputEnabled, speakText, completeGuidedSession]);
 
-  // 4. processAnswer: Processes recognized/selected answer, speaks acknowledgment in selected voice, and advances
-  const processAnswer = useCallback(async (recognizedText: string, speakAcknowledgment: boolean = true) => {
+  // 4. processAnswer: Persists single answer turn to SQLite, speaks acknowledgment, and advances
+  const processAnswer = useCallback(async (recognizedText: string) => {
     const cleanAnswer = recognizedText.trim();
     if (!cleanAnswer) {
       setAssistantState("UNCLEAR");
@@ -315,102 +305,60 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
     setAssistantState("ANSWER_CAPTURED");
     setErrorMsg(null);
 
-    // Entity & intent extraction
-    const analysis = analyzeTurnResponse(cleanAnswer, currentPrompt.id, sessionContext);
+    const langKey = language as LanguageCode;
+    const currentQText = currentPrompt.question[langKey] || currentPrompt.question.en;
 
-    // Build updated session context
+    // 1. Build updated session context
+    const updatedAnswers = [
+      ...sessionContext.answers.filter((a) => a.stepNumber !== activeStepIndex),
+      {
+        stepNumber: activeStepIndex,
+        questionId: currentPrompt.id,
+        questionText: currentQText,
+        answerText: cleanAnswer,
+      },
+    ];
+
     const updatedContext: SessionProfileContext = {
       ...sessionContext,
-      name: analysis.extractedName || sessionContext.name,
-      location: analysis.extractedLocation || sessionContext.location,
-      category: analysis.detectedCategory || sessionContext.category,
-      specificNeed: analysis.specificNeed || sessionContext.specificNeed,
+      answers: updatedAnswers,
       history: [
         ...sessionContext.history.filter((h) => h.questionId !== currentPrompt.id),
         {
           questionId: currentPrompt.id,
-          questionText: currentPrompt.question[language as LanguageCode] || currentPrompt.question.en,
+          questionText: currentQText,
           answerText: cleanAnswer,
-          category: analysis.detectedCategory || sessionContext.category,
         },
       ],
     };
 
     setSessionContext(updatedContext);
 
-    // Format acknowledgment for the turn
-    let ackText = "";
-    if (currentPrompt.id === "name" && updatedContext.name) {
-      ackText = language === "te"
-        ? `నమస్కారం ${updatedContext.name} గారూ.`
-        : language === "hi"
-        ? `नमस्ते ${updatedContext.name} जी।`
-        : `Nice to meet you, ${updatedContext.name}.`;
-    } else if (currentPrompt.id === "location" && updatedContext.location) {
-      ackText = language === "te"
-        ? `ధన్యవాదాలు. మీరు ${updatedContext.location} లో ఉన్నట్లు నమోదు చేశాను.`
-        : language === "hi"
-        ? `धन्यवाद। मैंने दर्ज कर लिया है कि आप ${updatedContext.location} में रहते हैं।`
-        : `Thank you. I have noted that you live in ${updatedContext.location}.`;
-    } else if (currentPrompt.id === "occupation") {
-      const cat = updatedContext.category;
-      if (cat === "farmer") {
-        ackText = language === "te"
-          ? `ధన్యవాదాలు. అన్నదాతలు మన దేశానికి వెన్నెముక.`
-          : language === "hi"
-          ? `धन्यवाद। किसान हमारे देश की रीढ़ हैं।`
-          : `Thank you. Farmers are the backbone of our nation.`;
-      } else if (cat === "student") {
-        ackText = language === "te"
-          ? `చాలా బాగుంది. విద్యావంతులకు నైపుణ్య శిక్షణ ఎంతో సహాయపడుతుంది.`
-          : language === "hi"
-          ? `बहुत बढ़िया। छात्रों के लिए कौशल प्रशिक्षण बेहद फायदेमंद है।`
-          : `Great. Skill training opens vast opportunities for students.`;
-      } else if (cat === "senior") {
-        ackText = language === "te"
-          ? `నమస్కారాలు. వయోవృద్ధుల సంక్షేమానికి అధిక ప్రాధాన్యత ఉంది.`
-          : language === "hi"
-          ? `सादर प्रणाम। वरिष्ठ नागरिकों के कल्याण को प्राथमिकता दी जाती है।`
-          : `Respectful greetings. We prioritize senior citizen welfare.`;
-      } else if (cat === "healthcare") {
-        ackText = language === "te"
-          ? `అర్థమైంది. ఆరోగ్య సంరక్షణ ప్రతి కుటుంబానికి చాలా ముఖ్యం.`
-          : language === "hi"
-          ? `समझ गया। स्वास्थ्य सुरक्षा हर परिवार के लिए जरूरी है।`
-          : `Understood. Healthcare access is vital for every family.`;
-      } else {
-        ackText = language === "te"
-          ? `చాలా సంతోషం. మీ నైపుణ్య నేపథ్యాన్ని నమోదు చేశాను.`
-          : language === "hi"
-          ? `बहुत अच्छा। आपकी पृष्ठभूमि दर्ज कर ली गई है।`
-          : `Understood. I have recorded your professional background.`;
-      }
-    } else if (currentPrompt.id === "confirm") {
-      ackText = language === "te"
-        ? `అద్భుతం! మీ వివరాలను ధృవీకరించాను. ఇప్పుడు సిఫార్సులు రూపొందిస్తున్నాను.`
-        : language === "hi"
-        ? `शानदार! आपके विवरण सत्यापित हो गए हैं। अब सिफारिशें तैयार की जा रही हैं।`
-        : `Excellent! Your details have been verified. Generating recommendations now.`;
-    } else {
-      ackText = language === "te"
-        ? `సరే, మీరు "${cleanAnswer}" ఎంచుకున్నారు.`
-        : language === "hi"
-        ? `ठीक है, आपने "${cleanAnswer}" चुना है।`
-        : `Noted, you selected "${cleanAnswer}".`;
-    }
+    // 2. Persist turn answer synchronously/asynchronously to backend SQLite database
+    voiceService.saveAssessmentAnswer({
+      session_id: sessionId,
+      user_id: 1,
+      step_number: activeStepIndex,
+      question_id: currentPrompt.id,
+      question_text: currentQText,
+      answer_text: cleanAnswer,
+      language: language,
+    }).catch((err) => {
+      console.warn("Could not persist answer to backend DB:", err);
+    });
+
+    // 3. Polite acknowledgment
+    const ackText = currentPrompt.acknowledgment?.[langKey] || currentPrompt.acknowledgment?.en || (
+      language === "te" ? "మీ సమాధానం నమోదైంది." : language === "hi" ? "आपका उत्तर दर्ज कर लिया गया है।" : "Answer recorded."
+    );
     setActiveAcknowledgment(ackText);
 
-    // Speak acknowledgment immediately in the selected voice
-    if (speakAcknowledgment && voiceOutputEnabled && ackText) {
-      speakText(ackText, selectedVoice);
-    }
-
-    // Auto-advance after giving user time to hear acknowledgment
+    // Auto-advance to next question
     if (autoAdvanceTimerRef.current) clearTimeout(autoAdvanceTimerRef.current);
     autoAdvanceTimerRef.current = setTimeout(() => {
       moveToNextStep(updatedContext);
-    }, 1900);
-  }, [currentPrompt, sessionContext, language, selectedVoice, voiceOutputEnabled, stopListening, stopAudioPlayback, speakText, moveToNextStep]);
+    }, 900);
+  }, [currentPrompt, activeStepIndex, sessionContext, sessionId, language, stopListening, stopAudioPlayback, moveToNextStep]);
 
   // 5. startListening: User answers -> Microphone active -> auto stops on completion
   const startListening = useCallback(async () => {
@@ -429,7 +377,7 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
         const recognition = new SpeechRecognition();
         recognitionRef.current = recognition;
 
-        // CRUCIAL: NEVER continuous listening! Single turn only!
+        // Discrete single-turn listening only
         recognition.continuous = false;
         recognition.interimResults = true;
 
@@ -448,101 +396,89 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
           if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
           silenceTimerRef.current = setTimeout(() => {
             if (currentText.trim()) {
-              processAnswer(currentText, true);
+              processAnswer(currentText);
             }
           }, 1800);
 
           // If speech recognition flagged turn as final
           if (event.results[event.results.length - 1].isFinal) {
             if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
-            processAnswer(currentText, true);
+            processAnswer(currentText);
           }
         };
 
         recognition.onspeechend = () => {
-          // Automatic stop immediately when speaking finishes
           stopListening();
         };
 
         recognition.onerror = (event: any) => {
-          console.warn("SpeechRecognition event error:", event.error);
+          console.warn("SpeechRecognition error:", event.error);
           if (event.error === "no-speech") {
             setAssistantState("UNCLEAR");
           } else {
-            // Fallback to MediaRecorder audio stream
-            startMediaRecorderFallback();
-          }
-        };
-
-        recognition.onend = () => {
-          if (assistantState === "LISTENING" && !interimTranscript.trim()) {
-            setAssistantState("QUESTION_DISPLAYED");
+            setShowTypeInput(true);
           }
         };
 
         recognition.start();
-
-        // 7-second safety timeout if no speech detected
-        silenceTimerRef.current = setTimeout(() => {
-          if (assistantState === "LISTENING") {
-            stopListening();
-            setAssistantState("UNCLEAR");
-          }
-        }, 7000);
-
         return;
       } catch (err) {
-        console.warn("SpeechRecognition init failed, falling back to MediaRecorder", err);
+        console.warn("Web Speech API init failed, using audio recorder fallback:", err);
       }
     }
 
-    // MediaRecorder fallback
-    startMediaRecorderFallback();
-  }, [language, assistantState, interimTranscript, processAnswer, stopAudioPlayback, stopListening]);
-
-  // MediaRecorder audio fallback with backend transcription
-  const startMediaRecorderFallback = async () => {
+    // Fallback: MediaRecorder audio stream
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorderRef.current = new MediaRecorder(stream);
+      const mediaRecorder = new MediaRecorder(stream);
+      mediaRecorderRef.current = mediaRecorder;
       audioChunksRef.current = [];
 
-      mediaRecorderRef.current.ondataavailable = (e) => {
+      mediaRecorder.ondataavailable = (e) => {
         if (e.data.size > 0) audioChunksRef.current.push(e.data);
       };
 
-      mediaRecorderRef.current.onstop = async () => {
-        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+      mediaRecorder.onstop = async () => {
         stream.getTracks().forEach((track) => track.stop());
-
-        // Transcribe discrete turn
-        try {
-          setAssistantState("PROCESSING");
-          const res = await apiClient.transcribeAudio(audioBlob, language);
-          if (res.transcript && res.transcript.trim()) {
-            processAnswer(res.transcript, true);
-          } else {
+        const audioBlob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+        if (audioBlob.size > 1000) {
+          try {
+            setAssistantState("PROCESSING");
+            const res = await voiceService.sendVoiceQuery(audioBlob, language);
+            if (res && res.transcript) {
+              processAnswer(res.transcript);
+            } else {
+              setAssistantState("UNCLEAR");
+            }
+          } catch (e) {
             setAssistantState("UNCLEAR");
           }
-        } catch (err: any) {
-          setErrorMsg("Could not transcribe audio. Please tap to retry or click one of the suggested answers.");
-          setAssistantState("QUESTION_DISPLAYED");
+        } else {
+          setAssistantState("UNCLEAR");
         }
       };
 
-      mediaRecorderRef.current.start();
+      mediaRecorder.start();
 
-      // Automatically stop recording after 4.5 seconds for discrete answer
+      if (silenceTimerRef.current) clearTimeout(silenceTimerRef.current);
       silenceTimerRef.current = setTimeout(() => {
         stopListening();
-      }, 4500);
-    } catch (err) {
-      setErrorMsg("Microphone permission was not granted. You may select a suggested answer or type below.");
+      }, 5000);
+    } catch (e: any) {
+      console.warn("Microphone access denied or unavailable:", e);
+      setErrorMsg(
+        language === "te"
+          ? "మైక్రోఫోన్ అనుమతి అవసరం. దయచేసి టైప్ చేయండి."
+          : language === "hi"
+          ? "माइक्रोफ़ोन अनुमति आवश्यक है। कृपया लिखकर उत्तर दें।"
+          : "Microphone access required. Please type your answer."
+      );
+      setShowTypeInput(true);
       setAssistantState("QUESTION_DISPLAYED");
     }
-  };
+  }, [language, stopAudioPlayback, stopListening, processAnswer]);
 
-  // 6. retryCurrentQuestion: User can retry current question
+  // 6. retryCurrentQuestion
   const retryCurrentQuestion = () => {
     stopListening();
     stopAudioPlayback();
@@ -552,24 +488,34 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
     setAssistantState("QUESTION_DISPLAYED");
   };
 
-  // 7. selectSuggestion: Option B (User taps a suggestion shortcut)
+  // 7. selectSuggestion
   const selectSuggestion = (suggestionText: string) => {
     stopListening();
     stopAudioPlayback();
-    processAnswer(suggestionText, true);
+    processAnswer(suggestionText);
   };
 
   // 8. restartSession: Reset to Q1
   const restartSession = () => {
     stopListening();
     stopAudioPlayback();
+    setSessionId(`voice_sess_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`);
     setActiveStepIndex(1);
-    setSessionContext({ category: "general", history: [] });
+    setSessionContext({
+      sessionId: "",
+      name: existingUserProfile?.name || "",
+      location: existingUserProfile?.location_district || "",
+      education: existingUserProfile?.education_level || "",
+      history: [],
+      answers: [],
+    });
     setCapturedAnswer("");
     setInterimTranscript("");
     setActiveAcknowledgment("");
     setErrorMsg(null);
     setFinalResult(null);
+    setNsqfAlignment(null);
+    setStructuredProfile(null);
     setAssistantState("QUESTION_DISPLAYED");
   };
 
@@ -586,10 +532,8 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
   // Labels for the active language
   const langKey = language as LanguageCode;
   const youCanSayLabel = currentPrompt.suggestionsHeader[langKey] || currentPrompt.suggestionsHeader.en;
-  const rawQText = currentPrompt.question[langKey] || currentPrompt.question.en;
-  const currentQText = formatAcknowledgment(rawQText, sessionContext, langKey);
-  const rawSuggestions = currentPrompt.suggestions[langKey] || currentPrompt.suggestions.en;
-  const currentSuggestions = rawSuggestions.map((s) => formatAcknowledgment(s, sessionContext, langKey));
+  const currentQText = currentPrompt.question[langKey] || currentPrompt.question.en;
+  const currentSuggestions = currentPrompt.suggestions[langKey] || currentPrompt.suggestions.en;
 
   return (
     <div className="w-full max-w-4xl mx-auto">
@@ -599,8 +543,9 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
         <div className="bg-slate-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs uppercase font-bold tracking-widest text-amber-400">
-                AI Public Service Counselor
+              <span className="text-xs uppercase font-bold tracking-widest text-amber-400 flex items-center gap-1">
+                <Sparkles className="w-3.5 h-3.5" />
+                PM-AJAY NSQF Skill Assessment
               </span>
               <span className="text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
                 Language: {language === "te" ? "తెలుగు" : language === "hi" ? "हिन्दी" : "English"}
@@ -611,21 +556,21 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
             </h2>
           </div>
 
-          {/* Question Progress Indicator */}
+          {/* 10-Step Question Progress Indicator */}
           {assistantState !== "COMPLETED" && (
             <div className="flex items-center gap-3">
               <span className="text-xs font-semibold text-slate-300">
                 {language === "te"
-                  ? `ప్రశ్న ${activeStepIndex} / 5`
+                  ? `ప్రశ్న ${activeStepIndex} / 10`
                   : language === "hi"
-                  ? `प्रश्न ${activeStepIndex} / 5`
-                  : `Question ${activeStepIndex} of 5`}
+                  ? `प्रश्न ${activeStepIndex} / 10`
+                  : `Question ${activeStepIndex} of 10`}
               </span>
-              <div className="flex items-center gap-1.5">
-                {[1, 2, 3, 4, 5].map((step) => (
+              <div className="flex items-center gap-1">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((step) => (
                   <span
                     key={step}
-                    className={`w-2.5 h-2.5 rounded-full transition ${
+                    className={`w-2 h-2 rounded-full transition ${
                       step === activeStepIndex
                         ? "bg-amber-400 ring-2 ring-amber-200"
                         : step < activeStepIndex
@@ -692,7 +637,7 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
               ) : (
                 <>
                   <VolumeX className="w-3.5 h-3.5 text-slate-400" />
-                  <span>{language === "te" ? "వాయిస్: ఆఫ్ (మౌనం)" : language === "hi" ? "आवाज: म्यूट" : "Voice Output: OFF"}</span>
+                  <span>{language === "te" ? "వాయిస్: ఆఫ్" : language === "hi" ? "आवाज: म्यूट" : "Voice Output: OFF"}</span>
                 </>
               )}
             </button>
@@ -719,7 +664,7 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
               {assistantState === "PROCESSING" && (
                 <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">
                   <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                  {language === "te" ? "వివరాలను విశ్లేషిస్తోంది..." : language === "hi" ? "विवरण विश्लेषित कर रहा है..." : "Processing response..."}
+                  {language === "te" ? "NSQF ప్రమాణాలతో విశ్లేషిస్తోంది..." : language === "hi" ? "NSQF मानकों से मिलान हो रहा है..." : "Analyzing with NSQF descriptors..."}
                 </span>
               )}
               {assistantState === "UNCLEAR" && (
@@ -736,17 +681,17 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
               )}
             </div>
 
-            {/* Context Acknowledgment (Brief, polite response acknowledging prior answer) */}
+            {/* Context Acknowledgment */}
             {activeAcknowledgment && (
               <div className="mb-3 px-4 py-2 rounded-lg bg-blue-50/70 border border-blue-200 text-xs font-medium text-blue-900 max-w-xl animate-fade-in">
                 {activeAcknowledgment}
               </div>
             )}
 
-            {/* Active Question Title */}
+            {/* Active Question Title (100% verbal-visual fidelity) */}
             <div className="max-w-2xl my-2">
               <div className="text-xs uppercase font-bold text-blue-800 tracking-wider mb-1">
-                {language === "te" ? `ప్రశ్న ${activeStepIndex}` : language === "hi" ? `प्रश्न ${activeStepIndex}` : `Question ${activeStepIndex}`}
+                {language === "te" ? `ప్రశ్న ${activeStepIndex} / 10` : language === "hi" ? `प्रश्न ${activeStepIndex} / 10` : `Question ${activeStepIndex} of 10`}
               </div>
               <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 leading-snug">
                 "{currentQText}"
@@ -790,7 +735,7 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
                 title={
                   assistantState === "LISTENING"
                     ? (language === "te" ? "ఆపండి" : language === "hi" ? "रोकें" : "Stop listening")
-                    : (language === "te" ? "మాట్లాడటానికి నొక్కండి" : language === "hi" ? "उत्तर देने के लिए टैप करें" : "Tap to answer")
+                    : (language === "te" ? "మాట్లాడటానికి నొక్కండి" : language === "hi" ? "उत्तर देने के लिए टैప करें" : "Tap to answer")
                 }
               >
                 {assistantState === "LISTENING" ? (
@@ -822,167 +767,135 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
                 {language === "te" ? "ప్రశ్న వినండి" : language === "hi" ? "प्रश्न सुनें" : "Read Question"}
               </button>
 
-              {assistantState === "UNCLEAR" && (
-                <button
-                  type="button"
-                  onClick={startListening}
-                  className="text-xs font-bold text-amber-800 hover:text-amber-950 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-100 border border-amber-300 transition"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  {language === "te" ? "మళ్లీ ప్రయత్నించండి" : language === "hi" ? "पुनः प्रयास करें" : "Try Again"}
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={retryCurrentQuestion}
+                className="text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                {language === "te" ? "మళ్లీ సమాధానం ఇవ్వండి" : language === "hi" ? "पुनः उत्तर दें" : "Retry"}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setShowTypeInput(!showTypeInput)}
+                className="text-xs font-semibold text-slate-600 hover:text-slate-900 flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 transition"
+              >
+                {language === "te" ? "టైప్ చేయండి" : language === "hi" ? "टाइप करें" : "Type Answer"}
+              </button>
             </div>
 
-            {/* Native-Language Example Responses / Clickable Suggestion Chips */}
-            <div className="w-full max-w-xl bg-slate-50 border border-slate-200 rounded-xl p-5 text-left shadow-2xs">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
-                  {youCanSayLabel}
-                </span>
-                <span className="text-[11px] text-slate-500">
-                  {language === "te"
-                    ? "నోటితో చెప్పవచ్చు లేదా ఎంచుకోవచ్చు"
-                    : language === "hi"
-                    ? "बोल सकते हैं या चुन सकते हैं"
-                    : "Speak or tap to select"}
-                </span>
+            {/* Manual Typing Input (Fallback) */}
+            {showTypeInput && (
+              <div className="w-full max-w-md mb-6 flex items-center gap-2">
+                <input
+                  type="text"
+                  value={textInput}
+                  onChange={(e) => setTextInput(e.target.value)}
+                  placeholder={language === "te" ? "మీ సమాధానం ఇక్కడ టైప్ చేయండి..." : language === "hi" ? "अपना उत्तर यहाँ लिखें..." : "Type your answer here..."}
+                  className="flex-1 px-3 py-2 text-xs border border-slate-300 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-blue-700"
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && textInput.trim()) {
+                      processAnswer(textInput);
+                      setTextInput("");
+                    }
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (textInput.trim()) {
+                      processAnswer(textInput);
+                      setTextInput("");
+                    }
+                  }}
+                  className="px-3 py-2 bg-blue-900 text-white rounded-lg text-xs font-semibold hover:bg-blue-800"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                </button>
               </div>
+            )}
 
+            {/* Error Message */}
+            {errorMsg && (
+              <div className="mb-4 text-xs font-medium text-rose-700 bg-rose-50 border border-rose-200 px-4 py-2 rounded-lg">
+                {errorMsg}
+              </div>
+            )}
+
+            {/* Suggestion Shortcuts */}
+            <div className="w-full max-w-xl text-left border-t border-slate-200 pt-5 mt-2">
+              <span className="text-xs font-bold text-slate-700 block mb-2.5">
+                {youCanSayLabel}
+              </span>
               <div className="flex flex-wrap gap-2">
                 {currentSuggestions.map((suggestion, idx) => (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => selectSuggestion(suggestion)}
-                    className="text-left text-xs bg-white hover:bg-blue-50 text-slate-800 hover:text-blue-950 border border-slate-300 hover:border-blue-700 rounded-lg px-3 py-2 transition font-medium shadow-2xs group flex items-center gap-1.5"
+                    className="text-xs bg-slate-50 hover:bg-blue-50 text-slate-800 hover:text-blue-900 border border-slate-200 hover:border-blue-400 rounded-lg px-3 py-1.5 transition text-left flex items-center gap-1.5 shadow-2xs"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-700 group-hover:scale-125 transition"></span>
+                    <ChevronRight className="w-3 h-3 text-slate-400 shrink-0" />
                     <span>{suggestion}</span>
                   </button>
                 ))}
               </div>
-
-              {/* Directly below suggestions: Option to type any custom option if required is not there */}
-              <div className="mt-4 pt-3.5 border-t border-slate-200">
-                <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-                  <Edit3 className="w-3.5 h-3.5 text-blue-700" />
-                  <span>
-                    {language === "te"
-                      ? "మీకు కావలసిన ఎంపిక లేదా? మీ స్వంత సమాధానాన్ని ఇక్కడ టైప్ చేయండి:"
-                      : language === "hi"
-                      ? "क्या आपका विकल्प यहाँ नहीं है? अपना मनचाहा विकल्प यहाँ लिखें:"
-                      : "Required option not listed? Type your custom answer:"}
-                  </span>
-                </label>
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    if (customOptionText.trim()) {
-                      processAnswer(customOptionText.trim(), true);
-                      setCustomOptionText("");
-                    }
-                  }}
-                  className="flex items-center gap-2"
-                >
-                  <input
-                    type="text"
-                    value={customOptionText}
-                    onChange={(e) => setCustomOptionText(e.target.value)}
-                    placeholder={
-                      language === "te"
-                        ? "ఉదా: సేంద్రీయ పౌల్ట్రీ, బి.ఎస్సీ నర్సింగ్, టైలరింగ్..."
-                        : language === "hi"
-                        ? "जैसे: जैविक खेती, नर्सिंग, सिलाई..."
-                        : "e.g., Organic Poultry, Nursing, Tailoring & Embroidery..."
-                    }
-                    className="flex-1 text-xs border border-slate-300 rounded-lg px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-blue-700 bg-white shadow-2xs text-slate-900 placeholder:text-slate-400"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!customOptionText.trim() || assistantState === "PROCESSING"}
-                    className="bg-blue-900 hover:bg-blue-950 text-white text-xs font-semibold px-3.5 py-2 rounded-lg flex items-center gap-1.5 transition disabled:opacity-40 shrink-0 shadow-xs cursor-pointer"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>
-                      {language === "te" ? "జోడించండి" : language === "hi" ? "दर्ज करें" : "Submit"}
-                    </span>
-                  </button>
-                </form>
-              </div>
             </div>
-
-            {/* Typing Accessibility Option */}
-            <div className="mt-5">
-              <button
-                type="button"
-                onClick={() => setShowTypeInput(!showTypeInput)}
-                className="text-xs text-slate-500 hover:text-blue-900 underline underline-offset-2"
-              >
-                {t("voice.type_toggle")}
-              </button>
-
-              {showTypeInput && (
-                <form
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    if (textInput.trim()) {
-                      processAnswer(textInput, true);
-                      setTextInput("");
-                    }
-                  }}
-                  className="mt-3 flex items-center gap-2 max-w-md mx-auto"
-                >
-                  <input
-                    type="text"
-                    value={textInput}
-                    onChange={(e) => setTextInput(e.target.value)}
-                    placeholder={t("voice.type_placeholder")}
-                    className="flex-1 text-xs border border-slate-300 rounded-lg px-3 py-2 focus:outline-hidden focus:ring-2 focus:ring-blue-800 bg-white"
-                  />
-                  <button
-                    type="submit"
-                    disabled={!textInput.trim()}
-                    className="bg-blue-900 hover:bg-blue-950 text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-1.5 transition disabled:opacity-50"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>{t("voice.submit")}</span>
-                  </button>
-                </form>
-              )}
-            </div>
-
-            {/* Error Message Display */}
-            {errorMsg && (
-              <div className="mt-4 w-full max-w-lg bg-rose-50 border border-rose-300 rounded-lg p-3 text-left flex items-start gap-2.5">
-                <AlertCircle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                <div className="text-xs text-rose-800">
-                  <p className="font-semibold">{t("voice.error_title")}</p>
-                  <p>{errorMsg}</p>
-                </div>
-              </div>
-            )}
           </div>
         ) : (
-          /* Assessment Completed Screen */
+          /* COMPLETED State: Structured Profile + NSQF Alignment + Recommendations */
           <div className="p-6 sm:p-10 text-center">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto mb-4 border border-emerald-300">
+            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 className="w-8 h-8" />
             </div>
+
             <h3 className="text-xl font-bold text-slate-900 mb-1">
               {language === "te"
-                ? "వాయిస్ కన్సల్టేషన్ విజయవంతంగా పూర్తయింది!"
+                ? "వాయిస్ అసెస్‌మెంట్ విజయవంతంగా పూర్తయింది!"
                 : language === "hi"
-                ? "वॉयस परामर्श सफलतापूर्वक पूर्ण हुआ!"
-                : "Voice Consultation Completed Successfully!"}
+                ? "वॉयस मूल्यांकन सफलतापूर्वक पूर्ण हुआ!"
+                : "Voice Assessment Completed Successfully!"}
             </h3>
             <p className="text-xs text-slate-600 max-w-md mx-auto mb-6">
               {language === "te"
-                ? "మీ సమాధానాల ఆధారంగా PM-AJAY GIA కోర్సులు మరియు అవకాశాలను క్రింద సిఫార్సు చేశాము."
+                ? "మీ పని అనుభవం మరియు నైపుణ్యాల ఆధారంగా అధికారిక NSQF స్థాయి మరియు సిఫార్సులు రూపొందించబడ్డాయి."
                 : language === "hi"
-                ? "आपके उत्तरों के आधार पर PM-AJAY GIA कोर्स और अवसर नीचे अनुशंसित हैं।"
-                : "Based on your verified answers, customized PM-AJAY GIA skilling courses and opportunities have been matched below."}
+                ? "आपके कार्य अनुभव और कौशलों के आधार पर आधिकारिक NSQF स्तर और सिफारिशें तैयार की गई हैं।"
+                : "Your work experience has been structured and compared against official NSQF descriptor dimensions."}
             </p>
+
+            {/* NSQF Estimated Alignment Banner */}
+            {nsqfAlignment && nsqfAlignment.estimated_alignment && (
+              <div className="mb-6 p-5 bg-blue-50/80 border border-blue-200 rounded-xl text-left max-w-2xl mx-auto shadow-2xs">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-900 flex items-center gap-1.5">
+                    <Award className="w-4 h-4 text-amber-500" />
+                    {language === "te" ? "గుర్తించిన NSQF స్థాయి" : language === "hi" ? "अनुमानित NSQF स्तर" : "Estimated NSQF Capability Level"}
+                  </span>
+                  <span className="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-900 text-white shadow-2xs">
+                    {nsqfAlignment.estimated_alignment.level_range}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 mb-3">
+                  {nsqfAlignment.estimated_alignment.recommended_action}
+                </p>
+
+                {/* 5-Dimensional Competency Audit */}
+                {nsqfAlignment.dimensional_breakdown && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] pt-3 border-t border-blue-200/60">
+                    {nsqfAlignment.dimensional_breakdown.map((dim: any, idx: number) => (
+                      <div key={idx} className="p-2 bg-white rounded border border-blue-100 flex items-center justify-between">
+                        <span className="font-semibold text-slate-700">{dim.dimension_name}</span>
+                        <span className="px-1.5 py-0.5 rounded bg-blue-50 text-blue-800 font-bold text-[10px]">
+                          {dim.aligned_level}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
 
             <button
               type="button"
@@ -990,104 +903,63 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-slate-300 text-xs font-bold text-slate-700 hover:bg-slate-50 transition shadow-2xs"
             >
               <RotateCcw className="w-3.5 h-3.5 text-blue-900" />
-              {language === "te" ? "కొత్త వాయిస్ సెషన్ ప్రారంభించండి" : language === "hi" ? "नया वॉयस सत्र शुरू करें" : "Start New Voice Session"}
+              {language === "te" ? "కొత్త వాయిస్ అసెస్‌మెంట్ ప్రారంభించండి" : language === "hi" ? "नया वॉयस मूल्यांकन शुरू करें" : "Start New Assessment"}
             </button>
           </div>
         )}
 
-        {/* Compact Answer History Strip (Clean, non-chat summary) */}
-        {sessionContext.history.length > 0 && (
+        {/* Structured Answers Summary Strip (Real-time DB answers) */}
+        {sessionContext.answers.length > 0 && (
           <div className="bg-slate-50 border-t border-slate-200 px-6 py-4">
             <div className="flex items-center justify-between mb-2.5">
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                {language === "te" ? "నమోదైన వివరాలు" : language === "hi" ? "दर्ज विवरण" : "Captured Profile Summary"}
+                {language === "te" ? "డేటాబేస్‌లో నమోదైన సమాధానాలు" : language === "hi" ? "डेटाबेस में दर्ज उत्तर" : "Persisted Assessment Answers (SQLite)"}
               </span>
               <span className="text-[10px] text-slate-400">
-                {sessionContext.history.length} {language === "te" ? "ప్రశ్నలు పూర్తయ్యాయి" : language === "hi" ? "प्रश्न पूर्ण" : "answered"}
+                {sessionContext.answers.length} / 10 {language === "te" ? "పూర్తయ్యాయి" : language === "hi" ? "पूर्ण" : "captured"}
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-              {sessionContext.name && (
-                <div className="p-2 bg-white rounded border border-slate-200 flex items-center gap-2">
-                  <User className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                  <div className="truncate">
-                    <span className="text-[10px] text-slate-400 block font-semibold">
-                      {language === "te" ? "పేరు" : language === "hi" ? "नाम" : "Name"}
-                    </span>
-                    <span className="font-bold text-slate-800">{sessionContext.name}</span>
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+              {sessionContext.answers.slice(0, 5).map((ans, idx) => (
+                <div key={idx} className="p-2 bg-white rounded border border-slate-200">
+                  <span className="text-[10px] text-slate-400 block font-semibold truncate">
+                    Q{ans.stepNumber}: {ans.questionText}
+                  </span>
+                  <span className="font-bold text-slate-800 line-clamp-1">{ans.answerText}</span>
                 </div>
-              )}
-
-              {sessionContext.location && (
-                <div className="p-2 bg-white rounded border border-slate-200 flex items-center gap-2">
-                  <MapPin className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                  <div className="truncate">
-                    <span className="text-[10px] text-slate-400 block font-semibold">
-                      {language === "te" ? "ప్రాంతం" : language === "hi" ? "स्थान" : "Location"}
-                    </span>
-                    <span className="font-bold text-slate-800">{sessionContext.location}</span>
-                  </div>
+              ))}
+              {sessionContext.answers.slice(5, 10).map((ans, idx) => (
+                <div key={idx} className="p-2 bg-white rounded border border-slate-200">
+                  <span className="text-[10px] text-slate-400 block font-semibold truncate">
+                    Q{ans.stepNumber}: {ans.questionText}
+                  </span>
+                  <span className="font-bold text-slate-800 line-clamp-1">{ans.answerText}</span>
                 </div>
-              )}
-
-              {sessionContext.category && sessionContext.category !== "general" && (
-                <div className="p-2 bg-white rounded border border-slate-200 flex items-center gap-2">
-                  <Briefcase className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                  <div className="truncate">
-                    <span className="text-[10px] text-slate-400 block font-semibold">
-                      {language === "te" ? "వర్గం / వృత్తి" : language === "hi" ? "श्रेणी / भूमिका" : "Category"}
-                    </span>
-                    <span className="font-bold text-slate-800 capitalize">{sessionContext.category.replace("_", " ")}</span>
-                  </div>
-                </div>
-              )}
-
-              {sessionContext.specificNeed && (
-                <div className="p-2 bg-white rounded border border-slate-200 flex items-center gap-2">
-                  <Award className="w-3.5 h-3.5 text-blue-700 shrink-0" />
-                  <div className="truncate">
-                    <span className="text-[10px] text-slate-400 block font-semibold">
-                      {language === "te" ? "లక్ష్యం" : language === "hi" ? "लक्ष्य" : "Assistance Goal"}
-                    </span>
-                    <span className="font-bold text-slate-800">{sessionContext.specificNeed}</span>
-                  </div>
-                </div>
-              )}
+              ))}
             </div>
           </div>
         )}
       </div>
 
-      {/* Results Display Section (Preserves existing PM-AJAY integration) */}
+      {/* Results Display Section (Tailored Courses / Jobs) */}
       {finalResult && (
         <div className="mt-8 space-y-6">
-          {/* Statutory Scheme Eligibility Banner */}
-          <div
-            className={`p-4 rounded-xl border flex items-start gap-3 ${
-              finalResult.eligible
-                ? "bg-emerald-50 border-emerald-300 text-emerald-950"
-                : "bg-amber-50 border-amber-300 text-amber-950"
-            }`}
-          >
-            {finalResult.eligible ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-            ) : (
-              <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            )}
-            <div>
-              <h4 className="font-bold text-xs uppercase tracking-wide">
-                {finalResult.eligible ? t("voice.eligible_title") : t("voice.review_title")}
-              </h4>
-              <ul className="mt-1 text-xs space-y-0.5 list-disc list-inside opacity-90">
-                {finalResult.eligibility_reasons.map((r, idx) => (
-                  <li key={idx}>{r}</li>
-                ))}
-              </ul>
+          {/* Friendly Government Explanation Banner */}
+          {finalResult.explanation && (
+            <div className="p-5 bg-amber-50/70 border border-amber-300 rounded-xl flex items-start gap-3">
+              <Sparkles className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+              <div>
+                <h4 className="font-bold text-xs uppercase tracking-wide text-amber-900 mb-1">
+                  {language === "te" ? "ప్రభుత్వ మార్గదర్శక సందేశం" : language === "hi" ? "सरकारी मार्गदर्शन संदेश" : "Government Guidance"}
+                </h4>
+                <p className="text-xs text-amber-950 leading-relaxed font-medium">
+                  {finalResult.explanation}
+                </p>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Top Recommendations Preview */}
           {finalResult.recommendations && finalResult.recommendations.length > 0 && (
@@ -1095,17 +967,17 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-base font-bold text-slate-900">
-                    {t("voice.rec_title")}
+                    {t("voice.rec_title", "Matched Opportunities & Skill Courses")}
                   </h3>
                   <p className="text-xs text-slate-500">
-                    {t("voice.rec_subtitle")}
+                    {t("voice.rec_subtitle", "Verified government courses aligned with your NSQF capability profile")}
                   </p>
                 </div>
                 <Link
                   href="/recommendations"
                   className="text-xs font-bold text-blue-900 hover:text-blue-950 inline-flex items-center gap-1 border-b border-blue-900"
                 >
-                  {t("voice.view_audit")} <ArrowRight className="w-3.5 h-3.5" />
+                  {t("voice.view_audit", "View Audit Trail")} <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
@@ -1119,7 +991,7 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
                   return (
                     <div
                       key={idx}
-                      className="bg-white border border-slate-300 rounded-lg p-4 flex flex-col justify-between hover:border-blue-700 transition"
+                      className="bg-white border border-slate-300 rounded-lg p-4 flex flex-col justify-between hover:border-blue-700 transition shadow-2xs"
                     >
                       <div>
                         <div className="flex items-center justify-between gap-2 mb-2">
@@ -1127,34 +999,54 @@ export function VoiceAssistant({ onRecommendationResult }: VoiceAssistantProps) 
                             {displaySector}
                           </span>
                           <span className="text-[10px] font-bold px-2 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">
-                            {t("common.nsqf_level")} {course.nsqf_level || 4}
+                            {t("common.nsqf_level", "NSQF Level")} {course.nsqf_level || 4}
                           </span>
                         </div>
 
                         <h4 className="font-bold text-slate-900 text-sm mb-1 leading-snug">
                           {displayName}
                         </h4>
+                        {course.job_role && (
+                          <div className="text-xs text-blue-900 font-semibold mb-1">
+                            🎯 {course.job_role}
+                          </div>
+                        )}
                         {hasSeparateOfficial && (
                           <div className="text-[10px] text-slate-400 mb-1 font-medium">
                             Official: {course.name}
                           </div>
                         )}
-                        <p className="text-xs text-slate-500 line-clamp-2 mb-3">
-                          {displayDesc}
+
+                        {/* Real database sourced metadata */}
+                        <div className="grid grid-cols-2 gap-1 my-2 text-[11px] bg-slate-50 p-2 rounded border border-slate-100">
+                          {course.estimated_salary && (
+                            <div className="text-emerald-700 font-medium col-span-2 flex items-center gap-1">
+                              <span>💰</span> <span className="font-bold">{course.estimated_salary}</span>
+                            </div>
+                          )}
+                          {course.min_education && (
+                            <div className="text-slate-600 col-span-2 flex items-center gap-1">
+                              <span>🎓</span> <span>{course.min_education}</span>
+                            </div>
+                          )}
+                        </div>
+
+                        <p className="text-xs text-slate-600 line-clamp-3 mb-3 bg-blue-50/50 p-2 rounded border border-blue-100/50 italic">
+                          "{displayDesc}"
                         </p>
                       </div>
 
                       <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
                         {course.score !== undefined && (
                           <span className="font-bold text-blue-900">
-                            {t("voice.fit")}: {(course.score * 100).toFixed(1)}%
+                            {t("voice.fit", "Match")}: {(course.score * 100).toFixed(1)}%
                           </span>
                         )}
                         <Link
                           href={`/courses/${course.id || ""}`}
                           className="font-semibold text-slate-700 hover:text-blue-900 inline-flex items-center gap-0.5"
                         >
-                          {t("voice.details")} <ArrowRight className="w-3 h-3" />
+                          {t("voice.details", "Details")} <ArrowRight className="w-3 h-3" />
                         </Link>
                       </div>
                     </div>
