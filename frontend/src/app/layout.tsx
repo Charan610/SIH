@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AppProvider } from "@/lib/AppContext";
 import { GlobalHeader } from "@/components/navigation/GlobalHeader";
-import { MobileBottomBar } from "@/components/navigation/MobileBottomBar";
 import { GovernmentFooter } from "@/components/government/GovernmentFooter";
 
 const geistSans = Geist({
@@ -30,12 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-900 selection:text-white pb-14 lg:pb-0`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-900 selection:text-white w-full overflow-x-hidden`}
       >
         <AppProvider>
           <GlobalHeader />
-          <main className="flex-1 flex flex-col">{children}</main>
-          <MobileBottomBar />
+          <main className="flex-1 flex flex-col w-full overflow-x-hidden">{children}</main>
           <GovernmentFooter />
         </AppProvider>
       </body>
