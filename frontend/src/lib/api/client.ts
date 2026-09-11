@@ -106,9 +106,15 @@ class ApiClient {
     supported_languages: string[];
     recommended_primary: string;
   }> {
-    const res = await fetch(`${this.baseUrl}/voice/status`, { cache: "no-store" });
-    if (!res.ok) throw new Error("Failed to query voice engine status");
-    return res.json();
+    try {
+      const res = await fetch(`${this.baseUrl}/voice/status`, { cache: "no-store" });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn("Primary /voice/status failed, using /api/voice/status route fallback:", err);
+    }
+    const resAlt = await fetch("/api/voice/status", { cache: "no-store" });
+    if (!resAlt.ok) throw new Error("Failed to query voice engine status");
+    return resAlt.json();
   }
 
   async transcribeAudio(audioBlob: Blob, language: string = "te"): Promise<{ transcript: string; language: string; provider: string }> {
@@ -116,16 +122,25 @@ class ApiClient {
     formData.append("audio_file", audioBlob, "turn_input.wav");
     formData.append("language", language);
 
-    const res = await fetch(`${this.baseUrl}/voice/transcribe`, {
+    try {
+      const res = await fetch(`${this.baseUrl}/voice/transcribe`, {
+        method: "POST",
+        body: formData,
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn("Primary /voice/transcribe failed, using /api/voice/transcribe route fallback:", err);
+    }
+
+    const resAlt = await fetch("/api/voice/transcribe", {
       method: "POST",
       body: formData,
     });
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ detail: res.statusText }));
+    if (!resAlt.ok) {
+      const err = await resAlt.json().catch(() => ({ detail: resAlt.statusText }));
       throw new Error(err.detail || "Failed to transcribe audio");
     }
-    return res.json();
+    return resAlt.json();
   }
 
   async synthesizeSpeech(
@@ -140,22 +155,34 @@ class ApiClient {
     language: string;
     text: string;
   }> {
-    const res = await fetch(`${this.baseUrl}/voice/synthesize`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        text,
-        language,
-        speaker,
-        voice_id: speaker,
-      }),
+    const payload = JSON.stringify({
+      text,
+      language,
+      speaker,
+      voice_id: speaker,
     });
 
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ detail: res.statusText }));
+    try {
+      const res = await fetch(`${this.baseUrl}/voice/synthesize`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn("Primary /voice/synthesize failed, using /api/voice/synthesize route fallback:", err);
+    }
+
+    const resAlt = await fetch("/api/voice/synthesize", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+    });
+    if (!resAlt.ok) {
+      const err = await resAlt.json().catch(() => ({ detail: resAlt.statusText }));
       throw new Error(err.detail || "Failed to synthesize speech");
     }
-    return res.json();
+    return resAlt.json();
   }
 
   async sendVoiceQuery(audioBlob: Blob, language: string = "te"): Promise<VoiceQueryResponse> {
