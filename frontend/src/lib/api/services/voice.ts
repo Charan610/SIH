@@ -29,18 +29,27 @@ export const voiceService = {
     answer_text: string;
     language?: string;
   }): Promise<{ status: string; answer_id: number; step_number: number }> {
-    const res = await fetch(`${getApiBaseUrl()}/voice/assessment/answer`, {
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/voice/assessment/answer`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn("Primary /voice/assessment/answer failed, using fallback route:", err);
+    }
+
+    const resAlt = await fetch("/api/voice/assessment/answer", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ detail: res.statusText }));
+    if (!resAlt.ok) {
+      const err = await resAlt.json().catch(() => ({ detail: resAlt.statusText }));
       throw new Error(err.detail || "Failed to save assessment answer");
     }
-
-    return res.json();
+    return resAlt.json();
   },
 
   async completeAssessment(payload: {
@@ -51,18 +60,27 @@ export const voiceService = {
     user_profile?: any;
     top_k?: number;
   }): Promise<any> {
-    const res = await fetch(`${getApiBaseUrl()}/voice/assessment/complete`, {
+    try {
+      const res = await fetch(`${getApiBaseUrl()}/voice/assessment/complete`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) return await res.json();
+    } catch (err) {
+      console.warn("Primary /voice/assessment/complete failed, using fallback route:", err);
+    }
+
+    const resAlt = await fetch("/api/voice/assessment/complete", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({ detail: res.statusText }));
+    if (!resAlt.ok) {
+      const err = await resAlt.json().catch(() => ({ detail: resAlt.statusText }));
       throw new Error(err.detail || "Failed to complete voice assessment");
     }
-
-    return res.json();
+    return resAlt.json();
   }
 };
 
