@@ -100,15 +100,15 @@ export const GUIDED_QUESTIONS_CATALOG: {
   },
 
   QUESTIONS: [
-    // Q1: Current Work
+    // Q1: Current Livelihood Activity
     {
       id: "q1_work",
       stepNumber: 1,
       totalSteps: 10,
       question: {
-        en: "What work do you currently do?",
-        te: "మీరు ప్రస్తుతం ఏ పని చేస్తున్నారు?",
-        hi: "आप वर्तमान में क्या काम करते हैं?",
+        en: "What work or livelihood activity do you currently do?",
+        te: "మీరు ప్రస్తుతం ఏ పని లేదా జీవనోపాధి కార్యకలాపం చేస్తున్నారు?",
+        hi: "आप वर्तमान में क्या काम या आजीविका गतिविधि करते हैं?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -117,30 +117,30 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "I work as an electrician.",
-          "I do agriculture and farming.",
+          "I work as an electrician and do domestic wiring.",
+          "I do farming and agricultural labor.",
           "I work in tailoring and garment making.",
-          "I do plumbing and pipe fitting.",
-          "I work as a carpenter.",
+          "I do plumbing and sanitary pipe work.",
+          "I work in mobile and electronics repair.",
         ],
         te: [
-          "నేను ఎలక్ట్రీషియన్ పని చేస్తున్నాను.",
-          "నేను వ్యవసాయం చేస్తున్నాను.",
+          "నేను ఎలక్ట్రీషియన్ పని మరియు వైరింగ్ చేస్తున్నాను.",
+          "నేను వ్యవసాయం మరియు కూలీ పనులు చేస్తున్నాను.",
           "నేను కుట్టు పని (టైలరింగ్) చేస్తున్నాను.",
-          "నేను ప్లంబింగ్ పని చేస్తున్నాను.",
-          "నేను వడ్రంగి (కార్పెంటర్) పని చేస్తున్నాను.",
+          "నేను ప్లంబింగ్ మరియు పైపుల పని చేస్తున్నాను.",
+          "నేను మొబైల్ రిపేర్ పని చేస్తున్నాను.",
         ],
         hi: [
-          "मैं इलेक्ट्रीशियन का काम करता हूँ।",
-          "मैं खेती और कृषि का काम करता हूँ।",
-          "मैं सिलाई और दर्जी का काम करता हूँ।",
-          "मैं प्लंबिंग का काम करता हूँ।",
-          "मैं बढ़ई का काम करता हूँ।",
+          "मैं इलेक्ट्रीशियन और घरेलू वायरिंग का काम करता हूँ।",
+          "मैं खेती और कृषि मजदूरी का काम करता हूँ।",
+          "मैं सिलाई और कपड़े बनाने का काम करता हूँ।",
+          "मैं प्लंबिंग और पाइप फिटिंग का काम करता हूँ।",
+          "मैं मोबाइल और इलेक्ट्रॉनिक्स रिपेयर करता हूँ।",
         ],
       },
     },
 
-    // Q2: Duration / Experience
+    // Q2: Experience & Duration
     {
       id: "q2_duration",
       stepNumber: 2,
@@ -151,9 +151,9 @@ export const GUIDED_QUESTIONS_CATALOG: {
         hi: "आपके काम का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "How long have you been doing this work?",
-        te: "మీరు ఈ పనిని ఎంత కాలంగా చేస్తున్నారు?",
-        hi: "आप यह काम कितने समय से कर रहे हैं?",
+        en: "How many years or months have you been doing this work?",
+        te: "మీరు ఈ పనిని ఎన్ని సంవత్సరాలు లేదా నెలలుగా చేస్తున్నారు?",
+        hi: "आप यह काम कितने साल या महीनों से कर रहे हैं?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -163,39 +163,39 @@ export const GUIDED_QUESTIONS_CATALOG: {
       suggestions: {
         en: [
           "For about 2 years.",
-          "More than 5 years.",
+          "More than 5 years of practical experience.",
           "Around 1 year.",
-          "About 6 months.",
+          "Just started recently, about 6 months.",
         ],
         te: [
-          "దాదాపు 2 సంవత్సరాల నుండి.",
-          "5 సంవత్సరాలకు పైగా.",
+          "దాదాపు 2 సంవత్సరాల నుండి చేస్తున్నాను.",
+          "5 సంవత్సరాలకు పైగా అనుభవం ఉంది.",
           "సుమారు 1 సంవత్సరం నుండి.",
-          "దాదాపు 6 నెలలుగా.",
+          "ఇటీవలే 6 నెలల క్రితం ప్రారంభించాను.",
         ],
         hi: [
-          "लगभग 2 साल से।",
-          "5 साल से अधिक समय से।",
+          "लगभग 2 साल से कर रहा हूँ।",
+          "5 साल से अधिक का व्यावहारिक अनुभव है।",
           "लगभग 1 साल से।",
-          "लगभग 6 महीने से।",
+          "अभी 6 महीने पहले ही शुरू किया है।",
         ],
       },
     },
 
-    // Q3: Main Tasks
+    // Q3: Traditional / Family Occupation (Mandated for SC Artisan Mapping)
     {
-      id: "q3_tasks",
+      id: "q3_traditional_occ",
       stepNumber: 3,
       totalSteps: 10,
       acknowledgment: {
-        en: "Experience recorded.",
+        en: "Experience duration recorded.",
         te: "మీ అనుభవం నమోదైంది.",
         hi: "आपका अनुभव दर्ज कर लिया गया है।",
       },
       question: {
-        en: "What are the main tasks you do in your work?",
-        te: "మీ పనిలో మీరు చేసే ముఖ్యమైన పనులు ఏమిటి?",
-        hi: "आपके काम में आप मुख्य रूप से क्या कार्य करते हैं?",
+        en: "Does your family have a traditional occupation or craft, like weaving, pottery, leather work, metalwork, or farming?",
+        te: "మీ కుటుంబానికి ఏదైనా సంప్రదాయ వృత్తి లేదా హస్తకళ (చేనేత, కుమ్మరి, తోలు పని, కమ్మరి లేదా వ్యవసాయం వంటివి) ఉందా?",
+        hi: "क्या आपके परिवार का कोई पारंपरिक व्यवसाय या शिल्प है, जैसे बुनाई, मिट्टी के बर्तन, चमड़े का काम, लोहारी या खेती?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -204,40 +204,40 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "House wiring, switch board fitting, and repairs.",
-          "Crop planting, irrigation, and harvesting.",
-          "Garment cutting, stitching, and alterations.",
-          "Pipe fitting, leakage fixing, and pump repair.",
+          "Yes, our family has traditionally done leather craft and footwear making.",
+          "Yes, we have traditional handloom weaving and garment crafts.",
+          "Our traditional family occupation is agriculture and animal husbandry.",
+          "No traditional craft, we do daily wage and modern trades.",
         ],
         te: [
-          "వైరింగ్, స్విచ్ బోర్డులు అమర్చడం మరియు రిపేర్లు.",
-          "విత్తనాలు వేయడం, నీటిపారుదల మరియు పంట కోత.",
-          "బట్టలు కత్తిరించడం, కుట్టడం మరియు ఆల్టరేషన్స్.",
-          "పైపులు ఫిట్టింగ్, లీకేజీలు సరిచేయడం మరియు పంప్ రిపేర్.",
+          "అవును, మా కుటుంబం తరతరాలుగా తోలు మరియు పాదరక్షల పని చేస్తోంది.",
+          "అవును, మాది చేనేత మరియు బట్టల తయారీ సంప్రదాయ వృత్తి.",
+          "మా కుటుంబ సంప్రదాయ వృత్తి వ్యవసాయం మరియు పశుపోషణ.",
+          "ప్రత్యేక సంప్రదాయ వృత్తి లేదు, సాధారణ ఆధునిక పనులు చేస్తాము.",
         ],
         hi: [
-          "हाउस वायरिंग, स्विच बोर्ड लगाना और मरम्मत करना।",
-          "फसल बोना, सिंचाई करना और कटाई करना।",
-          "कपड़ों की कटिंग, सिलाई और मरम्मत करना।",
-          "पाइप फिटिंग, लीकेज ठीक करना और मोटर रिपेयर।",
+          "हाँ, हमारा परिवार पारंपरिक रूप से चमड़े और जूते-चप्पल का काम करता है।",
+          "हाँ, हमारे यहाँ हथकरघा बुनाई और वस्त्र निर्माण का पारंपरिक काम है।",
+          "हमारा पारिवारिक व्यवसाय खेती और पशुपालन है।",
+          "कोई पारंपरिक शिल्प नहीं है, हम सामान्य मजदूरी और नए काम करते हैं।",
         ],
       },
     },
 
-    // Q4: Tools & Equipment
+    // Q4: Educational Background (Mandated)
     {
-      id: "q4_tools",
+      id: "q4_education",
       stepNumber: 4,
       totalSteps: 10,
       acknowledgment: {
-        en: "Tasks recorded.",
-        te: "మీ పనుల వివరాలు నమోదయ్యాయి.",
-        hi: "आपके कार्यों का विवरण दर्ज कर लिया गया है।",
+        en: "Family craft background noted.",
+        te: "సంప్రదాయ వృత్తి వివరాలు నమోదయ్యాయి.",
+        hi: "पारंपरिक व्यवसाय का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "What tools or equipment do you use for your work?",
-        te: "మీ పని కోసం మీరు ఏ పనిముట్లు లేదా పరికరాలను ఉపయోగిస్తారు?",
-        hi: "आप अपने काम के लिए कौन-से औजार या उपकरण इस्तेमाल करते हैं?",
+        en: "What is your educational background? (e.g. 5th pass, 8th pass, 10th pass, 12th, ITI, or practical learning)",
+        te: "మీ విద్యాభ్యాసం ఎంతవరకు చదివారు? (ఉదా. 5వ తరగతి, 8వ తరగతి, 10వ పాస్, ఇంటర్, ఐటిఐ లేదా నేరుగా నేర్చుకున్నారా)",
+        hi: "आपकी पढ़ाई कहाँ तक हुई है? (जैसे 5वीं, 8वीं, 10वीं पास, 12वीं, आईटीआई या सीधे काम सीखा है)",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -246,40 +246,43 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "Tester, wire stripper, pliers, and drill machine.",
-          "Tractor, sprayer, and hand farming tools.",
-          "Sewing machine, measuring tape, and cutting shears.",
-          "Pipe wrench, cutter, and soldering kit.",
+          "I have passed 10th standard (SSC).",
+          "I have completed 8th standard.",
+          "I passed 12th / Intermediate.",
+          "I completed ITI vocational certification.",
+          "Informal schooling / practical on-the-job learner.",
         ],
         te: [
-          "టెస్టర్, వైర్ స్ట్రిప్పర్, ప్లయర్స్ మరియు డ్రిల్లింగ్ మెషిన్.",
-          "ట్రాక్టర్, స్ప్రేయర్ మరియు వ్యవసాయ పనిముట్లు.",
-          "కుట్టు మిషన్, కొలత టేప్ మరియు కత్తెర.",
-          "పైప్ రెంచ్, కట్టర్ మరియు టూల్‌కిట్.",
+          "నేను 10వ తరగతి (SSC) ఉత్తీర్ణత సాధించాను.",
+          "నేను 8వ తరగతి వరకు చదువుకున్నాను.",
+          "నేను ఇంటర్మీడియట్ / 12వ తరగతి పూర్తి చేశాను.",
+          "నేను ఐటీఐ (ITI) టెక్నికల్ కోర్సు చేశాను.",
+          "నేను బడికి వెళ్లలేదు, నేరుగా పని చేస్తూ నేర్చుకున్నాను.",
         ],
         hi: [
-          "टेस्टर, वायर स्ट्रिपर, प्लायर और ड्रिल मशीन।",
-          "ट्रैक्टर, स्प्रेयर और कृषि उपकरण।",
-          "सिलाई मशीन, नापने का फीता और कैंची।",
-          "पाइप रिंच, कटर और सोल्डरिंग किट।",
+          "मैंने 10वीं कक्षा (मैट्रिक) पास की है।",
+          "मैंने 8वीं कक्षा तक पढ़ाई की है।",
+          "मैंने 12वीं / इंटरमीडिएट पूरा किया है।",
+          "मैंने आईटीआई (ITI) सर्टिफिकेट कोर्स किया है।",
+          "मैंने औपचारिक स्कूल नहीं गया, सीधे काम देखकर सीखा है।",
         ],
       },
     },
 
-    // Q5: Professional Knowledge
+    // Q5: Tools, Equipment & Practical Skills (Mandated)
     {
-      id: "q5_knowledge",
+      id: "q5_tasks_tools",
       stepNumber: 5,
       totalSteps: 10,
       acknowledgment: {
-        en: "Tools noted.",
-        te: "పనిముట్ల వివరాలు నమోదయ్యాయి.",
-        hi: "उपकरणों का विवरण दर्ज कर लिया गया है।",
+        en: "Education background recorded.",
+        te: "మీ చదువు వివరాలు నమోదయ్యాయి.",
+        hi: "आपकी शिक्षा का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "What do you need to know to do this work?",
-        te: "ఈ పని చేయడానికి మీరు ఏ విషయాలు లేదా నైపుణ్యాలు తెలుసుకోవాలి?",
-        hi: "यह काम करने के लिए आपको क्या जानकारी या कौशल होना चाहिए?",
+        en: "What specific tools, equipment, or machinery do you know how to use?",
+        te: "మీ పనిలో ఏ పనిముట్లు, పరికరాలు లేదా యంత్రాలను ఉపయోగించడంలో మీకు అనుభవం ఉంది?",
+        hi: "आप अपने काम में कौन-से औजार, उपकरण या मशीनें चलाना जानते हैं?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -288,40 +291,43 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "Voltage safety, circuit diagrams, and phase connections.",
-          "Soil types, fertilizers, and weather conditions.",
-          "Fabric measurement, pattern drafting, and stitch styles.",
-          "Water pressure, pipe dimensions, and joint sealing.",
+          "Multimeter, wire stripper, drill machine, and electrical safety testers.",
+          "Power sewing machine, cutting scissors, and embroidery frames.",
+          "Tractor, motor pump, sprayer, and harvester.",
+          "Pipe wrench, thread cutter, and PVC solvent joints.",
+          "Soldering iron, SMD rework station, and digital multimeters.",
         ],
         te: [
-          "వోల్టేజ్ భద్రత, సర్క్యూట్ పటాలు మరియు ఫేస్ కనెక్షన్లు.",
-          "నేల రకాలు, ఎరువులు మరియు వాతావరణ పరిస్థితులు.",
-          "కొలతలు, నమూనా డిజైన్ మరియు కుట్టు రకాలు.",
-          "నీటి పీడనం, పైప్ కొలతలు మరియు జాయింట్ సీలింగ్.",
+          "మల్టీమీటర్, వైర్ స్ట్రిప్పర్, డ్రిల్లింగ్ మెషిన్ మరియు టెస్టర్.",
+          "మోటార్ కుట్టు మిషన్, కత్తెర మరియు కొలత టేపులు.",
+          "ట్రాక్టర్, మోటారు పంపు, స్ప్రేయర్ మరియు వ్యవసాయ పనిముట్లు.",
+          "పైప్ రెంచ్, త్రెడ్ కట్టర్ మరియు పివిసి పైపు సామాగ్రి.",
+          "సోల్డరింగ్ ఐరన్, హాట్ ఎయిర్ గన్ మరియు మొబైల్ టూల్ కిట్.",
         ],
         hi: [
-          "वोल्टेज सुरक्षा, सर्किट आरेख और फेज कनेक्शन।",
-          "मिट्टी के प्रकार, खाद और मौसम की जानकारी।",
-          "कपड़ों की नाप, पैटर्न डिजाइन और सिलाई के तरीके।",
-          "पानी का दबाव, पाइप का माप और जॉइंट सीलिंग।",
+          "मल्टीमीटर, वायर स्ट्रिपर, ड्रिल मशीन और टेस्टर।",
+          "इलेक्ट्रिक सिलाई मशीन, कटिंग कैंची और नापने का फीता।",
+          "ट्रैक्टर, वाटर पंप, स्प्रेयर और कृषि उपकरण।",
+          "पाइप रिंच, थ्रेड कटर और पीवीसी फिटिंग उपकरण।",
+          "सोल्डरिंग आयरन, हॉट एयर गन और मोबाइल रिपेयर टूलकिट।",
         ],
       },
     },
 
-    // Q6: Problem Solving
+    // Q6: Mobility & Physical Constraints (Mandated)
     {
-      id: "q6_problem_solving",
+      id: "q6_mobility",
       stepNumber: 6,
       totalSteps: 10,
       acknowledgment: {
-        en: "Technical knowledge noted.",
-        te: "నైపుణ్యాల వివరాలు నమోదయ్యాయి.",
-        hi: "तकनीकी ज्ञान दर्ज कर लिया गया है।",
+        en: "Tools and skills noted.",
+        te: "పనిముట్ల వివరాలు నమోదయ్యాయి.",
+        hi: "उपकरणों और कौशलों का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "What do you do when you face a problem or difficulty at work?",
-        te: "పనిలో ఏదైనా సమస్య లేదా ఇబ్బంది ఎదురైనప్పుడు మీరు ఏమి చేస్తారు?",
-        hi: "काम में कोई समस्या या कठिनाई आने पर आप क्या करते हैं?",
+        en: "Can you travel outside your village or district for work or training, or do you have any physical/family constraints?",
+        te: "పని లేదా శిక్షణ కోసం మీ గ్రామం లేదా జిల్లా దాటి వెళ్లగలరా, లేదా ఏవైనా ప్రయాణ/కుటుంబ పరిమితులు ఉన్నాయా?",
+        hi: "क्या आप काम या प्रशिक्षण के लिए अपने गाँव या जिले से बाहर जा सकते हैं, या कोई यात्रा/शारीरिक सीमा है?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -330,40 +336,40 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "I diagnose the fault carefully step by step.",
-          "I consult a senior master or refer to guidelines.",
-          "I test alternative components to solve it.",
-          "I safely isolate the issue and fix it.",
+          "I can travel anywhere within the district or state for training and jobs.",
+          "I can only travel up to nearby mandal headquarters (10-15 km).",
+          "I need work within my village or home due to family responsibilities.",
+          "I prefer local residential training with hostel facilities.",
         ],
         te: [
-          "నేను దశలవారీగా సమస్యను పరీక్షించి సరిచేస్తాను.",
-          "నేను అనుభవజ్ఞులైన గురువు లేదా మార్గదర్శకుడిని అడుగుతాను.",
-          "నేను ప్రత్యామ్నాయ పద్ధతులతో సమస్యను పరిష్కరిస్తాను.",
-          "నేను జాగ్రత్తగా లోపాన్ని గుర్తించి సరిచేస్తాను.",
+          "నేను జిల్లా కేంద్రం లేదా రాష్ట్రంలో ఎక్కడికైనా వెళ్లి పని చేయగలను.",
+          "నేను దగ్గరలోని మండలం లేదా పట్టణం (10-15 కిమీ) వరకు మాత్రమే వెళ్లగలను.",
+          "కుటుంబ బాధ్యతల వల్ల గ్రామంలోనే లేదా ఇంటి వద్దనే పని చేయాలి.",
+          "హాస్టల్ వసతి ఉంటే జిల్లా కేంద్రంలో శిక్షణ తీసుకోగలను.",
         ],
         hi: [
-          "मैं चरण-दर-चरण समस्या की जांच करके ठीक करता हूँ।",
-          "मैं वरिष्ठ मिस्त्री या मार्गदर्शक से सलाह लेता हूँ।",
-          "मैं वैकल्पिक तरीकों से समस्या का हल निकालता हूँ।",
-          "मैं सावधानीपूर्वक समस्या की पहचान कर समाधान करता हूँ।",
+          "मैं जिले या राज्य में कहीं भी जाकर काम या प्रशिक्षण ले सकता हूँ।",
+          "मैं केवल नजदीकी ब्लॉक/तहसील (10-15 किमी) तक ही जा सकता हूँ।",
+          "पारिवारिक जिम्मेदारियों के कारण मुझे गाँव या घर के पास ही काम चाहिए।",
+          "हॉस्टल सुविधा होने पर मैं जिला मुख्यालय में प्रशिक्षण ले सकता हूँ।",
         ],
       },
     },
 
-    // Q7: Autonomy Level
+    // Q7: Local Economic Realities & District (Mandated)
     {
-      id: "q7_autonomy",
+      id: "q7_location",
       stepNumber: 7,
       totalSteps: 10,
       acknowledgment: {
-        en: "Problem solving approach noted.",
-        te: "సమస్య పరిష్కార విధానం నమోదైంది.",
-        hi: "समस्या निवारण का तरीका दर्ज कर लिया गया है।",
+        en: "Mobility preference noted.",
+        te: "ప్రయాణ పరిమితుల వివరాలు నమోదయ్యాయి.",
+        hi: "यात्रा प्राथमिकताओं का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "Can you do this work independently on your own?",
-        te: "మీరు ఈ పనిని స్వతంత్రంగా మీరే సొంతంగా చేయగలరా?",
-        hi: "क्या आप यह काम स्वतंत्र रूप से स्वयं कर सकते हैं?",
+        en: "Which district and village do you live in, and what trades or services have high demand in your area?",
+        te: "మీరు ఏ జిల్లా మరియు గ్రామంలో నివసిస్తున్నారు, మీ ప్రాంతంలో ఏ పనులకు లేదా సేవలకి ఎక్కువ డిమాండ్ ఉంది?",
+        hi: "आप किस जिले और गाँव में रहते हैं, और आपके क्षेत्र में किन कामों या सेवाओं की सबसे अधिक माँग है?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -372,40 +378,40 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "Yes, I can do all routine work completely on my own.",
-          "Yes, I work independently with minimal supervision.",
-          "I can do most tasks alone, but consult on complex jobs.",
-          "I work under instructions of a supervisor.",
+          "I live in West Godavari district; solar wiring and farm motor repair have huge demand.",
+          "I live in Guntur; garment stitching and retail have good demand.",
+          "I live in Krishna district; aquaculture, electricals, and logistics are growing.",
+          "I live in Visakhapatnam; industrial maintenance and construction are in demand.",
         ],
         te: [
-          "అవును, నేను సొంతంగా పూర్తి పనిని చేసుకోగలను.",
-          "అవును, నేను స్వతంత్రంగా ఎవరి సహాయం లేకుండా పని చేస్తాను.",
-          "చాలా పనులు నేనే చేస్తాను, పెద్ద పనులకు మార్గదర్శకత్వం తీసుకుంటాను.",
-          "నేను సూపర్‌వైజర్ సూచనలతో పని చేస్తాను.",
+          "నేను పశ్చిమ గోదావరి జిల్లాలో ఉంటున్నాను; సోలార్ మరియు మోటార్ రిపేర్లకు ఎక్కువ డిమాండ్ ఉంది.",
+          "నేను గుంటూరు జిల్లాలో ఉన్నాను; రెడీమేడ్ దుస్తులు మరియు టైలరింగ్ పనులకు డిమాండ్ ఉంది.",
+          "నేను కృష్ణా జిల్లాలో ఉన్నాను; ఆక్వాకల్చర్, ఎలక్ట్రికల్ పనులకు డిమాండ్ ఉంది.",
+          "నేను విశాఖపట్నం జిల్లాలో ఉన్నాను; పరిశ్రమలు మరియు నిర్మాణ పనులకు డిమాండ్ ఉంది.",
         ],
         hi: [
-          "हाँ, मैं पूरा काम पूरी तरह से खुद कर सकता हूँ।",
-          "हाँ, मैं बिना किसी मदद के स्वतंत्र रूप से काम करता हूँ।",
-          "ज्यादातर काम खुद करता हूँ, बड़े काम में सलाह लेता हूँ।",
-          "मैं सुपरवाइजर के निर्देशों पर काम करता हूँ।",
+          "मैं पश्चिम गोदावरी जिले में रहता हूँ; यहाँ सोलर और मोटर रिपेयर की भारी माँग है।",
+          "मैं गुंटूर जिले में रहता हूँ; यहाँ सिलाई और खुदरा व्यापार की माँग है।",
+          "मैं कृष्णा जिले में रहता हूँ; यहाँ बिजली के काम और लॉजिस्टिक्स की माँग है।",
+          "मैं विशाखापत्तनम में रहता हूँ; यहाँ औद्योगिक और निर्माण कार्यों की माँग है।",
         ],
       },
     },
 
-    // Q8: Safety & Quality Control
+    // Q8: Autonomy & Problem Solving
     {
-      id: "q8_safety_quality",
+      id: "q8_autonomy",
       stepNumber: 8,
       totalSteps: 10,
       acknowledgment: {
-        en: "Autonomy level noted.",
-        te: "మీ పని స్వతంత్రత నమోదైంది.",
-        hi: "आपकी कार्य स्वतंत्रता दर्ज कर ली गई है।",
+        en: "Local economic demand noted.",
+        te: "ప్రాంతీయ డిమాండ్ వివరాలు నమోదయ్యాయి.",
+        hi: "स्थानीय माँग का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "How do you make sure your work is safe and of good quality?",
-        te: "మీ పని సురక్షితంగా మరియు నాణ్యతతో ఉండేలా మీరు ఎలా చూసుకుంటారు?",
-        hi: "आप कैसे सुनिश्चित करते हैं कि आपका काम सुरक्षित और अच्छी गुणवत्ता का हो?",
+        en: "Can you do your work independently without supervision, and what do you do when you face a difficult problem?",
+        te: "మీరు మీ పనిని ఎవరి సహాయం లేకుండా సొంతంగా చేసుకోగలరా, ఏదైనా పెద్ద సమస్య ఎదురైనప్పుడు ఎలా పరిష్కరిస్తారు?",
+        hi: "क्या आप बिना किसी देखरेख के स्वतंत्र रूप से काम कर सकते हैं, और कोई कठिन समस्या आने पर क्या करते हैं?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -414,82 +420,82 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "I wear safety gloves, turn off power, and test thoroughly.",
-          "I follow standard procedures and double-check finish.",
-          "I use genuine certified materials and safe tools.",
-          "I check customer satisfaction before completion.",
+          "Yes, I do all routine work independently and diagnose faults step-by-step.",
+          "I work on my own, and consult a senior master if a complex issue arises.",
+          "I manage standard tasks, but prefer working with an experienced team.",
+          "I follow safety manuals and guidelines to fix issues safely.",
         ],
         te: [
-          "నేను భద్రతా గ్లౌవ్స్ ధరిస్తాను, పవర్ ఆఫ్ చేసి టెస్ట్ చేస్తాను.",
-          "నేను నాణ్యమైన సామాన్లు వాడుతాను, ఫినిషింగ్ సరిచూసుకుంటాను.",
-          "నేను భద్రతా నిబంధనలను పాటిస్తూ నాణ్యతను తనిఖీ చేస్తాను.",
-          "పని పూర్తయ్యాక ఫలితాన్ని స్వయంగా పరిశీలిస్తాను.",
+          "అవును, నేను పూర్తి పనిని సొంతంగా చేస్తాను, సమస్యను దశలవారీగా పరీక్షిస్తాను.",
+          "నేను ఒంటరిగానే పని చేస్తాను, కష్టమైన సమస్య వస్తే సీనియర్ ఉస్తాద్ సలహా తీసుకుంటాను.",
+          "సాధారణ పనులు నేనే చేస్తాను, పెద్ద పనులకు తోటివారి సహాయం తీసుకుంటాను.",
+          "భద్రతా నిబంధనలు పాటిస్తూ నాణ్యంగా పని పూర్తి చేస్తాను.",
         ],
         hi: [
-          "मैं सुरक्षा दस्ताने पहनता हूँ, बिजली बंद करके जांचता हूँ।",
-          "मैं मानक नियमों का पालन करता हूँ और फिनिशिंग चेक करता हूँ।",
-          "मैं अच्छी गुणवत्ता की सामग्री और सुरक्षित औजार इस्तेमाल करता हूँ।",
-          "काम पूरा होने के बाद दोबारा अच्छी तरह जांच करता हूँ।",
+          "हाँ, मैं पूरा काम खुद करता हूँ और समस्याओं की चरणबद्ध जाँच करता हूँ।",
+          "मैं स्वतंत्र रूप से काम करता हूँ, और बड़ी समस्या आने पर वरिष्ठ कारीगर से सलाह लेता हूँ।",
+          "मैं सामान्य काम खुद कर लेता हूँ, लेकिन बड़े काम में टीम की जरूरत होती है।",
+          "सुरक्षा मानकों का पालन करते हुए काम को सावधानीपूर्वक पूरा करता हूँ।",
         ],
       },
     },
 
-    // Q9: Teamwork & Supervision
+    // Q9: Preferred Pathway: Self-Employment vs Wage Employment (Mandated)
     {
-      id: "q9_teamwork",
+      id: "q9_pathway_pref",
       stepNumber: 9,
       totalSteps: 10,
       acknowledgment: {
-        en: "Safety and quality standards noted.",
-        te: "భద్రత మరియు నాణ్యతా ప్రమాణాలు నమోదయ్యాయి.",
-        hi: "सुरक्षा और गुणवत्ता मानक दर्ज कर लिए गए हैं।",
+        en: "Work autonomy noted.",
+        te: "పని స్వతంత్రత వివరాలు నమోదయ్యాయి.",
+        hi: "कार्य स्वतंत्रता का विवरण दर्ज कर लिया गया है।",
       },
       question: {
-        en: "Do you work with other people or as part of a team?",
-        te: "మీరు ఇతరులతో కలిసి లేదా బృందంతో కలిసి పని చేస్తారా?",
-        hi: "क्या आप अन्य लोगों या टीम के साथ मिलकर काम करते हैं?",
+        en: "Would you prefer finding a wage employment job, starting your own enterprise/shop, or exploring both pathways?",
+        te: "మీరు స్థిరమైన జీతం వచ్చే ఉద్యోగం చేయాలనుకుంటున్నారా, మీ సొంత వ్యాపారం లేదా షాపు ప్రారంభించాలనుకుంటున్నారా, లేదా రెండూ చూడాలనుకుంటున్నారా?",
+        hi: "क्या आप एक निश्चित वेतन वाली नौकरी करना चाहते हैं, अपनी दुकान या व्यवसाय शुरू करना चाहते हैं, या दोनों विकल्प देखना चाहते हैं?",
       },
       suggestionsHeader: {
-        en: "You can say:",
-        te: "మీరు ఇలా చెప్పవచ్చు:",
-        hi: "आप ऐसा कह सकते हैं:",
+        en: "Choose your preferred pathway:",
+        te: "మీకు నచ్చిన మార్గాన్ని ఎంచుకోండి:",
+        hi: "अपना पसंदीदा मार्ग चुनें:",
       },
       suggestions: {
         en: [
-          "Yes, I work closely with co-workers and helpers.",
-          "I work as part of a field team.",
-          "I usually work independently, but coordinate with clients.",
-          "I guide apprentices and helpers on site.",
+          "I prefer wage employment (regular monthly salary).",
+          "I want to start my own business / workshop / enterprise.",
+          "I want to explore and compare both options side-by-side.",
+          "I want an NSQF certificate to get bank loans for self-employment.",
         ],
         te: [
-          "అవును, నేను ఇతర కార్మికులు మరియు సహాయకులతో కలిసి పనిచేస్తాను.",
-          "నేను ఫీల్డ్ టీమ్‌తో కలిసి పని చేస్తాను.",
-          "సాధారణంగా ఒక్కడినే చేస్తాను, అవసరమైనప్పుడు ఇతరులతో సమన్వయం చేసుకుంటాను.",
-          "నేను సైట్ వద్ద సహాయకులకు మార్గదర్శకత్వం ఇస్తాను.",
+          "నాకు స్థిరమైన జీతం వచ్చే ఉద్యోగం కావాలి (ఉపాధి మార్గం).",
+          "నేను స్వంత వ్యాపారం లేదా సర్వీస్ సెంటర్ ప్రారంభించాలనుకుంటున్నాను.",
+          "నేను రెండు అవకాశాలను సరిపోల్చి చూడాలనుకుంటున్నాను.",
+          "నాకు నైపుణ్య సర్టిఫికేట్ మరియు బ్యాంక్ లోన్ సహాయం కావాలి.",
         ],
         hi: [
-          "हाँ, मैं अन्य साथियों और सहायकों के साथ मिलकर काम करता हूँ।",
-          "मैं फील्ड टीम के साथ काम करता हूँ।",
-          "आमतौर पर अकेले करता हूँ, जरूरत पड़ने पर ग्राहकों से समन्वय करता हूँ।",
-          "मैं काम के दौरान नए सहायकों का मार्गदर्शन करता हूँ।",
+          "मुझे निश्चित मासिक वेतन वाली नौकरी चाहिए (रोजगार मार्ग)।",
+          "मैं अपना खुद का व्यवसाय, दुकान या वर्कशॉप शुरू करना चाहता हूँ।",
+          "मैं दोनों विकल्पों की तुलना करके फैसला लेना चाहता हूँ।",
+          "मुझे कौशल प्रमाणपत्र और स्वरोजगार के लिए बैंक ऋण चाहिए।",
         ],
       },
     },
 
-    // Q10: Aspiration / Livelihood Goal
+    // Q10: Financial Support & PM-AJAY GIA Need (Mandated)
     {
-      id: "q10_aspiration",
+      id: "q10_income_support",
       stepNumber: 10,
       totalSteps: 10,
       acknowledgment: {
-        en: "Collaboration details noted.",
-        te: "బృంద సమన్వయ వివరాలు నమోదయ్యాయి.",
-        hi: "टीम समन्वय विवरण दर्ज कर लिया गया है।",
+        en: "Career preference noted.",
+        te: "కెరీర్ ప్రాధాన్యత నమోదైంది.",
+        hi: "करियर प्राथमिकता दर्ज कर ली गई है।",
       },
       question: {
-        en: "Would you like to improve your current work, start a course, or find a direct job?",
-        te: "మీరు మీ ప్రస్తుత పనిని మెరుగుపరుచుకోవాలనుకుంటున్నారా, ఏదైనా కోర్సు ప్రారంభించాలనుకుంటున్నారా, లేక నేరుగా ఉద్యోగం పొందాలనుకుంటున్నారా?",
-        hi: "क्या आप अपने वर्तमान काम को बेहतर बनाना चाहते हैं, कोई कोर्स शुरू करना चाहते हैं, या सीधी नौकरी पाना चाहते हैं?",
+        en: "Do you need government financial assistance, toolkits, or subsidy loans under PM-AJAY GIA to start your skilling journey?",
+        te: "మీ జీవనోపాధిని పెంపొందించుకోవడానికి PM-AJAY GIA కింద ప్రభుత్వ ఉచిత టూల్‌కిట్, స్టైపెండ్ లేదా సబ్సిడీ లోన్ సహాయం అవసరమా?",
+        hi: "क्या आपको अपनी आजीविका शुरू करने के लिए PM-AJAY GIA के तहत सरकारी निःशुल्क टूलकिट, वजीफा (स्टाइपेंड) या सब्सिडी ऋण की आवश्यकता है?",
       },
       suggestionsHeader: {
         en: "You can say:",
@@ -498,22 +504,22 @@ export const GUIDED_QUESTIONS_CATALOG: {
       },
       suggestions: {
         en: [
-          "I want to start a government NSQF certificate course.",
-          "I want to find a direct job with steady wage.",
-          "I want to improve my current work and business.",
-          "I want free training with a government stipend.",
+          "Yes, I need free toolkit support and training stipend under PM-AJAY GIA.",
+          "Yes, I need bank linkage and government capital subsidy for my business.",
+          "I need 100% free residential training and placement assistance.",
+          "I just need official NSQF certification for my existing skills.",
         ],
         te: [
-          "నేను ప్రభుత్వ NSQF సర్టిఫికేట్ కోర్సు ప్రారంభించాలనుకుంటున్నాను.",
-          "నాకు నేరుగా మంచి జీతంతో కూడిన ఉద్యోగం కావాలి.",
-          "నేను నా ప్రస్తుత పని నైపుణ్యాలను మెరుగుపరుచుకోవాలనుకుంటున్నాను.",
-          "నాకు స్టైపెండ్‌తో కూడిన ఉచిత ప్రభుత్వ శిక్షణ కావాలి.",
+          "అవును, నాకు PM-AJAY GIA కింద ఉచిత టూల్‌కిట్ మరియు శిక్షణ స్టైపెండ్ కావాలి.",
+          "అవును, వ్యాపారం కోసం బ్యాంకు రుణం మరియు ప్రభుత్వ రాయితీ (సబ్సిడీ) కావాలి.",
+          "నాకు ఉచిత హాస్టల్ శిక్షణ మరియు ఉద్యోగ సహాయం కావాలి.",
+          "నాకున్న అనుభవానికి అధికారిక NSQF సర్టిఫికేషన్ మాత్రమే కావాలి.",
         ],
         hi: [
-          "मैं सरकारी NSQF प्रमाण पत्र कोर्स शुरू करना चाहता हूँ।",
-          "मुझे सीधे अच्छी नौकरी चाहिए।",
-          "मैं अपने वर्तमान काम को और बेहतर बनाना चाहता हूँ।",
-          "मुझे स्टाइपेंड के साथ मुफ्त सरकारी प्रशिक्षण चाहिए।",
+          "हाँ, मुझे PM-AJAY GIA के तहत मुफ्त टूलकिट और प्रशिक्षण स्टाइपेंड चाहिए।",
+          "हाँ, व्यवसाय के लिए बैंक लिंकेज और सरकारी पूंजीगत सब्सिडी चाहिए।",
+          "मुझे 100% निःशुल्क आवासीय प्रशिक्षण और नौकरी सहायता चाहिए।",
+          "मुझे केवल अपने मौजूदा अनुभव के लिए आधिकारिक NSQF प्रमाण पत्र चाहिए।",
         ],
       },
     },

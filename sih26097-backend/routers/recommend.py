@@ -92,7 +92,9 @@ class RecommendRequest(BaseModel):
     # New Beneficiary Profile fields
     traditional_occupation: Optional[str] = Field(None, description="Ancestral/family occupation (e.g. farming, weaving)")
     location_district: Optional[str] = Field(None, description="Candidate's district (e.g. 'Nalgonda')")
+    district: Optional[str] = Field(None, description="Alias for location_district")
     location_state: Optional[str] = Field(None, description="Candidate's state (e.g. 'Telangana')")
+    state: Optional[str] = Field(None, description="Alias for location_state")
     mobility_constraints: List[str] = Field(default_factory=list, description="Barriers to travel or relocation")
     livelihood_goal: Optional[str] = Field(None, description="'wage_employment' | 'self_employment' | 'any'")
     top_k: int = Field(default=5, description="How many course recommendations to return")
@@ -113,6 +115,9 @@ class RecommendResponse(BaseModel):
     pathway_explanation: Optional[Dict[str, Any]] = None   # 3-part: why/missing/next
     validation_report: List[Dict[str, Any]] = []           # Per-course validation results
     decision_trace: Optional[Dict[str, Any]] = None
+    local_training_centres: Optional[List[Dict[str, Any]]] = None
+    district_demand: Optional[List[Dict[str, Any]]] = None
+    data_provenance: Optional[Dict[str, Any]] = None
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -406,6 +411,17 @@ def recommend_courses(request: RecommendRequest):
     loc_reasons = localize_reasons(reasons, lang)
     localized_ranked = [localize_course(c, lang) for c in ranked]
 
+    cand_district = request.district or (extracted_dict.get("district") if isinstance(extracted_dict, dict) else "") or ""
+    local_centres = db.get_training_centres(district=cand_district) if cand_district else db.get_training_centres()
+    dist_demand = db.get_district_demand(district=cand_district) if cand_district else db.get_district_demand()
+    provenance_info = {
+        "nsqf_standards": "Verified Official Data (NCVET National Qualifications Register)",
+        "training_centres": "Verified Official Data (APSSDC & ITI Network)",
+        "district_demand": "Government-Backed (DSDP & APSSDC Skill Gap Reports)",
+        "schemes": "Official Ministry Guidelines (PM-AJAY GIA / NSFDC / MSME)",
+        "microenterprise_investments": "Indicative Market Estimate (Subject to local equipment pricing)",
+    }
+
     return RecommendResponse(
         eligible=True,
         eligibility_reasons=loc_reasons,
@@ -417,5 +433,8 @@ def recommend_courses(request: RecommendRequest):
         pathway_explanation=pathway_explanation_dict,
         validation_report=validation_report,
         decision_trace=decision_trace,
+        local_training_centres=local_centres,
+        district_demand=dist_demand,
+        data_provenance=provenance_info,
     )
 

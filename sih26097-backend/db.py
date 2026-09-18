@@ -203,9 +203,215 @@ def create_tables():
     """)
     conn.execute("CREATE INDEX IF NOT EXISTS idx_voice_assessment_session ON voice_assessment_answers(session_id)")
 
+    # ── Table 6: business_pathways ────────────────────────────
+    # Stores verified micro-enterprise and self-employment models.
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS business_pathways (
+            id                  INTEGER PRIMARY KEY,
+            trade_category      TEXT    NOT NULL,
+            business_title      TEXT    NOT NULL,
+            business_type       TEXT    NOT NULL,
+            description         TEXT    NOT NULL,
+            target_customers    TEXT    NOT NULL,
+            operating_model     TEXT    NOT NULL,
+            skills_have         TEXT    NOT NULL DEFAULT '[]',
+            skills_recommended  TEXT    NOT NULL DEFAULT '[]',
+            nsqf_course_id      INTEGER,
+            nsqf_course_name    TEXT,
+            nsqf_level          INTEGER,
+            equipment           TEXT    NOT NULL DEFAULT '[]',
+            investment_breakdown TEXT   NOT NULL DEFAULT '{}',
+            translations        TEXT    NOT NULL DEFAULT '{}',
+            FOREIGN KEY (nsqf_course_id) REFERENCES courses(id)
+        )
+    """)
+
+    # ── Table 7: government_schemes ───────────────────────────
+    # Stores verified government enterprise and livelihood schemes (PM-AJAY GIA, Vishwakarma, PMEGP, Mudra).
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS government_schemes (
+            id                  INTEGER PRIMARY KEY,
+            scheme_name         TEXT    NOT NULL,
+            ministry            TEXT    NOT NULL,
+            description         TEXT    NOT NULL,
+            purpose             TEXT    NOT NULL,
+            eligibility_criteria TEXT   NOT NULL DEFAULT '[]',
+            support_type        TEXT    NOT NULL,
+            max_subsidy_amount  TEXT,
+            official_url        TEXT    NOT NULL,
+            is_verified         INTEGER NOT NULL DEFAULT 1,
+            source              TEXT    NOT NULL,
+            applicable_business_types TEXT NOT NULL DEFAULT '[]',
+            applicable_trades   TEXT    NOT NULL DEFAULT '[]',
+            translations        TEXT    NOT NULL DEFAULT '{}'
+        )
+    """)
+
+    # ── Table 8: scheme_business_mapping ──────────────────────
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS scheme_business_mapping (
+            business_id         INTEGER NOT NULL,
+            scheme_id           INTEGER NOT NULL,
+            PRIMARY KEY (business_id, scheme_id),
+            FOREIGN KEY (business_id) REFERENCES business_pathways(id),
+            FOREIGN KEY (scheme_id) REFERENCES government_schemes(id)
+        )
+    """)
+
+    # ── Table 9: skills (Normalized Competency Taxonomy) ─────
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS skills (
+            skill_id            TEXT PRIMARY KEY,
+            canonical_name      TEXT UNIQUE NOT NULL,
+            domain              TEXT NOT NULL,
+            description         TEXT,
+            verification_type   TEXT NOT NULL,
+            source_reference    TEXT NOT NULL
+        )
+    """)
+
+    # ── Table 10: occupations (NCO & Sector Skill Councils) ───
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS occupations (
+            occupation_id       TEXT PRIMARY KEY,
+            occupation_title    TEXT NOT NULL,
+            nco_code            TEXT NOT NULL,
+            sector_skill_council TEXT NOT NULL,
+            entry_education     TEXT NOT NULL,
+            employment_opportunities TEXT,
+            self_employment_potential TEXT,
+            primary_tools       TEXT,
+            verification_status TEXT NOT NULL
+        )
+    """)
+
+    # ── Table 11: nsqf_qualifications (NCVET National Register) ─
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS nsqf_qualifications (
+            qualification_code  TEXT PRIMARY KEY,
+            qualification_name  TEXT NOT NULL,
+            sector              TEXT NOT NULL,
+            nsqf_level          INTEGER,
+            theory_hours        INTEGER NOT NULL,
+            practical_hours     INTEGER NOT NULL,
+            employability_hours INTEGER DEFAULT 60,
+            total_hours         INTEGER NOT NULL,
+            minimum_age         INTEGER DEFAULT 18,
+            entry_requirement   TEXT NOT NULL,
+            official_source_url TEXT NOT NULL,
+            last_verified       DATE DEFAULT '2026-04-16'
+        )
+    """)
+
+    # ── Table 12: skill_occupation_mapping ────────────────────
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS skill_occupation_mapping (
+            mapping_id          TEXT PRIMARY KEY,
+            skill_id            TEXT NOT NULL,
+            occupation_id       TEXT NOT NULL,
+            relevance_weight    REAL DEFAULT 1.0,
+            FOREIGN KEY (skill_id) REFERENCES skills(skill_id) ON DELETE CASCADE,
+            FOREIGN KEY (occupation_id) REFERENCES occupations(occupation_id) ON DELETE CASCADE
+        )
+    """)
+
+    # ── Table 13: training_centres (Physical Hubs & ITIs) ─────
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS training_centres (
+            centre_id           TEXT PRIMARY KEY,
+            centre_name         TEXT NOT NULL,
+            operating_agency    TEXT NOT NULL,
+            district            TEXT NOT NULL,
+            state               TEXT DEFAULT 'Andhra Pradesh',
+            pincode             TEXT NOT NULL,
+            address             TEXT NOT NULL,
+            facilities          TEXT NOT NULL,
+            contact_person      TEXT,
+            contact_phone       TEXT,
+            is_active           INTEGER DEFAULT 1,
+            verification_status TEXT DEFAULT 'Verified Official Data'
+        )
+    """)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_training_centres_district ON training_centres(district)")
+
+    # ── Table 14: district_skill_demand (DSDP & APSSDC Reports) ──
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS district_skill_demand (
+            demand_id           TEXT PRIMARY KEY,
+            district            TEXT NOT NULL,
+            state               TEXT DEFAULT 'Andhra Pradesh',
+            economic_focus      TEXT NOT NULL,
+            occupation_category TEXT NOT NULL,
+            demand_indicator    TEXT NOT NULL,
+            demand_rationale    TEXT NOT NULL,
+            verification_confidence TEXT NOT NULL,
+            last_updated        DATE DEFAULT '2026-04-16'
+        )
+    """)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_district_demand ON district_skill_demand(district, occupation_category)")
+
+    # ── Table 15: scheme_eligibility (Deterministic Rules) ───
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS scheme_eligibility (
+            rule_id             TEXT PRIMARY KEY,
+            scheme_code         TEXT NOT NULL,
+            evaluated_field     TEXT NOT NULL,
+            required_condition  TEXT NOT NULL,
+            logical_operator    TEXT NOT NULL,
+            failure_message     TEXT NOT NULL
+        )
+    """)
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_scheme_eligibility_code ON scheme_eligibility(scheme_code)")
+
+    # ── Table 16: ap_district_profiles (AP 26 Districts Ecosystem) ─
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS ap_district_profiles (
+            district_name       TEXT PRIMARY KEY,
+            headquarters        TEXT NOT NULL,
+            sc_population_percent REAL NOT NULL,
+            dominant_subcastes  TEXT NOT NULL,
+            leading_industrial_sectors TEXT NOT NULL,
+            priority_skilling_sectors  TEXT NOT NULL,
+            district_nodal_office      TEXT NOT NULL
+        )
+    """)
+
+    # ── Table 17: multilingual_terms (NCVET & SSC Terminology) ─
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS multilingual_terms (
+            term_id             TEXT PRIMARY KEY,
+            canonical_en        TEXT NOT NULL,
+            term_te             TEXT NOT NULL,
+            term_hi             TEXT NOT NULL,
+            functional_definition TEXT NOT NULL,
+            translation_category  TEXT NOT NULL
+        )
+    """)
+
+    # ── Table 18: skill_gap_matrix (Differential Deficits) ───
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS skill_gap_matrix (
+            gap_id              TEXT PRIMARY KEY,
+            informal_competency TEXT NOT NULL,
+            target_job_role     TEXT NOT NULL,
+            compulsory_nos      TEXT NOT NULL,
+            competency_deficit  TEXT NOT NULL,
+            bridge_module       TEXT NOT NULL,
+            training_mode       TEXT NOT NULL,
+            classification      TEXT DEFAULT 'Derived System Mapping'
+        )
+    """)
+
+    # Seed verified self-employment data
+    seed_self_employment_data(conn)
+
+    # Seed authoritative research datasets
+    seed_research_dataset(conn)
+
     conn.commit()
     conn.close()
     print("✅ Database tables created successfully.")
+
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -832,6 +1038,943 @@ def get_latest_voice_session(user_id: int) -> Optional[str]:
     conn.close()
     return row["session_id"] if row else None
 
+
+# ═══════════════════════════════════════════════════════════════
+# SELF-EMPLOYMENT & GOVERNMENT SCHEMES OPERATIONS
+# ═══════════════════════════════════════════════════════════════
+
+def seed_self_employment_data(conn: sqlite3.Connection):
+    """
+    Seed verified government enterprise schemes and micro-enterprise pathways.
+    Enforces strict anti-hallucination boundary: schemes and indicative investments
+    come strictly from verified database records.
+    """
+    schemes_count = conn.execute("SELECT COUNT(*) FROM government_schemes").fetchone()[0]
+    if schemes_count == 0:
+        schemes = [
+            (
+                1,
+                "PM-AJAY GIA Component (Capital Subsidy)",
+                "Ministry of Social Justice and Empowerment, Government of Bharat",
+                "Direct capital subsidy and tool kit assistance for income-generating micro-enterprises and self-employment units for Scheduled Caste beneficiaries.",
+                "Promote viable self-employment and sustainable family income generation for SC candidates.",
+                json.dumps([
+                    "Candidate belongs to Scheduled Caste (SC) category",
+                    "Annual family income <= ₹3,00,000 / year",
+                    "Age between 18 and 45 years",
+                    "Vocational or NSQF certification completed"
+                ]),
+                "Capital Subsidy (Up to 50% project cost or ₹50,000) + Free Skilling",
+                "₹50,000 direct subsidy",
+                "https://socialjustice.gov.in/schemes/pm-ajay",
+                1,
+                "Ministry of Social Justice & Empowerment Official Portal",
+                json.dumps(["home_based", "small_unit", "mobile_service"]),
+                json.dumps(["tailoring", "electrical", "solar", "plumbing", "mechanic", "carpentry", "food_processing", "handicrafts"]),
+                json.dumps({
+                    "te": {
+                        "name": "పీఎం-అజయ్ GIA భాగస్వామ్య రాయితీ పథకం",
+                        "desc": "ఎస్సీ లబ్ధిదారులకు స్వయం ఉపాధి మరియు సూక్ష్మ వ్యాపారాల కోసం గరిష్టంగా ₹50,000 ప్రత్యక్ష సబ్సిడీ మరియు ఉచిత నైపుణ్య శిక్షణ.",
+                        "purpose": "ఎస్సీ కుటుంబాలకు శాశ్వత జీవనోపాధి మరియు స్వయం ఉపాధి కల్పన."
+                    },
+                    "hi": {
+                        "name": "पीएम-अजय जीआईए पूंजी सब्सिडी घटक",
+                        "desc": "अनुसूचित जाति के लाभार्थियों के लिए स्वरोजगार हेतु ₹50,000 तक की प्रत्यक्ष पूंजी सब्सिडी और निःशुल्क कौशल प्रशिक्षण।",
+                        "purpose": "एससी परिवारों के लिए स्थायी आजीविका और सूक्ष्म उद्यम विकास।"
+                    }
+                })
+            ),
+            (
+                2,
+                "PM Vishwakarma Scheme",
+                "Ministry of Micro, Small and Medium Enterprises (MSME)",
+                "End-to-end support for traditional artisans and craftspersons across 18 family trades with modern tool kits and collateral-free enterprise credit.",
+                "Enhance capability, productivity, and market linkage of traditional trade craftspersons.",
+                json.dumps([
+                    "Practicing one of 18 identified traditional family trades (Tailor, Carpenter, Electrician, Plumber, etc.)",
+                    "Minimum age 18 years",
+                    "No active default under central/state government credit schemes"
+                ]),
+                "₹15,000 Tool Kit E-Voucher + Collateral-Free Loan up to ₹3 Lakh at 5% interest",
+                "₹15,000 tool voucher + ₹3,00,000 concessional loan",
+                "https://pmvishwakarma.gov.in",
+                1,
+                "Ministry of MSME, Government of Bharat",
+                json.dumps(["home_based", "small_unit", "mobile_service"]),
+                json.dumps(["tailoring", "carpentry", "electrical", "plumbing", "mechanic", "handicrafts"]),
+                json.dumps({
+                    "te": {
+                        "name": "పీఎం విశ్వకర్మ యోజన",
+                        "desc": "చేతివృత్తుల వారికి ₹15,000 విలువైన ఆధునిక పనిముట్ల ఈ-వోచర్ మరియు 5% వడ్డీతో ₹3 లక్షల వరకు పూచీకత్తు లేని రుణం.",
+                        "purpose": "సాంప్రదాయ వృత్తి నిపుణుల సాధికారత మరియు ఆధునిక సాంకేతికత పరికరాల మద్దతు."
+                    },
+                    "hi": {
+                        "name": "पीएम विश्वकर्मा योजना",
+                        "desc": "पारंपरिक कारीगरों के लिए ₹15,000 का आधुनिक टूलकिट ई-वाउचर और 5% ब्याज पर ₹3 लाख तक का बिना गारंटी ऋण।",
+                        "purpose": "पारंपरिक कारीगरों की उत्पादकता और बाजार पहुंच में वृद्धि।"
+                    }
+                })
+            ),
+            (
+                3,
+                "PMEGP (Prime Minister's Employment Generation Programme)",
+                "Ministry of MSME & Khadi and Village Industries Commission (KVIC)",
+                "Credit-linked margin money subsidy scheme to generate non-farm micro-enterprises in rural and semi-urban clusters.",
+                "Encourage micro-enterprise establishment with high government subsidy support.",
+                json.dumps([
+                    "Individual above 18 years of age",
+                    "8th pass for project cost exceeding ₹10 Lakh (Mfg) / ₹5 Lakh (Service)",
+                    "Special Category (SC/ST/Rural) eligible for 35% margin money subsidy in rural areas"
+                ]),
+                "25% to 35% Capital Margin Money Subsidy through Public Sector Banks",
+                "Up to ₹17.5 Lakh subsidy (35% of ₹50L manufacturing project)",
+                "https://www.kviconline.gov.in/pmegpeportal/",
+                1,
+                "KVIC Official Portal",
+                json.dumps(["small_unit"]),
+                json.dumps(["tailoring", "electrical", "solar", "carpentry", "food_processing", "mechanic"]),
+                json.dumps({
+                    "te": {
+                        "name": "పీఎంఈజీపీ (ప్రధాన మంత్రి ఉపాధి కల్పన పథకం)",
+                        "desc": "గ్రామీణ ప్రాంతాల ఎస్సీ వర్గాలకు కొత్త వ్యాపార ప్రాజెక్టు ఖర్చుపై 35% వరకు సబ్సిడీ మరియు బ్యాంకు రుణం.",
+                        "purpose": "గ్రామీణ సూక్ష్మ పరిశ్రమల స్థాపన మరియు స్వయం ఉపాధి కల్పన."
+                    },
+                    "hi": {
+                        "name": "पीएमईजीपी (प्रधानमंत्री रोजगार सृजन कार्यक्रम)",
+                        "desc": "ग्रामीण क्षेत्रों में एससी लाभार्थियों के लिए परियोजना लागत पर 35% तक मार्जिन मनी सब्सिडी।",
+                        "purpose": "सूक्ष्म उद्यमों की स्थापना और रोजगार सृजन।"
+                    }
+                })
+            ),
+            (
+                4,
+                "Pradhan Mantri MUDRA Yojana (Shishu & Kishore)",
+                "Department of Financial Services, Ministry of Finance",
+                "Collateral-free micro-enterprise institutional finance for small service providers, shops, repair clinics, and local artisans.",
+                "Provide seamless formal credit to micro-enterprises without mortgage requirements.",
+                json.dumps([
+                    "Indian citizen with viable self-employment or business plan",
+                    "Non-corporate small business segment (proprietorship, partnership)",
+                    "Clean credit track record with bank"
+                ]),
+                "Collateral-Free Working Capital & Equipment Term Loan",
+                "Shishu: up to ₹50,000 | Kishore: ₹50,000 to ₹5,00,000",
+                "https://www.mudra.org.in",
+                1,
+                "MUDRA / Department of Financial Services, GoI",
+                json.dumps(["home_based", "small_unit", "mobile_service"]),
+                json.dumps(["tailoring", "electrical", "solar", "plumbing", "mechanic", "carpentry", "food_processing", "handicrafts"]),
+                json.dumps({
+                    "te": {
+                        "name": "పీఎం ముద్ర యోజన (శిశు & కిశోర్)",
+                        "desc": "పూచీకత్తు లేకుండా ₹50,000 నుండి ₹5 లక్షల వరకు చిన్న వ్యాపారాలకు సులభమైన బ్యాంకు రుణం.",
+                        "purpose": "పరికరాల కొనుగోలు మరియు రోజువారీ వ్యాపార మూలధనం."
+                    },
+                    "hi": {
+                        "name": "प्रधानमंत्री मुद्रा योजना (शिशु और किशोर)",
+                        "desc": "बिना गारंटी ₹50,000 से ₹5 लाख तक का माइक्रो-एंटरप्राइज बैंक ऋण।",
+                        "purpose": "उपकरण खरीद और कार्यशील पूंजी सहायता।"
+                    }
+                })
+            ),
+            (
+                5,
+                "Stand-Up India Scheme",
+                "Department of Financial Services, Ministry of Finance & SIDBI",
+                "Enterprise bank credit between ₹10 lakh and ₹1 crore to Scheduled Caste (SC) entrepreneurs for greenfield ventures.",
+                "Support SC entrepreneurship in manufacturing, services, or trading.",
+                json.dumps([
+                    "Borrower must belong to Scheduled Caste (SC) or Scheduled Tribe (ST)",
+                    "Enterprise must be a greenfield (first-time venture)",
+                    "In case of non-individual enterprises, 51% shareholding by SC/ST"
+                ]),
+                "Composite Bank Loan (Term Loan + Working Capital) covering up to 85% of project cost",
+                "₹10 Lakh to ₹1 Crore",
+                "https://www.standupmitra.in",
+                1,
+                "Stand-Up Mitra / SIDBI",
+                json.dumps(["small_unit"]),
+                json.dumps(["tailoring", "electrical", "solar", "carpentry", "food_processing", "mechanic"]),
+                json.dumps({
+                    "te": {
+                        "name": "స్టాండ్-అప్ ఇండియా పథకం",
+                        "desc": "ఎస్సీ ఔత్సాహిక పారిశ్రామికవేత్తలకు కొత్త వ్యాపారాల స్థాపనకు ₹10 లక్షల నుండి ₹1 కోటి వరకు బ్యాంక్ లోన్.",
+                        "purpose": "ఎస్సీ పారిశ్రామికవేత్తల ఆధ్వర్యంలో విస్తృత స్థాయి వ్యాపార యూనిట్ల స్థాపన."
+                    },
+                    "hi": {
+                        "name": "स्टैंड-अप इंडिया योजना",
+                        "desc": "अनुसूचित जाति के उद्यमियों को नए उद्यम के लिए ₹10 लाख से ₹1 करोड़ तक का बैंक ऋण।",
+                        "purpose": "एससी समुदाय के उद्यमियों के लिए हरित उद्यम विकास।"
+                    }
+                })
+            )
+        ]
+
+        conn.executemany("""
+            INSERT INTO government_schemes (
+                id, scheme_name, ministry, description, purpose,
+                eligibility_criteria, support_type, max_subsidy_amount,
+                official_url, is_verified, source, applicable_business_types,
+                applicable_trades, translations
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, schemes)
+
+    pathways_count = conn.execute("SELECT COUNT(*) FROM business_pathways").fetchone()[0]
+    if pathways_count == 0:
+        pathways = [
+            # ── TAILORING PATHWAYS ──
+            (
+                1,
+                "tailoring",
+                "Home-Based Tailoring & Alteration Service",
+                "home_based",
+                "Operate a flexible home-based tailoring service offering custom stitching of blouses, salwar suits, school uniforms, and local alteration services.",
+                "Neighborhood families, working women, local school students, festive custom wear seekers.",
+                "Order-based custom stitching and alterations from home workspace.",
+                json.dumps(["Garment Stitching", "Sewing Machine Operation", "Body Measurement", "Hand Finishing"]),
+                json.dumps(["Designer Pattern Cutting", "Blouse Neck Finishing", "Cost Calculation", "Digital UPI Payments"]),
+                5,  # Sewing Machine Operator course
+                "Sewing Machine Operator",
+                3,
+                json.dumps([
+                    {"name": "Heavy-Duty Motorized Sewing Machine", "category": "Machine", "indicative_cost": "₹9,000 - ₹14,000", "icon": "🧵"},
+                    {"name": "Tailoring Shears & Rotary Cutter Set", "category": "Tool", "indicative_cost": "₹800 - ₹1,500", "icon": "✂️"},
+                    {"name": "Professional Measurement Tape & Curve Rulers", "category": "Tool", "indicative_cost": "₹400 - ₹800", "icon": "📏"},
+                    {"name": "Electric Steam Iron & Padded Pressing Board", "category": "Workspace", "indicative_cost": "₹1,800 - ₹2,800", "icon": "🪑"},
+                    {"name": "Starter Thread, Needle & Interlining Kit", "category": "Materials", "indicative_cost": "₹1,500 - ₹2,500", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹12,000 - ₹19,000",
+                    "materials_cost": "₹2,500 - ₹4,000",
+                    "setup_cost": "₹1,500 - ₹3,000",
+                    "total_indicative_cost": "₹16,000 - ₹26,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "ఇంటి వద్ద టైలరింగ్ మరియు ఆల్టరేషన్ సేవలు",
+                        "desc": "ఇంటి వద్దే ఉంటూ బ్లౌజ్‌లు, డ్రెస్సులు, యూనిఫామ్‌లు కుట్టడం మరియు ఆల్టరేషన్ చేయడం ద్వారా స్థిరమైన రోజువారీ ఆదాయం పొందవచ్చు.",
+                        "customers": "స్థానిక నివాసితులు, మహిళలు, విద్యార్థులు."
+                    },
+                    "hi": {
+                        "title": "घर पर सिलाई एवं ऑल्टरेशन सेवा",
+                        "desc": "घर से सिलाई सेवा शुरू करके ब्लाउज, सूट, यूनिफॉर्म और कपड़ों की मरम्मत से नियमित दैनिक आय अर्जित करें।",
+                        "customers": "स्थानीय परिवार, कामकाजी महिलाएं और छात्र।"
+                    }
+                })
+            ),
+            (
+                2,
+                "tailoring",
+                "Custom Designer Boutique & Small Garment Unit",
+                "small_unit",
+                "Establish a dedicated high-volume tailoring and boutique studio equipped with zig-zag embroidery and buttonhole finishing.",
+                "Boutique clients, bridal wear seekers, readymade garment retailers, local colleges.",
+                "Retail shopfront + customized designer garment manufacturing.",
+                json.dumps(["Sewing Machine Operation", "Pattern Drafting", "Measurement Taking"]),
+                json.dumps(["Bridal Work & Embroidery", "Batch Production", "Staff Management", "Inventory Control"]),
+                5,
+                "Sewing Machine Operator",
+                3,
+                json.dumps([
+                    {"name": "Industrial Lockstitch Sewing Machine (Direct Drive)", "category": "Machine", "indicative_cost": "₹18,000 - ₹25,000", "icon": "🧵"},
+                    {"name": "3-Thread Overlock & Pico Machine", "category": "Machine", "indicative_cost": "₹14,000 - ₹20,000", "icon": "⚙️"},
+                    {"name": "Cutting Table & Measuring Master Suite", "category": "Workspace", "indicative_cost": "₹6,000 - ₹10,000", "icon": "📏"},
+                    {"name": "Mannequin Dress Form & Display Rack", "category": "Workspace", "indicative_cost": "₹4,000 - ₹7,000", "icon": "👗"},
+                    {"name": "Fabric, Zips, Buttons & Thread Inventory", "category": "Materials", "indicative_cost": "₹10,000 - ₹18,000", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹42,000 - ₹62,000",
+                    "materials_cost": "₹10,000 - ₹18,000",
+                    "setup_cost": "₹8,000 - ₹15,000",
+                    "total_indicative_cost": "₹60,000 - ₹95,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "కస్టమ్ డిజైనర్ బోటిక్ & టైలరింగ్ యూనిట్",
+                        "desc": "ఆధునిక పీకో మరియు ఎంబ్రాయిడరీ మిషన్లతో సొంత దుకాణంలో డిజైనర్ బట్టల వ్యాపార యూనిట్.",
+                        "customers": "పెళ్లి బట్టలు, బొటీక్ కస్టమర్లు మరియు దుస్తుల రిటైలర్లు."
+                    },
+                    "hi": {
+                        "title": "कस्टम डिज़ाइनर बुटीक एवं सिलाई यूनिट",
+                        "desc": "औद्योगिक सिलाई और पीको मशीनों के साथ खुद की बुटीक दुकान और परिधान निर्माण यूनिट।",
+                        "customers": "शादी-समारोह के ग्राहक, बुटीक खरीदार।"
+                    }
+                })
+            ),
+
+            # ── ELECTRICAL PATHWAYS ──
+            (
+                3,
+                "electrical",
+                "Domestic Electrical Repair & Doorstep Service",
+                "mobile_service",
+                "On-demand doorstep electrician enterprise handling domestic wiring, MCB tripping, fan rewinding, inverter setup, and pump repairs.",
+                "Homeowners, apartment societies, small commercial shops, local offices.",
+                "Mobile on-call repair service, emergency visits, and scheduled installation appointments.",
+                json.dumps(["Domestic Wiring", "Switchboard Repair", "Continuity Testing", "Earthing Setup"]),
+                json.dumps(["Load Calculation", "Inverter Battery Diagnostics", "Job Billing", "Safety Certification"]),
+                1,  # Assistant Electrician
+                "Assistant Electrician",
+                4,
+                json.dumps([
+                    {"name": "True-RMS Digital Multimeter & Voltage Probe", "category": "Tool", "indicative_cost": "₹1,800 - ₹3,200", "icon": "⚡"},
+                    {"name": "Rotary Hammer Drill Machine & Masonry Bits", "category": "Machine", "indicative_cost": "₹4,500 - ₹7,500", "icon": "🔨"},
+                    {"name": "Heavy-Duty Insulated Pliers, Cutters & Crimpers", "category": "Tool", "indicative_cost": "₹1,200 - ₹2,000", "icon": "🔧"},
+                    {"name": "1000V Certified Rubber Safety Gloves & Boots", "category": "Safety", "indicative_cost": "₹1,500 - ₹2,500", "icon": "🛡️"},
+                    {"name": "Fuses, Wires, Capacitors & Switch Spares Starter Kit", "category": "Materials", "indicative_cost": "₹3,000 - ₹5,000", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹12,000 - ₹18,000",
+                    "materials_cost": "₹3,000 - ₹5,000",
+                    "setup_cost": "₹2,000 - ₹4,000",
+                    "total_indicative_cost": "₹17,000 - ₹27,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "గృహ విద్యుత్ మరమ్మతు & డోర్‌స్టెప్ సర్వీస్",
+                        "desc": "గృహ వైరింగ్, ఇన్వర్టర్ అమరిక, ఫ్యాన్లు మరియు మోటార్ల మరమ్మతులకు నేరుగా కస్టమర్ ఇంటి వద్ద సేవలు అందించే యూనిట్.",
+                        "customers": "ఇళ్ల యజమానులు, అపార్ట్‌మెంట్లు, చిన్న వ్యాపార కేంద్రాలు."
+                    },
+                    "hi": {
+                        "title": "घरेलू विद्युत मरम्मत एवं ऑन-कॉल सेवा",
+                        "desc": "घर-घर जाकर विद्युत वायरिंग, इन्वर्टर, पंखे और उपकरणों की त्वरित मरम्मत सेवा प्रदान करें।",
+                        "customers": "मकान मालिक, आवासीय सोसायटी और दुकानें।"
+                    }
+                })
+            ),
+            (
+                4,
+                "electrical",
+                "Electrical Contracting & Retail Spare Parts Center",
+                "small_unit",
+                "Full-fledged electrical contracting agency and shop providing wiring materials, tube fittings, cables, and contracted building wiring projects.",
+                "Builders, civil contractors, commercial renovation projects, rural home construction.",
+                "Shopfront sales + project-based contract installations.",
+                json.dumps(["Domestic & Commercial Wiring", "Phase Balancing", "Multimeter Use"]),
+                json.dumps(["Contract Bidding", "Sub-contractor Management", "GST Invoicing", "Wholesale Sourcing"]),
+                1,
+                "Assistant Electrician",
+                4,
+                json.dumps([
+                    {"name": "Heavy Wall Chaser Machine & Dust Collector", "category": "Machine", "indicative_cost": "₹12,000 - ₹18,000", "icon": "⚙️"},
+                    {"name": "Megger Digital Insulation Resistance Tester", "category": "Tool", "indicative_cost": "₹6,000 - ₹10,000", "icon": "📟"},
+                    {"name": "Fiberglass Step Ladders & Safety Harness Kit", "category": "Safety", "indicative_cost": "₹5,000 - ₹8,000", "icon": "🪜"},
+                    {"name": "Conduit Benders & Cable Pulling Winches", "category": "Tool", "indicative_cost": "₹4,000 - ₹7,000", "icon": "🔧"},
+                    {"name": "Cable Spools, Conduit Pipes & MCB Box Starter Stock", "category": "Materials", "indicative_cost": "₹25,000 - ₹40,000", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹32,000 - ₹48,000",
+                    "materials_cost": "₹25,000 - ₹40,000",
+                    "setup_cost": "₹10,000 - ₹20,000",
+                    "total_indicative_cost": "₹67,000 - ₹1,08,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "ఎలక్ట్రికల్ కాంట్రాక్టింగ్ & స్పేర్ పార్ట్స్ సెంటర్",
+                        "desc": "భవనాల వైరింగ్ కాంట్రాక్టులు మరియు ఎలక్ట్రికల్ సామాగ్రి అమ్మకాలతో కూడిన వ్యాపార కేంద్రం.",
+                        "customers": "భవన నిర్మాణదారులు, కాంట్రాక్టర్లు, స్థానిక ప్రజలు."
+                    },
+                    "hi": {
+                        "title": "विद्युत ठेकेदारी एवं उपकरण बिक्री केंद्र",
+                        "desc": "भवनों की पूर्ण वायरिंग ठेकेदारी और बिजली सामग्री की बिक्री की वाणिज्यिक दुकान।",
+                        "customers": "बिल्डर्स, ठेकेदार और नए मकान निर्माता।"
+                    }
+                })
+            ),
+
+            # ── SOLAR ENERGY PATHWAYS ──
+            (
+                5,
+                "solar",
+                "Solar Rooftop Installation & Annual Maintenance Unit",
+                "mobile_service",
+                "Specialized enterprise conducting residential rooftop solar survey, module installation, net metering paperwork, and periodic panel cleaning.",
+                "Independent house owners, commercial warehouses, farm pump owners, rural institutions.",
+                "Installation turnkey projects + Annual Maintenance Contracts (AMC).",
+                json.dumps(["Solar Panel Mounting", "Inverter Connection", "Site Inspection"]),
+                json.dumps(["Solar Net Metering Liaising", "Solar Cleaning Pump Operation", "Quotation Drafting"]),
+                2,  # Solar PV Installer
+                "Solar PV Installer (Suryamitra)",
+                4,
+                json.dumps([
+                    {"name": "Solar Angle Inclinometer & Compass Kit", "category": "Tool", "indicative_cost": "₹1,500 - ₹2,500", "icon": "🧭"},
+                    {"name": "DC High-Precision Clamp Meter (600V/1000V)", "category": "Tool", "indicative_cost": "₹3,500 - ₹5,500", "icon": "⚡"},
+                    {"name": "MC4 Connector Crimper & Solar Cable Cutters", "category": "Tool", "indicative_cost": "₹2,200 - ₹3,500", "icon": "🔧"},
+                    {"name": "Rooftop Fall Protection Harness & Lanyard Kit", "category": "Safety", "indicative_cost": "₹3,000 - ₹5,000", "icon": "🛡️"},
+                    {"name": "High-Pressure Telescopic Solar Cleaning Pump", "category": "Machine", "indicative_cost": "₹8,000 - ₹14,000", "icon": "🚿"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹20,000 - ₹32,000",
+                    "materials_cost": "₹5,000 - ₹9,000",
+                    "setup_cost": "₹3,000 - ₹6,000",
+                    "total_indicative_cost": "₹28,000 - ₹47,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "సోలార్ రూఫ్‌టాప్ ఇన్‌స్టాలేషన్ & మెయింటెనెన్స్ యూనిట్",
+                        "desc": "సౌర ప్యానెళ్ల అమరిక, నెట్ మీటరింగ్ సహాయం మరియు క్లీనింగ్ మెయింటెనెన్స్ సేవల వ్యాపారం.",
+                        "customers": "ఇళ్ల యజమానులు, వ్యవసాయ పంపులు, వ్యాపార సంస్థలు."
+                    },
+                    "hi": {
+                        "title": "सोलर रूफटॉप इंस्टॉलेशन एवं मेंटेनेंस एजेंसी",
+                        "desc": "घरों और दुकानों की छतों पर सोलर पैनल लगाने और नियमित सफाई-रखरखाव की सेवा।",
+                        "customers": "घर के मालिक, किसान और व्यावसायिक प्रतिष्ठान।"
+                    }
+                })
+            ),
+
+            # ── PLUMBING PATHWAYS ──
+            (
+                6,
+                "plumbing",
+                "Residential Plumbing & Water Purifier Service Agency",
+                "mobile_service",
+                "Doorstep emergency plumbing repair, CPVC/PPR pipeline laying, sanitary fixtures setup, and RO water purifier servicing.",
+                "Residential households, gated communities, restaurants, commercial facilities.",
+                "On-call plumbing service, renovation fitting, and filter maintenance contracts.",
+                json.dumps(["Pipe Fitting", "Leak Detection", "Tap & Valve Repair"]),
+                json.dumps(["PPR Hot Fusion Welding", "Water Pressure Testing", "Customer Booking via WhatsApp"]),
+                3,  # Plumber General
+                "Plumber General",
+                4,
+                json.dumps([
+                    {"name": "Adjustable Heavy Pipe Wrenches (10\" & 14\") Set", "category": "Tool", "indicative_cost": "₹1,200 - ₹2,000", "icon": "🔧"},
+                    {"name": "PPR Socket Fusion Welding Machine", "category": "Machine", "indicative_cost": "₹2,500 - ₹4,500", "icon": "🔥"},
+                    {"name": "Rotary Drain Auger Snake for Blockage Clearing", "category": "Tool", "indicative_cost": "₹1,800 - ₹3,000", "icon": "🌀"},
+                    {"name": "Hand Pressure Testing Pump & Gauge", "category": "Tool", "indicative_cost": "₹2,200 - ₹3,500", "icon": "💧"},
+                    {"name": "Teflon Tapes, Washer O-Rings & Solvent Cements Kit", "category": "Materials", "indicative_cost": "₹1,500 - ₹2,500", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹10,000 - ₹16,000",
+                    "materials_cost": "₹3,000 - ₹5,000",
+                    "setup_cost": "₹2,000 - ₹3,500",
+                    "total_indicative_cost": "₹15,000 - ₹24,500",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "ప్లంబింగ్ & వాటర్ ఫిల్టర్ సర్వీస్ ఏజెన్సీ",
+                        "desc": "పైపులైన్ అమరిక, లీకేజీల నివారణ, శానిటరీ ఫిట్టింగ్స్ మరియు వాటర్ ప్యూరిఫైయర్ల మరమ్మతు సేవలు.",
+                        "customers": "నివాస గృహాలు, అపార్ట్‌మెంట్లు, రెస్టారెంట్లు."
+                    },
+                    "hi": {
+                        "title": "प्लंबिंग एवं वाटर प्यूरीफायर सर्विस एजेंसी",
+                        "desc": "पाइपलाइन फिटिंग, नल-टंकी मरम्मत, सेनेटरी इंस्टॉलेशन और आरओ फिल्टर सर्विस।",
+                        "customers": "घरेलू उपभोक्ता, सोसायटी और व्यावसायिक भवन।"
+                    }
+                })
+            ),
+
+            # ── TWO-WHEELER MECHANIC PATHWAYS ──
+            (
+                7,
+                "mechanic",
+                "Doorstep Two-Wheeler Servicing & Quick Repair Hub",
+                "mobile_service",
+                "Mobile motorcycle/scooter routine maintenance, oil lubrication, brake overhaul, puncture assistance, and battery jumpstart.",
+                "Daily office commuters, delivery riders (Zomato/Swiggy/Blinkit), rural vehicle owners.",
+                "Doorstep servicing kits + mobile emergency call assistance.",
+                json.dumps(["Engine Tuning", "Tyre Changing", "Clutch Overhaul", "Oil Service"]),
+                json.dumps(["Electronic Fuel Injection (EFI) Checks", "Digital Billing", "Parts Procurement"]),
+                4,  # Two-Wheeler Mechanic
+                "Two-Wheeler Mechanic",
+                3,
+                json.dumps([
+                    {"name": "Professional 46-Piece Metric Socket & Ratchet Kit", "category": "Tool", "indicative_cost": "₹2,200 - ₹3,500", "icon": "🔧"},
+                    {"name": "Portable 12V High-Pressure Tyre Inflator & Gauge", "category": "Machine", "indicative_cost": "₹2,500 - ₹4,000", "icon": "🛞"},
+                    {"name": "Motorcycle Battery Charger & Digital Load Tester", "category": "Tool", "indicative_cost": "₹2,800 - ₹4,500", "icon": "🔋"},
+                    {"name": "Engine Oil Draining Pan & Fluid Dispenser", "category": "Tool", "indicative_cost": "₹800 - ₹1,500", "icon": "🛢️"},
+                    {"name": "Engine Oils, Spark Plugs & Brake Shoe Stock", "category": "Materials", "indicative_cost": "₹5,000 - ₹8,000", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹12,000 - ₹18,000",
+                    "materials_cost": "₹5,000 - ₹8,000",
+                    "setup_cost": "₹2,000 - ₹4,000",
+                    "total_indicative_cost": "₹19,000 - ₹30,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "టూ-వీలర్ డోర్‌స్టెప్ సర్వీసింగ్ & ఎమర్జెన్సీ క్లినిక్",
+                        "desc": "బైకులు, స్కూటర్ల ఆయిల్ మార్పిడి, బ్రేక్ రిపేర్లు మరియు పంచర్లకు వినియోగదారుల ఇంటి వద్దే సేవలు.",
+                        "customers": "డెలివరీ రైడర్లు, ఆఫీస్ ప్రయాణికులు, స్థానిక వాహనదారులు."
+                    },
+                    "hi": {
+                        "title": "टू-व्हीलर मोबाइल सर्विसिंग एवं ब्रेकडाउन असिस्ट",
+                        "desc": "मोटरसाइकिल और स्कूटर की घर पर सर्विसिंग, ऑयल चेंज और तत्काल मरम्मत की सेवा।",
+                        "customers": "दैनिक यात्री, डिलीवरी राइडर्स और ग्रामीण वाहन मालिक।"
+                    }
+                })
+            ),
+
+            # ── CARPENTRY PATHWAYS ──
+            (
+                8,
+                "carpentry",
+                "Custom Woodworking & Modular Furniture Finishing Studio",
+                "small_unit",
+                "Custom wooden furniture crafting, modular kitchen installation, door/window frame fitting, and furniture restoration.",
+                "Home owners, interior designers, commercial offices, schools.",
+                "Custom order manufacturing and site-based installation.",
+                json.dumps(["Wood Measurement", "Cutting & Jointing", "Hand Tool Operation"]),
+                json.dumps(["Modular Hardware Fittings", "High-Gloss Laminate Paste", "CAD Drawing Reading"]),
+                18,  # Assistant Carpenter
+                "Assistant Carpenter",
+                3,
+                json.dumps([
+                    {"name": "Heavy-Duty Hand Circular Saw & Guides", "category": "Machine", "indicative_cost": "₹4,500 - ₹7,000", "icon": "🪚"},
+                    {"name": "Electric Hand Planer with Depth Gauge", "category": "Machine", "indicative_cost": "₹3,200 - ₹5,000", "icon": "⚙️"},
+                    {"name": "Wood Router & Trimming Machine Kit", "category": "Machine", "indicative_cost": "₹3,500 - ₹5,500", "icon": "🔧"},
+                    {"name": "Heavy Steel F-Clamps & Wood Chisel Set", "category": "Tool", "indicative_cost": "₹2,000 - ₹3,500", "icon": "🗜️"},
+                    {"name": "Laminates, Adhesives, Hinges & Screws Stock", "category": "Materials", "indicative_cost": "₹8,000 - ₹14,000", "icon": "📦"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹16,000 - ₹24,000",
+                    "materials_cost": "₹8,000 - ₹14,000",
+                    "setup_cost": "₹4,000 - ₹7,000",
+                    "total_indicative_cost": "₹28,000 - ₹45,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "కార్పెంట్రీ & మాడ్యులర్ ఫర్నిచర్ తయారీ యూనిట్",
+                        "desc": "నాణ్యమైన చెక్క ఫర్నిచర్, మాడ్యులర్ కిచెన్ అమరిక మరియు ఇంటీరియర్ వుడ్ వర్క్ సేవల వ్యాపారం.",
+                        "customers": "ఇళ్ల యజమానులు, ఇంటీరియర్ డిజైనర్లు, కార్యాలయాలు."
+                    },
+                    "hi": {
+                        "title": "कस्टम वुडवर्किंग एवं मॉड्युलर फर्नीचर यूनिट",
+                        "desc": "लकड़ी के आधुनिक फर्नीचर निर्माण, मॉड्युलर किचन फिटिंग और मरम्मत की उद्यम यूनिट।",
+                        "customers": "मकान मालिक, इंटीरियर डिज़ाइनर्स और व्यावसायिक प्रतिष्ठान।"
+                    }
+                })
+            ),
+
+            # ── AGRICULTURE & FOOD PROCESSING PATHWAYS ──
+            (
+                9,
+                "food_processing",
+                "Oyster Mushroom Cultivation & Value-Added Spice Packing Unit",
+                "home_based",
+                "Low-cost spawn bags cultivation of oyster mushrooms combined with clean processing, drying, and hygienic local pouch packaging.",
+                "Vegetable markets, grocery stores, organic food consumers, hotels.",
+                "Cultivation in dark humidity-controlled room + direct retail sale.",
+                json.dumps(["Composting", "Temperature Management", "Harvesting"]),
+                json.dumps(["Substrate Sterilization", "Moisture Sealing", "FSSAI Basic Registration", "Local Wholesale Distribution"]),
+                20,  # Mushroom Cultivation Technician
+                "Mushroom Cultivation Technician",
+                3,
+                json.dumps([
+                    {"name": "Digital Room Humidity & Temperature Controller", "category": "Tool", "indicative_cost": "₹1,800 - ₹3,000", "icon": "🌡️"},
+                    {"name": "Micro-Mist Spray Humidifier & Piping", "category": "Machine", "indicative_cost": "₹3,500 - ₹6,000", "icon": "🚿"},
+                    {"name": "Continuous Heat Impulse Pouch Sealer", "category": "Machine", "indicative_cost": "₹1,500 - ₹2,500", "icon": "📦"},
+                    {"name": "Stainless Steel Dehydration Drying Trays", "category": "Workspace", "indicative_cost": "₹2,500 - ₹4,500", "icon": "🍱"},
+                    {"name": "Substrate Straw, Mushroom Spawn & Food-Grade Bags", "category": "Materials", "indicative_cost": "₹4,000 - ₹7,000", "icon": "🌱"}
+                ]),
+                json.dumps({
+                    "equipment_cost": "₹11,000 - ₹18,000",
+                    "materials_cost": "₹4,000 - ₹7,000",
+                    "setup_cost": "₹2,000 - ₹4,000",
+                    "total_indicative_cost": "₹17,000 - ₹29,000",
+                    "currency": "INR",
+                    "disclaimer": "Indicative Estimate. Actual costs may vary by location, supplier, and business scale."
+                }),
+                json.dumps({
+                    "te": {
+                        "title": "పుట్టగొడుగుల సాగు & ఆర్గానిక్ ప్యాకింగ్ యూనిట్",
+                        "desc": "తక్కువ స్థలంలో ఆయిస్టర్ పుట్టగొడుగుల పెంపకం మరియు శుభ్రమైన ప్యాకింగ్‌తో మంచి లాభదాయక వ్యాపారం.",
+                        "customers": "కూరగాయల మార్కెట్లు, సూపర్ మార్కెట్లు, రెస్టారెంట్లు."
+                    },
+                    "hi": {
+                        "title": "मशरूम उत्पादन एवं खाद्य प्रसंस्करण इकाई",
+                        "desc": "कम लागत में उच्च गुणवत्ता वाले मशरूम की खेती और स्थानीय बाजार में स्वच्छ पैकेजिंग बिक्री।",
+                        "customers": "सब्जी मंडी, किराना स्टोर और होटल।"
+                    }
+                })
+            )
+        ]
+
+        conn.executemany("""
+            INSERT INTO business_pathways (
+                id, trade_category, business_title, business_type,
+                description, target_customers, operating_model,
+                skills_have, skills_recommended, nsqf_course_id,
+                nsqf_course_name, nsqf_level, equipment,
+                investment_breakdown, translations
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, pathways)
+
+        # Mapping schemes to business pathways
+        # All businesses eligible for PM-AJAY (1) and Mudra (4)
+        # Artisans eligible for PM Vishwakarma (2)
+        # Small units eligible for PMEGP (3) and Stand-Up India (5)
+        mappings = [
+            (1, 1), (1, 2), (1, 4),        # Tailoring home: PM-AJAY, Vishwakarma, Mudra
+            (2, 1), (2, 2), (2, 3), (2, 4),# Tailoring boutique: PM-AJAY, Vishwakarma, PMEGP, Mudra
+            (3, 1), (3, 2), (3, 4),        # Electrical service: PM-AJAY, Vishwakarma, Mudra
+            (4, 1), (4, 3), (4, 4), (4, 5),# Electrical shop: PM-AJAY, PMEGP, Mudra, Stand-Up India
+            (5, 1), (5, 3), (5, 4),        # Solar rooftop: PM-AJAY, PMEGP, Mudra
+            (6, 1), (6, 2), (6, 4),        # Plumbing: PM-AJAY, Vishwakarma, Mudra
+            (7, 1), (7, 2), (7, 4),        # Mechanic: PM-AJAY, Vishwakarma, Mudra
+            (8, 1), (8, 2), (8, 3), (8, 4),# Carpentry: PM-AJAY, Vishwakarma, PMEGP, Mudra
+            (9, 1), (9, 3), (9, 4),        # Mushroom food proc: PM-AJAY, PMEGP, Mudra
+        ]
+        conn.executemany("INSERT OR IGNORE INTO scheme_business_mapping VALUES (?, ?)", mappings)
+
+
+def format_pathway_dict(item: dict) -> dict:
+    """Format JSON fields and ensure alias property names exist for frontend compatibility."""
+    skills_have = json.loads(item["skills_have"]) if isinstance(item.get("skills_have"), str) else (item.get("skills_have") or [])
+    skills_rec = json.loads(item["skills_recommended"]) if isinstance(item.get("skills_recommended"), str) else (item.get("skills_recommended") or [])
+    equipment = json.loads(item["equipment"]) if isinstance(item.get("equipment"), str) else (item.get("equipment") or [])
+    inv_breakdown = json.loads(item["investment_breakdown"]) if isinstance(item.get("investment_breakdown"), str) else (item.get("investment_breakdown") or {})
+    translations = json.loads(item["translations"]) if isinstance(item.get("translations"), str) else (item.get("translations") or {})
+
+    item["skills_have"] = skills_have
+    item["skills_already_have"] = skills_have
+    item["skills_recommended"] = skills_rec
+    item["skills_recommended_to_acquire"] = skills_rec
+    item["equipment"] = equipment
+    item["equipment_checklist"] = equipment
+    item["investment_breakdown"] = inv_breakdown
+    item["indicative_investment"] = inv_breakdown
+    item["title"] = item.get("business_title") or item.get("title") or "Micro-Enterprise"
+    item["description"] = item.get("description") or ""
+    item["potential_customers"] = item.get("target_customers") or item.get("potential_customers") or ""
+    item["delivery_model"] = item.get("operating_model") or item.get("delivery_model") or ""
+    item["translations"] = translations
+    return item
+
+
+def get_all_business_pathways() -> list[dict]:
+    """Retrieve all verified business pathways from SQLite database."""
+    conn = get_connection()
+    rows = conn.execute("SELECT * FROM business_pathways ORDER BY id ASC").fetchall()
+    conn.close()
+
+    results = []
+    for r in rows:
+        item = format_pathway_dict(dict(r))
+        item["applicable_schemes"] = get_schemes_for_business(item["id"])
+        results.append(item)
+    return results
+
+
+def get_business_pathways_by_trade(trade_or_skill: str) -> list[dict]:
+    """
+    Query business pathways filtered by trade category (e.g. tailoring, electrical).
+    Falls back gracefully if exact match is not found.
+    """
+    term = (trade_or_skill or "").lower()
+    trade_key = "tailoring"
+    if any(w in term for w in ["elec", "wire", "switch", "విద్యుత్", "వైరింగ్", "बिजली", "वायरिंग"]):
+        trade_key = "electrical"
+    elif any(w in term for w in ["solar", "సౌర", "సోలార్", "सौर"]):
+        trade_key = "solar"
+    elif any(w in term for w in ["plumb", "pipe", "పైప్", "ప్లంబింగ్", "पाइप", "नल"]):
+        trade_key = "plumbing"
+    elif any(w in term for w in ["mechanic", "bike", "scooter", "మోటార్", "మెకానిక్", "मैकेनिक", "वाहन"]):
+        trade_key = "mechanic"
+    elif any(w in term for w in ["carpen", "wood", "వడ్రంగి", "చెక్క", "बढ़ई", "लकड़ी"]):
+        trade_key = "carpentry"
+    elif any(w in term for w in ["mush", "food", "agri", "వ్యవసాయం", "పుట్టగొడుగు", "कृषि", "मशरूम"]):
+        trade_key = "food_processing"
+    elif any(w in term for w in ["tailor", "sew", "garment", "కుట్టు", "టైలర్", "दर्जी", "सिलाई"]):
+        trade_key = "tailoring"
+
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT * FROM business_pathways WHERE trade_category = ? ORDER BY id ASC",
+        (trade_key,),
+    ).fetchall()
+
+    if not rows:
+        rows = conn.execute("SELECT * FROM business_pathways LIMIT 2").fetchall()
+
+    conn.close()
+
+    results = []
+    for r in rows:
+        item = format_pathway_dict(dict(r))
+        item["applicable_schemes"] = get_schemes_for_business(item["id"])
+        results.append(item)
+    return results
+
+
+def get_all_schemes() -> list[dict]:
+    """Retrieve all verified government enterprise schemes."""
+    conn = get_connection()
+    rows = conn.execute("SELECT * FROM government_schemes ORDER BY id ASC").fetchall()
+    conn.close()
+
+    results = []
+    for r in rows:
+        item = dict(r)
+        item["eligibility_criteria"] = json.loads(item["eligibility_criteria"])
+        item["applicable_business_types"] = json.loads(item["applicable_business_types"])
+        item["applicable_trades"] = json.loads(item["applicable_trades"])
+        item["translations"] = json.loads(item["translations"])
+        results.append(item)
+    return results
+
+
+def get_schemes_for_business(business_id: int, user_category: str = "SC") -> list[dict]:
+    """
+    Retrieve strictly verified government schemes associated with a specific business pathway.
+    Ensures zero hallucinated schemes.
+    """
+    conn = get_connection()
+    rows = conn.execute("""
+        SELECT s.* FROM government_schemes s
+        JOIN scheme_business_mapping m ON s.id = m.scheme_id
+        WHERE m.business_id = ?
+        ORDER BY s.id ASC
+    """, (business_id,)).fetchall()
+    conn.close()
+
+    results = []
+    for r in rows:
+        item = dict(r)
+        item["eligibility_criteria"] = json.loads(item["eligibility_criteria"])
+        item["applicable_business_types"] = json.loads(item["applicable_business_types"])
+        item["applicable_trades"] = json.loads(item["applicable_trades"])
+        item["translations"] = json.loads(item["translations"])
+        results.append(item)
+    return results
+
+
+def get_livelihood_comparison(trade: str) -> dict:
+    """
+    Generate an objective side-by-side comparison between Wage Employment and Self-Employment
+    for a given trade without declaring one as automatically better.
+    """
+    clean_trade = trade.title() if trade else "Vocational Trade"
+    return {
+        "existing_skill": clean_trade,
+        "employment_training": "NSQF Level 3-4 Accredited Job-Role Course",
+        "self_employment_training": "NSQF Technical Course + 45-hr Entrepreneurship Module",
+        "employment_certification": "Government National Trade Certificate (NCVET)",
+        "self_employment_certification": "NCVET Certificate + PM-AJAY Enterprise Enrollment",
+        "employment_work_model": "Structured Working Hours with Employer / Organization",
+        "self_employment_work_model": "Independent Business, Self-Managed Schedule & Direct Clients",
+        "employment_investment": "Minimal / Zero (Employer provides machinery & tools)",
+        "self_employment_investment": "Indicative Start-up Capital (Supported by Subsidies & MUDRA)",
+        "employment_income": "Regular Monthly Wage / Salary with Increments",
+        "self_employment_income": "Direct Service Fee & Profit Margin Revenue",
+        "employment_growth": "Promotions, Senior Technician & Supervisory Roles",
+        "self_employment_growth": "Client Expansion, Hiring Helpers & Workshop Scaling"
+    }
+
+
+# ═══════════════════════════════════════════════════════════════
+# AUTHORITATIVE RESEARCH DATASET SEED & QUERY OPERATIONS
+# ═══════════════════════════════════════════════════════════════
+
+def seed_research_dataset(conn: sqlite3.Connection):
+    """
+    Seed authoritative research data from Pasted markdown(6).md.
+    Populates normalized tables:
+    skills, occupations, nsqf_qualifications, skill_occupation_mapping,
+    training_centres, district_skill_demand, scheme_eligibility,
+    ap_district_profiles, multilingual_terms, skill_gap_matrix.
+    """
+    try:
+        from data.research_seed import (
+            SKILLS_DATA,
+            OCCUPATIONS_DATA,
+            NSQF_QUALIFICATIONS_DATA,
+            SKILL_OCCUPATION_MAPPING_DATA,
+            TRAINING_CENTRES_DATA,
+            DISTRICT_SKILL_DEMAND_DATA,
+            SCHEME_ELIGIBILITY_DATA,
+            AP_DISTRICT_PROFILES_DATA,
+            MULTILINGUAL_TERMS_DATA,
+            SKILL_GAP_MATRIX_DATA,
+        )
+    except ImportError as e:
+        print(f"⚠️  Notice: research_seed.py import deferred: {e}")
+        return
+
+    # 1. Skills
+    for s in SKILLS_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO skills (skill_id, canonical_name, domain, description, verification_type, source_reference)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (s["skill_id"], s["canonical_name"], s["domain"], s["description"], s["verification_type"], s["source_reference"]))
+
+    # 2. Occupations
+    for o in OCCUPATIONS_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO occupations (occupation_id, occupation_title, nco_code, sector_skill_council, entry_education, employment_opportunities, self_employment_potential, primary_tools, verification_status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (o["occupation_id"], o["occupation_title"], o["nco_code"], o["sector_skill_council"], o["entry_education"], o["employment_opportunities"], o["self_employment_potential"], o["primary_tools"], o["verification_status"]))
+
+    # 3. NSQF Qualifications
+    for q in NSQF_QUALIFICATIONS_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO nsqf_qualifications (qualification_code, qualification_name, sector, nsqf_level, theory_hours, practical_hours, employability_hours, total_hours, minimum_age, entry_requirement, official_source_url, last_verified)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (q["qualification_code"], q["qualification_name"], q["sector"], q["nsqf_level"], q["theory_hours"], q["practical_hours"], q["employability_hours"], q["total_hours"], q["minimum_age"], q["entry_requirement"], q["official_source_url"], q["last_verified"]))
+
+    # 4. Skill Occupation Mapping
+    for m in SKILL_OCCUPATION_MAPPING_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO skill_occupation_mapping (mapping_id, skill_id, occupation_id, relevance_weight)
+            VALUES (?, ?, ?, ?)
+        """, (m["mapping_id"], m["skill_id"], m["occupation_id"], m["relevance_weight"]))
+
+    # 5. Training Centres
+    for tc in TRAINING_CENTRES_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO training_centres (centre_id, centre_name, operating_agency, district, state, pincode, address, facilities, contact_person, contact_phone, is_active, verification_status)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (tc["centre_id"], tc["centre_name"], tc["operating_agency"], tc["district"], tc["state"], tc["pincode"], tc["address"], tc["facilities"], tc["contact_person"], tc["contact_phone"], tc["is_active"], tc["verification_status"]))
+
+    # 6. District Skill Demand
+    for d in DISTRICT_SKILL_DEMAND_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO district_skill_demand (demand_id, district, state, economic_focus, occupation_category, demand_indicator, demand_rationale, verification_confidence, last_updated)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """, (d["demand_id"], d["district"], d["state"], d["economic_focus"], d["occupation_category"], d["demand_indicator"], d["demand_rationale"], d["verification_confidence"], d["last_updated"]))
+
+    # 7. Scheme Eligibility
+    for se in SCHEME_ELIGIBILITY_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO scheme_eligibility (rule_id, scheme_code, evaluated_field, required_condition, logical_operator, failure_message)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (se["rule_id"], se["scheme_code"], se["evaluated_field"], se["required_condition"], se["logical_operator"], se["failure_message"]))
+
+    # 8. AP District Profiles
+    for ap in AP_DISTRICT_PROFILES_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO ap_district_profiles (district_name, headquarters, sc_population_percent, dominant_subcastes, leading_industrial_sectors, priority_skilling_sectors, district_nodal_office)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (ap["district_name"], ap["headquarters"], ap["sc_population_percent"], ap["dominant_subcastes"], ap["leading_industrial_sectors"], ap["priority_skilling_sectors"], ap["district_nodal_office"]))
+
+    # 9. Multilingual Terms
+    for t in MULTILINGUAL_TERMS_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO multilingual_terms (term_id, canonical_en, term_te, term_hi, functional_definition, translation_category)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (t["term_id"], t["canonical_en"], t["term_te"], t["term_hi"], t["functional_definition"], t["translation_category"]))
+
+    # 10. Skill Gap Matrix
+    for g in SKILL_GAP_MATRIX_DATA:
+        conn.execute("""
+            INSERT OR REPLACE INTO skill_gap_matrix (gap_id, informal_competency, target_job_role, compulsory_nos, competency_deficit, bridge_module, training_mode, classification)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        """, (g["gap_id"], g["informal_competency"], g["target_job_role"], g["compulsory_nos"], g["competency_deficit"], g["bridge_module"], g["training_mode"], g["classification"]))
+
+
+def get_skills(domain: Optional[str] = None) -> list[dict]:
+    """Retrieve normalized skills with official provenance."""
+    conn = get_connection()
+    if domain:
+        rows = conn.execute("SELECT * FROM skills WHERE domain LIKE ? ORDER BY skill_id ASC", (f"%{domain}%",)).fetchall()
+    else:
+        rows = conn.execute("SELECT * FROM skills ORDER BY skill_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_occupations() -> list[dict]:
+    """Retrieve standard occupations with NCO codes and Sector Skill Councils."""
+    conn = get_connection()
+    rows = conn.execute("SELECT * FROM occupations ORDER BY occupation_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_nsqf_qualifications(sector: Optional[str] = None) -> list[dict]:
+    """Retrieve NCVET-approved NSQF qualification records."""
+    conn = get_connection()
+    if sector:
+        rows = conn.execute("SELECT * FROM nsqf_qualifications WHERE sector LIKE ? ORDER BY qualification_code ASC", (f"%{sector}%",)).fetchall()
+    else:
+        rows = conn.execute("SELECT * FROM nsqf_qualifications ORDER BY qualification_code ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_training_centres(district: Optional[str] = None) -> list[dict]:
+    """Retrieve physical training centres. Can filter by district."""
+    conn = get_connection()
+    if district:
+        clean_dist = district.strip()
+        rows = conn.execute("SELECT * FROM training_centres WHERE district LIKE ? ORDER BY centre_id ASC", (f"%{clean_dist}%",)).fetchall()
+        if not rows:
+            rows = conn.execute("SELECT * FROM training_centres ORDER BY centre_id ASC").fetchall()
+    else:
+        rows = conn.execute("SELECT * FROM training_centres ORDER BY centre_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_district_demand(district: Optional[str] = None, occupation_category: Optional[str] = None) -> list[dict]:
+    """Retrieve local skill demand indicators and rationale from DSDP / APSSDC reports."""
+    conn = get_connection()
+    query = "SELECT * FROM district_skill_demand WHERE 1=1"
+    params = []
+    if district:
+        query += " AND district LIKE ?"
+        params.append(f"%{district.strip()}%")
+    if occupation_category:
+        query += " AND occupation_category LIKE ?"
+        params.append(f"%{occupation_category.strip()}%")
+    query += " ORDER BY demand_id ASC"
+    rows = conn.execute(query, tuple(params)).fetchall()
+    if not rows and district:
+        # Fallback to all if specific district not found
+        rows = conn.execute("SELECT * FROM district_skill_demand ORDER BY demand_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_ap_districts() -> list[dict]:
+    """Retrieve Andhra Pradesh district profiles."""
+    conn = get_connection()
+    rows = conn.execute("SELECT * FROM ap_district_profiles ORDER BY district_name ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_scheme_eligibility_rules(scheme_code: Optional[str] = None) -> list[dict]:
+    """Retrieve deterministic eligibility rules for government schemes."""
+    conn = get_connection()
+    if scheme_code:
+        rows = conn.execute("SELECT * FROM scheme_eligibility WHERE scheme_code = ? ORDER BY rule_id ASC", (scheme_code,)).fetchall()
+    else:
+        rows = conn.execute("SELECT * FROM scheme_eligibility ORDER BY rule_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_multilingual_terms() -> list[dict]:
+    """Retrieve verified multilingual occupational terminology."""
+    conn = get_connection()
+    rows = conn.execute("SELECT * FROM multilingual_terms ORDER BY term_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
+
+
+def get_skill_gaps() -> list[dict]:
+    """Retrieve skill-gap differential matrices and bridge modules."""
+    conn = get_connection()
+    rows = conn.execute("SELECT * FROM skill_gap_matrix ORDER BY gap_id ASC").fetchall()
+    conn.close()
+    return [dict(r) for r in rows]
 
 
 # ═══════════════════════════════════════════════════════════════

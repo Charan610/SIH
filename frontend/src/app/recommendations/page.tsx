@@ -12,7 +12,8 @@ import {
   Send, 
   ArrowRight, 
   Sparkles, 
-  AlertCircle 
+  AlertCircle,
+  Mic
 } from "lucide-react";
 import Link from "next/link";
 import { useApp } from "@/lib/AppContext";
@@ -30,10 +31,40 @@ export default function RecommendationsPage() {
   const [loading, setLoading] = useState(false);
   const [recResponse, setRecResponse] = useState<RecommendResponse | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [cachedVoiceAssessment, setCachedVoiceAssessment] = useState<any>(null);
 
   React.useEffect(() => {
     setInputText(getDefaultSample(language));
   }, [language]);
+
+  // Automatically load last Voice Assessment result if present in localStorage
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const stored = localStorage.getItem("sarathi_latest_assessment");
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          setCachedVoiceAssessment(parsed);
+          if (parsed.recommendations && parsed.recommendations.length > 0) {
+            setRecResponse({
+              eligible: parsed.eligible ?? true,
+              eligibility_reasons: parsed.eligibility_reasons || ["Beneficiary fulfills PM-AJAY GIA norms."],
+              user_text: parsed.transcript || "",
+              recommended_courses: parsed.recommendations || [],
+              total_eligible_courses: (parsed.recommendations || []).length,
+              explanation: parsed.explanation || "",
+              decision_trace: parsed.decision_trace || {},
+            });
+            if (parsed.transcript) {
+              setInputText(parsed.transcript);
+            }
+          }
+        }
+      } catch (err) {
+        console.warn("Could not read cached assessment", err);
+      }
+    }
+  }, []);
 
   const fetchRecommendations = async () => {
     setLoading(true);
@@ -56,19 +87,70 @@ export default function RecommendationsPage() {
     <div className="flex-1 bg-slate-50 py-10 px-4 sm:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-8 pb-4 border-b border-slate-200">
+        <div className="mb-6 pb-4 border-b border-slate-200">
           <div className="flex items-center gap-2 text-xs text-slate-500 mb-1">
             <Link href="/" className="hover:text-blue-900">{t("nav.home", "Home")}</Link>
             <span>/</span>
-            <span className="text-slate-800 font-medium">{t("nav.services", "Recommendations")}</span>
+            <span className="text-slate-800 font-medium">{t("nav.roadmap", "My Livelihood Roadmap")}</span>
           </div>
           <h1 className="text-2xl font-extrabold text-slate-900">
-            {t("recommendations_page_content.title", "NSQF Career Pathway Recommendations & Decision Audit")}
+            {t("recommendations_page_content.title", "My Livelihood Roadmap & NSQF Skilling Pathway")}
           </h1>
           <p className="text-xs text-slate-600 mt-1">
             {t("recommendations_page_content.subtitle", "Auditable recommendations generated through deterministic scheme eligibility and the ML course matching microservice.")}
           </p>
         </div>
+
+        {/* Voice Assessment Banner if loaded */}
+        {cachedVoiceAssessment ? (
+          <div className="mb-6 p-4 rounded-xl bg-blue-50/90 border border-blue-200 flex flex-wrap items-center justify-between gap-4 shadow-2xs">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center shrink-0">
+                <Mic className="w-5 h-5 text-amber-400" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h4 className="text-xs font-extrabold uppercase tracking-wide text-blue-950">
+                    {language === "te" ? "వాయిస్ అసెస్‌మెంట్ ద్వారా రూపొందించబడిన రోడ్‌మ్యాప్" : language === "hi" ? "वॉयस मूल्यांकन द्वारा तैयार किया गया रोडमैप" : "Personalized Roadmap Loaded from Voice Intake"}
+                  </h4>
+                  <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded border border-emerald-300">
+                    {language === "te" ? "ధృవీకరించబడింది" : language === "hi" ? "सत्यापित" : "Verified"}
+                  </span>
+                </div>
+                <p className="text-xs text-blue-800 mt-0.5">
+                  {cachedVoiceAssessment.profile?.current_role || "Artisan / Skilled Worker"} • {cachedVoiceAssessment.profile?.district || "Andhra Pradesh"}
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/assistant"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-blue-900 bg-white border border-blue-200 rounded-lg hover:bg-blue-100 transition shadow-2xs"
+            >
+              <Mic className="w-3.5 h-3.5 text-blue-800" />
+              <span>{language === "te" ? "కొత్త వాయిస్ సమాధానాలు ఇవ్వండి" : language === "hi" ? "नया वॉयस मूल्यांकन करें" : "Retake Voice Assessment"}</span>
+            </Link>
+          </div>
+        ) : (
+          <div className="mb-6 p-4 rounded-xl bg-amber-50/70 border border-amber-200 flex flex-wrap items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <Mic className="w-6 h-6 text-amber-600 shrink-0" />
+              <div>
+                <h4 className="text-xs font-bold text-amber-900">
+                  {language === "te" ? "వాయిస్ ద్వారా సులభంగా మీ రోడ్‌మ్యాప్ పొందండి" : language === "hi" ? "बोलकर आसानी से अपना रोडमैप प्राप्त करें" : "Get your roadmap instantly by speaking"}
+                </h4>
+                <p className="text-[11px] text-amber-800">
+                  {language === "te" ? "టైప్ చేయవలసిన అవసరం లేదు. 2 నిమిషాల వాయిస్ ఇంటర్వ్యూ ద్వారా మీ నైపుణ్యాలను చెప్పండి." : language === "hi" ? "टाइप करने की जरूरत नहीं है। 2 मिनट में बोलकर अपनी योग्यता बताएं।" : "No typing needed. Answer 10 simple questions about your work in your language."}
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/assistant"
+              className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-extrabold rounded-lg shadow-2xs transition shrink-0"
+            >
+              {language === "te" ? "వాయిస్ ప్రారంభించండి" : language === "hi" ? "वॉयस शुरू करें" : "Start Voice Intake"} →
+            </Link>
+          </div>
+        )}
 
         {/* Input Query Card */}
         <div className="bg-white border border-slate-300 rounded-xl p-6 shadow-2xs mb-8">

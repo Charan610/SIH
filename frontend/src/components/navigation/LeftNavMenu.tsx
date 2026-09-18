@@ -7,7 +7,6 @@ import {
   Menu, 
   ChevronDown, 
   Home, 
-  Layers, 
   Compass, 
   BookOpen, 
   LayoutDashboard, 
@@ -15,18 +14,33 @@ import {
   User, 
   ShieldCheck, 
   HelpCircle, 
-  Smartphone, 
   LogIn, 
   LogOut,
   Info,
-  X
+  X,
+  Mic,
+  Building2,
+  Sparkles
 } from "lucide-react";
 import { useApp } from "@/lib/AppContext";
+
+interface NavClusterItem {
+  label: string;
+  href: string;
+  icon: React.ComponentType<{ className?: string }>;
+  isHighlight?: boolean;
+  badge?: string;
+}
+
+interface NavCluster {
+  heading: string;
+  items: NavClusterItem[];
+}
 
 export function LeftNavMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  const { user, logout, unreadNotificationCount, t } = useApp();
+  const { user, logout, unreadNotificationCount, t, language } = useApp();
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -62,24 +76,52 @@ export function LeftNavMenu() {
     setIsOpen(false);
   }, [pathname]);
 
-  const navItems = [
-    { label: t("nav.home", "Home"), href: "/", icon: Home },
-    { label: t("nav.dashboard", "Dashboard"), href: "/dashboard", icon: LayoutDashboard },
-    { label: t("nav.opportunities", "Opportunities"), href: "/opportunities", icon: Compass },
-    { 
-      label: t("nav.notifications", "Notifications"), 
-      href: "/notifications", 
-      icon: Bell,
-      badge: unreadNotificationCount > 0 ? unreadNotificationCount : undefined
+  const navClusters: NavCluster[] = [
+    {
+      heading: language === "te" ? "ప్రధాన ప్రయాణం" : language === "hi" ? "मुख्य यात्रा" : "Primary Journey",
+      items: [
+        { label: t("nav.home", "Home"), href: "/", icon: Home },
+        { 
+          label: language === "te" ? "వాయిస్ అసెస్‌మెంట్" : language === "hi" ? "वॉयस मूल्यांकन" : "Voice Assessment", 
+          href: "/assistant", 
+          icon: Mic, 
+          isHighlight: true,
+          badge: language === "te" ? "ప్రధానం" : language === "hi" ? "मुख्य" : "Primary"
+        },
+        { 
+          label: language === "te" ? "నా జీవనోపాధి రోడ్‌మ్యాప్" : language === "hi" ? "मेरा आजीविका रोडमैप" : "My Livelihood Roadmap", 
+          href: "/recommendations", 
+          icon: Compass 
+        },
+      ],
     },
-    { label: t("nav.services", "Services"), href: "/services", icon: Layers },
-    { label: t("nav.courses", "Courses"), href: "/courses", icon: BookOpen },
-    { label: t("nav.resources", "Resources"), href: "/resources", icon: BookOpen },
-    { label: t("nav.profile", "Profile"), href: "/profile", icon: User },
-    { label: t("nav.verifiedProfile", "Verified Profile & Registry"), href: "/verified-profile", icon: ShieldCheck },
-    { label: t("nav.about", "About"), href: "/about", icon: Info },
-    { label: t("nav.help", "Help & Support"), href: "/help", icon: HelpCircle },
-    { label: t("nav.download", "Download App"), href: "/download", icon: Smartphone },
+    {
+      heading: language === "te" ? "అన్వేషణ & శిక్షణ" : language === "hi" ? "अवसर व प्रशिक्षण" : "Explore & Training",
+      items: [
+        { label: t("nav.courses", "NSQF Courses"), href: "/courses", icon: BookOpen },
+        { label: t("nav.opportunities", "District Demand & Centres"), href: "/opportunities", icon: Building2 },
+      ],
+    },
+    {
+      heading: language === "te" ? "లబ్ధిదారుల పోర్టల్" : language === "hi" ? "लाभार्थी पोर्टल" : "Beneficiary Portal",
+      items: [
+        { label: t("nav.dashboard", "My Dashboard"), href: "/dashboard", icon: LayoutDashboard },
+        { label: t("nav.verifiedProfile", "Verified Profile & Registry"), href: "/verified-profile", icon: ShieldCheck },
+        { 
+          label: t("nav.notifications", "Notifications"), 
+          href: "/notifications", 
+          icon: Bell,
+          badge: unreadNotificationCount > 0 ? String(unreadNotificationCount) : undefined
+        },
+      ],
+    },
+    {
+      heading: language === "te" ? "సహాయం & సమాచారం" : language === "hi" ? "सहायता व दिशानिर्देश" : "Help & Transparency",
+      items: [
+        { label: t("nav.help", "Audio Guide & Helpline"), href: "/help", icon: HelpCircle },
+        { label: t("nav.about", "About PM-AJAY GIA"), href: "/about", icon: Info },
+      ],
+    },
   ];
 
   const isItemActive = (href: string) => {
@@ -139,36 +181,49 @@ export function LeftNavMenu() {
             </button>
           </div>
 
-          {/* Nav Items List */}
-          <div className="space-y-0.5 max-h-[calc(100vh-180px)] overflow-y-auto">
-            {navItems.map((item, idx) => {
-              const Icon = item.icon;
-              const active = isItemActive(item.href);
+          {/* Categorized Nav Clusters */}
+          <div className="space-y-3 max-h-[calc(100vh-180px)] overflow-y-auto pr-1">
+            {navClusters.map((cluster, cIdx) => (
+              <div key={cIdx} className="space-y-0.5">
+                <div className="px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  {cluster.heading}
+                </div>
+                {cluster.items.map((item, idx) => {
+                  const Icon = item.icon;
+                  const active = isItemActive(item.href);
 
-              return (
-                <Link
-                  key={idx}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  role="menuitem"
-                  className={`flex items-center justify-between px-3 py-2 rounded-lg font-medium transition ${
-                    active
-                      ? "bg-blue-50 text-blue-950 font-bold border-l-3 border-blue-900 shadow-2xs"
-                      : "text-slate-700 hover:bg-slate-50 hover:text-blue-900"
-                  }`}
-                >
-                  <div className="flex items-center gap-2.5">
-                    <Icon className={`w-4 h-4 ${active ? "text-blue-900" : "text-slate-500"}`} />
-                    <span>{item.label}</span>
-                  </div>
-                  {item.badge !== undefined && (
-                    <span className="px-1.5 py-0.5 rounded-full bg-rose-600 text-white text-[10px] font-bold">
-                      {item.badge}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+                  return (
+                    <Link
+                      key={idx}
+                      href={item.href}
+                      onClick={() => setIsOpen(false)}
+                      role="menuitem"
+                      className={`flex items-center justify-between px-3 py-2 rounded-lg font-medium transition ${
+                        item.isHighlight
+                          ? "bg-amber-50 hover:bg-amber-100/80 text-blue-950 font-bold border border-amber-300 shadow-2xs"
+                          : active
+                          ? "bg-blue-50 text-blue-950 font-bold border-l-3 border-blue-900 shadow-2xs"
+                          : "text-slate-700 hover:bg-slate-50 hover:text-blue-900"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2.5">
+                        <Icon className={`w-4 h-4 ${item.isHighlight ? "text-amber-600" : active ? "text-blue-900" : "text-slate-500"}`} />
+                        <span>{item.label}</span>
+                      </div>
+                      {item.badge !== undefined && (
+                        <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-bold ${
+                          item.isHighlight
+                            ? "bg-amber-500 text-slate-950 font-extrabold"
+                            : "bg-rose-600 text-white"
+                        }`}>
+                          {item.badge}
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+            ))}
 
             {/* Auth Item (Sign In / Sign Out) */}
             <div className="pt-1.5 mt-1 border-t border-slate-100">
@@ -179,7 +234,7 @@ export function LeftNavMenu() {
                     setIsOpen(false);
                   }}
                   role="menuitem"
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-lg font-semibold text-rose-700 hover:bg-rose-50 transition"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-lg font-semibold text-rose-700 hover:bg-rose-50 transition cursor-pointer"
                 >
                   <div className="flex items-center gap-2.5">
                     <LogOut className="w-4 h-4" />

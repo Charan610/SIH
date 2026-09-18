@@ -98,6 +98,8 @@ from routers.recommend import router as recommend_router
 from routers.feedback import router as feedback_router
 from routers.voice import router as voice_router
 from routers.profile import router as profile_router
+from routers.self_employment import router as self_employment_router
+from routers.research_data import router as research_data_router
 from nsqf.router import router as nsqf_router
 
 app.include_router(courses_router)
@@ -110,6 +112,10 @@ app.include_router(voice_router)
 app.include_router(voice_router, prefix="/api")
 app.include_router(profile_router)
 app.include_router(profile_router, prefix="/api")
+app.include_router(self_employment_router)
+app.include_router(self_employment_router, prefix="/api")
+app.include_router(research_data_router)
+app.include_router(research_data_router, prefix="/api")
 app.include_router(nsqf_router)
 app.include_router(nsqf_router, prefix="/api")
 app.include_router(nsqf_router, prefix="/api/v1")

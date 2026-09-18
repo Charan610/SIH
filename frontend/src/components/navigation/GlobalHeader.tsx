@@ -81,11 +81,11 @@ export function GlobalHeader() {
 
           {/* PRIMARY HERO CTA BUTTON */}
           <Link
-            href="/services/voice-assessment"
-            className="flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-lg bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs tracking-wide shadow-xs transition transform active:scale-98 shrink-0"
+            href="/assistant"
+            className="flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-lg bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs tracking-wide shadow-xs hover:shadow-sm transition transform active:scale-98 shrink-0"
             title={t("nav.startVoice", "Start Voice Assessment")}
           >
-            <Mic className="w-3.5 h-3.5 text-amber-400" />
+            <Mic className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
             <span className="hidden sm:inline">{t("nav.startVoice", "Start Voice Assessment")}</span>
             <span className="sm:hidden">Voice</span>
           </Link>

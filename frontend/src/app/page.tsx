@@ -54,38 +54,47 @@ export default function HomePage() {
             </p>
 
             {/* Primary Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 mb-10">
+            <div className="flex flex-wrap items-center gap-4 mb-4">
               <Link
                 href="/assistant"
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm tracking-wide shadow-md hover:shadow-lg transition-all transform active:scale-98"
+                className="inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm sm:text-base tracking-wide shadow-lg hover:shadow-xl transition-all transform active:scale-98 ring-4 ring-amber-300/40"
               >
-                <Mic className="w-4 h-4 text-slate-950" />
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-950 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-slate-950"></span>
+                </span>
+                <Mic className="w-5 h-5 text-slate-950" />
                 <span>{t("hero.start_voice", "Start Voice Assessment")}</span>
-                <ArrowRight className="w-4 h-4 text-slate-950" />
+                <ArrowRight className="w-4 h-4 text-slate-950 ml-1" />
               </Link>
 
               <Link
                 href="/courses"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/90 hover:bg-white text-slate-800 border border-slate-300 font-semibold text-sm tracking-wide shadow-xs transition backdrop-blur-xs"
+                className="inline-flex items-center gap-2 px-6 py-4 rounded-xl bg-white/95 hover:bg-white text-slate-800 border border-slate-300 font-bold text-xs sm:text-sm tracking-wide shadow-xs hover:shadow-sm transition backdrop-blur-xs"
               >
                 <BookOpen className="w-4 h-4 text-slate-600" />
                 <span>{t("hero.exploreCourses", "Explore NSQF Courses")}</span>
               </Link>
             </div>
 
+            <p className="text-xs text-slate-600 font-semibold mb-8 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              {t("hero.no_typing_note", "No typing required. Simply speak in your mother tongue (Telugu, Hindi, or English).")}
+            </p>
+
             {/* Key Assurance Badges with clean icons and frosted pills */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-700 font-medium">
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs text-slate-700 font-medium">
+              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-2xs">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>{t("hero.badge_rural", "Voice-First in Telugu, Hindi & English")}</span>
+                <span>{t("hero.badge_rural", "Voice-First Vernacular AI")}</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
+              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-2xs">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>{t("hero.badge_gia", "100% Deterministic Scheme Eligibility")}</span>
+                <span>{t("hero.badge_gia", "PM-AJAY GIA Grant Aligned")}</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/80 backdrop-blur-xs px-3 py-1.5 rounded-full border border-slate-200/80 shadow-2xs">
+              <div className="flex items-center gap-2 bg-white/90 backdrop-blur-xs px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-2xs">
                 <Lock className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>{t("header.badgeVerified", "Verified Public Service")}</span>
+                <span>{t("header.badgeVerified", "100% Free Public Service")}</span>
               </div>
             </div>
           </div>

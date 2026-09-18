@@ -166,6 +166,12 @@ class AssessmentCompleteResponse(BaseModel):
     audio_base64: Optional[str] = None
     audio_provider: str = "Sarvam AI"
     decision_trace: Dict[str, Any]
+    business_pathways: Optional[List[Dict[str, Any]]] = None
+    applicable_schemes: Optional[List[Dict[str, Any]]] = None
+    livelihood_comparison: Optional[Dict[str, Any]] = None
+    local_training_centres: Optional[List[Dict[str, Any]]] = None
+    district_demand: Optional[List[Dict[str, Any]]] = None
+    data_provenance: Optional[Dict[str, Any]] = None
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -226,17 +232,17 @@ async def complete_voice_assessment(
         if qid:
             ans_map[qid] = text
 
-    # Extract 10 answers
-    q1_work = ans_map.get(1) or ans_map.get("work_current") or ""
-    q2_time = ans_map.get(2) or ans_map.get("work_duration") or ""
-    q3_tasks = ans_map.get(3) or ans_map.get("work_tasks") or ""
-    q4_tools = ans_map.get(4) or ans_map.get("work_tools") or ""
-    q5_know = ans_map.get(5) or ans_map.get("work_knowledge") or ""
-    q6_problem = ans_map.get(6) or ans_map.get("work_problem_solving") or ""
-    q7_indep = ans_map.get(7) or ans_map.get("work_autonomy") or ""
-    q8_quality = ans_map.get(8) or ans_map.get("work_safety_quality") or ""
-    q9_team = ans_map.get(9) or ans_map.get("work_teamwork") or ""
-    q10_goal = ans_map.get(10) or ans_map.get("work_goal_aspiration") or ""
+    # Extract 10 answers supporting both updated SIH26097 question IDs and numeric step indexes
+    q1_work = ans_map.get("q1_work") or ans_map.get(1) or ans_map.get("work_current") or ""
+    q2_time = ans_map.get("q2_duration") or ans_map.get(2) or ans_map.get("work_duration") or ""
+    q3_trad = ans_map.get("q3_traditional_occ") or ans_map.get(3) or ans_map.get("work_tasks") or ""
+    q4_edu = ans_map.get("q4_education") or ans_map.get(4) or ans_map.get("work_tools") or ""
+    q5_tools = ans_map.get("q5_tasks_tools") or ans_map.get(5) or ans_map.get("work_knowledge") or ""
+    q6_mobility = ans_map.get("q6_mobility") or ans_map.get(6) or ans_map.get("work_problem_solving") or ""
+    q7_loc = ans_map.get("q7_location") or ans_map.get(7) or ans_map.get("work_autonomy") or ""
+    q8_autonomy = ans_map.get("q8_autonomy") or ans_map.get(8) or ans_map.get("work_safety_quality") or ""
+    q9_pref = ans_map.get("q9_pathway_pref") or ans_map.get(9) or ans_map.get("work_teamwork") or ans_map.get(10) or ""
+    q10_support = ans_map.get("q10_income_support") or ans_map.get(10) or ans_map.get("work_goal_aspiration") or ""
 
     # User profile integration (Profile tab fields: never re-asked!)
     existing_user = db.get_user_by_id(user_id) if user_id else None
@@ -249,35 +255,63 @@ async def complete_voice_assessment(
     candidate_caste = passed_prof.get("caste_category") or (existing_user.get("caste_category") if existing_user else "SC")
     candidate_income = passed_prof.get("annual_income") or (existing_user.get("annual_income") if existing_user else 120000)
 
+    # Conversational override: If education was spoken in Q4, prioritize spoken education
+    if q4_edu and any(w in q4_edu.lower() for w in ["pass", "10", "12", "8", "5", "iti", "inter", "చదువు", "తరగతి", "పాస్", "कक्षा", "पास"]):
+        candidate_education = q4_edu.strip()
+
+    # Conversational override: If district was spoken in Q7, extract known district
+    for dist in ["West Godavari", "East Godavari", "Guntur", "Krishna", "Visakhapatnam", "Kurnool", "Anantapur", "Chittoor", "Prakasam", "Nellore", "Srikakulam", "Vizianagaram", "Kadapa"]:
+        if dist.lower() in q7_loc.lower():
+            candidate_district = dist
+            break
+
     # Estimate experience years from Q2 text
     import re
     years_match = re.search(r"(\d+(?:\.\d+)?)", q2_time)
     exp_years = float(years_match.group(1)) if years_match else 2.0
 
-    # Determine autonomy level from Q7
-    q7_lower = q7_indep.lower()
-    if any(w in q7_lower for w in ["yes", "అవును", "సొంతంగా", "చేయగలను", "హా", "हाँ", "खुद", "सकता", "independently", "alone"]):
+    # Determine autonomy level from Q8 (or legacy Q7)
+    autonomy_text = (q8_autonomy or q7_loc).lower()
+    if any(w in autonomy_text for w in ["yes", "అవును", "సొంతంగా", "చేయగలను", "హా", "हाँ", "खुद", "सकता", "independently", "alone"]):
         autonomy_level = "independent"
     else:
         autonomy_level = "limited_supervision"
 
-    # Determine preference from Q10
-    q10_lower = q10_goal.lower()
-    if any(w in q10_lower for w in ["job", "ఉద్యోగం", "ఉద్యోగ", "జాబ్", "నౌకరీ", "नौकरी", "direct job"]):
-        pathway_pref = "direct_job"
-        livelihood_goal = "wage_employment"
-    elif any(w in q10_lower for w in ["course", "కోర్సు", "కోర్స్", "ట్రైనింగ్", "శిక్షణ", "కోర్స్ ప్రారంభించ", "कोर्स", "प्रशिक्षण"]):
-        pathway_pref = "course"
+    # Determine preference from Q9 / Q10
+    pref_text = f"{q9_pref} {q10_support}".lower()
+    if any(w in pref_text for w in ["both", "రెండు", "రెంటి", "donon", "दोनों", "explore both", "explore", "compare", "రెండు ఎంపికలు"]):
+        pathway_pref = "both"
+        livelihood_goal = "both"
+    elif any(w in pref_text for w in ["self", "business", "సొంత", "వ్యాపారం", "దుకాణం", "దూకాణం", "व्यवसाय", "खुद", "दुकान", "self_employment", "self employment", "entrepreneurship", "loan"]):
+        pathway_pref = "self_employment"
         livelihood_goal = "self_employment"
+    elif any(w in pref_text for w in ["job", "ఉద్యోగం", "ఉద్యోగ", "జాబ్", "నౌకరీ", "नौकरी", "direct job", "wage", "employment", "salary"]):
+        pathway_pref = "employment"
+        livelihood_goal = "wage_employment"
+    elif any(w in pref_text for w in ["course", "కోర్సు", "కోర్స్", "ట్రైనింగ్", "శిక్షణ", "కోర్స్ ప్రారంభించ", "कोर्स", "प्रशिक्षण"]):
+        pathway_pref = "course"
+        livelihood_goal = "skill_training"
     else:
-        pathway_pref = "improve_work"
-        livelihood_goal = "any"
+        pathway_pref = "both"
+        livelihood_goal = "both"
+
+    # Traditional family occupation mapping
+    traditional_occupation = q3_trad if len(q3_trad) > 4 else (q1_work or "Traditional Artisan")
+
+    # Mobility constraints mapping
+    mobility_constraints = []
+    if any(w in q6_mobility.lower() for w in ["nearby", "10", "15", "మండలం", "గ్రామం", "village", "घर", "गाँव", "home"]):
+        mobility_constraints.append("Within Mandal/Village Only")
+    elif any(w in q6_mobility.lower() for w in ["anywhere", "state", "రాష్ట్రం", "ఎక్కడికైనా", "कहीं भी", "district"]):
+        mobility_constraints.append("Full District/State Mobility")
+    else:
+        mobility_constraints.append("Standard Regional Mobility")
 
     # Assemble stated skills & tasks
-    raw_skills = [s.strip() for s in f"{q1_work}, {q4_tools}, {q5_know}".replace(".", ",").split(",") if s.strip()]
+    raw_skills = [s.strip() for s in f"{q1_work}, {q5_tools}, {q3_trad}".replace(".", ",").split(",") if s.strip()]
     skills = raw_skills if raw_skills else [q1_work or "General Trade"]
-    raw_tasks = [t.strip() for t in f"{q3_tasks}, {q8_quality}".replace(".", ",").split(",") if t.strip()]
-    tasks = raw_tasks if raw_tasks else [q3_tasks or "General Operations"]
+    raw_tasks = [t.strip() for t in f"{q5_tools}, {q8_autonomy}".replace(".", ",").split(",") if t.strip()]
+    tasks = raw_tasks if raw_tasks else [q5_tools or "General Operations"]
 
     # 1. Compare with official NSQF descriptors (Deterministic rule engine)
     nsqf_request = CapabilityComparisonRequest(
@@ -301,14 +335,16 @@ async def complete_voice_assessment(
         "caste_category": candidate_caste,
         "annual_income": candidate_income,
         "current_role": q1_work,
+        "traditional_occupation": traditional_occupation,
         "experience_years": exp_years,
         "main_tasks": tasks,
-        "tools_used": q4_tools,
+        "tools_used": q5_tools,
         "knowledge_and_skills": skills,
-        "problem_solving": q6_problem,
+        "mobility_constraints": mobility_constraints,
+        "problem_solving": q8_autonomy,
         "autonomy_level": autonomy_level,
-        "safety_and_quality": q8_quality,
-        "teamwork": q9_team,
+        "safety_and_quality": "Standard PM-AJAY GIA protocol followed",
+        "teamwork": "Collaborative worker",
         "pathway_preference": pathway_pref,
         "livelihood_goal": livelihood_goal,
         "estimated_nsqf_level": aligned_level_range,
@@ -326,9 +362,9 @@ async def complete_voice_assessment(
         "interests": [q1_work, pathway_pref],
         "location_district": candidate_district,
         "location_state": "Andhra Pradesh",
-        "mobility_constraints": [],
+        "mobility_constraints": mobility_constraints,
         "livelihood_goal": livelihood_goal,
-        "traditional_occupation": q1_work,
+        "traditional_occupation": traditional_occupation,
     }
     # 2. Query REAL courses table from SQLite database filtered by estimated NSQF level and skills/sector
     # ZERO LLM fabrication — returns 9 to 10 real entries directly from SQLite database courses table
@@ -369,10 +405,26 @@ async def complete_voice_assessment(
         course_copy["score"] = round(course_copy.get("fit_score", 10.0) / 20.0, 2)
         ranked_courses.append(course_copy)
 
-    # 3. Friendly Government Service Explanation
+    # 3. Retrieve Business Pathways & Verified Schemes for Self-Employment / Comparison
+    trade_text = f"{q1_work} {' '.join(skills)}"
+    matched_businesses = db.get_business_pathways_by_trade(trade_text)
+    if not matched_businesses:
+        matched_businesses = db.get_all_business_pathways()[:4]
+
+    # Retrieve all verified government schemes
+    all_schemes = db.get_all_schemes()
+
+    # Generate objective livelihood comparison
+    livelihood_comp = db.get_livelihood_comparison(q1_work or (skills[0] if skills else "General Trade"))
+
+    # 4. Friendly Government Service Explanation
     top_course_name = ranked_courses[0].get("name") if ranked_courses else "ప్రభుత్వ నైపుణ్యాభివృద్ధి కోర్సు"
     if lang.startswith("te"):
-        if pathway_pref == "direct_job":
+        if pathway_pref in ["self_employment", "business"]:
+            pathway_desc = "మీ స్వంత వ్యాపారం ప్రారంభించడానికి అవసరమైన పరికరాలు, అంచనా పెట్టుబడి మరియు పీఎం-అజయ్ / ముద్ర ప్రభుత్వ రుణ సహాయ పథకాల వివరాలను సిద్ధం చేసాము"
+        elif pathway_pref == "both":
+            pathway_desc = "మీకు సౌలభ్యంగా ఉండేందుకు నేరుగా ఉద్యోగ మార్గాలు మరియు స్వంత వ్యాపార అవకాశాలు రెండింటినీ పక్కపక్కనే సరిపోల్చి చూపిస్తున్నాము"
+        elif pathway_pref in ["direct_job", "employment"]:
             pathway_desc = f"మీకు మీ జిల్లాలో నేరుగా ఉపాధి లభించే అవకాశాలను మరియు సంబంధిత ధృవీకరణ మార్గాన్ని సూచిస్తున్నాము"
         elif pathway_pref == "course":
             pathway_desc = f"పీఎం-అజయ్ పథకం క్రింద ఉచిత శిక్షణ మరియు స్టైపెండ్‌తో కూడిన '{top_course_name}' కోర్సును సిఫార్సు చేస్తున్నాము"
@@ -384,7 +436,11 @@ async def complete_voice_assessment(
             f"{pathway_desc}. ప్రభుత్వ నిబంధనల ప్రకారం మీరు ఈ సహాయాన్ని ఉచితంగా పొందవచ్చు."
         )
     elif lang.startswith("hi"):
-        if pathway_pref == "direct_job":
+        if pathway_pref in ["self_employment", "business"]:
+            pathway_desc = "अपना व्यवसाय शुरू करने हेतु आवश्यक उपकरण, सांकेतिक लागत और पीएम-अजय / मुद्रा जैसी सरकारी ऋण योजनाओं की जानकारी तैयार की गई है"
+        elif pathway_pref == "both":
+            pathway_desc = "आपकी सुविधा के लिए नौकरी और स्वरोजगार दोनों विकल्पों की तुलना प्रस्तुत की गई है ताकि आप सही निर्णय ले सकें"
+        elif pathway_pref in ["direct_job", "employment"]:
             pathway_desc = f"आपके जिले में सीधे रोजगार और संबंधित प्रमाणन मार्ग का सुझाव दिया जा रहा है"
         elif pathway_pref == "course":
             pathway_desc = f"पीएम-अजय योजना के तहत निःशुल्क प्रशिक्षण और स्टाइपेंड के साथ '{top_course_name}' की सिफारिश की जाती है"
@@ -396,7 +452,11 @@ async def complete_voice_assessment(
             f"{pathway_desc}। सरकारी नियमों के अनुसार आप यह सहायता निःशुल्क प्राप्त करने के पात्र हैं।"
         )
     else:
-        if pathway_pref == "direct_job":
+        if pathway_pref in ["self_employment", "business"]:
+            pathway_desc = "we have prepared your self-employment enterprise blueprint with required equipment, indicative investment estimates, and verified government credit schemes"
+        elif pathway_pref == "both":
+            pathway_desc = "we have organized an objective side-by-side comparison of employment pathways and entrepreneurship options for you to choose freely"
+        elif pathway_pref in ["direct_job", "employment"]:
             pathway_desc = "we recommend direct employment pathways and relevant placement opportunities in your district"
         elif pathway_pref == "course":
             pathway_desc = f"we recommend enrolling in the accredited '{top_course_name}' with government stipend"
@@ -408,10 +468,10 @@ async def complete_voice_assessment(
             f"{pathway_desc}. Under the PM-AJAY skilling scheme, you are eligible for free training and certification."
         )
 
-    # 4. Synthesize voice audio
+    # 5. Synthesize voice audio
     tts_res = tts_service.synthesize(explanation, language=lang, speaker="ritu")
 
-    # 5. Persist to DB
+    # 6. Persist to DB
     decision_trace = {
         "assessment_type": "nsqf_10_question_flow",
         "session_id": session_id,
@@ -438,6 +498,17 @@ async def complete_voice_assessment(
     except Exception as e:
         logger.warning(f"Failed to persist assessment outcome to DB: {e}")
 
+    user_district = beneficiary_profile.get("district") or ""
+    local_centres = db.get_training_centres(district=user_district) if user_district else db.get_training_centres()
+    dist_demand = db.get_district_demand(district=user_district) if user_district else db.get_district_demand()
+    provenance_info = {
+        "nsqf_standards": "Verified Official Data (NCVET National Qualifications Register)",
+        "training_centres": "Verified Official Data (APSSDC & ITI Network)",
+        "district_demand": "Government-Backed (DSDP & APSSDC Skill Gap Reports)",
+        "schemes": "Official Ministry Guidelines (PM-AJAY GIA / NSFDC / MSME)",
+        "microenterprise_investments": "Indicative Market Estimate (Subject to local equipment pricing)",
+    }
+
     return AssessmentCompleteResponse(
         session_id=session_id,
         user_id=user_id,
@@ -450,6 +521,12 @@ async def complete_voice_assessment(
         audio_base64=tts_res.get("audio_base64"),
         audio_provider=tts_res.get("provider", "Sarvam AI"),
         decision_trace=decision_trace,
+        business_pathways=matched_businesses,
+        applicable_schemes=all_schemes,
+        livelihood_comparison=livelihood_comp,
+        local_training_centres=local_centres,
+        district_demand=dist_demand,
+        data_provenance=provenance_info,
     )
 
 

@@ -40,13 +40,15 @@
     "start_voice": "Start Voice Assessment",
     "exploreCourses": "Explore NSQF Courses",
     "badge_rural": "Voice-First in Telugu, Hindi & English",
-    "badge_gia": "100% Deterministic Scheme Eligibility"
+    "badge_gia": "100% Deterministic Scheme Eligibility",
+    "no_typing_note": "No typing required. Simply speak in your mother tongue (Telugu, Hindi, or English)."
   },
   "stats": {
     "courses": "25+ Accredited Courses",
     "sectors": "12 Industry Sectors",
     "verification": "National Skill Registry Aligned",
-    "accessibility": "Multi-Dialect Voice Support"
+    "accessibility": "Multi-Dialect Voice Support",
+    "ai_aligned": "AI Vernacular Speech & NSQF Aligned"
   },
   "assistant": {
     "heading": "Public Service Career Counselor",
