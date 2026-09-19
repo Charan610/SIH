@@ -6,7 +6,13 @@
       "job_role": "అసిస్టెంట్ ఎలక్ట్రీషియన్",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "ప్రాథమిక ఎలక్ట్రికల్ వైరింగ్, భద్రతా పద్ధతులు మరియు మీటర్ రీడింగ్ నేర్చుకోండి. గృహ వైరింగ్, ఎర్తింగ్ మరియు సాధారణ విద్యుత్ మరమ్మతులను కవర్ చేస్తుంది.",
-      "skills": ["వైరింగ్", "విద్యుత్ భద్రత", "మీటర్ రీడింగ్", "ఎర్తింగ్", "సోల్డరింగ్"]
+      "skills": [
+        "వైరింగ్",
+        "విద్యుత్ భద్రత",
+        "మీటర్ రీడింగ్",
+        "ఎర్తింగ్",
+        "సోల్డరింగ్"
+      ]
     },
     "hi": {
       "name": "सहायक इलेक्ट्रीशियन",
@@ -14,7 +20,13 @@
       "job_role": "सहायक इलेक्ट्रीशियन",
       "min_education": "8वीं पास",
       "description": "बुनियादी इलेक्ट्रिकल वायरिंग, सुरक्षा मानक और मीटर रीडिंग सीखें। इसमें घरेलू वायरिंग, अर्थिंग और सामान्य विद्युत मरम्मत शामिल है।",
-      "skills": ["वायरिंग", "विद्युत सुरक्षा", "मीटर रीडिंग", "अर्थिंग", "सोल्डरिंग"]
+      "skills": [
+        "वायरिंग",
+        "विद्युत सुरक्षा",
+        "मीटर रीडिंग",
+        "अर्थिंग",
+        "सोल्डरिंग"
+      ]
     }
   },
   "2": {
@@ -24,7 +36,13 @@
       "job_role": "ప్లంబర్",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "పైపు ఫిట్టింగ్, నీటి సరఫరా వ్యవస్థలు, డ్రైనేజీ నెట్‌వర్క్‌లు మరియు నివాస భవనాలలో ప్రాథమిక ప్లంబింగ్ మరమ్మతులు.",
-      "skills": ["పైపు ఫిట్టింగ్", "డ్రైనేజీ", "నీటి సరఫరా", "లీక్ రిపేర్", "సాధనాల నిర్వహణ"]
+      "skills": [
+        "పైపు ఫిట్టింగ్",
+        "డ్రైనేజీ",
+        "నీటి సరఫరా",
+        "లీక్ రిపేర్",
+        "సాధనాల నిర్వహణ"
+      ]
     },
     "hi": {
       "name": "प्लंबर जनरल",
@@ -32,7 +50,13 @@
       "job_role": "प्लंबर",
       "min_education": "5वीं पास",
       "description": "पाइप फिटिंग, जल आपूर्ति प्रणाली, जल निकासी व्यवस्था और आवासीय भवनों में बुनियादी प्लंबिंग मरम्मत कार्य।",
-      "skills": ["पाइप फिटिंग", "जल निकासी", "जल आपूर्ति", "लीक मरम्मत", "औजार संचालन"]
+      "skills": [
+        "पाइप फिटिंग",
+        "जल निकासी",
+        "जल आपूर्ति",
+        "लीक मरम्मत",
+        "औजार संचालन"
+      ]
     }
   },
   "3": {
@@ -42,7 +66,13 @@
       "job_role": "కుట్టు మిషన్ ఆపరేటర్",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "పారిశ్రామిక కుట్టు యంత్రాల నిర్వహణ, దుస్తుల నమూనాల పరిశీలన, ప్రాథమిక కుట్టుపని మరియు దుస్తుల ఫినిషింగ్.",
-      "skills": ["యంత్ర కుట్టుపని", "నమూనా పరిశీలన", "దుస్తుల ఫినిషింగ్", "వస్త్రాల కటింగ్", "నాణ్యత తనిఖీ"]
+      "skills": [
+        "యంత్ర కుట్టుపని",
+        "నమూనా పరిశీలన",
+        "దుస్తుల ఫినిషింగ్",
+        "వస్త్రాల కటింగ్",
+        "నాణ్యత తనిఖీ"
+      ]
     },
     "hi": {
       "name": "सिलाई मशीन ऑपरेटर",
@@ -50,7 +80,13 @@
       "job_role": "सिलाई मशीन ऑपरेटर",
       "min_education": "5वीं पास",
       "description": "औद्योगिक सिलाई मशीनों का संचालन, परिधान पैटर्न पढ़ना, बुनियादी सिलाई और कपड़ों की फिनिशिंग।",
-      "skills": ["मशीन सिलाई", "पैटर्न पढ़ना", "परिधान फिनिशिंग", "कपड़ा कटाई", "गुणवत्ता जांच"]
+      "skills": [
+        "मशीन सिलाई",
+        "पैटर्न पढ़ना",
+        "परिधान फिनिशिंग",
+        "कपड़ा कटाई",
+        "गुणवत्ता जांच"
+      ]
     }
   },
   "4": {
@@ -60,7 +96,13 @@
       "job_role": "బ్యూటీ థెరపిస్ట్ అసిస్టెంట్",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "కేశ సంరక్షణ, చర్మ సంరక్షణ, మెహెందీ డిజైనింగ్ మరియు సెలూన్ పరిశుభ్రతా పద్ధతులతో కూడిన ప్రాథమిక సౌందర్య చికిత్సలు.",
-      "skills": ["కేశ సంరక్షణ", "చర్మ సంరక్షణ", "మెహెందీ", "సెలూన్ పరిశుభ్రత", "కస్టమర్ సర్వీస్"]
+      "skills": [
+        "కేశ సంరక్షణ",
+        "చర్మ సంరక్షణ",
+        "మెహెందీ",
+        "సెలూన్ పరిశుభ్రత",
+        "కస్టమర్ సర్వీస్"
+      ]
     },
     "hi": {
       "name": "सहायक ब्यूटी थेरेपिस्ट",
@@ -68,7 +110,13 @@
       "job_role": "ब्यूटी थेरेपिस्ट सहायक",
       "min_education": "8वीं पास",
       "description": "बालों की देखभाल, त्वचा की देखभाल, मेहंदी लगाना और सैलून स्वच्छता मानकों सहित बुनियादी सौंदर्य उपचार।",
-      "skills": ["बालों की देखभाल", "त्वचा की देखभाल", "मेहंदी", "सैलून स्वच्छता", "ग्राहक सेवा"]
+      "skills": [
+        "बालों की देखभाल",
+        "त्वचा की देखभाल",
+        "मेहंदी",
+        "सैलून स्वच्छता",
+        "ग्राहक सेवा"
+      ]
     }
   },
   "5": {
@@ -78,7 +126,13 @@
       "job_role": "డేటా ఎంట్రీ ఆపరేటర్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "కంప్యూటర్ ప్రాథమిక అంశాలు, టైపింగ్ నైపుణ్యాలు, స్ప్రెడ్‌షీట్‌లలో డేటా నమోదు మరియు కార్యాలయ సాఫ్ట్‌వేర్ నిర్వహణ.",
-      "skills": ["టైపింగ్", "ఎంఎస్ ఎక్సెల్", "డేటా ఎంట్రీ", "ఎంఎస్ వర్డ్", "కంప్యూటర్ బేసిక్స్"]
+      "skills": [
+        "టైపింగ్",
+        "ఎంఎస్ ఎక్సెల్",
+        "డేటా ఎంట్రీ",
+        "ఎంఎస్ వర్డ్",
+        "కంప్యూటర్ బేసిక్స్"
+      ]
     },
     "hi": {
       "name": "घरेलू डेटा प्रविष्टि ऑपरेटर",
@@ -86,7 +140,13 @@
       "job_role": "डेटा एंट्री ऑपरेटर",
       "min_education": "10वीं पास",
       "description": "कंप्यूटर मूल बातें, टाइपिंग कौशल, स्प्रेडशीट का उपयोग करके डेटा प्रविष्टि और कार्यालय सॉफ्टवेयर का बुनियादी संचालन।",
-      "skills": ["टाइपिंग", "एमएस एक्सेल", "डेटा एंट्री", "एमएस वर्ड", "कंप्यूटर बेसिक्स"]
+      "skills": [
+        "टाइपिंग",
+        "एमएस एक्सेल",
+        "डेटा एंट्री",
+        "एमएस वर्ड",
+        "कंप्यूटर बेसिक्स"
+      ]
     }
   },
   "6": {
@@ -96,7 +156,13 @@
       "job_role": "హోమ్ హెల్త్ ఎయిడ్",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "రోగుల ప్రాథమిక సంరక్షణ, వైటల్ సంకేతాల పరిశీలన, వ్యక్తిగత పరిశుభ్రత మరియు ఇంట్లో వృద్ధులు లేదా దివ్యాంగులకు సహాయం.",
-      "skills": ["రోగి సంరక్షణ", "వైటల్ సంకేతాలు", "పరిశుభ్రత", "ప్రథమ చికిత్స", "వృద్ధుల సంరక్షణ"]
+      "skills": [
+        "రోగి సంరక్షణ",
+        "వైటల్ సంకేతాలు",
+        "పరిశుభ్రత",
+        "ప్రథమ చికిత్స",
+        "వృద్ధుల సంరక్షణ"
+      ]
     },
     "hi": {
       "name": "स्वास्थ्य सेवा सहायक (होम हेल्थ एड)",
@@ -104,7 +170,13 @@
       "job_role": "होम हेल्थ एड",
       "min_education": "8वीं पास",
       "description": "रोगी की बुनियादी देखभाल, महत्वपूर्ण संकेतों की निगरानी, स्वच्छता प्रबंधन और घर पर बुजुर्गों या दिव्यांगों की सहायता।",
-      "skills": ["रोगी देखभाल", "महत्वपूर्ण संकेत", "स्वच्छता", "प्राथमिक चिकित्सा", "बुजुर्गों की देखभाल"]
+      "skills": [
+        "रोगी देखभाल",
+        "महत्वपूर्ण संकेत",
+        "स्वच्छता",
+        "प्राथमिक चिकित्सा",
+        "बुजुर्गों की देखभाल"
+      ]
     }
   },
   "7": {
@@ -114,7 +186,13 @@
       "job_role": "సేంద్రీయ రైతు",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "కంపోస్టింగ్, సహజ కీటక నివారణ, పంట మార్పిడి మరియు సేంద్రీయ ధృవీకరణ ప్రాథమిక పద్ధతులు.",
-      "skills": ["కంపోస్టింగ్", "సహజ పురుగుల మందులు", "పంట మార్పిడి", "నేల పరీక్ష", "విత్తన ఎంపిక"]
+      "skills": [
+        "కంపోస్టింగ్",
+        "సహజ పురుగుల మందులు",
+        "పంట మార్పిడి",
+        "నేల పరీక్ష",
+        "విత్తన ఎంపిక"
+      ]
     },
     "hi": {
       "name": "जैविक किसान",
@@ -122,7 +200,13 @@
       "job_role": "जैविक किसान",
       "min_education": "5वीं पास",
       "description": "कम्पोस्टिंग, प्राकृतिक कीट प्रबंधन, फसल चक्र और जैविक प्रमाणीकरण के बुनियादी सिद्धांतों सहित जैविक खेती।",
-      "skills": ["कम्पोस्टिंग", "जैविक कीट नियंत्रण", "फसल चक्र", "मृदा परीक्षण", "बीज चयन"]
+      "skills": [
+        "कम्पोस्टिंग",
+        "जैविक कीट नियंत्रण",
+        "फसल चक्र",
+        "मृदा परीक्षण",
+        "बीज चयन"
+      ]
     }
   },
   "8": {
@@ -132,7 +216,13 @@
       "job_role": "మేసన్",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "ఇటుక పని, ప్లాస్టరింగ్, కాంక్రీట్ మిక్సింగ్ మరియు నివాస భవనాల కోసం ప్రాథమిక నిర్మాణ సాంకేతికతలు.",
-      "skills": ["ఇటుక పని", "ప్లాస్టరింగ్", "కాంక్రీట్ మిక్సింగ్", "లెవలింగ్", "టైల్స్ అమరిక"]
+      "skills": [
+        "ఇటుక పని",
+        "ప్లాస్టరింగ్",
+        "కాంక్రీట్ మిక్సింగ్",
+        "లెవలింగ్",
+        "టైల్స్ అమరిక"
+      ]
     },
     "hi": {
       "name": "मेसन जनरल (राजमिस्त्री)",
@@ -140,7 +230,13 @@
       "job_role": "मेसन",
       "min_education": "5वीं पास",
       "description": "ईंट जोड़ाई, प्लास्टरिंग, कंक्रीट मिश्रण और आवासीय भवनों के लिए बुनियादी निर्माण तकनीकें।",
-      "skills": ["ईंट चिनाई", "प्लास्टरिंग", "कंक्रीट मिश्रण", "समतलन", "टाइल लगाना"]
+      "skills": [
+        "ईंट चिनाई",
+        "प्लास्टरिंग",
+        "कंक्रीट मिश्रण",
+        "समतलन",
+        "टाइल लगाना"
+      ]
     }
   },
   "9": {
@@ -150,7 +246,13 @@
       "job_role": "సేల్స్ అసోసియేట్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "కస్టమర్ సంభాషణ, వస్తువుల ప్రదర్శన, బిల్లింగ్ కార్యకలాపాలు మరియు రిటైల్ స్టోర్లలో ఇన్వెంటరీ నిర్వహణ.",
-      "skills": ["కస్టమర్ సర్వీస్", "బిల్లింగ్", "ఉత్పత్తి ప్రదర్శన", "ఇన్వెంటరీ", "కమ్యూనికేషన్"]
+      "skills": [
+        "కస్టమర్ సర్వీస్",
+        "బిల్లింగ్",
+        "ఉత్పత్తి ప్రదర్శన",
+        "ఇన్వెంటరీ",
+        "కమ్యూనికేషన్"
+      ]
     },
     "hi": {
       "name": "खुदरा बिक्री सहयोगी",
@@ -158,7 +260,13 @@
       "job_role": "बिक्री सहयोगी",
       "min_education": "10वीं पास",
       "description": "ग्राहकों से संवाद, उत्पाद प्रदर्शन, बिलिंग कार्य और खुदरा दुकानों में स्टॉक व इन्वेंट्री प्रबंधन।",
-      "skills": ["ग्राहक सेवा", "बिलिंग", "उत्पाद प्रदर्शन", "इन्वेंट्री", "संवाद कौशल"]
+      "skills": [
+        "ग्राहक सेवा",
+        "बिलिंग",
+        "उत्पाद प्रदर्शन",
+        "इन्वेंट्री",
+        "संवाद कौशल"
+      ]
     }
   },
   "10": {
@@ -168,7 +276,13 @@
       "job_role": "సర్వీస్ టెక్నీషియన్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "ద్విచక్ర మరియు నాలుగు చక్రాల వాహనాల ప్రాథమిక సర్వీసింగ్, ఇంజిన్ నిర్వహణ, బ్రేక్ వ్యవస్థలు మరియు డయాగ్నస్టిక్స్.",
-      "skills": ["ఇంజిన్ మెయింటెనెన్స్", "బ్రేక్ రిపేర్", "ఆయిల్ మార్పు", "డయాగ్నస్టిక్స్", "టూల్ వాడకం"]
+      "skills": [
+        "ఇంజిన్ మెయింటెనెన్స్",
+        "బ్రేక్ రిపేర్",
+        "ఆయిల్ మార్పు",
+        "డయాగ్నస్టిక్స్",
+        "టూల్ వాడకం"
+      ]
     },
     "hi": {
       "name": "ऑटोमोटिव सर्विस तकनीशियन",
@@ -176,7 +290,13 @@
       "job_role": "सर्विस तकनीशियन",
       "min_education": "10वीं पास",
       "description": "दोपहिया व चौपहिया वाहनों की बुनियादी सर्विसिंग, इंजन रखरखाव, ब्रेक सिस्टम और खराबी की जांच।",
-      "skills": ["इंजन रखरखाव", "ब्रेक मरम्मत", "ऑयल चेंज", "डायग्नोस्टिक्स", "औजार उपयोग"]
+      "skills": [
+        "इंजन रखरखाव",
+        "ब्रेक मरम्मत",
+        "ऑयल चेंज",
+        "डायग्नोस्टिक्स",
+        "औजार उपयोग"
+      ]
     }
   },
   "11": {
@@ -186,7 +306,13 @@
       "job_role": "ప్రాసెసింగ్ టెక్నీషియన్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "ఆహార నిల్వ పద్ధతులు, ప్యాకేజింగ్, నాణ్యతా పరీక్షలు మరియు ప్రాసెసింగ్ యూనిట్లలో పరిశుభ్రతా ప్రమాణాలు.",
-      "skills": ["ఆహార నిల్వ", "ప్యాకేజింగ్", "నాణ్యత పరీక్ష", "పరిశుభ్రత ప్రమాణాలు", "యంత్ర నిర్వహణ"]
+      "skills": [
+        "ఆహార నిల్వ",
+        "ప్యాకేజింగ్",
+        "నాణ్యత పరీక్ష",
+        "పరిశుభ్రత ప్రమాణాలు",
+        "యంత్ర నిర్వహణ"
+      ]
     },
     "hi": {
       "name": "खाद्य प्रसंस्करण तकनीशियन",
@@ -194,7 +320,13 @@
       "job_role": "प्रसंस्करण तकनीशियन",
       "min_education": "10वीं पास",
       "description": "खाद्य संरक्षण तकनीकें, पैकेजिंग, गुणवत्ता परीक्षण और प्रसंस्करण इकाइयों में स्वच्छता मानक।",
-      "skills": ["खाद्य संरक्षण", "पैकेजिंग", "गुणवत्ता परीक्षण", "स्वच्छता मानक", "मशीन संचालन"]
+      "skills": [
+        "खाद्य संरक्षण",
+        "पैकेजिंग",
+        "गुणवत्ता परीक्षण",
+        "स्वच्छता मानक",
+        "मशीन संचालन"
+      ]
     }
   },
   "12": {
@@ -204,7 +336,13 @@
       "job_role": "సోలార్ పివి ఇన్‌స్టాలర్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "ఇళ్లు మరియు చిన్న వ్యాపారాల కోసం రూఫ్‌టాప్ సోలార్ ఫోటోవోల్టాయిక్ సిస్టమ్‌ల అమరిక, వైరింగ్ మరియు నిర్వహణ.",
-      "skills": ["సోలార్ ప్యానెల్ మౌంటింగ్", "డిసి వైరింగ్", "ఇన్వర్టర్ సెటప్", "భద్రతా నిబంధనలు", "మెయింటెనెన్స్"]
+      "skills": [
+        "సోలార్ ప్యానెల్ మౌంటింగ్",
+        "డిసి వైరింగ్",
+        "ఇన్వర్టర్ సెటప్",
+        "భద్రతా నిబంధనలు",
+        "మెయింటెనెన్స్"
+      ]
     },
     "hi": {
       "name": "सोलर पैनल इंस्टालेशन तकनीशियन",
@@ -212,7 +350,13 @@
       "job_role": "सोलर पीवी इंस्टालर",
       "min_education": "10वीं पास",
       "description": "घरों और छोटे व्यवसायों के लिए रूफटॉप सोलर फोटोवोल्टिक सिस्टम की स्थापना, वायरिंग और रखरखाव।",
-      "skills": ["सोलर पैनल माउंटिंग", "डीसी वायरिंग", "इन्वर्टर सेटअप", "सुरक्षा प्रोटोकॉल", "रखरखाव"]
+      "skills": [
+        "सोलर पैनल माउंटिंग",
+        "डीसी वायरिंग",
+        "इन्वर्टर सेटअप",
+        "सुरक्षा प्रोटोकॉल",
+        "रखरखाव"
+      ]
     }
   },
   "13": {
@@ -222,7 +366,13 @@
       "job_role": "ఎంబ్రాయిడరీ ఆర్టిసాన్",
       "min_education": "ఎటువంటి అధికారిక విద్య అవసరం లేదు",
       "description": "చికంకారీ, జర్దోజీ మరియు అద్దాల పనితో సహా సాంప్రదాయ మరియు సమకాలీన చేతి ఎంబ్రాయిడరీ నైపుణ్యాలు.",
-      "skills": ["చేతి ఎంబ్రాయిడరీ", "నమూనా డిజైన్", "దారపు పని", "రంగుల ఎంపిక", "ఫినిషింగ్"]
+      "skills": [
+        "చేతి ఎంబ్రాయిడరీ",
+        "నమూనా డిజైన్",
+        "దారపు పని",
+        "రంగుల ఎంపిక",
+        "ఫినిషింగ్"
+      ]
     },
     "hi": {
       "name": "हस्त कढ़ाई कारीगर",
@@ -230,7 +380,13 @@
       "job_role": "कढ़ाई कारीगर",
       "min_education": "औपचारिक शिक्षा की आवश्यकता नहीं",
       "description": "चिकनकारी, जरदोजी और मिरर वर्क सहित पारंपरिक और आधुनिक हस्त कढ़ाई तकनीकें।",
-      "skills": ["हाथ की कढ़ाई", "पैटर्न डिजाइन", "धागे का काम", "रंग चयन", "फिनिशिंग"]
+      "skills": [
+        "हाथ की कढ़ाई",
+        "पैटर्न डिजाइन",
+        "धागे का काम",
+        "रंग चयन",
+        "फिनिशिंग"
+      ]
     }
   },
   "14": {
@@ -240,7 +396,13 @@
       "job_role": "డైరీ వర్కర్",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "పాడి పశువుల నిర్వహణ, పాలు పితికే పద్ధతులు, దాణా నిర్వహణ మరియు ప్రాథమిక పాల ఉత్పత్తుల ప్రాసెసింగ్.",
-      "skills": ["పశు సంరక్షణ", "పాలు పితకడం", "మేత నిర్వహణ", "డైరీ పరిశుభ్రత", "పశువుల ఆరోగ్యం"]
+      "skills": [
+        "పశు సంరక్షణ",
+        "పాలు పితకడం",
+        "మేత నిర్వహణ",
+        "డైరీ పరిశుభ్రత",
+        "పశువుల ఆరోగ్యం"
+      ]
     },
     "hi": {
       "name": "डेयरी किसान / दुग्ध उत्पादक",
@@ -248,7 +410,13 @@
       "job_role": "डेयरी कार्यकर्ता",
       "min_education": "5वीं पास",
       "description": "दुधारू पशु प्रबंधन, दूध दोहने की तकनीक, चारा प्रबंधन और बुनियादी डेयरी उत्पाद प्रसंस्करण।",
-      "skills": ["पशु देखभाल", "दूध दोहना", "चारा प्रबंधन", "डेयरी स्वच्छता", "पशु स्वास्थ्य"]
+      "skills": [
+        "पशु देखभाल",
+        "दूध दोहना",
+        "चारा प्रबंधन",
+        "डेयरी स्वच्छता",
+        "पशु स्वास्थ्य"
+      ]
     }
   },
   "15": {
@@ -258,7 +426,13 @@
       "job_role": "మొబైల్ రిపేర్ టెక్నీషియన్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "మొబైల్ ఫోన్ హార్డ్‌వేర్ మరియు సాఫ్ట్‌వేర్ సమస్యల నిర్ధారణ, స్క్రీన్ రీప్లేస్‌మెంట్ మరియు సర్క్యూట్ సోల్డరింగ్.",
-      "skills": ["మొబైల్ రిపేర్", "సోల్డరింగ్", "స్క్రీన్ మార్పిడి", "సాఫ్ట్‌వేర్ ఫ్లాషింగ్", "డయాగ్నస్టిక్స్"]
+      "skills": [
+        "మొబైల్ రిపేర్",
+        "సోల్డరింగ్",
+        "స్క్రీన్ మార్పిడి",
+        "సాఫ్ట్‌వేర్ ఫ్లాషింగ్",
+        "డయాగ్నస్టిక్స్"
+      ]
     },
     "hi": {
       "name": "मोबाइल फोन रिपेयर तकनीशियन",
@@ -266,7 +440,13 @@
       "job_role": "मोबाइल रिपेयर तकनीशियन",
       "min_education": "10वीं पास",
       "description": "मोबाइल फोन के हार्डवेयर व सॉफ्टवेयर समस्याओं की पहचान, स्क्रीन रिप्लेसमेंट और बुनियादी सोल्डरिंग।",
-      "skills": ["मोबाइल मरम्मत", "सोल्डरिंग", "स्क्रीन बदलना", "सॉफ्टवेयर फ्लैशिंग", "डायग्नोस्टिक्स"]
+      "skills": [
+        "मोबाइल मरम्मत",
+        "सोल्डरिंग",
+        "स्क्रीन बदलना",
+        "सॉफ्टवेयर फ्लैशिंग",
+        "डायग्नोस्टिक्स"
+      ]
     }
   },
   "16": {
@@ -276,7 +456,13 @@
       "job_role": "వెల్డర్",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "గ్యాస్ వెల్డింగ్, ఎలక్ట్రిక్ ఆర్క్ వెల్డింగ్, మెటల్ కట్టింగ్ మరియు ఫ్యాబ్రికేషన్ భద్రతా ప్రమాణాలు.",
-      "skills": ["గ్యాస్ వెల్డింగ్", "ఆర్క్ వెల్డింగ్", "మెటల్ కట్టింగ్", "వెల్డింగ్ భద్రత", "జాయింట్ ప్రిపరేషన్"]
+      "skills": [
+        "గ్యాస్ వెల్డింగ్",
+        "ఆర్క్ వెల్డింగ్",
+        "మెటల్ కట్టింగ్",
+        "వెల్డింగ్ భద్రత",
+        "జాయింట్ ప్రిపరేషన్"
+      ]
     },
     "hi": {
       "name": "वेल्डर (गैस और इलेक्ट्रिक आर्क)",
@@ -284,7 +470,13 @@
       "job_role": "वेल्डर",
       "min_education": "8वीं पास",
       "description": "गैस वेल्डिंग, इलेक्ट्रिक आर्क वेल्डिंग, कटिंग तकनीकें और निर्माण व फैब्रिकेशन सुरक्षा।",
-      "skills": ["गैस वेल्डिंग", "आर्क वेल्डिंग", "धातु कटाई", "वेल्डिंग सुरक्षा", "जोड़ तैयारी"]
+      "skills": [
+        "गैस वेल्डिंग",
+        "आर्क वेल्डिंग",
+        "धातु कटाई",
+        "वेल्डिंग सुरक्षा",
+        "जोड़ तैयारी"
+      ]
     }
   },
   "17": {
@@ -294,7 +486,13 @@
       "job_role": "ఫ్రంట్ డెస్క్ ఏజెంట్",
       "min_education": "12వ తరగతి ఉత్తీర్ణత",
       "description": "హోటల్ ఫ్రంట్ డెస్క్ కార్యకలాపాలు, అతిథుల చెక్-ఇన్/అవుట్, రిజర్వేషన్లు మరియు కస్టమర్ సర్వీస్.",
-      "skills": ["అతిథి నిర్వహణ", "రిజర్వేషన్ వ్యవస్థలు", "కమ్యూనికేషన్", "బిల్లింగ్", "ఫిర్యాదుల పరిష్కారం"]
+      "skills": [
+        "అతిథి నిర్వహణ",
+        "రిజర్వేషన్ వ్యవస్థలు",
+        "కమ్యూనికేషన్",
+        "బిల్లింగ్",
+        "ఫిర్యాదుల పరిష్కారం"
+      ]
     },
     "hi": {
       "name": "फ्रंट ऑफिस सहयोगी (हॉस्पिटैलिटी)",
@@ -302,7 +500,13 @@
       "job_role": "फ्रंट डेस्क एजेंट",
       "min_education": "12वीं पास",
       "description": "होटल फ्रंट डेस्क संचालन, अतिथि चेक-इन/आउट, आरक्षण प्रबंधन और आतिथ्य सत्कार सेवा।",
-      "skills": ["अतिथि प्रबंधन", "आरक्षण प्रणाली", "संवाद कौशल", "बिलिंग", "शिकायत समाधान"]
+      "skills": [
+        "अतिथि प्रबंधन",
+        "आरक्षण प्रणाली",
+        "संवाद कौशल",
+        "बिलिंग",
+        "शिकायत समाधान"
+      ]
     }
   },
   "18": {
@@ -312,7 +516,13 @@
       "job_role": "కార్పెంటర్ అసిస్టెంట్",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "చెక్క కొలతలు, కటింగ్, జాయింటింగ్, ఫర్నిచర్ అసెంబ్లింగ్ మరియు వడ్రంగి పనిముట్ల నిర్వహణ.",
-      "skills": ["చెక్క కటింగ్", "జాయింటింగ్", "ఫర్నిచర్ అసెంబ్లీ", "కొలతలు", "టూల్ నిర్వహణ"]
+      "skills": [
+        "చెక్క కటింగ్",
+        "జాయింటింగ్",
+        "ఫర్నిచర్ అసెంబ్లీ",
+        "కొలతలు",
+        "టూల్ నిర్వహణ"
+      ]
     },
     "hi": {
       "name": "सहायक बढ़ई (कारपेंटर)",
@@ -320,7 +530,13 @@
       "job_role": "बढ़ई सहायक",
       "min_education": "5वीं पास",
       "description": "लकड़ी की माप, कटाई, जोड़ने की तकनीक, फर्नीचर संयोजन और बढ़ईगीरी औजारों का रखरखाव।",
-      "skills": ["लकड़ी कटाई", "जोड़ना", "फर्नीचर संयोजन", "माप", "औजार रखरखाव"]
+      "skills": [
+        "लकड़ी कटाई",
+        "जोड़ना",
+        "फर्नीचर संयोजन",
+        "माप",
+        "औजार रखरखाव"
+      ]
     }
   },
   "19": {
@@ -330,7 +546,13 @@
       "job_role": "కంప్యూటర్ ఆపరేటర్",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "కంప్యూటర్లు, ఇంటర్నెట్ బ్రౌజింగ్, ఈమెయిల్, ఆఫీస్ సాఫ్ట్‌వేర్ మరియు యూపీఐ డిజిటల్ చెల్లింపులు.",
-      "skills": ["కంప్యూటర్ బేసిక్స్", "ఇంటర్నెట్ బ్రౌజింగ్", "ఈమెయిల్", "యూపీఐ చెల్లింపులు", "ఆఫీస్ సాఫ్ట్‌వేర్"]
+      "skills": [
+        "కంప్యూటర్ బేసిక్స్",
+        "ఇంటర్నెట్ బ్రౌజింగ్",
+        "ఈమెయిల్",
+        "యూపీఐ చెల్లింపులు",
+        "ఆఫీస్ సాఫ్ట్‌వేర్"
+      ]
     },
     "hi": {
       "name": "कंप्यूटर मूल बातें और डिजिटल साक्षरता",
@@ -338,7 +560,13 @@
       "job_role": "कंप्यूटर ऑपरेटर",
       "min_education": "8वीं पास",
       "description": "कंप्यूटर परिचय, इंटरनेट उपयोग, ईमेल, बुनियादी कार्यालय अनुप्रयोग और यूपीआई डिजिटल भुगतान प्रणाली।",
-      "skills": ["कंप्यूटर बेसिक्स", "इंटरनेट ब्राउज़िंग", "ईमेल", "यूपीआई भुगतान", "ऑफिस सॉफ्टवेयर"]
+      "skills": [
+        "कंप्यूटर बेसिक्स",
+        "इंटरनेट ब्राउज़िंग",
+        "ईमेल",
+        "यूपीआई भुगतान",
+        "ऑफिस सॉफ्टवेयर"
+      ]
     }
   },
   "20": {
@@ -348,7 +576,13 @@
       "job_role": "పుట్టగొడుగుల సాగుదారు",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "ఆయిస్టర్ మరియు బటన్ పుట్టగొడుగుల సాగు, కంపోస్ట్ తయారీ, సరైన ఉష్ణోగ్రత నిర్వహణ మరియు ప్యాకేజింగ్.",
-      "skills": ["పుట్టగొడుగుల సాగు", "కంపోస్టింగ్", "ఉష్ణోగ్రత నియంత్రణ", "కోత", "ప్యాకేజింగ్"]
+      "skills": [
+        "పుట్టగొడుగుల సాగు",
+        "కంపోస్టింగ్",
+        "ఉష్ణోగ్రత నియంత్రణ",
+        "కోత",
+        "ప్యాకేజింగ్"
+      ]
     },
     "hi": {
       "name": "मशरूम की खेती तकनीशियन",
@@ -356,7 +590,13 @@
       "job_role": "मशरूम उत्पादक",
       "min_education": "8वीं पास",
       "description": "ऑयस्टर और बटन मशरूम उगाना, खाद तैयार करना, अनुकूल वातावरण बनाए रखना और फसल कटाई प्रबंधन।",
-      "skills": ["मशरूम उत्पादन", "कम्पोस्टिंग", "तापमान नियंत्रण", "फसल कटाई", "पैकेजिंग"]
+      "skills": [
+        "मशरूम उत्पादन",
+        "कम्पोस्टिंग",
+        "तापमान नियंत्रण",
+        "फसल कटाई",
+        "पैकेजिंग"
+      ]
     }
   },
   "21": {
@@ -366,7 +606,13 @@
       "job_role": "నర్సింగ్ అసిస్టెంట్",
       "min_education": "12వ తరగతి ఉత్తీర్ణత",
       "description": "ఆసుపత్రులలో వైద్యులు మరియు నర్సులకు సహాయం, రోగి సంరక్షణ, గాయాల డ్రెస్సింగ్ మరియు మెడికల్ రికార్డులు.",
-      "skills": ["రోగి సంరక్షణ", "గాయాల డ్రెస్సింగ్", "మెడికల్ రికార్డులు", "ఇన్‌ఫెక్షన్ నియంత్రణ", "బెడ్ మేకింగ్"]
+      "skills": [
+        "రోగి సంరక్షణ",
+        "గాయాల డ్రెస్సింగ్",
+        "మెడికల్ రికార్డులు",
+        "ఇన్‌ఫెక్షన్ నియంత్రణ",
+        "బెడ్ మేకింగ్"
+      ]
     },
     "hi": {
       "name": "नर्सिंग सहायक",
@@ -374,7 +620,13 @@
       "job_role": "नर्सिंग सहायक",
       "min_education": "12वीं पास",
       "description": "अस्पतालों में नर्सों व डॉक्टरों की सहायता — मरीज की देखभाल, घाव की मरहम-पट्टी और मेडिकल रिकॉर्ड प्रबंधन।",
-      "skills": ["मरीज देखभाल", "घाव की ड्रेसिंग", "मेडिकल रिकॉर्ड", "संक्रमण नियंत्रण", "बिस्तर तैयार करना"]
+      "skills": [
+        "मरीज देखभाल",
+        "घाव की ड्रेसिंग",
+        "मेडिकल रिकॉर्ड",
+        "संक्रमण नियंत्रण",
+        "बिस्तर तैयार करना"
+      ]
     }
   },
   "22": {
@@ -384,7 +636,13 @@
       "job_role": "ద్విచక్ర వాహన మెకానిక్",
       "min_education": "8వ తరగతి ఉత్తీర్ణత",
       "description": "మోటార్‌సైకిళ్లు మరియు స్కూటర్ల మరమ్మతు — ఇంజిన్ ట్యూనింగ్, క్లచ్ రిపేర్, టైర్ల మార్పు మరియు ఎలక్ట్రికల్ పనులు.",
-      "skills": ["ఇంజిన్ ట్యూనింగ్", "క్లచ్ రిపేర్", "టైర్ మార్పిడి", "ఎలక్ట్రికల్ రిపేర్", "సర్వీసింగ్"]
+      "skills": [
+        "ఇంజిన్ ట్యూనింగ్",
+        "క్లచ్ రిపేర్",
+        "టైర్ మార్పిడి",
+        "ఎలక్ట్రికల్ రిపేర్",
+        "సర్వీసింగ్"
+      ]
     },
     "hi": {
       "name": "दोपहिया वाहन मैकेनिक",
@@ -392,7 +650,13 @@
       "job_role": "दोपहिया वाहन मैकेनिक",
       "min_education": "8वीं पास",
       "description": "मोटरसाइकिल और स्कूटर की मरम्मत व सर्विसिंग — इंजन ट्यूनिंग, क्लच मरम्मत, टायर बदलना और विद्युत प्रणाली।",
-      "skills": ["इंजन ट्यूनिंग", "क्लच मरम्मत", "टायर बदलना", "विद्युत मरम्मत", "सर्विसिंग"]
+      "skills": [
+        "इंजन ट्यूनिंग",
+        "क्लच मरम्मत",
+        "टायर बदलना",
+        "विद्युत मरम्मत",
+        "सर्विसिंग"
+      ]
     }
   },
   "23": {
@@ -402,7 +666,13 @@
       "job_role": "వెదురు ఆర్టిసాన్",
       "min_education": "ఎటువంటి అధికారిక విద్య అవసరం లేదు",
       "description": "వెదురు ట్రీట్‌మెంట్, అల్లకం, ఫర్నిచర్ తయారీ మరియు సాంప్రదాయ అలంకరణ వస్తువుల రూపకల్పన.",
-      "skills": ["వెదురు అల్లకం", "ట్రీట్‌మెంట్", "ఫర్నిచర్ తయారీ", "డిజైన్", "ఫినిషింగ్"]
+      "skills": [
+        "వెదురు అల్లకం",
+        "ట్రీట్‌మెంట్",
+        "ఫర్నిచర్ తయారీ",
+        "డిజైన్",
+        "ఫినిషింగ్"
+      ]
     },
     "hi": {
       "name": "बांस शिल्प कारीगर",
@@ -410,7 +680,13 @@
       "job_role": "बांस कारीगर",
       "min_education": "औपचारिक शिक्षा की आवश्यकता नहीं",
       "description": "बांस का शोधन, बुनाई, फर्नीचर निर्माण और पारंपरिक व आधुनिक तकनीकों से सजावटी वस्तुओं का निर्माण।",
-      "skills": ["बांस बुनाई", "शोधन उपचार", "फर्नीचर निर्माण", "डिजाइन", "फिनिशिंग"]
+      "skills": [
+        "बांस बुनाई",
+        "शोधन उपचार",
+        "फर्नीचर निर्माण",
+        "डिजाइन",
+        "फिनिशिंग"
+      ]
     }
   },
   "24": {
@@ -420,7 +696,13 @@
       "job_role": "పౌల్ట్రీ వర్కర్",
       "min_education": "5వ తరగతి ఉత్తీర్ణత",
       "description": "కోళ్ల ఫారమ్ నిర్వహణ, దాణా షెడ్యూల్స్, వ్యాధి నివారణ, గుడ్ల సేకరణ మరియు బ్రాయిలర్ ఉత్పత్తి.",
-      "skills": ["కోళ్ల సంరక్షణ", "దాణా నిర్వహణ", "వ్యాధి నివారణ", "గుడ్ల సేకరణ", "ఫారమ్ పరిశుభ్రత"]
+      "skills": [
+        "కోళ్ల సంరక్షణ",
+        "దాణా నిర్వహణ",
+        "వ్యాధి నివారణ",
+        "గుడ్ల సేకరణ",
+        "ఫారమ్ పరిశుభ్రత"
+      ]
     },
     "hi": {
       "name": "पोल्ट्री फार्म तकनीशियन (मुर्गी पालन)",
@@ -428,7 +710,13 @@
       "job_role": "पोल्ट्री कार्यकर्ता",
       "min_education": "5वीं पास",
       "description": "पोल्ट्री फार्म प्रबंधन, आहार व्यवस्था, रोग रोकथाम, अंडे का संकलन और ब्रायलर उत्पादन तकनीक।",
-      "skills": ["पोल्ट्री देखभाल", "आहार प्रबंधन", "रोग रोकथाम", "अंडा संकलन", "फार्म स्वच्छता"]
+      "skills": [
+        "पोल्ट्री देखभाल",
+        "आहार प्रबंधन",
+        "रोग रोकथाम",
+        "अंडा संकलन",
+        "फार्म स्वच्छता"
+      ]
     }
   },
   "25": {
@@ -438,7 +726,13 @@
       "job_role": "సిఎన్‌సి ఆపరేటర్",
       "min_education": "10వ తరగతి ఉత్తీర్ణత",
       "description": "కంప్యూటర్ న్యూమరికల్ కంట్రోల్ (CNC) యంత్రాల నిర్వహణ, సాంకేతిక డ్రాయింగ్‌ల పరిశీలన మరియు నాణ్యతా కొలతలు.",
-      "skills": ["సిఎన్‌సి ఆపరేషన్", "టెక్నికల్ డ్రాయింగ్", "కొలతలు", "నాణ్యత నియంత్రణ", "మెషిన్ సెటప్"]
+      "skills": [
+        "సిఎన్‌సి ఆపరేషన్",
+        "టెక్నికల్ డ్రాయింగ్",
+        "కొలతలు",
+        "నాణ్యత నియంత్రణ",
+        "మెషిన్ సెటప్"
+      ]
     },
     "hi": {
       "name": "सीएनसी मशीन ऑपरेटर",
@@ -446,7 +740,1363 @@
       "job_role": "सीएनसी ऑपरेटर",
       "min_education": "10वीं पास",
       "description": "सीएनसी (कंप्यूटर न्यूमेरिकल कंट्रोल) मशीन संचालन, तकनीकी चित्र पढ़ना और मशीनिंग पार्ट्स का गुणवत्ता मापन।",
-      "skills": ["सीएनसी संचालन", "तकनीकी ड्राइंग", "मापन", "गुणवत्ता नियंत्रण", "मशीन सेटअप"]
+      "skills": [
+        "सीएनसी संचालन",
+        "तकनीकी ड्राइंग",
+        "मापन",
+        "गुणवत्ता नियंत्रण",
+        "मशीन सेटअप"
+      ]
+    }
+  },
+  "26": {
+    "te": {
+      "name": "Organic Grower",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Organic Grower",
+      "min_education": "8th Pass",
+      "description": "Organic Grower రంగంలో శిక్షణ. Responsible for organic crop production including soil preparation, organic input application, pest management using bio-pesticides, harvesting and post-harvest handling while maintaining organic certification standards. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Organic soil management",
+        "Bio-pesticide preparation",
+        "Crop rotation planning",
+        "Composting",
+        "Record keeping for certification"
+      ]
+    },
+    "hi": {
+      "name": "Organic Grower",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Organic Grower",
+      "min_education": "8th Pass",
+      "description": "Organic Grower के क्षेत्र में व्यावसायिक प्रशिक्षण। Responsible for organic crop production including soil preparation, organic input application, pest management using bio-pesticides, harvesting and post-harvest handling while maintaining organic certification standards. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Organic soil management",
+        "Bio-pesticide preparation",
+        "Crop rotation planning",
+        "Composting",
+        "Record keeping for certification"
+      ]
+    }
+  },
+  "27": {
+    "te": {
+      "name": "Agricultural Warehouse Worker",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Agricultural Warehouse Worker",
+      "min_education": "8th Class or 5th Class with experience",
+      "description": "Agricultural Warehouse Worker రంగంలో శిక్షణ. Assists in unloading, sorting, grading, storing and loading of agricultural produce at warehouses while maintaining hygiene and safety standards. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Produce sorting and grading",
+        "Warehouse stacking",
+        "Basic inventory handling",
+        "Safety protocols",
+        "Loading/unloading"
+      ]
+    },
+    "hi": {
+      "name": "Agricultural Warehouse Worker",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Agricultural Warehouse Worker",
+      "min_education": "8th Class or 5th Class with experience",
+      "description": "Agricultural Warehouse Worker के क्षेत्र में व्यावसायिक प्रशिक्षण। Assists in unloading, sorting, grading, storing and loading of agricultural produce at warehouses while maintaining hygiene and safety standards. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Produce sorting and grading",
+        "Warehouse stacking",
+        "Basic inventory handling",
+        "Safety protocols",
+        "Loading/unloading"
+      ]
+    }
+  },
+  "28": {
+    "te": {
+      "name": "Kisan Drone Operator",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Kisan Drone Operator",
+      "min_education": "8th Grade pass with experience or NSQF Level 3",
+      "description": "Kisan Drone Operator రంగంలో శిక్షణ. Operates drones for agricultural applications including spraying, mapping and multispectral imaging as per DGCA guidelines. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Drone operation",
+        "Flight planning",
+        "Payload handling",
+        "Basic maintenance",
+        "Safety compliance"
+      ]
+    },
+    "hi": {
+      "name": "Kisan Drone Operator",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Kisan Drone Operator",
+      "min_education": "8th Grade pass with experience or NSQF Level 3",
+      "description": "Kisan Drone Operator के क्षेत्र में व्यावसायिक प्रशिक्षण। Operates drones for agricultural applications including spraying, mapping and multispectral imaging as per DGCA guidelines. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Drone operation",
+        "Flight planning",
+        "Payload handling",
+        "Basic maintenance",
+        "Safety compliance"
+      ]
+    }
+  },
+  "29": {
+    "te": {
+      "name": "Gardener",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Gardener",
+      "min_education": "8th Pass",
+      "description": "Gardener రంగంలో శిక్షణ. Performs landscaping, plant care, propagation, pest control and maintenance of gardens and green spaces. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Plant propagation",
+        "Pruning",
+        "Irrigation",
+        "Pest management",
+        "Landscape maintenance"
+      ]
+    },
+    "hi": {
+      "name": "Gardener",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Gardener",
+      "min_education": "8th Pass",
+      "description": "Gardener के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs landscaping, plant care, propagation, pest control and maintenance of gardens and green spaces. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Plant propagation",
+        "Pruning",
+        "Irrigation",
+        "Pest management",
+        "Landscape maintenance"
+      ]
+    }
+  },
+  "30": {
+    "te": {
+      "name": "Micro Irrigation Technician",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Micro Irrigation Technician",
+      "min_education": "10th Pass",
+      "description": "Micro Irrigation Technician రంగంలో శిక్షణ. Installs, operates and maintains micro-irrigation systems such as drip and sprinkler systems for efficient water use in farms. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Drip system installation",
+        "Pipe laying",
+        "Filter maintenance",
+        "System testing",
+        "Water management"
+      ]
+    },
+    "hi": {
+      "name": "Micro Irrigation Technician",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Micro Irrigation Technician",
+      "min_education": "10th Pass",
+      "description": "Micro Irrigation Technician के क्षेत्र में व्यावसायिक प्रशिक्षण। Installs, operates and maintains micro-irrigation systems such as drip and sprinkler systems for efficient water use in farms. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Drip system installation",
+        "Pipe laying",
+        "Filter maintenance",
+        "System testing",
+        "Water management"
+      ]
+    }
+  },
+  "31": {
+    "te": {
+      "name": "Animal Health Worker",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Animal Health Worker",
+      "min_education": "8th Pass",
+      "description": "Animal Health Worker రంగంలో శిక్షణ. Provides basic animal health care, vaccination support, first aid and assists veterinarians in livestock management. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Basic animal first aid",
+        "Vaccination assistance",
+        "Disease identification",
+        "Hygiene practices",
+        "Record keeping"
+      ]
+    },
+    "hi": {
+      "name": "Animal Health Worker",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Animal Health Worker",
+      "min_education": "8th Pass",
+      "description": "Animal Health Worker के क्षेत्र में व्यावसायिक प्रशिक्षण। Provides basic animal health care, vaccination support, first aid and assists veterinarians in livestock management. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Basic animal first aid",
+        "Vaccination assistance",
+        "Disease identification",
+        "Hygiene practices",
+        "Record keeping"
+      ]
+    }
+  },
+  "32": {
+    "te": {
+      "name": "Floriculturist",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Floriculturist",
+      "min_education": "8th Pass",
+      "description": "Floriculturist రంగంలో శిక్షణ. Cultivates and manages flower crops including planting, nutrient management, harvesting and post-harvest handling for commercial markets. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Flower crop management",
+        "Harvesting techniques",
+        "Post-harvest handling",
+        "Pest control",
+        "Market preparation"
+      ]
+    },
+    "hi": {
+      "name": "Floriculturist",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Floriculturist",
+      "min_education": "8th Pass",
+      "description": "Floriculturist के क्षेत्र में व्यावसायिक प्रशिक्षण। Cultivates and manages flower crops including planting, nutrient management, harvesting and post-harvest handling for commercial markets. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Flower crop management",
+        "Harvesting techniques",
+        "Post-harvest handling",
+        "Pest control",
+        "Market preparation"
+      ]
+    }
+  },
+  "33": {
+    "te": {
+      "name": "Sewing Machine Operator - Knits",
+      "sector": "టెక్స్‌టైల్ & దుస్తులు (అపెరల్)",
+      "job_role": "Sewing Machine Operator - Knits",
+      "min_education": "5th/8th Pass",
+      "description": "Sewing Machine Operator - Knits రంగంలో శిక్షణ. Stitches knit fabric panels into complete knitted garments and made-ups with desired quality. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Knit fabric stitching",
+        "Overlock operations",
+        "Quality inspection",
+        "Machine setup",
+        "Defect identification"
+      ]
+    },
+    "hi": {
+      "name": "Sewing Machine Operator - Knits",
+      "sector": "परिधान और वस्त्र",
+      "job_role": "Sewing Machine Operator - Knits",
+      "min_education": "5th/8th Pass",
+      "description": "Sewing Machine Operator - Knits के क्षेत्र में व्यावसायिक प्रशिक्षण। Stitches knit fabric panels into complete knitted garments and made-ups with desired quality. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Knit fabric stitching",
+        "Overlock operations",
+        "Quality inspection",
+        "Machine setup",
+        "Defect identification"
+      ]
+    }
+  },
+  "34": {
+    "te": {
+      "name": "Hand Embroiderer",
+      "sector": "టెక్స్‌టైల్ & దుస్తులు (అపెరల్)",
+      "job_role": "Hand Embroiderer",
+      "min_education": "5th Pass preferably",
+      "description": "Hand Embroiderer రంగంలో శిక్షణ. Creates decorative embroidery designs on fabric and garments using hand embroidery techniques. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Hand embroidery stitches",
+        "Design transfer",
+        "Thread selection",
+        "Quality finishing",
+        "Pattern following"
+      ]
+    },
+    "hi": {
+      "name": "Hand Embroiderer",
+      "sector": "परिधान और वस्त्र",
+      "job_role": "Hand Embroiderer",
+      "min_education": "5th Pass preferably",
+      "description": "Hand Embroiderer के क्षेत्र में व्यावसायिक प्रशिक्षण। Creates decorative embroidery designs on fabric and garments using hand embroidery techniques. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Hand embroidery stitches",
+        "Design transfer",
+        "Thread selection",
+        "Quality finishing",
+        "Pattern following"
+      ]
+    }
+  },
+  "35": {
+    "te": {
+      "name": "Embroidery Machine Operator",
+      "sector": "టెక్స్‌టైల్ & దుస్తులు (అపెరల్)",
+      "job_role": "Embroidery Machine Operator",
+      "min_education": "5th Pass with experience",
+      "description": "Embroidery Machine Operator రంగంలో శిక్షణ. Operates embroidery machines to create decorative designs including running shade, applique and fancy embroidery on garments. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Machine embroidery",
+        "Design loading",
+        "Thread tension adjustment",
+        "Quality control",
+        "Machine maintenance"
+      ]
+    },
+    "hi": {
+      "name": "Embroidery Machine Operator",
+      "sector": "परिधान और वस्त्र",
+      "job_role": "Embroidery Machine Operator",
+      "min_education": "5th Pass with experience",
+      "description": "Embroidery Machine Operator के क्षेत्र में व्यावसायिक प्रशिक्षण। Operates embroidery machines to create decorative designs including running shade, applique and fancy embroidery on garments. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Machine embroidery",
+        "Design loading",
+        "Thread tension adjustment",
+        "Quality control",
+        "Machine maintenance"
+      ]
+    }
+  },
+  "36": {
+    "te": {
+      "name": "Inline Checker",
+      "sector": "టెక్స్‌టైల్ & దుస్తులు (అపెరల్)",
+      "job_role": "Inline Checker",
+      "min_education": "8th Pass",
+      "description": "Inline Checker రంగంలో శిక్షణ. Performs inline quality checks on garments during production to identify and report defects. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Quality inspection",
+        "Defect identification",
+        "Measurement checking",
+        "Reporting",
+        "Process monitoring"
+      ]
+    },
+    "hi": {
+      "name": "Inline Checker",
+      "sector": "परिधान और वस्त्र",
+      "job_role": "Inline Checker",
+      "min_education": "8th Pass",
+      "description": "Inline Checker के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs inline quality checks on garments during production to identify and report defects. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Quality inspection",
+        "Defect identification",
+        "Measurement checking",
+        "Reporting",
+        "Process monitoring"
+      ]
+    }
+  },
+  "37": {
+    "te": {
+      "name": "Electric Vehicle Service Technician",
+      "sector": "ఆటోమోటివ్ & వాహన సాంకేతికత",
+      "job_role": "Electric Vehicle Service Technician",
+      "min_education": "10th Pass + NTC/NAC or 12th Pass",
+      "description": "Electric Vehicle Service Technician రంగంలో శిక్షణ. Performs repair, routine servicing and maintenance of electric and hybrid vehicles including electrical and mechanical aggregates. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "EV battery handling",
+        "High voltage safety",
+        "Fault diagnosis",
+        "Charging system service",
+        "Routine maintenance"
+      ]
+    },
+    "hi": {
+      "name": "Electric Vehicle Service Technician",
+      "sector": "ऑटोमोटिव और वाहन तकनीक",
+      "job_role": "Electric Vehicle Service Technician",
+      "min_education": "10th Pass + NTC/NAC or 12th Pass",
+      "description": "Electric Vehicle Service Technician के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs repair, routine servicing and maintenance of electric and hybrid vehicles including electrical and mechanical aggregates. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "EV battery handling",
+        "High voltage safety",
+        "Fault diagnosis",
+        "Charging system service",
+        "Routine maintenance"
+      ]
+    }
+  },
+  "38": {
+    "te": {
+      "name": "Automotive Service Technician (Two and Three Wheelers)",
+      "sector": "ఆటోమోటివ్ & వాహన సాంకేతికత",
+      "job_role": "Automotive Service Technician (Two and Three Wheelers)",
+      "min_education": "10th Pass",
+      "description": "Automotive Service Technician (Two and Three Wheelers) రంగంలో శిక్షణ. Performs servicing, repair and maintenance of two and three wheeler vehicles. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Engine diagnosis",
+        "Brake system service",
+        "Electrical troubleshooting",
+        "Routine servicing",
+        "Customer interaction"
+      ]
+    },
+    "hi": {
+      "name": "Automotive Service Technician (Two and Three Wheelers)",
+      "sector": "ऑटोमोटिव और वाहन तकनीक",
+      "job_role": "Automotive Service Technician (Two and Three Wheelers)",
+      "min_education": "10th Pass",
+      "description": "Automotive Service Technician (Two and Three Wheelers) के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs servicing, repair and maintenance of two and three wheeler vehicles. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Engine diagnosis",
+        "Brake system service",
+        "Electrical troubleshooting",
+        "Routine servicing",
+        "Customer interaction"
+      ]
+    }
+  },
+  "39": {
+    "te": {
+      "name": "Automotive Quality Control Assistant",
+      "sector": "ఆటోమోటివ్ & వాహన సాంకేతికత",
+      "job_role": "Automotive Quality Control Assistant",
+      "min_education": "8th/11th Pass or ITI",
+      "description": "Automotive Quality Control Assistant రంగంలో శిక్షణ. Inspects automotive parts, products and processes at various stages to ensure quality standards. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Visual inspection",
+        "Measurement tools",
+        "Defect reporting",
+        "Process compliance",
+        "Documentation"
+      ]
+    },
+    "hi": {
+      "name": "Automotive Quality Control Assistant",
+      "sector": "ऑटोमोटिव और वाहन तकनीक",
+      "job_role": "Automotive Quality Control Assistant",
+      "min_education": "8th/11th Pass or ITI",
+      "description": "Automotive Quality Control Assistant के क्षेत्र में व्यावसायिक प्रशिक्षण। Inspects automotive parts, products and processes at various stages to ensure quality standards. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Visual inspection",
+        "Measurement tools",
+        "Defect reporting",
+        "Process compliance",
+        "Documentation"
+      ]
+    }
+  },
+  "40": {
+    "te": {
+      "name": "Assistant Mason",
+      "sector": "నిర్మాణ రంగం (కన్‌స్ట్రక్షన్)",
+      "job_role": "Assistant Mason",
+      "min_education": "5th Class with experience",
+      "description": "Assistant Mason రంగంలో శిక్షణ. Assists in brick/block work, plastering, tiling, stone laying and concrete masonry works including use of hand and power tools. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Brick laying assistance",
+        "Plastering support",
+        "Scaffold erection",
+        "Tool handling",
+        "Site safety"
+      ]
+    },
+    "hi": {
+      "name": "Assistant Mason",
+      "sector": "निर्माण क्षेत्र (कंस्ट्रक्शन)",
+      "job_role": "Assistant Mason",
+      "min_education": "5th Class with experience",
+      "description": "Assistant Mason के क्षेत्र में व्यावसायिक प्रशिक्षण। Assists in brick/block work, plastering, tiling, stone laying and concrete masonry works including use of hand and power tools. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Brick laying assistance",
+        "Plastering support",
+        "Scaffold erection",
+        "Tool handling",
+        "Site safety"
+      ]
+    }
+  },
+  "41": {
+    "te": {
+      "name": "Brick Mason",
+      "sector": "నిర్మాణ రంగం (కన్‌స్ట్రక్షన్)",
+      "job_role": "Brick Mason",
+      "min_education": "8th/10th Pass with experience",
+      "description": "Brick Mason రంగంలో శిక్షణ. Constructs, repairs and maintains structures using brick, stone, concrete blocks including plastering and flooring works. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Brick laying",
+        "Block work",
+        "Plastering",
+        "Random rubble masonry",
+        "Flooring"
+      ]
+    },
+    "hi": {
+      "name": "Brick Mason",
+      "sector": "निर्माण क्षेत्र (कंस्ट्रक्शन)",
+      "job_role": "Brick Mason",
+      "min_education": "8th/10th Pass with experience",
+      "description": "Brick Mason के क्षेत्र में व्यावसायिक प्रशिक्षण। Constructs, repairs and maintains structures using brick, stone, concrete blocks including plastering and flooring works. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Brick laying",
+        "Block work",
+        "Plastering",
+        "Random rubble masonry",
+        "Flooring"
+      ]
+    }
+  },
+  "42": {
+    "te": {
+      "name": "Mason Tiling",
+      "sector": "నిర్మాణ రంగం (కన్‌స్ట్రక్షన్)",
+      "job_role": "Mason Tiling",
+      "min_education": "8th/10th Pass",
+      "description": "Mason Tiling రంగంలో శిక్షణ. Lays and fixes tiles on walls and floors, applies grouts and sealants for flooring and cladding works. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Tile cutting and laying",
+        "Leveling",
+        "Grouting",
+        "Sealant application",
+        "Surface preparation"
+      ]
+    },
+    "hi": {
+      "name": "Mason Tiling",
+      "sector": "निर्माण क्षेत्र (कंस्ट्रक्शन)",
+      "job_role": "Mason Tiling",
+      "min_education": "8th/10th Pass",
+      "description": "Mason Tiling के क्षेत्र में व्यावसायिक प्रशिक्षण। Lays and fixes tiles on walls and floors, applies grouts and sealants for flooring and cladding works. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Tile cutting and laying",
+        "Leveling",
+        "Grouting",
+        "Sealant application",
+        "Surface preparation"
+      ]
+    }
+  },
+  "43": {
+    "te": {
+      "name": "Plumber - General",
+      "sector": "ప్లంబింగ్ & శానిటరీ",
+      "job_role": "Plumber - General",
+      "min_education": "8th/10th Pass with NTC/NAC",
+      "description": "Plumber - General రంగంలో శిక్షణ. Installs, maintains and troubleshoots domestic plumbing fixtures and systems including water supply and drainage. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Pipe fitting",
+        "Fixture installation",
+        "Leak detection",
+        "System maintenance",
+        "Safety practices"
+      ]
+    },
+    "hi": {
+      "name": "Plumber - General",
+      "sector": "नलसाजी और जल निकासी (प्लंबिंग)",
+      "job_role": "Plumber - General",
+      "min_education": "8th/10th Pass with NTC/NAC",
+      "description": "Plumber - General के क्षेत्र में व्यावसायिक प्रशिक्षण। Installs, maintains and troubleshoots domestic plumbing fixtures and systems including water supply and drainage. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Pipe fitting",
+        "Fixture installation",
+        "Leak detection",
+        "System maintenance",
+        "Safety practices"
+      ]
+    }
+  },
+  "44": {
+    "te": {
+      "name": "Solar PV Installer (Suryamitra)",
+      "sector": "పర్యావరణ అనుకూల హరిత ఉద్యోగాలు",
+      "job_role": "Solar PV Installer",
+      "min_education": "10th/12th Pass with science or relevant experience",
+      "description": "Solar PV Installer (Suryamitra) రంగంలో శిక్షణ. Performs site survey, installation, commissioning and maintenance of solar photovoltaic systems. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Site assessment",
+        "Panel mounting",
+        "Inverter connection",
+        "System testing",
+        "Safety protocols"
+      ]
+    },
+    "hi": {
+      "name": "Solar PV Installer (Suryamitra)",
+      "sector": "हरित रोजगार (सोलर एवं ऊर्जा)",
+      "job_role": "Solar PV Installer",
+      "min_education": "10th/12th Pass with science or relevant experience",
+      "description": "Solar PV Installer (Suryamitra) के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs site survey, installation, commissioning and maintenance of solar photovoltaic systems. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Site assessment",
+        "Panel mounting",
+        "Inverter connection",
+        "System testing",
+        "Safety protocols"
+      ]
+    }
+  },
+  "45": {
+    "te": {
+      "name": "Solar PV Installer - Electrical",
+      "sector": "పర్యావరణ అనుకూల హరిత ఉద్యోగాలు",
+      "job_role": "Solar PV Installer - Electrical",
+      "min_education": "10th/12th Pass",
+      "description": "Solar PV Installer - Electrical రంగంలో శిక్షణ. Installs, tests and commissions electrical components of photovoltaic systems ensuring performance and reliability. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Electrical wiring",
+        "Inverter installation",
+        "Earthing",
+        "System commissioning",
+        "Troubleshooting"
+      ]
+    },
+    "hi": {
+      "name": "Solar PV Installer - Electrical",
+      "sector": "हरित रोजगार (सोलर एवं ऊर्जा)",
+      "job_role": "Solar PV Installer - Electrical",
+      "min_education": "10th/12th Pass",
+      "description": "Solar PV Installer - Electrical के क्षेत्र में व्यावसायिक प्रशिक्षण। Installs, tests and commissions electrical components of photovoltaic systems ensuring performance and reliability. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Electrical wiring",
+        "Inverter installation",
+        "Earthing",
+        "System commissioning",
+        "Troubleshooting"
+      ]
+    }
+  },
+  "46": {
+    "te": {
+      "name": "Solar PV Installation Helper",
+      "sector": "పర్యావరణ అనుకూల హరిత ఉద్యోగాలు",
+      "job_role": "Solar PV Installation Helper",
+      "min_education": "Ability to read and write with experience",
+      "description": "Solar PV Installation Helper రంగంలో శిక్షణ. Assists in site survey, erection, commissioning and maintenance of solar PV power plants and off-grid systems. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Assisting installation",
+        "Material handling",
+        "Basic tool use",
+        "Safety compliance",
+        "Site cleanup"
+      ]
+    },
+    "hi": {
+      "name": "Solar PV Installation Helper",
+      "sector": "हरित रोजगार (सोलर एवं ऊर्जा)",
+      "job_role": "Solar PV Installation Helper",
+      "min_education": "Ability to read and write with experience",
+      "description": "Solar PV Installation Helper के क्षेत्र में व्यावसायिक प्रशिक्षण। Assists in site survey, erection, commissioning and maintenance of solar PV power plants and off-grid systems. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Assisting installation",
+        "Material handling",
+        "Basic tool use",
+        "Safety compliance",
+        "Site cleanup"
+      ]
+    }
+  },
+  "47": {
+    "te": {
+      "name": "General Duty Assistant",
+      "sector": "ఆరోగ్య సంరక్షణ (హెల్త్‌కేర్)",
+      "job_role": "General Duty Assistant",
+      "min_education": "8th/10th Pass",
+      "description": "General Duty Assistant రంగంలో శిక్షణ. Provides patient care assistance including personal hygiene, nutrition support, mobility and basic hospital procedures while ensuring safety and infection control. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Patient bathing and grooming",
+        "Mobility assistance",
+        "Infection control",
+        "Basic first aid support",
+        "Communication with patients"
+      ]
+    },
+    "hi": {
+      "name": "General Duty Assistant",
+      "sector": "स्वास्थ्य सेवा (हेल्थकेयर)",
+      "job_role": "General Duty Assistant",
+      "min_education": "8th/10th Pass",
+      "description": "General Duty Assistant के क्षेत्र में व्यावसायिक प्रशिक्षण। Provides patient care assistance including personal hygiene, nutrition support, mobility and basic hospital procedures while ensuring safety and infection control. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Patient bathing and grooming",
+        "Mobility assistance",
+        "Infection control",
+        "Basic first aid support",
+        "Communication with patients"
+      ]
+    }
+  },
+  "48": {
+    "te": {
+      "name": "Beauty Therapist",
+      "sector": "బ్యూటీ & వెల్‌నెస్",
+      "job_role": "Beauty Therapist",
+      "min_education": "10th Pass with experience or NSQF Level 3",
+      "description": "Beauty Therapist రంగంలో శిక్షణ. Provides professional beauty services including skincare, hair removal, makeup, manicure and pedicure. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Facial treatments",
+        "Waxing and threading",
+        "Makeup application",
+        "Manicure-pedicure",
+        "Client consultation"
+      ]
+    },
+    "hi": {
+      "name": "Beauty Therapist",
+      "sector": "सौंदर्य और कल्याण (ब्यूटी)",
+      "job_role": "Beauty Therapist",
+      "min_education": "10th Pass with experience or NSQF Level 3",
+      "description": "Beauty Therapist के क्षेत्र में व्यावसायिक प्रशिक्षण। Provides professional beauty services including skincare, hair removal, makeup, manicure and pedicure. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Facial treatments",
+        "Waxing and threading",
+        "Makeup application",
+        "Manicure-pedicure",
+        "Client consultation"
+      ]
+    }
+  },
+  "49": {
+    "te": {
+      "name": "Spa Therapist",
+      "sector": "బ్యూటీ & వెల్‌నెస్",
+      "job_role": "Spa Therapist",
+      "min_education": "10th Pass with experience",
+      "description": "Spa Therapist రంగంలో శిక్షణ. Performs spa services including massage, body treatments and assists in advanced spa therapies while maintaining hygiene. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Massage techniques",
+        "Body treatments",
+        "Aromatherapy basics",
+        "Client care",
+        "Hygiene and safety"
+      ]
+    },
+    "hi": {
+      "name": "Spa Therapist",
+      "sector": "सौंदर्य और कल्याण (ब्यूटी)",
+      "job_role": "Spa Therapist",
+      "min_education": "10th Pass with experience",
+      "description": "Spa Therapist के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs spa services including massage, body treatments and assists in advanced spa therapies while maintaining hygiene. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Massage techniques",
+        "Body treatments",
+        "Aromatherapy basics",
+        "Client care",
+        "Hygiene and safety"
+      ]
+    }
+  },
+  "50": {
+    "te": {
+      "name": "Pedicurist and Manicurist",
+      "sector": "బ్యూటీ & వెల్‌నెస్",
+      "job_role": "Pedicurist and Manicurist",
+      "min_education": "8th Pass",
+      "description": "Pedicurist and Manicurist రంగంలో శిక్షణ. Provides professional manicure and pedicure services including nail care, cuticle treatment and basic nail art. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Nail care",
+        "Cuticle treatment",
+        "Polish application",
+        "Hygiene",
+        "Client service"
+      ]
+    },
+    "hi": {
+      "name": "Pedicurist and Manicurist",
+      "sector": "सौंदर्य और कल्याण (ब्यूटी)",
+      "job_role": "Pedicurist and Manicurist",
+      "min_education": "8th Pass",
+      "description": "Pedicurist and Manicurist के क्षेत्र में व्यावसायिक प्रशिक्षण। Provides professional manicure and pedicure services including nail care, cuticle treatment and basic nail art. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Nail care",
+        "Cuticle treatment",
+        "Polish application",
+        "Hygiene",
+        "Client service"
+      ]
+    }
+  },
+  "51": {
+    "te": {
+      "name": "Front Office Associate",
+      "sector": "పర్యాటకం & ఆతిథ్య రంగం",
+      "job_role": "Front Office Associate",
+      "min_education": "10th/12th Pass",
+      "description": "Front Office Associate రంగంలో శిక్షణ. Handles guest check-in/check-out, reservations, billing and provides information services at hotel front desk. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Guest handling",
+        "Reservation systems",
+        "Billing",
+        "Communication",
+        "Complaint handling"
+      ]
+    },
+    "hi": {
+      "name": "Front Office Associate",
+      "sector": "पर्यटन और आतिथ्य सत्कार",
+      "job_role": "Front Office Associate",
+      "min_education": "10th/12th Pass",
+      "description": "Front Office Associate के क्षेत्र में व्यावसायिक प्रशिक्षण। Handles guest check-in/check-out, reservations, billing and provides information services at hotel front desk. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Guest handling",
+        "Reservation systems",
+        "Billing",
+        "Communication",
+        "Complaint handling"
+      ]
+    }
+  },
+  "52": {
+    "te": {
+      "name": "Food & Beverage Service - Steward",
+      "sector": "పర్యాటకం & ఆతిథ్య రంగం",
+      "job_role": "Food and Beverage Service - Steward",
+      "min_education": "10th Pass",
+      "description": "Food & Beverage Service - Steward రంగంలో శిక్షణ. Serves food and beverages to guests in restaurants and hotels following service standards and hygiene protocols. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Table service",
+        "Order taking",
+        "Beverage service",
+        "Hygiene",
+        "Guest interaction"
+      ]
+    },
+    "hi": {
+      "name": "Food & Beverage Service - Steward",
+      "sector": "पर्यटन और आतिथ्य सत्कार",
+      "job_role": "Food and Beverage Service - Steward",
+      "min_education": "10th Pass",
+      "description": "Food & Beverage Service - Steward के क्षेत्र में व्यावसायिक प्रशिक्षण। Serves food and beverages to guests in restaurants and hotels following service standards and hygiene protocols. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Table service",
+        "Order taking",
+        "Beverage service",
+        "Hygiene",
+        "Guest interaction"
+      ]
+    }
+  },
+  "53": {
+    "te": {
+      "name": "Guest Service Associate (Housekeeping)",
+      "sector": "పర్యాటకం & ఆతిథ్య రంగం",
+      "job_role": "Guest Service Associate (Housekeeping)",
+      "min_education": "10th Pass or ITI",
+      "description": "Guest Service Associate (Housekeeping) రంగంలో శిక్షణ. Performs housekeeping duties including room cleaning, laundry coordination and maintaining guest areas. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Room cleaning",
+        "Linen handling",
+        "Public area maintenance",
+        "Hygiene standards",
+        "Guest service"
+      ]
+    },
+    "hi": {
+      "name": "Guest Service Associate (Housekeeping)",
+      "sector": "पर्यटन और आतिथ्य सत्कार",
+      "job_role": "Guest Service Associate (Housekeeping)",
+      "min_education": "10th Pass or ITI",
+      "description": "Guest Service Associate (Housekeeping) के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs housekeeping duties including room cleaning, laundry coordination and maintaining guest areas. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Room cleaning",
+        "Linen handling",
+        "Public area maintenance",
+        "Hygiene standards",
+        "Guest service"
+      ]
+    }
+  },
+  "54": {
+    "te": {
+      "name": "CRM Domestic Voice",
+      "sector": "సమాచార సాంకేతికత (ఐటీ)",
+      "job_role": "CRM Domestic Voice",
+      "min_education": "12th Pass",
+      "description": "CRM Domestic Voice రంగంలో శిక్షణ. Handles inbound and outbound customer calls for domestic clients, resolving queries and providing product information. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Voice communication",
+        "CRM software",
+        "Query resolution",
+        "Soft skills",
+        "Call handling"
+      ]
+    },
+    "hi": {
+      "name": "CRM Domestic Voice",
+      "sector": "सूचना प्रौद्योगिकी (आईटी)",
+      "job_role": "CRM Domestic Voice",
+      "min_education": "12th Pass",
+      "description": "CRM Domestic Voice के क्षेत्र में व्यावसायिक प्रशिक्षण। Handles inbound and outbound customer calls for domestic clients, resolving queries and providing product information. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Voice communication",
+        "CRM software",
+        "Query resolution",
+        "Soft skills",
+        "Call handling"
+      ]
+    }
+  },
+  "55": {
+    "te": {
+      "name": "Colour Mixing Operator (Ceramics)",
+      "sector": "చేతివృత్తులు & హస్తకళలు",
+      "job_role": "Colour Mixing Operator (Ceramics)",
+      "min_education": "5th Pass preferably",
+      "description": "Colour Mixing Operator (Ceramics) రంగంలో శిక్షణ. Prepares and mixes colours and glazes for ceramic products as per specifications. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Colour mixing",
+        "Glaze preparation",
+        "Measurement",
+        "Quality consistency",
+        "Safety handling"
+      ]
+    },
+    "hi": {
+      "name": "Colour Mixing Operator (Ceramics)",
+      "sector": "हस्तशिल्प और पारंपरिक कारीगरी",
+      "job_role": "Colour Mixing Operator (Ceramics)",
+      "min_education": "5th Pass preferably",
+      "description": "Colour Mixing Operator (Ceramics) के क्षेत्र में व्यावसायिक प्रशिक्षण। Prepares and mixes colours and glazes for ceramic products as per specifications. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Colour mixing",
+        "Glaze preparation",
+        "Measurement",
+        "Quality consistency",
+        "Safety handling"
+      ]
+    }
+  },
+  "56": {
+    "te": {
+      "name": "Carving Artisan (Stonecraft)",
+      "sector": "చేతివృత్తులు & హస్తకళలు",
+      "job_role": "Carving Artisan (Stonecraft)",
+      "min_education": "5th Pass preferably",
+      "description": "Carving Artisan (Stonecraft) రంగంలో శిక్షణ. Performs stone carving and sculpting to create decorative and functional stone craft products. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Stone carving",
+        "Tool handling",
+        "Design interpretation",
+        "Finishing",
+        "Safety practices"
+      ]
+    },
+    "hi": {
+      "name": "Carving Artisan (Stonecraft)",
+      "sector": "हस्तशिल्प और पारंपरिक कारीगरी",
+      "job_role": "Carving Artisan (Stonecraft)",
+      "min_education": "5th Pass preferably",
+      "description": "Carving Artisan (Stonecraft) के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs stone carving and sculpting to create decorative and functional stone craft products. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Stone carving",
+        "Tool handling",
+        "Design interpretation",
+        "Finishing",
+        "Safety practices"
+      ]
+    }
+  },
+  "57": {
+    "te": {
+      "name": "Stringing Artisan (Fashion Jewellery)",
+      "sector": "చేతివృత్తులు & హస్తకళలు",
+      "job_role": "Stringing Artisan",
+      "min_education": "5th Pass preferably",
+      "description": "Stringing Artisan (Fashion Jewellery) రంగంలో శిక్షణ. Strings beads and components to create fashion jewellery products as per design. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Bead stringing",
+        "Design following",
+        "Finishing",
+        "Quality check",
+        "Tool use"
+      ]
+    },
+    "hi": {
+      "name": "Stringing Artisan (Fashion Jewellery)",
+      "sector": "हस्तशिल्प और पारंपरिक कारीगरी",
+      "job_role": "Stringing Artisan",
+      "min_education": "5th Pass preferably",
+      "description": "Stringing Artisan (Fashion Jewellery) के क्षेत्र में व्यावसायिक प्रशिक्षण। Strings beads and components to create fashion jewellery products as per design. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Bead stringing",
+        "Design following",
+        "Finishing",
+        "Quality check",
+        "Tool use"
+      ]
+    }
+  },
+  "58": {
+    "te": {
+      "name": "Inlay Artisan (Stonecraft)",
+      "sector": "చేతివృత్తులు & హస్తకళలు",
+      "job_role": "Inlay Artisan (Stonecraft)",
+      "min_education": "5th Pass preferably",
+      "description": "Inlay Artisan (Stonecraft) రంగంలో శిక్షణ. Creates intricate inlay work on stone surfaces using semi-precious stones and materials. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Inlay techniques",
+        "Stone cutting",
+        "Design layout",
+        "Polishing",
+        "Precision work"
+      ]
+    },
+    "hi": {
+      "name": "Inlay Artisan (Stonecraft)",
+      "sector": "हस्तशिल्प और पारंपरिक कारीगरी",
+      "job_role": "Inlay Artisan (Stonecraft)",
+      "min_education": "5th Pass preferably",
+      "description": "Inlay Artisan (Stonecraft) के क्षेत्र में व्यावसायिक प्रशिक्षण। Creates intricate inlay work on stone surfaces using semi-precious stones and materials. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Inlay techniques",
+        "Stone cutting",
+        "Design layout",
+        "Polishing",
+        "Precision work"
+      ]
+    }
+  },
+  "59": {
+    "te": {
+      "name": "Field Technician Computing and Peripherals",
+      "sector": "ఎలక్ట్రానిక్స్ & హార్డ్‌వేర్",
+      "job_role": "Field Technician - Computing and Peripherals",
+      "min_education": "10th/12th Pass or ITI",
+      "description": "Field Technician Computing and Peripherals రంగంలో శిక్షణ. Installs, troubleshoots and repairs computing devices and peripherals at customer sites. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Hardware installation",
+        "Troubleshooting",
+        "Peripheral setup",
+        "Customer interaction",
+        "Documentation"
+      ]
+    },
+    "hi": {
+      "name": "Field Technician Computing and Peripherals",
+      "sector": "इलेक्ट्रॉनिक्स और हार्डवेयर",
+      "job_role": "Field Technician - Computing and Peripherals",
+      "min_education": "10th/12th Pass or ITI",
+      "description": "Field Technician Computing and Peripherals के क्षेत्र में व्यावसायिक प्रशिक्षण। Installs, troubleshoots and repairs computing devices and peripherals at customer sites. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Hardware installation",
+        "Troubleshooting",
+        "Peripheral setup",
+        "Customer interaction",
+        "Documentation"
+      ]
+    }
+  },
+  "60": {
+    "te": {
+      "name": "Mobile Phone Hardware Repair Technician",
+      "sector": "ఎలక్ట్రానిక్స్ & హార్డ్‌వేర్",
+      "job_role": "Mobile Phone Hardware Repair Technician",
+      "min_education": "10th Pass",
+      "description": "Mobile Phone Hardware Repair Technician రంగంలో శిక్షణ. Diagnoses and repairs hardware faults in mobile phones including component level repairs. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Mobile disassembly",
+        "Component replacement",
+        "Soldering",
+        "Software flashing",
+        "Testing"
+      ]
+    },
+    "hi": {
+      "name": "Mobile Phone Hardware Repair Technician",
+      "sector": "इलेक्ट्रॉनिक्स और हार्डवेयर",
+      "job_role": "Mobile Phone Hardware Repair Technician",
+      "min_education": "10th Pass",
+      "description": "Mobile Phone Hardware Repair Technician के क्षेत्र में व्यावसायिक प्रशिक्षण। Diagnoses and repairs hardware faults in mobile phones including component level repairs. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Mobile disassembly",
+        "Component replacement",
+        "Soldering",
+        "Software flashing",
+        "Testing"
+      ]
+    }
+  },
+  "61": {
+    "te": {
+      "name": "Helper Electrician",
+      "sector": "నిర్మాణ రంగం (కన్‌స్ట్రక్షన్)",
+      "job_role": "Helper Electrician",
+      "min_education": "5th/8th Pass",
+      "description": "Helper Electrician రంగంలో శిక్షణ. Assists electricians in installation and maintenance of electrical systems at construction sites. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Cable handling",
+        "Tool assistance",
+        "Basic wiring support",
+        "Safety compliance",
+        "Material handling"
+      ]
+    },
+    "hi": {
+      "name": "Helper Electrician",
+      "sector": "निर्माण क्षेत्र (कंस्ट्रक्शन)",
+      "job_role": "Helper Electrician",
+      "min_education": "5th/8th Pass",
+      "description": "Helper Electrician के क्षेत्र में व्यावसायिक प्रशिक्षण। Assists electricians in installation and maintenance of electrical systems at construction sites. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Cable handling",
+        "Tool assistance",
+        "Basic wiring support",
+        "Safety compliance",
+        "Material handling"
+      ]
+    }
+  },
+  "62": {
+    "te": {
+      "name": "Dairy Farmer / Entrepreneur",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Dairy Farmer",
+      "min_education": "8th Pass",
+      "description": "Dairy Farmer / Entrepreneur రంగంలో శిక్షణ. Manages dairy animals for milk production including feeding, health care, milking and basic enterprise activities. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Animal feeding",
+        "Milking practices",
+        "Health monitoring",
+        "Clean milk production",
+        "Basic entrepreneurship"
+      ]
+    },
+    "hi": {
+      "name": "Dairy Farmer / Entrepreneur",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Dairy Farmer",
+      "min_education": "8th Pass",
+      "description": "Dairy Farmer / Entrepreneur के क्षेत्र में व्यावसायिक प्रशिक्षण। Manages dairy animals for milk production including feeding, health care, milking and basic enterprise activities. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Animal feeding",
+        "Milking practices",
+        "Health monitoring",
+        "Clean milk production",
+        "Basic entrepreneurship"
+      ]
+    }
+  },
+  "63": {
+    "te": {
+      "name": "Poultry Farmer",
+      "sector": "వ్యవసాయం మరియు అనుబంధ రంగాలు",
+      "job_role": "Poultry Farmer",
+      "min_education": "8th Pass",
+      "description": "Poultry Farmer రంగంలో శిక్షణ. Manages poultry farm operations including housing, feeding, disease prevention and marketing of eggs/birds. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Poultry housing",
+        "Feed management",
+        "Disease prevention",
+        "Record keeping",
+        "Marketing"
+      ]
+    },
+    "hi": {
+      "name": "Poultry Farmer",
+      "sector": "कृषि और संबद्ध क्षेत्र",
+      "job_role": "Poultry Farmer",
+      "min_education": "8th Pass",
+      "description": "Poultry Farmer के क्षेत्र में व्यावसायिक प्रशिक्षण। Manages poultry farm operations including housing, feeding, disease prevention and marketing of eggs/birds. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Poultry housing",
+        "Feed management",
+        "Disease prevention",
+        "Record keeping",
+        "Marketing"
+      ]
+    }
+  },
+  "64": {
+    "te": {
+      "name": "Handloom Weaver",
+      "sector": "చేనేత & వస్త్ర పరిశ్రమ",
+      "job_role": "Handloom Weaver",
+      "min_education": "5th Pass",
+      "description": "Handloom Weaver రంగంలో శిక్షణ. Operates handloom to weave fabric as per design specifications and quality requirements. సొంత వ్యాపారం లేదా స్వయం ఉపాధి ప్రారంభించడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Handloom operation",
+        "Warp preparation",
+        "Weaving techniques",
+        "Defect identification",
+        "Finishing"
+      ]
+    },
+    "hi": {
+      "name": "Handloom Weaver",
+      "sector": "हथकरघा और वस्त्र उद्योग",
+      "job_role": "Handloom Weaver",
+      "min_education": "5th Pass",
+      "description": "Handloom Weaver के क्षेत्र में व्यावसायिक प्रशिक्षण। Operates handloom to weave fabric as per design specifications and quality requirements. अपना व्यवसाय या स्वरोजगार शुरू करने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Handloom operation",
+        "Warp preparation",
+        "Weaving techniques",
+        "Defect identification",
+        "Finishing"
+      ]
+    }
+  },
+  "65": {
+    "te": {
+      "name": "Powerloom Operator",
+      "sector": "చేనేత & వస్త్ర పరిశ్రమ",
+      "job_role": "Powerloom Operator",
+      "min_education": "8th Pass",
+      "description": "Powerloom Operator రంగంలో శిక్షణ. Operates powerlooms for fabric production ensuring quality and productivity. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Loom operation",
+        "Yarn handling",
+        "Quality monitoring",
+        "Machine settings",
+        "Safety"
+      ]
+    },
+    "hi": {
+      "name": "Powerloom Operator",
+      "sector": "हथकरघा और वस्त्र उद्योग",
+      "job_role": "Powerloom Operator",
+      "min_education": "8th Pass",
+      "description": "Powerloom Operator के क्षेत्र में व्यावसायिक प्रशिक्षण। Operates powerlooms for fabric production ensuring quality and productivity. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Loom operation",
+        "Yarn handling",
+        "Quality monitoring",
+        "Machine settings",
+        "Safety"
+      ]
+    }
+  },
+  "66": {
+    "te": {
+      "name": "Hair Stylist",
+      "sector": "బ్యూటీ & వెల్‌నెస్",
+      "job_role": "Hair Stylist",
+      "min_education": "10th Pass",
+      "description": "Hair Stylist రంగంలో శిక్షణ. Provides professional hair cutting, styling, colouring and treatment services in salons. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Hair cutting",
+        "Styling",
+        "Colouring",
+        "Hair treatments",
+        "Client consultation"
+      ]
+    },
+    "hi": {
+      "name": "Hair Stylist",
+      "sector": "सौंदर्य और कल्याण (ब्यूटी)",
+      "job_role": "Hair Stylist",
+      "min_education": "10th Pass",
+      "description": "Hair Stylist के क्षेत्र में व्यावसायिक प्रशिक्षण। Provides professional hair cutting, styling, colouring and treatment services in salons. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Hair cutting",
+        "Styling",
+        "Colouring",
+        "Hair treatments",
+        "Client consultation"
+      ]
+    }
+  },
+  "67": {
+    "te": {
+      "name": "Assistant Hair Dresser & Stylist",
+      "sector": "బ్యూటీ & వెల్‌నెస్",
+      "job_role": "Assistant Hair Dresser & Stylist",
+      "min_education": "8th Pass",
+      "description": "Assistant Hair Dresser & Stylist రంగంలో శిక్షణ. Assists hair dressers in shampooing, basic styling and salon support activities. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Shampooing",
+        "Basic styling",
+        "Tool preparation",
+        "Hygiene",
+        "Client assistance"
+      ]
+    },
+    "hi": {
+      "name": "Assistant Hair Dresser & Stylist",
+      "sector": "सौंदर्य और कल्याण (ब्यूटी)",
+      "job_role": "Assistant Hair Dresser & Stylist",
+      "min_education": "8th Pass",
+      "description": "Assistant Hair Dresser & Stylist के क्षेत्र में व्यावसायिक प्रशिक्षण। Assists hair dressers in shampooing, basic styling and salon support activities. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Shampooing",
+        "Basic styling",
+        "Tool preparation",
+        "Hygiene",
+        "Client assistance"
+      ]
+    }
+  },
+  "68": {
+    "te": {
+      "name": "Rural Mason",
+      "sector": "నిర్మాణ రంగం (కన్‌స్ట్రక్షన్)",
+      "job_role": "Rural Mason",
+      "min_education": "8th Pass or Assistant Mason with experience",
+      "description": "Rural Mason రంగంలో శిక్షణ. Performs rural construction works including foundations, walls, sanitary fittings, IPS flooring and bamboo construction. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Rural masonry",
+        "Foundation work",
+        "Sanitary fixtures",
+        "Bamboo treatment",
+        "Seismic measures"
+      ]
+    },
+    "hi": {
+      "name": "Rural Mason",
+      "sector": "निर्माण क्षेत्र (कंस्ट्रक्शन)",
+      "job_role": "Rural Mason",
+      "min_education": "8th Pass or Assistant Mason with experience",
+      "description": "Rural Mason के क्षेत्र में व्यावसायिक प्रशिक्षण। Performs rural construction works including foundations, walls, sanitary fittings, IPS flooring and bamboo construction. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Rural masonry",
+        "Foundation work",
+        "Sanitary fixtures",
+        "Bamboo treatment",
+        "Seismic measures"
+      ]
+    }
+  },
+  "69": {
+    "te": {
+      "name": "Safai Karamchari",
+      "sector": "పర్యావరణ అనుకూల హరిత ఉద్యోగాలు",
+      "job_role": "Safai Karamchari",
+      "min_education": "5th Pass",
+      "description": "Safai Karamchari రంగంలో శిక్షణ. Maintains cleanliness and hygiene of roads, public areas and buildings using manual and mechanized methods. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Road cleaning",
+        "Floor cleaning",
+        "Waste handling",
+        "Personal safety",
+        "Hygiene practices"
+      ]
+    },
+    "hi": {
+      "name": "Safai Karamchari",
+      "sector": "हरित रोजगार (सोलर एवं ऊर्जा)",
+      "job_role": "Safai Karamchari",
+      "min_education": "5th Pass",
+      "description": "Safai Karamchari के क्षेत्र में व्यावसायिक प्रशिक्षण। Maintains cleanliness and hygiene of roads, public areas and buildings using manual and mechanized methods. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Road cleaning",
+        "Floor cleaning",
+        "Waste handling",
+        "Personal safety",
+        "Hygiene practices"
+      ]
+    }
+  },
+  "70": {
+    "te": {
+      "name": "Nail Technician",
+      "sector": "బ్యూటీ & వెల్‌నెస్",
+      "job_role": "Nail Technician",
+      "min_education": "10th Pass",
+      "description": "Nail Technician రంగంలో శిక్షణ. Provides advanced nail care services including extensions, art and treatments. పరిశ్రమలలో లేదా కంపెనీలలో ప్రత్యక్ష వేతన ఉద్యోగం పొందడానికి అనువైన కోర్సు.",
+      "skills": [
+        "Nail extensions",
+        "Nail art",
+        "Gel application",
+        "Hygiene",
+        "Client service"
+      ]
+    },
+    "hi": {
+      "name": "Nail Technician",
+      "sector": "सौंदर्य और कल्याण (ब्यूटी)",
+      "job_role": "Nail Technician",
+      "min_education": "10th Pass",
+      "description": "Nail Technician के क्षेत्र में व्यावसायिक प्रशिक्षण। Provides advanced nail care services including extensions, art and treatments. उद्योगों या कंपनियों में प्रत्यक्ष नौकरी पाने के लिए उपयुक्त कोर्स।",
+      "skills": [
+        "Nail extensions",
+        "Nail art",
+        "Gel application",
+        "Hygiene",
+        "Client service"
+      ]
     }
   }
 }

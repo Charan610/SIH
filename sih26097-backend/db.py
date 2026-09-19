@@ -557,27 +557,18 @@ def query_courses_by_nsqf_and_skills(
     estimated_level_range: str,
     skills: list[str],
     role_or_sector: Optional[str] = None,
+    pathway_preference: Optional[str] = None,
+    traditional_occupation: Optional[str] = None,
+    education_level: Optional[str] = None,
+    district: Optional[str] = None,
     limit: int = 10,
 ) -> list[dict]:
     """
     Directly queries the SQLite 'courses' table filtered by the candidate's
-    estimated NSQF level and matching sector/skills.
+    estimated NSQF level, stated skills, traditional occupation, pathway preference
+    (self-employment vs wage), and education level.
 
-    Returns exactly 9 to 10 real course/job entries from the database,
-    preserving real fields:
-      - id
-      - name (course name)
-      - sector
-      - job_role
-      - nsqf_level
-      - min_education
-      - description
-      - skills
-      - estimated_salary (real sourced figure)
-
-    CRITICAL ARCHITECTURAL BOUNDARY:
-      Zero items are fabricated or invented by an LLM. Everything originates
-      directly from the SQLite 'courses' table.
+    Returns exactly 9 to 10 authentic courses from the database.
     """
     # 1. Determine target NSQF levels from estimated range
     lvl_str = (estimated_level_range or "3").lower()
@@ -598,63 +589,165 @@ def query_courses_by_nsqf_and_skills(
     primary_level = target_levels[0] if target_levels else 3
 
     conn = get_connection()
-    # Fetch all real courses from SQLite table
     rows = conn.execute("SELECT * FROM courses").fetchall()
     conn.close()
 
     if not rows:
         return []
 
-    # Clean candidate skills
+    # Clean inputs
     clean_skills = [s.lower().strip() for s in skills if s and s.strip()]
     role_lower = (role_or_sector or "").lower()
+    trad_lower = (traditional_occupation or "").lower()
+    pref_lower = (pathway_preference or "").lower()
+    edu_lower = (education_level or "").lower()
+
+    # Multilingual Keyword Translation Map (Telugu & Hindi -> Sector/Domain concepts)
+    INDIC_DOMAIN_MAP = {
+        # Agriculture / Dairy / Poultry
+        "వ్యవసాయం": "agriculture farming organic crop",
+        "రైతు": "farmer agriculture grower",
+        "పొలం": "farm agriculture field",
+        "గేదెలు": "dairy animal cattle milk",
+        "ఆవులు": "dairy cattle farm animal",
+        "కోళ్లు": "poultry farm bird",
+        "తోట": "gardener horticulture floriculturist",
+        "खेती": "agriculture farming crop",
+        "किसान": "farmer agriculture grower",
+        "डेयरी": "dairy milk cattle animal",
+        "मुर्गी": "poultry farm bird",
+        "बागवानी": "gardener horticulture floriculturist",
+        # Textiles / Handloom / Tailoring
+        "చేనేత": "handloom weaver textiles fabric",
+        "మగ్గం": "loom handloom weaver",
+        "కుట్టు": "sewing tailor garment apparel",
+        "టైలర్": "tailor sewing garment",
+        "వస్త్రాలు": "apparel textiles fabric garment",
+        "बुनकर": "weaver handloom textiles",
+        "हथकरघा": "handloom weaver textiles",
+        "सिलाई": "sewing tailor apparel garment",
+        "दर्जी": "tailor sewing apparel",
+        # Construction / Masonry / Plumbing
+        "మేస్త్రీ": "mason construction brick building",
+        "తాపీ": "mason plastering construction",
+        "ప్లంబర్": "plumber plumbing pipe fixture",
+        "పైపులు": "plumber pipe fitting",
+        "వెల్డింగ్": "welder fabrication steel",
+        "కార్పెంటర్": "carpenter wood construction",
+        "मिस्त्री": "mason construction brick",
+        "राजमिस्त्री": "mason brick construction",
+        "प्लंबर": "plumber pipe fitting",
+        # Electrical / Solar / Electronics / Mechanics
+        "ఎలక్ట్రీషియన్": "electrician wiring electrical power",
+        "వైరింగ్": "wiring electrician electrical",
+        "సోలార్": "solar photovoltaic green energy",
+        "మొబైల్": "mobile phone hardware repair electronics",
+        "మెకానిక్": "mechanic automotive vehicle repair",
+        "బైక్": "two wheeler automotive bike service",
+        "ఇవి": "electric vehicle ev battery",
+        "इलेक्ट्रीशियन": "electrician wiring electrical",
+        "सौर": "solar photovoltaic green energy",
+        "सोलर": "solar photovoltaic green energy",
+        "मोबाइल": "mobile repair electronics phone",
+        "मैकेनिक": "mechanic automotive service",
+        # Healthcare & Sanitation
+        "ఆసుపత్రి": "hospital healthcare patient assistant",
+        "నర్సింగ్": "nursing healthcare general duty",
+        "సఫాయి": "safai sanitation cleaning hygiene",
+        "పరిశుభ్రత": "hygiene sanitation cleaning",
+        "अस्पताल": "hospital healthcare patient",
+        "सफाई": "safai sanitation cleaning",
+        # Beauty & Salon
+        "బ్యూటీ": "beauty therapist parlour salon grooming",
+        "సెలూన్": "salon hair stylist beauty wellness",
+        "జుట్టు": "hair stylist salon hairdresser",
+        "ब्यूटी": "beauty therapist salon parlour",
+        "सैलून": "salon hair stylist hairdresser",
+        # IT / Data Entry / Office
+        "కంప్యూటర్": "computer data entry ites office",
+        "టైపింగ్": "typing data entry computer",
+        "హోటల్": "hotel front office hospitality steward",
+        "कंप्यूटर": "computer data entry ites",
+        "टाइपिंग": "typing data entry computer",
+        "होटल": "hotel hospitality front office",
+    }
+
+    # Expand role/trad keywords using domain map
+    search_context = f"{role_lower} {trad_lower} {' '.join(clean_skills)}"
+    for term, exp in INDIC_DOMAIN_MAP.items():
+        if term in search_context:
+            search_context += f" {exp}"
+
+    is_self_emp = any(w in pref_lower for w in ["self", "business", "సొంత", "వ్యాపారం", "దుకాణం", "व्यवसाय", "दुकान", "entrepreneur"])
+    is_wage_emp = any(w in pref_lower for w in ["wage", "job", "ఉద్యోగం", "జాబ్", "నౌకరీ", "नौकरी", "direct"])
 
     scored_courses = []
     for r in rows:
         c = dict(r)
-        c["skills"] = json.loads(c["skills"]) if isinstance(c["skills"], str) else c["skills"]
+        c["skills"] = json.loads(c["skills"]) if isinstance(c["skills"], str) else c.get("skills", [])
+        c_allied = json.loads(c.get("traditional_allied_skills", "[]")) if isinstance(c.get("traditional_allied_skills"), str) else c.get("traditional_allied_skills", [])
+        
         course_lvl = c.get("nsqf_level", 3)
         course_skills = [s.lower() for s in c.get("skills", [])]
         course_name = c.get("name", "").lower()
         course_role = c.get("job_role", "").lower()
         course_sector = c.get("sector", "").lower()
+        course_desc = c.get("description", "").lower()
+        course_pathway = (c.get("pathway_type") or "wage_employment").lower()
+        allied_tokens = [a.lower() for a in c_allied]
 
         score = 0.0
 
-        # Level proximity scoring
+        # 1. Level proximity scoring (0-10 pts)
         if course_lvl == primary_level:
             score += 10.0
         elif course_lvl in target_levels:
             score += 6.0
         else:
             diff = abs(course_lvl - primary_level)
-            score += max(0.0, 4.0 - diff)
+            score += max(0.0, 3.0 - diff)
 
-        # Sector / Role keyword matching
-        if role_lower:
-            for word in role_lower.replace("/", " ").replace("-", " ").split():
-                if len(word) >= 3:
-                    if word in course_name or word in course_role:
-                        score += 8.0
-                    elif word in course_sector:
-                        score += 5.0
+        # 2. Pathway Alignment (Self-employment vs Wage) (+12 pts)
+        if is_self_emp:
+            if course_pathway == "self_employment" or "farmer" in course_name or "tailor" in course_name or "artisan" in course_name or "repair" in course_name or "stylist" in course_name:
+                score += 12.0
+            else:
+                score -= 3.0
+        elif is_wage_emp:
+            if course_pathway == "wage_employment":
+                score += 10.0
 
-        # Skill overlap scoring
-        for user_sk in clean_skills:
-            for sk_word in user_sk.replace("/", " ").split():
-                if len(sk_word) >= 3:
-                    if any(sk_word in c_sk for c_sk in course_skills):
-                        score += 3.0
-                    if sk_word in course_name or sk_word in course_role:
-                        score += 4.0
+        # 3. Traditional Family Occupation & Stated Work Matching (+15 pts)
+        for token in search_context.replace(",", " ").replace(".", " ").split():
+            token_clean = token.strip()
+            if len(token_clean) >= 3:
+                if any(token_clean in a for a in allied_tokens):
+                    score += 15.0
+                if token_clean in course_name or token_clean in course_role:
+                    score += 10.0
+                elif token_clean in course_sector:
+                    score += 7.0
+                elif any(token_clean in s for s in course_skills):
+                    score += 4.0
+                elif token_clean in course_desc:
+                    score += 2.0
+
+        # 4. Education requirement matching (+5 pts)
+        min_edu = (c.get("min_education") or "").lower()
+        if "5th" in edu_lower and "5th" in min_edu:
+            score += 5.0
+        elif "8th" in edu_lower and ("8th" in min_edu or "5th" in min_edu):
+            score += 5.0
+        elif ("10th" in edu_lower or "12th" in edu_lower or "iti" in edu_lower) and ("10th" in min_edu or "8th" in min_edu or "5th" in min_edu):
+            score += 4.0
 
         c["fit_score"] = round(score, 2)
         scored_courses.append(c)
 
-    # Sort descending by score, then by NSQF level proximity
+    # Sort descending by score, then by fit
     scored_courses.sort(key=lambda x: (x["fit_score"], -abs(x.get("nsqf_level", 3) - primary_level)), reverse=True)
 
-    # Return exactly 9 or 10 real items (capped at limit, min 9 if available)
+    # Return top 9 or 10 real items
     target_count = min(len(scored_courses), max(9, limit))
     selected = scored_courses[:target_count]
 

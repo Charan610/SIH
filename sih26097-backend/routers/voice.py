@@ -373,6 +373,10 @@ async def complete_voice_assessment(
         estimated_level_range=aligned_level_range,
         skills=skills,
         role_or_sector=q1_work,
+        pathway_preference=pathway_pref,
+        traditional_occupation=traditional_occupation,
+        education_level=candidate_education,
+        district=candidate_district,
         limit=desired_limit,
     )
 

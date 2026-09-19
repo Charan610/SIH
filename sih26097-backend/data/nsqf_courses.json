@@ -1,1012 +1,3515 @@
 [
-    {
-        "id": 1,
-        "name": "Assistant Electrician",
-        "sector": "Electrical",
-        "job_role": "Assistant Electrician",
-        "min_education": "8th Pass",
-        "nsqf_level": 4,
-        "description": "Learn basic electrical wiring, safety practices, and meter reading. Covers domestic wiring, earthing, and common electrical repairs.",
-        "skills": [
-            "wiring",
-            "electrical safety",
-            "meter reading",
-            "earthing",
-            "soldering"
-        ],
-        "qp_code": "ELE/Q2804",
-        "nos_codes": [
-            "ELE/N2801",
-            "ELE/N2802",
-            "ELE/N2804"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Medchal",
-            "Vijayawada",
-            "Guntur",
-            "Visakhapatnam",
-            "Warangal",
-            "Nizamabad"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/EleSSCI QP v2.1",
-        "data_date": "2024-11-01",
-        "confidence_score": 0.95,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹18,000 - ₹24,000 / month"
-    },
-    {
-        "id": 2,
-        "name": "Plumber General",
-        "sector": "Plumbing",
-        "job_role": "Plumber",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Pipe fitting, water supply systems, drainage systems, and basic plumbing repairs for residential buildings.",
-        "skills": [
-            "pipe fitting",
-            "drainage",
-            "water supply",
-            "leak repair",
-            "tool handling"
-        ],
-        "qp_code": "CON/Q0103",
-        "nos_codes": [
-            "CON/N0101",
-            "CON/N0102",
-            "CON/N0103"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Vijayawada",
-            "Guntur",
-            "Nalgonda",
-            "Khammam"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/CIDC QP v1.3",
-        "data_date": "2024-09-15",
-        "confidence_score": 0.88,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹15,000 - ₹22,000 / month"
-    },
-    {
-        "id": 3,
-        "name": "Sewing Machine Operator",
-        "sector": "Textile & Apparel",
-        "job_role": "Sewing Machine Operator",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Operate industrial sewing machines, read garment patterns, perform basic stitching and finishing of garments.",
-        "skills": [
-            "machine sewing",
-            "pattern reading",
-            "garment finishing",
-            "fabric cutting",
-            "quality checking"
-        ],
-        "qp_code": "TSC/Q7201",
-        "nos_codes": [
-            "TSC/N7201",
-            "TSC/N7202"
-        ],
-        "local_demand_districts": [
-            "Warangal",
-            "Karimnagar",
-            "Tirupati",
-            "Srikakulam",
-            "Kurnool"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/TSSC QP v1.0",
-        "data_date": "2024-08-01",
-        "confidence_score": 0.85,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹12,000 - ₹16,000 / month"
-    },
-    {
-        "id": 4,
-        "name": "Assistant Beauty Therapist",
-        "sector": "Beauty & Wellness",
-        "job_role": "Beauty Therapist Assistant",
-        "min_education": "8th Pass",
-        "nsqf_level": 3,
-        "description": "Basic beauty treatments including hair care, skin care, mehendi application, and salon hygiene practices.",
-        "skills": [
-            "hair care",
-            "skin care",
-            "mehendi",
-            "salon hygiene",
-            "customer service"
-        ],
-        "qp_code": "BWS/Q0101",
-        "nos_codes": [
-            "BWS/N0101",
-            "BWS/N0102"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Secunderabad",
-            "Vijayawada",
-            "Visakhapatnam"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/BWSC QP v2.0",
-        "data_date": "2024-10-01",
-        "confidence_score": 0.82,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹14,000 - ₹20,000 / month"
-    },
-    {
-        "id": 5,
-        "name": "Domestic Data Entry Operator",
-        "sector": "IT-ITES",
-        "job_role": "Data Entry Operator",
-        "min_education": "10th Pass",
-        "nsqf_level": 4,
-        "description": "Computer basics, typing skills, data entry using spreadsheets, and basic office software operations.",
-        "skills": [
-            "typing",
-            "MS Excel",
-            "data entry",
-            "MS Word",
-            "basic computer"
-        ],
-        "qp_code": "SSC/Q2212",
-        "nos_codes": [
-            "SSC/N2212",
-            "SSC/N2213"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Tirupati"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/SSC NASSCOM QP v3.0",
-        "data_date": "2025-01-10",
-        "confidence_score": 0.92,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹15,000 - ₹20,000 / month"
-    },
-    {
-        "id": 6,
-        "name": "Healthcare Assistant (Home Health Aide)",
-        "sector": "Healthcare",
-        "job_role": "Home Health Aide",
-        "min_education": "8th Pass",
-        "nsqf_level": 3,
-        "description": "Basic patient care, vital signs monitoring, hygiene maintenance, and assisting the elderly or disabled at home.",
-        "skills": [
-            "patient care",
-            "vital signs",
-            "hygiene",
-            "first aid",
-            "elder care"
-        ],
-        "qp_code": "HSS/Q5101",
-        "nos_codes": [
-            "HSS/N5101",
-            "HSS/N5102",
-            "HSS/N5103"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Warangal",
-            "Guntur"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/HSSC QP v1.5",
-        "data_date": "2024-12-01",
-        "confidence_score": 0.9,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹14,000 - ₹19,000 / month"
-    },
-    {
-        "id": 7,
-        "name": "Organic Farmer",
-        "sector": "Agriculture",
-        "job_role": "Organic Farmer",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Organic farming techniques including composting, natural pest management, crop rotation, and organic certification basics.",
-        "skills": [
-            "composting",
-            "organic pest control",
-            "crop rotation",
-            "soil testing",
-            "seed selection"
-        ],
-        "qp_code": "AGR/Q4101",
-        "nos_codes": [
-            "AGR/N4101",
-            "AGR/N4102"
-        ],
-        "local_demand_districts": [
-            "Nalgonda",
-            "Khammam",
-            "Karimnagar",
-            "Guntur",
-            "Krishna",
-            "Prakasam",
-            "Kurnool",
-            "Kadapa"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ASCI QP v2.0",
-        "data_date": "2024-07-01",
-        "confidence_score": 0.87,
-        "wage_employment": false,
-        "self_employment": true,
-        "estimated_salary": "₹14,000 - ₹20,000 / month"
-    },
-    {
-        "id": 8,
-        "name": "Mason General",
-        "sector": "Construction",
-        "job_role": "Mason",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Bricklaying, plastering, concrete mixing, and basic construction techniques for residential buildings.",
-        "skills": [
-            "bricklaying",
-            "plastering",
-            "concrete mixing",
-            "levelling",
-            "tile setting"
-        ],
-        "qp_code": "CON/Q0301",
-        "nos_codes": [
-            "CON/N0301",
-            "CON/N0302"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Warangal",
-            "Vijayawada",
-            "Guntur",
-            "Visakhapatnam"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/CIDC QP v1.4",
-        "data_date": "2024-09-01",
-        "confidence_score": 0.86,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹16,000 - ₹22,000 / month"
-    },
-    {
-        "id": 9,
-        "name": "Retail Sales Associate",
-        "sector": "Retail",
-        "job_role": "Sales Associate",
-        "min_education": "10th Pass",
-        "nsqf_level": 4,
-        "description": "Customer interaction, product display, billing operations, and inventory management in retail stores.",
-        "skills": [
-            "customer service",
-            "billing",
-            "product display",
-            "inventory",
-            "communication"
-        ],
-        "qp_code": "RAS/Q0201",
-        "nos_codes": [
-            "RAS/N0201",
-            "RAS/N0202"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Tirupati",
-            "Warangal"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/RAI QP v2.0",
-        "data_date": "2025-01-05",
-        "confidence_score": 0.88,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹16,000 - ₹22,000 / month"
-    },
-    {
-        "id": 10,
-        "name": "Automotive Service Technician",
-        "sector": "Automotive",
-        "job_role": "Service Technician",
-        "min_education": "10th Pass",
-        "nsqf_level": 4,
-        "description": "Two-wheeler and four-wheeler basic servicing, engine maintenance, brake systems, and diagnostic techniques.",
-        "skills": [
-            "engine maintenance",
-            "brake repair",
-            "oil change",
-            "diagnostics",
-            "tool usage"
-        ],
-        "qp_code": "ASC/Q1401",
-        "nos_codes": [
-            "ASC/N1401",
-            "ASC/N1402",
-            "ASC/N1403"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Warangal",
-            "Vijayawada",
-            "Guntur",
-            "Nellore"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ASDC QP v3.1",
-        "data_date": "2024-11-15",
-        "confidence_score": 0.91,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹18,000 - ₹25,000 / month"
-    },
-    {
-        "id": 11,
-        "name": "Food Processing Technician",
-        "sector": "Food Processing",
-        "job_role": "Processing Technician",
-        "min_education": "10th Pass",
-        "nsqf_level": 4,
-        "description": "Food preservation techniques, packaging, quality testing, and hygiene standards in food processing units.",
-        "skills": [
-            "food preservation",
-            "packaging",
-            "quality testing",
-            "hygiene standards",
-            "machine operation"
-        ],
-        "qp_code": "FIC/Q0401",
-        "nos_codes": [
-            "FIC/N0401",
-            "FIC/N0402"
-        ],
-        "local_demand_districts": [
-            "Karimnagar",
-            "Nizamabad",
-            "Guntur",
-            "Krishna",
-            "Chittoor",
-            "Nellore"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/FICSI QP v1.2",
-        "data_date": "2024-08-20",
-        "confidence_score": 0.84,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹16,000 - ₹22,000 / month"
-    },
-    {
-        "id": 12,
-        "name": "Solar Panel Installation Technician",
-        "sector": "Electrical",
-        "job_role": "Solar PV Installer",
-        "min_education": "10th Pass",
-        "nsqf_level": 4,
-        "description": "Installation, wiring, and basic maintenance of rooftop solar photovoltaic systems for homes and small businesses.",
-        "skills": [
-            "solar panel mounting",
-            "DC wiring",
-            "inverter setup",
-            "safety protocols",
-            "maintenance"
-        ],
-        "qp_code": "SGJ/Q0101",
-        "nos_codes": [
-            "SGJ/N0101",
-            "SGJ/N0102",
-            "SGJ/N0103"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Medchal",
-            "Nalgonda",
-            "Guntur",
-            "Vijayawada",
-            "Kurnool",
-            "Anantapur"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/GESI QP v2.0",
-        "data_date": "2025-01-20",
-        "confidence_score": 0.93,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹20,000 - ₹28,000 / month"
-    },
-    {
-        "id": 13,
-        "name": "Hand Embroidery Artisan",
-        "sector": "Textile & Apparel",
-        "job_role": "Embroidery Artisan",
-        "min_education": "No formal education required",
-        "nsqf_level": 2,
-        "description": "Traditional and contemporary hand embroidery techniques including Chikankari, Zardozi, and mirror work.",
-        "skills": [
-            "hand embroidery",
-            "pattern design",
-            "thread work",
-            "color selection",
-            "finishing"
-        ],
-        "qp_code": "HCS/Q1901",
-        "nos_codes": [
-            "HCS/N1901",
-            "HCS/N1902"
-        ],
-        "local_demand_districts": [
-            "Karimnagar",
-            "Nizamabad",
-            "Warangal",
-            "Srikakulam",
-            "Vizianagaram"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/HCSSC QP v1.0",
-        "data_date": "2024-06-15",
-        "confidence_score": 0.78,
-        "wage_employment": false,
-        "self_employment": true,
-        "estimated_salary": "₹11,000 - ₹15,000 / month"
-    },
-    {
-        "id": 14,
-        "name": "Dairy Farmer / Milk Production",
-        "sector": "Agriculture",
-        "job_role": "Dairy Worker",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Dairy animal management, milking techniques, fodder management, and basic dairy product processing.",
-        "skills": [
-            "animal care",
-            "milking",
-            "fodder management",
-            "dairy hygiene",
-            "cattle health"
-        ],
-        "qp_code": "AGR/Q4901",
-        "nos_codes": [
-            "AGR/N4901",
-            "AGR/N4902"
-        ],
-        "local_demand_districts": [
-            "Nalgonda",
-            "Medak",
-            "Khammam",
-            "Krishna",
-            "Guntur",
-            "Prakasam"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ASCI QP v1.5",
-        "data_date": "2024-07-10",
-        "confidence_score": 0.85,
-        "wage_employment": false,
-        "self_employment": true,
-        "estimated_salary": "₹13,000 - ₹18,000 / month"
-    },
-    {
-        "id": 15,
-        "name": "Mobile Phone Repair Technician",
-        "sector": "Electronics",
-        "job_role": "Mobile Repair Technician",
-        "min_education": "10th Pass",
-        "nsqf_level": 4,
-        "description": "Diagnosis and repair of mobile phone hardware and software issues, screen replacement, and basic soldering.",
-        "skills": [
-            "mobile repair",
-            "soldering",
-            "screen replacement",
-            "software flashing",
-            "diagnostics"
-        ],
-        "qp_code": "ELE/Q3101",
-        "nos_codes": [
-            "ELE/N3101",
-            "ELE/N3102"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Warangal",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Tirupati",
-            "Nellore"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ESSCI QP v2.0",
-        "data_date": "2024-10-15",
-        "confidence_score": 0.89,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹16,000 - ₹25,000 / month"
-    },
-    {
-        "id": 16,
-        "name": "Welder (Gas & Electric Arc)",
-        "sector": "Construction",
-        "job_role": "Welder",
-        "min_education": "8th Pass",
-        "nsqf_level": 4,
-        "description": "Gas welding, electric arc welding, cutting techniques, and welding safety for construction and fabrication.",
-        "skills": [
-            "gas welding",
-            "arc welding",
-            "metal cutting",
-            "welding safety",
-            "joint preparation"
-        ],
-        "qp_code": "CSC/Q0303",
-        "nos_codes": [
-            "CSC/N0301",
-            "CSC/N0302",
-            "CSC/N0303"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Warangal",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Kurnool"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/CSC QP v3.0",
-        "data_date": "2024-11-01",
-        "confidence_score": 0.92,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹18,000 - ₹26,000 / month"
-    },
-    {
-        "id": 17,
-        "name": "Front Office Associate (Hospitality)",
-        "sector": "Tourism & Hospitality",
-        "job_role": "Front Desk Agent",
-        "min_education": "12th Pass",
-        "nsqf_level": 5,
-        "description": "Hotel front desk operations, guest check-in/out, reservation handling, and customer service in hospitality.",
-        "skills": [
-            "guest handling",
-            "reservation systems",
-            "communication",
-            "billing",
-            "complaint resolution"
-        ],
-        "qp_code": "THC/Q0102",
-        "nos_codes": [
-            "THC/N0101",
-            "THC/N0102"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Tirupati"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/THSC QP v2.1",
-        "data_date": "2025-01-01",
-        "confidence_score": 0.87,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹20,000 - ₹28,000 / month"
-    },
-    {
-        "id": 18,
-        "name": "Assistant Carpenter",
-        "sector": "Construction",
-        "job_role": "Carpenter Assistant",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Wood measurement, cutting, joining techniques, furniture assembly, and proper use of carpentry tools.",
-        "skills": [
-            "wood cutting",
-            "joining",
-            "furniture assembly",
-            "measurement",
-            "tool maintenance"
-        ],
-        "qp_code": "CON/Q0501",
-        "nos_codes": [
-            "CON/N0501",
-            "CON/N0502"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Vijayawada",
-            "Guntur",
-            "Warangal"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/CIDC QP v1.2",
-        "data_date": "2024-08-01",
-        "confidence_score": 0.83,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹14,000 - ₹20,000 / month"
-    },
-    {
-        "id": 19,
-        "name": "Computer Basics and Digital Literacy",
-        "sector": "IT-ITES",
-        "job_role": "Computer Operator",
-        "min_education": "8th Pass",
-        "nsqf_level": 2,
-        "description": "Introduction to computers, internet usage, email, basic office applications, and digital payment systems like UPI.",
-        "skills": [
-            "computer basics",
-            "internet browsing",
-            "email",
-            "UPI payments",
-            "office software"
-        ],
-        "qp_code": "SSC/Q0101",
-        "nos_codes": [
-            "SSC/N0101",
-            "SSC/N0102"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Warangal",
-            "Karimnagar",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Tirupati"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/SSC NASSCOM QP v2.5",
-        "data_date": "2025-01-15",
-        "confidence_score": 0.91,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹13,000 - ₹18,000 / month"
-    },
-    {
-        "id": 20,
-        "name": "Mushroom Cultivation Technician",
-        "sector": "Agriculture",
-        "job_role": "Mushroom Grower",
-        "min_education": "8th Pass",
-        "nsqf_level": 3,
-        "description": "Growing oyster and button mushrooms, preparing compost, maintaining growing conditions, and post-harvest handling.",
-        "skills": [
-            "mushroom growing",
-            "composting",
-            "temperature control",
-            "harvesting",
-            "packaging"
-        ],
-        "qp_code": "AGR/Q4601",
-        "nos_codes": [
-            "AGR/N4601",
-            "AGR/N4602"
-        ],
-        "local_demand_districts": [
-            "Medak",
-            "Nalgonda",
-            "Khammam",
-            "Krishna",
-            "Guntur",
-            "Kadapa"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ASCI QP v1.1",
-        "data_date": "2024-07-20",
-        "confidence_score": 0.8,
-        "wage_employment": false,
-        "self_employment": true,
-        "estimated_salary": "₹15,000 - ₹22,000 / month"
-    },
-    {
-        "id": 21,
-        "name": "Nursing Assistant",
-        "sector": "Healthcare",
-        "job_role": "Nursing Assistant",
-        "min_education": "12th Pass",
-        "nsqf_level": 5,
-        "description": "Assist nurses and doctors in hospitals — patient care, bed making, wound dressing, and medical record keeping.",
-        "skills": [
-            "patient care",
-            "wound dressing",
-            "medical records",
-            "infection control",
-            "bed making"
-        ],
-        "qp_code": "HSS/Q5301",
-        "nos_codes": [
-            "HSS/N5301",
-            "HSS/N5302",
-            "HSS/N5303"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Vijayawada",
-            "Visakhapatnam",
-            "Guntur",
-            "Warangal"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/HSSC QP v2.0",
-        "data_date": "2025-01-08",
-        "confidence_score": 0.93,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹22,000 - ₹30,000 / month"
-    },
-    {
-        "id": 22,
-        "name": "Two-Wheeler Mechanic",
-        "sector": "Automotive",
-        "job_role": "Two-Wheeler Mechanic",
-        "min_education": "8th Pass",
-        "nsqf_level": 3,
-        "description": "Repair and servicing of motorcycles and scooters — engine tuning, clutch repair, tyre changing, and electrical systems.",
-        "skills": [
-            "engine tuning",
-            "clutch repair",
-            "tyre changing",
-            "electrical repair",
-            "servicing"
-        ],
-        "qp_code": "ASC/Q1002",
-        "nos_codes": [
-            "ASC/N1001",
-            "ASC/N1002"
-        ],
-        "local_demand_districts": [
-            "Warangal",
-            "Karimnagar",
-            "Nizamabad",
-            "Nalgonda",
-            "Kurnool",
-            "Kadapa",
-            "Nellore"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ASDC QP v2.5",
-        "data_date": "2024-10-01",
-        "confidence_score": 0.88,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹15,000 - ₹22,000 / month"
-    },
-    {
-        "id": 23,
-        "name": "Bamboo Craft Artisan",
-        "sector": "Handicrafts",
-        "job_role": "Bamboo Artisan",
-        "min_education": "No formal education required",
-        "nsqf_level": 2,
-        "description": "Bamboo treatment, weaving, furniture making, and decorative item creation using traditional and modern techniques.",
-        "skills": [
-            "bamboo weaving",
-            "treatment",
-            "furniture making",
-            "design",
-            "finishing"
-        ],
-        "qp_code": "HCS/Q2301",
-        "nos_codes": [
-            "HCS/N2301",
-            "HCS/N2302"
-        ],
-        "local_demand_districts": [
-            "Khammam",
-            "Bhadradri",
-            "Srikakulam",
-            "Vizianagaram",
-            "Alluri Sitarama Raju"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/HCSSC QP v1.0",
-        "data_date": "2024-05-01",
-        "confidence_score": 0.75,
-        "wage_employment": false,
-        "self_employment": true,
-        "estimated_salary": "₹10,000 - ₹14,000 / month"
-    },
-    {
-        "id": 24,
-        "name": "Poultry Farm Technician",
-        "sector": "Agriculture",
-        "job_role": "Poultry Worker",
-        "min_education": "5th Pass",
-        "nsqf_level": 3,
-        "description": "Poultry farm management, feeding schedules, disease prevention, egg collection, and broiler production basics.",
-        "skills": [
-            "poultry care",
-            "feeding",
-            "disease prevention",
-            "egg collection",
-            "farm hygiene"
-        ],
-        "qp_code": "AGR/Q4201",
-        "nos_codes": [
-            "AGR/N4201",
-            "AGR/N4202"
-        ],
-        "local_demand_districts": [
-            "Nalgonda",
-            "Medak",
-            "Rangareddy",
-            "Krishna",
-            "Guntur",
-            "Prakasam",
-            "Nellore"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/ASCI QP v1.3",
-        "data_date": "2024-06-01",
-        "confidence_score": 0.82,
-        "wage_employment": true,
-        "self_employment": true,
-        "estimated_salary": "₹13,000 - ₹17,000 / month"
-    },
-    {
-        "id": 25,
-        "name": "CNC Machine Operator",
-        "sector": "Manufacturing",
-        "job_role": "CNC Operator",
-        "min_education": "10th Pass",
-        "nsqf_level": 5,
-        "description": "Operating CNC (Computer Numerical Control) machines, reading technical drawings, and quality measurement of machined parts.",
-        "skills": [
-            "CNC operation",
-            "technical drawing",
-            "measurement",
-            "quality control",
-            "machine setup"
-        ],
-        "qp_code": "CSC/Q0902",
-        "nos_codes": [
-            "CSC/N0901",
-            "CSC/N0902",
-            "CSC/N0903"
-        ],
-        "local_demand_districts": [
-            "Hyderabad",
-            "Rangareddy",
-            "Medchal",
-            "Visakhapatnam",
-            "Vijayawada"
-        ],
-        "training_available_states": [
-            "Telangana",
-            "Andhra Pradesh",
-            "Karnataka"
-        ],
-        "scheme_gia_eligible": true,
-        "data_source": "NSDC/PMKVY MES QP v3.0",
-        "data_date": "2025-01-25",
-        "confidence_score": 0.94,
-        "wage_employment": true,
-        "self_employment": false,
-        "estimated_salary": "₹24,000 - ₹32,000 / month"
-    }
+  {
+    "id": 1,
+    "name": "Assistant Electrician",
+    "sector": "Electrical",
+    "job_role": "Assistant Electrician",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Learn basic electrical wiring, safety practices, and meter reading. Covers domestic wiring, earthing, and common electrical repairs.",
+    "skills": [
+      "wiring",
+      "electrical safety",
+      "meter reading",
+      "earthing",
+      "soldering"
+    ],
+    "qp_code": "ELE/Q2804",
+    "nos_codes": [
+      "ELE/N2801",
+      "ELE/N2802",
+      "ELE/N2804"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Rangareddy",
+      "Medchal",
+      "Vijayawada",
+      "Guntur",
+      "Visakhapatnam",
+      "Warangal",
+      "Nizamabad"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh",
+      "Karnataka"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/EleSSCI QP v2.1",
+    "data_date": "2024-11-01",
+    "confidence_score": 0.95,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹18,000 - ₹24,000 / month"
+  },
+  {
+    "id": 2,
+    "name": "Plumber General",
+    "sector": "Plumbing",
+    "job_role": "Plumber",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Pipe fitting, water supply systems, drainage systems, and basic plumbing repairs for residential buildings.",
+    "skills": [
+      "pipe fitting",
+      "drainage",
+      "water supply",
+      "leak repair",
+      "tool handling"
+    ],
+    "qp_code": "CON/Q0103",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Rangareddy",
+      "Vijayawada",
+      "Guntur",
+      "Nalgonda",
+      "Khammam"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/CIDC QP v1.3",
+    "data_date": "2024-09-15",
+    "confidence_score": 0.88,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹15,000 - ₹22,000 / month"
+  },
+  {
+    "id": 3,
+    "name": "Sewing Machine Operator",
+    "sector": "Apparel",
+    "job_role": "Sewing Machine Operator",
+    "min_education": "5th/8th Pass or ability to read and write with experience",
+    "nsqf_level": 3,
+    "description": "Operates sewing machines to stitch fabric panels into garments as per specifications and quality standards.",
+    "skills": [
+      "Machine stitching",
+      "Thread handling",
+      "Quality checking",
+      "Machine maintenance",
+      "Pattern following"
+    ],
+    "qp_code": "AMH/Q0301",
+    "nos_codes": [
+      "AMH/N0101",
+      "AMH/N0102",
+      "AMH/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AMH/Q0301",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹16,000 / month",
+    "duration_hours": 240,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "tailoring",
+      "stitching"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Assistant Beauty Therapist",
+    "sector": "Beauty & Wellness",
+    "job_role": "Assistant Beauty Therapist",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Assists in basic beauty therapy services including depilation, manicure, pedicure and face care under supervision.",
+    "skills": [
+      "Basic skincare",
+      "Hair removal assistance",
+      "Manicure support",
+      "Hygiene practices",
+      "Client preparation"
+    ],
+    "qp_code": "BWS/Q0101",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q0101",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹9,000 - ₹15,000 / month",
+    "duration_hours": 450,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "beauty assistance",
+      "grooming"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Domestic Data Entry Operator",
+    "sector": "IT-ITES",
+    "job_role": "Domestic Data Entry Operator",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Performs accurate data entry of customer and business information using various software tools and maintains data quality.",
+    "skills": [
+      "Typing speed",
+      "Data accuracy",
+      "Software tools",
+      "Document handling",
+      "Basic computer skills"
+    ],
+    "qp_code": "SSC/Q2212",
+    "nos_codes": [
+      "SSC/N0101",
+      "SSC/N0102",
+      "SSC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP SSC/Q2212",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "data entry",
+      "computer operation"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Healthcare Assistant (Home Health Aide)",
+    "sector": "Healthcare",
+    "job_role": "Home Health Aide",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Basic patient care, vital signs monitoring, hygiene maintenance, and assisting the elderly or disabled at home.",
+    "skills": [
+      "patient care",
+      "vital signs",
+      "hygiene",
+      "first aid",
+      "elder care"
+    ],
+    "qp_code": "HSS/Q5101",
+    "nos_codes": [
+      "HSS/N5101",
+      "HSS/N5102",
+      "HSS/N5103"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Warangal",
+      "Guntur"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/HSSC QP v1.5",
+    "data_date": "2024-12-01",
+    "confidence_score": 0.9,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹14,000 - ₹19,000 / month"
+  },
+  {
+    "id": 7,
+    "name": "Organic Farmer",
+    "sector": "Agriculture",
+    "job_role": "Organic Farmer",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Organic farming techniques including composting, natural pest management, crop rotation, and organic certification basics.",
+    "skills": [
+      "composting",
+      "organic pest control",
+      "crop rotation",
+      "soil testing",
+      "seed selection"
+    ],
+    "qp_code": "AGR/Q4101",
+    "nos_codes": [
+      "AGR/N4101",
+      "AGR/N4102"
+    ],
+    "local_demand_districts": [
+      "Nalgonda",
+      "Khammam",
+      "Karimnagar",
+      "Guntur",
+      "Krishna",
+      "Prakasam",
+      "Kurnool",
+      "Kadapa"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ASCI QP v2.0",
+    "data_date": "2024-07-01",
+    "confidence_score": 0.87,
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹14,000 - ₹20,000 / month"
+  },
+  {
+    "id": 8,
+    "name": "Mason General",
+    "sector": "Construction",
+    "job_role": "Mason General",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Performs general masonry works including brickwork, block work, plastering and related construction activities.",
+    "skills": [
+      "Brick/block laying",
+      "Plastering",
+      "Leveling",
+      "Reading drawings",
+      "Site safety"
+    ],
+    "qp_code": "CON/Q0103",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP CON/Q0103",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹15,000 - ₹25,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "masonry",
+      "construction"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Retail Sales Associate",
+    "sector": "Retail",
+    "job_role": "Sales Associate",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Customer interaction, product display, billing operations, and inventory management in retail stores.",
+    "skills": [
+      "customer service",
+      "billing",
+      "product display",
+      "inventory",
+      "communication"
+    ],
+    "qp_code": "RAS/Q0201",
+    "nos_codes": [
+      "RAS/N0201",
+      "RAS/N0202"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Tirupati",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh",
+      "Karnataka"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/RAI QP v2.0",
+    "data_date": "2025-01-05",
+    "confidence_score": 0.88,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹16,000 - ₹22,000 / month"
+  },
+  {
+    "id": 10,
+    "name": "Automotive Service Technician",
+    "sector": "Automotive",
+    "job_role": "Service Technician",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Two-wheeler and four-wheeler basic servicing, engine maintenance, brake systems, and diagnostic techniques.",
+    "skills": [
+      "engine maintenance",
+      "brake repair",
+      "oil change",
+      "diagnostics",
+      "tool usage"
+    ],
+    "qp_code": "ASC/Q1401",
+    "nos_codes": [
+      "ASC/N1401",
+      "ASC/N1402",
+      "ASC/N1403"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Rangareddy",
+      "Warangal",
+      "Vijayawada",
+      "Guntur",
+      "Nellore"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ASDC QP v3.1",
+    "data_date": "2024-11-15",
+    "confidence_score": 0.91,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹18,000 - ₹25,000 / month"
+  },
+  {
+    "id": 11,
+    "name": "Food Processing Technician",
+    "sector": "Food Processing",
+    "job_role": "Processing Technician",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Food preservation techniques, packaging, quality testing, and hygiene standards in food processing units.",
+    "skills": [
+      "food preservation",
+      "packaging",
+      "quality testing",
+      "hygiene standards",
+      "machine operation"
+    ],
+    "qp_code": "FIC/Q0401",
+    "nos_codes": [
+      "FIC/N0401",
+      "FIC/N0402"
+    ],
+    "local_demand_districts": [
+      "Karimnagar",
+      "Nizamabad",
+      "Guntur",
+      "Krishna",
+      "Chittoor",
+      "Nellore"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/FICSI QP v1.2",
+    "data_date": "2024-08-20",
+    "confidence_score": 0.84,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹16,000 - ₹22,000 / month"
+  },
+  {
+    "id": 12,
+    "name": "Solar Panel Installation Technician",
+    "sector": "Electronics",
+    "job_role": "Solar Panel Installation Technician",
+    "min_education": "8th/10th Pass with NTC or 12th Pass",
+    "nsqf_level": 4,
+    "description": "Checks installation site, installs solar panels as per design and ensures effective functioning of the system.",
+    "skills": [
+      "Site condition check",
+      "Panel installation",
+      "Tool handling",
+      "Safety practices",
+      "System testing"
+    ],
+    "qp_code": "ELE/Q5901",
+    "nos_codes": [
+      "ELE/N0101",
+      "ELE/N0102",
+      "ELE/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP ELE/Q5901",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹16,000 - ₹25,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "electrician",
+      "installation"
+    ]
+  },
+  {
+    "id": 13,
+    "name": "Hand Embroidery Artisan",
+    "sector": "Textile & Apparel",
+    "job_role": "Embroidery Artisan",
+    "min_education": "No formal education required",
+    "nsqf_level": 2,
+    "description": "Traditional and contemporary hand embroidery techniques including Chikankari, Zardozi, and mirror work.",
+    "skills": [
+      "hand embroidery",
+      "pattern design",
+      "thread work",
+      "color selection",
+      "finishing"
+    ],
+    "qp_code": "HCS/Q1901",
+    "nos_codes": [
+      "HCS/N1901",
+      "HCS/N1902"
+    ],
+    "local_demand_districts": [
+      "Karimnagar",
+      "Nizamabad",
+      "Warangal",
+      "Srikakulam",
+      "Vizianagaram"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/HCSSC QP v1.0",
+    "data_date": "2024-06-15",
+    "confidence_score": 0.78,
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹11,000 - ₹15,000 / month"
+  },
+  {
+    "id": 14,
+    "name": "Dairy Farmer / Milk Production",
+    "sector": "Agriculture",
+    "job_role": "Dairy Worker",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Dairy animal management, milking techniques, fodder management, and basic dairy product processing.",
+    "skills": [
+      "animal care",
+      "milking",
+      "fodder management",
+      "dairy hygiene",
+      "cattle health"
+    ],
+    "qp_code": "AGR/Q4901",
+    "nos_codes": [
+      "AGR/N4901",
+      "AGR/N4902"
+    ],
+    "local_demand_districts": [
+      "Nalgonda",
+      "Medak",
+      "Khammam",
+      "Krishna",
+      "Guntur",
+      "Prakasam"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ASCI QP v1.5",
+    "data_date": "2024-07-10",
+    "confidence_score": 0.85,
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹13,000 - ₹18,000 / month"
+  },
+  {
+    "id": 15,
+    "name": "Mobile Phone Repair Technician",
+    "sector": "Electronics",
+    "job_role": "Mobile Repair Technician",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Diagnosis and repair of mobile phone hardware and software issues, screen replacement, and basic soldering.",
+    "skills": [
+      "mobile repair",
+      "soldering",
+      "screen replacement",
+      "software flashing",
+      "diagnostics"
+    ],
+    "qp_code": "ELE/Q3101",
+    "nos_codes": [
+      "ELE/N3101",
+      "ELE/N3102"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Warangal",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Tirupati",
+      "Nellore"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ESSCI QP v2.0",
+    "data_date": "2024-10-15",
+    "confidence_score": 0.89,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹16,000 - ₹25,000 / month"
+  },
+  {
+    "id": 16,
+    "name": "Welder (Gas & Electric Arc)",
+    "sector": "Construction",
+    "job_role": "Welder",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Gas welding, electric arc welding, cutting techniques, and welding safety for construction and fabrication.",
+    "skills": [
+      "gas welding",
+      "arc welding",
+      "metal cutting",
+      "welding safety",
+      "joint preparation"
+    ],
+    "qp_code": "CSC/Q0303",
+    "nos_codes": [
+      "CSC/N0301",
+      "CSC/N0302",
+      "CSC/N0303"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Rangareddy",
+      "Warangal",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Kurnool"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh",
+      "Karnataka"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/CSC QP v3.0",
+    "data_date": "2024-11-01",
+    "confidence_score": 0.92,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹18,000 - ₹26,000 / month"
+  },
+  {
+    "id": 17,
+    "name": "Front Office Associate (Hospitality)",
+    "sector": "Tourism & Hospitality",
+    "job_role": "Front Desk Agent",
+    "min_education": "12th Pass",
+    "nsqf_level": 5,
+    "description": "Hotel front desk operations, guest check-in/out, reservation handling, and customer service in hospitality.",
+    "skills": [
+      "guest handling",
+      "reservation systems",
+      "communication",
+      "billing",
+      "complaint resolution"
+    ],
+    "qp_code": "THC/Q0102",
+    "nos_codes": [
+      "THC/N0101",
+      "THC/N0102"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Tirupati"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/THSC QP v2.1",
+    "data_date": "2025-01-01",
+    "confidence_score": 0.87,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹20,000 - ₹28,000 / month"
+  },
+  {
+    "id": 18,
+    "name": "Assistant Carpenter",
+    "sector": "Construction",
+    "job_role": "Carpenter Assistant",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Wood measurement, cutting, joining techniques, furniture assembly, and proper use of carpentry tools.",
+    "skills": [
+      "wood cutting",
+      "joining",
+      "furniture assembly",
+      "measurement",
+      "tool maintenance"
+    ],
+    "qp_code": "CON/Q0501",
+    "nos_codes": [
+      "CON/N0501",
+      "CON/N0502"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Rangareddy",
+      "Vijayawada",
+      "Guntur",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/CIDC QP v1.2",
+    "data_date": "2024-08-01",
+    "confidence_score": 0.83,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹14,000 - ₹20,000 / month"
+  },
+  {
+    "id": 19,
+    "name": "Computer Basics and Digital Literacy",
+    "sector": "IT-ITES",
+    "job_role": "Computer Operator",
+    "min_education": "8th Pass",
+    "nsqf_level": 2,
+    "description": "Introduction to computers, internet usage, email, basic office applications, and digital payment systems like UPI.",
+    "skills": [
+      "computer basics",
+      "internet browsing",
+      "email",
+      "UPI payments",
+      "office software"
+    ],
+    "qp_code": "SSC/Q0101",
+    "nos_codes": [
+      "SSC/N0101",
+      "SSC/N0102"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Warangal",
+      "Karimnagar",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Tirupati"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh",
+      "Karnataka"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/SSC NASSCOM QP v2.5",
+    "data_date": "2025-01-15",
+    "confidence_score": 0.91,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹13,000 - ₹18,000 / month"
+  },
+  {
+    "id": 20,
+    "name": "Mushroom Cultivation Technician",
+    "sector": "Agriculture",
+    "job_role": "Mushroom Grower",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Growing oyster and button mushrooms, preparing compost, maintaining growing conditions, and post-harvest handling.",
+    "skills": [
+      "mushroom growing",
+      "composting",
+      "temperature control",
+      "harvesting",
+      "packaging"
+    ],
+    "qp_code": "AGR/Q4601",
+    "nos_codes": [
+      "AGR/N4601",
+      "AGR/N4602"
+    ],
+    "local_demand_districts": [
+      "Medak",
+      "Nalgonda",
+      "Khammam",
+      "Krishna",
+      "Guntur",
+      "Kadapa"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ASCI QP v1.1",
+    "data_date": "2024-07-20",
+    "confidence_score": 0.8,
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹15,000 - ₹22,000 / month"
+  },
+  {
+    "id": 21,
+    "name": "Nursing Assistant",
+    "sector": "Healthcare",
+    "job_role": "Nursing Assistant",
+    "min_education": "12th Pass",
+    "nsqf_level": 5,
+    "description": "Assist nurses and doctors in hospitals — patient care, bed making, wound dressing, and medical record keeping.",
+    "skills": [
+      "patient care",
+      "wound dressing",
+      "medical records",
+      "infection control",
+      "bed making"
+    ],
+    "qp_code": "HSS/Q5301",
+    "nos_codes": [
+      "HSS/N5301",
+      "HSS/N5302",
+      "HSS/N5303"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Vijayawada",
+      "Visakhapatnam",
+      "Guntur",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/HSSC QP v2.0",
+    "data_date": "2025-01-08",
+    "confidence_score": 0.93,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹22,000 - ₹30,000 / month"
+  },
+  {
+    "id": 22,
+    "name": "Two-Wheeler Mechanic",
+    "sector": "Automotive",
+    "job_role": "Two-Wheeler Mechanic",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Repair and servicing of motorcycles and scooters — engine tuning, clutch repair, tyre changing, and electrical systems.",
+    "skills": [
+      "engine tuning",
+      "clutch repair",
+      "tyre changing",
+      "electrical repair",
+      "servicing"
+    ],
+    "qp_code": "ASC/Q1002",
+    "nos_codes": [
+      "ASC/N1001",
+      "ASC/N1002"
+    ],
+    "local_demand_districts": [
+      "Warangal",
+      "Karimnagar",
+      "Nizamabad",
+      "Nalgonda",
+      "Kurnool",
+      "Kadapa",
+      "Nellore"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ASDC QP v2.5",
+    "data_date": "2024-10-01",
+    "confidence_score": 0.88,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹15,000 - ₹22,000 / month"
+  },
+  {
+    "id": 23,
+    "name": "Bamboo Craft Artisan",
+    "sector": "Handicrafts",
+    "job_role": "Bamboo Artisan",
+    "min_education": "No formal education required",
+    "nsqf_level": 2,
+    "description": "Bamboo treatment, weaving, furniture making, and decorative item creation using traditional and modern techniques.",
+    "skills": [
+      "bamboo weaving",
+      "treatment",
+      "furniture making",
+      "design",
+      "finishing"
+    ],
+    "qp_code": "HCS/Q2301",
+    "nos_codes": [
+      "HCS/N2301",
+      "HCS/N2302"
+    ],
+    "local_demand_districts": [
+      "Khammam",
+      "Bhadradri",
+      "Srikakulam",
+      "Vizianagaram",
+      "Alluri Sitarama Raju"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/HCSSC QP v1.0",
+    "data_date": "2024-05-01",
+    "confidence_score": 0.75,
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹10,000 - ₹14,000 / month"
+  },
+  {
+    "id": 24,
+    "name": "Poultry Farm Technician",
+    "sector": "Agriculture",
+    "job_role": "Poultry Worker",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Poultry farm management, feeding schedules, disease prevention, egg collection, and broiler production basics.",
+    "skills": [
+      "poultry care",
+      "feeding",
+      "disease prevention",
+      "egg collection",
+      "farm hygiene"
+    ],
+    "qp_code": "AGR/Q4201",
+    "nos_codes": [
+      "AGR/N4201",
+      "AGR/N4202"
+    ],
+    "local_demand_districts": [
+      "Nalgonda",
+      "Medak",
+      "Rangareddy",
+      "Krishna",
+      "Guntur",
+      "Prakasam",
+      "Nellore"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/ASCI QP v1.3",
+    "data_date": "2024-06-01",
+    "confidence_score": 0.82,
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹13,000 - ₹17,000 / month"
+  },
+  {
+    "id": 25,
+    "name": "CNC Machine Operator",
+    "sector": "Manufacturing",
+    "job_role": "CNC Operator",
+    "min_education": "10th Pass",
+    "nsqf_level": 5,
+    "description": "Operating CNC (Computer Numerical Control) machines, reading technical drawings, and quality measurement of machined parts.",
+    "skills": [
+      "CNC operation",
+      "technical drawing",
+      "measurement",
+      "quality control",
+      "machine setup"
+    ],
+    "qp_code": "CSC/Q0902",
+    "nos_codes": [
+      "CSC/N0901",
+      "CSC/N0902",
+      "CSC/N0903"
+    ],
+    "local_demand_districts": [
+      "Hyderabad",
+      "Rangareddy",
+      "Medchal",
+      "Visakhapatnam",
+      "Vijayawada"
+    ],
+    "training_available_states": [
+      "Telangana",
+      "Andhra Pradesh",
+      "Karnataka"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/PMKVY MES QP v3.0",
+    "data_date": "2025-01-25",
+    "confidence_score": 0.94,
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹24,000 - ₹32,000 / month"
+  },
+  {
+    "id": 26,
+    "name": "Organic Grower",
+    "sector": "Agriculture",
+    "job_role": "Organic Grower",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Responsible for organic crop production including soil preparation, organic input application, pest management using bio-pesticides, harvesting and post-harvest handling while maintaining organic certification standards.",
+    "skills": [
+      "Organic soil management",
+      "Bio-pesticide preparation",
+      "Crop rotation planning",
+      "Composting",
+      "Record keeping for certification"
+    ],
+    "qp_code": "AGR/Q1201",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q1201",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹12,000 - ₹22,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "farming",
+      "composting",
+      "pest control"
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Agricultural Warehouse Worker",
+    "sector": "Agriculture",
+    "job_role": "Agricultural Warehouse Worker",
+    "min_education": "8th Class or 5th Class with experience",
+    "nsqf_level": 3,
+    "description": "Assists in unloading, sorting, grading, storing and loading of agricultural produce at warehouses while maintaining hygiene and safety standards.",
+    "skills": [
+      "Produce sorting and grading",
+      "Warehouse stacking",
+      "Basic inventory handling",
+      "Safety protocols",
+      "Loading/unloading"
+    ],
+    "qp_code": "AGR/Q7502",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q7502",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹16,000 / month",
+    "duration_hours": 240,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "labour",
+      "handling",
+      "storage"
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Kisan Drone Operator",
+    "sector": "Agriculture",
+    "job_role": "Kisan Drone Operator",
+    "min_education": "8th Grade pass with experience or NSQF Level 3",
+    "nsqf_level": 4,
+    "description": "Operates drones for agricultural applications including spraying, mapping and multispectral imaging as per DGCA guidelines.",
+    "skills": [
+      "Drone operation",
+      "Flight planning",
+      "Payload handling",
+      "Basic maintenance",
+      "Safety compliance"
+    ],
+    "qp_code": "AGR/Q1006",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q1006",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹15,000 - ₹25,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "mechanics",
+      "electronics",
+      "farming"
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Gardener",
+    "sector": "Agriculture",
+    "job_role": "Gardener",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Performs landscaping, plant care, propagation, pest control and maintenance of gardens and green spaces.",
+    "skills": [
+      "Plant propagation",
+      "Pruning",
+      "Irrigation",
+      "Pest management",
+      "Landscape maintenance"
+    ],
+    "qp_code": "AGR/Q0801",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q0801",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 340,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "horticulture",
+      "landscaping"
+    ]
+  },
+  {
+    "id": 30,
+    "name": "Micro Irrigation Technician",
+    "sector": "Agriculture",
+    "job_role": "Micro Irrigation Technician",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Installs, operates and maintains micro-irrigation systems such as drip and sprinkler systems for efficient water use in farms.",
+    "skills": [
+      "Drip system installation",
+      "Pipe laying",
+      "Filter maintenance",
+      "System testing",
+      "Water management"
+    ],
+    "qp_code": "AGR/Q1002",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q1002",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹14,000 - ₹22,000 / month",
+    "duration_hours": 280,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "plumbing",
+      "irrigation",
+      "farming"
+    ]
+  },
+  {
+    "id": 31,
+    "name": "Animal Health Worker",
+    "sector": "Agriculture",
+    "job_role": "Animal Health Worker",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Provides basic animal health care, vaccination support, first aid and assists veterinarians in livestock management.",
+    "skills": [
+      "Basic animal first aid",
+      "Vaccination assistance",
+      "Disease identification",
+      "Hygiene practices",
+      "Record keeping"
+    ],
+    "qp_code": "AGR/Q4804",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q4804",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹11,000 - ₹18,000 / month",
+    "duration_hours": 340,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "animal husbandry",
+      "dairy"
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Floriculturist",
+    "sector": "Agriculture",
+    "job_role": "Floriculturist",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Cultivates and manages flower crops including planting, nutrient management, harvesting and post-harvest handling for commercial markets.",
+    "skills": [
+      "Flower crop management",
+      "Harvesting techniques",
+      "Post-harvest handling",
+      "Pest control",
+      "Market preparation"
+    ],
+    "qp_code": "AGR/Q0701",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q0701",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "gardening",
+      "farming"
+    ]
+  },
+  {
+    "id": 33,
+    "name": "Sewing Machine Operator - Knits",
+    "sector": "Apparel",
+    "job_role": "Sewing Machine Operator - Knits",
+    "min_education": "5th/8th Pass",
+    "nsqf_level": 3,
+    "description": "Stitches knit fabric panels into complete knitted garments and made-ups with desired quality.",
+    "skills": [
+      "Knit fabric stitching",
+      "Overlock operations",
+      "Quality inspection",
+      "Machine setup",
+      "Defect identification"
+    ],
+    "qp_code": "AMH/Q0305",
+    "nos_codes": [
+      "AMH/N0101",
+      "AMH/N0102",
+      "AMH/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AMH/Q0305",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹17,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "knitting",
+      "tailoring"
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Hand Embroiderer",
+    "sector": "Apparel",
+    "job_role": "Hand Embroiderer",
+    "min_education": "5th Pass preferably",
+    "nsqf_level": 4,
+    "description": "Creates decorative embroidery designs on fabric and garments using hand embroidery techniques.",
+    "skills": [
+      "Hand embroidery stitches",
+      "Design transfer",
+      "Thread selection",
+      "Quality finishing",
+      "Pattern following"
+    ],
+    "qp_code": "AMH/Q1001",
+    "nos_codes": [
+      "AMH/N0101",
+      "AMH/N0102",
+      "AMH/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AMH/Q1001",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹9,000 - ₹15,000 / month",
+    "duration_hours": 240,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "embroidery",
+      "handicrafts"
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Embroidery Machine Operator",
+    "sector": "Apparel",
+    "job_role": "Embroidery Machine Operator",
+    "min_education": "5th Pass with experience",
+    "nsqf_level": 3,
+    "description": "Operates embroidery machines to create decorative designs including running shade, applique and fancy embroidery on garments.",
+    "skills": [
+      "Machine embroidery",
+      "Design loading",
+      "Thread tension adjustment",
+      "Quality control",
+      "Machine maintenance"
+    ],
+    "qp_code": "AMH/Q0801",
+    "nos_codes": [
+      "AMH/N0101",
+      "AMH/N0102",
+      "AMH/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AMH/Q0801",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹11,000 - ₹18,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "embroidery",
+      "machine operation"
+    ]
+  },
+  {
+    "id": 36,
+    "name": "Inline Checker",
+    "sector": "Apparel",
+    "job_role": "Inline Checker",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Performs inline quality checks on garments during production to identify and report defects.",
+    "skills": [
+      "Quality inspection",
+      "Defect identification",
+      "Measurement checking",
+      "Reporting",
+      "Process monitoring"
+    ],
+    "qp_code": "AMH/Q0102",
+    "nos_codes": [
+      "AMH/N0101",
+      "AMH/N0102",
+      "AMH/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AMH/Q0102",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹11,000 - ₹17,000 / month",
+    "duration_hours": 310,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "quality control",
+      "garment checking"
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Electric Vehicle Service Technician",
+    "sector": "Automotive",
+    "job_role": "Electric Vehicle Service Technician",
+    "min_education": "10th Pass + NTC/NAC or 12th Pass",
+    "nsqf_level": 4,
+    "description": "Performs repair, routine servicing and maintenance of electric and hybrid vehicles including electrical and mechanical aggregates.",
+    "skills": [
+      "EV battery handling",
+      "High voltage safety",
+      "Fault diagnosis",
+      "Charging system service",
+      "Routine maintenance"
+    ],
+    "qp_code": "ASC/Q1429",
+    "nos_codes": [
+      "ASC/N0101",
+      "ASC/N0102",
+      "ASC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP ASC/Q1429",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹18,000 - ₹30,000 / month",
+    "duration_hours": 450,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "auto mechanic",
+      "electrician"
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Automotive Service Technician (Two and Three Wheelers)",
+    "sector": "Automotive",
+    "job_role": "Automotive Service Technician (Two and Three Wheelers)",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Performs servicing, repair and maintenance of two and three wheeler vehicles.",
+    "skills": [
+      "Engine diagnosis",
+      "Brake system service",
+      "Electrical troubleshooting",
+      "Routine servicing",
+      "Customer interaction"
+    ],
+    "qp_code": "ASC/Q1411",
+    "nos_codes": [
+      "ASC/N0101",
+      "ASC/N0102",
+      "ASC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP ASC/Q1411",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹15,000 - ₹25,000 / month",
+    "duration_hours": 490,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "mechanic",
+      "two-wheeler repair"
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Automotive Quality Control Assistant",
+    "sector": "Automotive",
+    "job_role": "Automotive Quality Control Assistant",
+    "min_education": "8th/11th Pass or ITI",
+    "nsqf_level": 3,
+    "description": "Inspects automotive parts, products and processes at various stages to ensure quality standards.",
+    "skills": [
+      "Visual inspection",
+      "Measurement tools",
+      "Defect reporting",
+      "Process compliance",
+      "Documentation"
+    ],
+    "qp_code": "ASC/Q6301",
+    "nos_codes": [
+      "ASC/N0101",
+      "ASC/N0102",
+      "ASC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP ASC/Q6301",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 360,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "inspection",
+      "quality checking"
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Assistant Mason",
+    "sector": "Construction",
+    "job_role": "Assistant Mason",
+    "min_education": "5th Class with experience",
+    "nsqf_level": 3,
+    "description": "Assists in brick/block work, plastering, tiling, stone laying and concrete masonry works including use of hand and power tools.",
+    "skills": [
+      "Brick laying assistance",
+      "Plastering support",
+      "Scaffold erection",
+      "Tool handling",
+      "Site safety"
+    ],
+    "qp_code": "CON/Q0102",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP CON/Q0102",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹18,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "masonry",
+      "construction labour"
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Brick Mason",
+    "sector": "Construction",
+    "job_role": "Brick Mason",
+    "min_education": "8th/10th Pass with experience",
+    "nsqf_level": 4,
+    "description": "Constructs, repairs and maintains structures using brick, stone, concrete blocks including plastering and flooring works.",
+    "skills": [
+      "Brick laying",
+      "Block work",
+      "Plastering",
+      "Random rubble masonry",
+      "Flooring"
+    ],
+    "qp_code": "CON/Q0113",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP CON/Q0113",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹16,000 - ₹26,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "masonry",
+      "brick work"
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Mason Tiling",
+    "sector": "Construction",
+    "job_role": "Mason Tiling",
+    "min_education": "8th/10th Pass",
+    "nsqf_level": 4,
+    "description": "Lays and fixes tiles on walls and floors, applies grouts and sealants for flooring and cladding works.",
+    "skills": [
+      "Tile cutting and laying",
+      "Leveling",
+      "Grouting",
+      "Sealant application",
+      "Surface preparation"
+    ],
+    "qp_code": "CON/Q0104",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP CON/Q0104",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹14,000 - ₹22,000 / month",
+    "duration_hours": 350,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "tiling",
+      "masonry"
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Plumber - General",
+    "sector": "Plumbing",
+    "job_role": "Plumber - General",
+    "min_education": "8th/10th Pass with NTC/NAC",
+    "nsqf_level": 4,
+    "description": "Installs, maintains and troubleshoots domestic plumbing fixtures and systems including water supply and drainage.",
+    "skills": [
+      "Pipe fitting",
+      "Fixture installation",
+      "Leak detection",
+      "System maintenance",
+      "Safety practices"
+    ],
+    "qp_code": "PSC/Q0104",
+    "nos_codes": [
+      "PSC/N0101",
+      "PSC/N0102",
+      "PSC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP PSC/Q0104",
+    "wage_employment": true,
+    "self_employment": true,
+    "estimated_salary": "₹15,000 - ₹25,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "plumbing",
+      "pipe fitting"
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Solar PV Installer (Suryamitra)",
+    "sector": "Green Jobs",
+    "job_role": "Solar PV Installer",
+    "min_education": "10th/12th Pass with science or relevant experience",
+    "nsqf_level": 4,
+    "description": "Performs site survey, installation, commissioning and maintenance of solar photovoltaic systems.",
+    "skills": [
+      "Site assessment",
+      "Panel mounting",
+      "Inverter connection",
+      "System testing",
+      "Safety protocols"
+    ],
+    "qp_code": "SGJ/Q0101",
+    "nos_codes": [
+      "SGJ/N0101",
+      "SGJ/N0102",
+      "SGJ/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP SGJ/Q0101",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹18,000 - ₹28,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "electrician",
+      "wiring"
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Solar PV Installer - Electrical",
+    "sector": "Green Jobs",
+    "job_role": "Solar PV Installer - Electrical",
+    "min_education": "10th/12th Pass",
+    "nsqf_level": 4,
+    "description": "Installs, tests and commissions electrical components of photovoltaic systems ensuring performance and reliability.",
+    "skills": [
+      "Electrical wiring",
+      "Inverter installation",
+      "Earthing",
+      "System commissioning",
+      "Troubleshooting"
+    ],
+    "qp_code": "SGJ/Q0102",
+    "nos_codes": [
+      "SGJ/N0101",
+      "SGJ/N0102",
+      "SGJ/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP SGJ/Q0102",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹18,000 - ₹28,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "electrician",
+      "solar technician"
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Solar PV Installation Helper",
+    "sector": "Green Jobs",
+    "job_role": "Solar PV Installation Helper",
+    "min_education": "Ability to read and write with experience",
+    "nsqf_level": 2,
+    "description": "Assists in site survey, erection, commissioning and maintenance of solar PV power plants and off-grid systems.",
+    "skills": [
+      "Assisting installation",
+      "Material handling",
+      "Basic tool use",
+      "Safety compliance",
+      "Site cleanup"
+    ],
+    "qp_code": "SGJ/Q0111",
+    "nos_codes": [
+      "SGJ/N0101",
+      "SGJ/N0102",
+      "SGJ/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP SGJ/Q0111",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹15,000 / month",
+    "duration_hours": 270,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "helper",
+      "labour"
+    ]
+  },
+  {
+    "id": 47,
+    "name": "General Duty Assistant",
+    "sector": "Healthcare",
+    "job_role": "General Duty Assistant",
+    "min_education": "8th/10th Pass",
+    "nsqf_level": 3,
+    "description": "Provides patient care assistance including personal hygiene, nutrition support, mobility and basic hospital procedures while ensuring safety and infection control.",
+    "skills": [
+      "Patient bathing and grooming",
+      "Mobility assistance",
+      "Infection control",
+      "Basic first aid support",
+      "Communication with patients"
+    ],
+    "qp_code": "HSS/Q5101",
+    "nos_codes": [
+      "HSS/N0101",
+      "HSS/N0102",
+      "HSS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP HSS/Q5101",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "caregiving",
+      "nursing assistance"
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Beauty Therapist",
+    "sector": "Beauty & Wellness",
+    "job_role": "Beauty Therapist",
+    "min_education": "10th Pass with experience or NSQF Level 3",
+    "nsqf_level": 4,
+    "description": "Provides professional beauty services including skincare, hair removal, makeup, manicure and pedicure.",
+    "skills": [
+      "Facial treatments",
+      "Waxing and threading",
+      "Makeup application",
+      "Manicure-pedicure",
+      "Client consultation"
+    ],
+    "qp_code": "BWS/Q0102",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q0102",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹22,000 / month",
+    "duration_hours": 510,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "beauty services",
+      "grooming"
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Spa Therapist",
+    "sector": "Beauty & Wellness",
+    "job_role": "Spa Therapist",
+    "min_education": "10th Pass with experience",
+    "nsqf_level": 4,
+    "description": "Performs spa services including massage, body treatments and assists in advanced spa therapies while maintaining hygiene.",
+    "skills": [
+      "Massage techniques",
+      "Body treatments",
+      "Aromatherapy basics",
+      "Client care",
+      "Hygiene and safety"
+    ],
+    "qp_code": "BWS/Q1002",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q1002",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹14,000 - ₹25,000 / month",
+    "duration_hours": 450,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "massage",
+      "wellness"
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Pedicurist and Manicurist",
+    "sector": "Beauty & Wellness",
+    "job_role": "Pedicurist and Manicurist",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Provides professional manicure and pedicure services including nail care, cuticle treatment and basic nail art.",
+    "skills": [
+      "Nail care",
+      "Cuticle treatment",
+      "Polish application",
+      "Hygiene",
+      "Client service"
+    ],
+    "qp_code": "BWS/Q0402",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q0402",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹18,000 / month",
+    "duration_hours": 330,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "nail care",
+      "beauty"
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Front Office Associate",
+    "sector": "Tourism & Hospitality",
+    "job_role": "Front Office Associate",
+    "min_education": "10th/12th Pass",
+    "nsqf_level": 4,
+    "description": "Handles guest check-in/check-out, reservations, billing and provides information services at hotel front desk.",
+    "skills": [
+      "Guest handling",
+      "Reservation systems",
+      "Billing",
+      "Communication",
+      "Complaint handling"
+    ],
+    "qp_code": "THC/Q0102",
+    "nos_codes": [
+      "THC/N0101",
+      "THC/N0102",
+      "THC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP THC/Q0102",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "customer service",
+      "hospitality"
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Food & Beverage Service - Steward",
+    "sector": "Tourism & Hospitality",
+    "job_role": "Food and Beverage Service - Steward",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Serves food and beverages to guests in restaurants and hotels following service standards and hygiene protocols.",
+    "skills": [
+      "Table service",
+      "Order taking",
+      "Beverage service",
+      "Hygiene",
+      "Guest interaction"
+    ],
+    "qp_code": "THC/Q0301",
+    "nos_codes": [
+      "THC/N0101",
+      "THC/N0102",
+      "THC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP THC/Q0301",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹11,000 - ₹18,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "serving",
+      "hospitality"
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Guest Service Associate (Housekeeping)",
+    "sector": "Tourism & Hospitality",
+    "job_role": "Guest Service Associate (Housekeeping)",
+    "min_education": "10th Pass or ITI",
+    "nsqf_level": 4,
+    "description": "Performs housekeeping duties including room cleaning, laundry coordination and maintaining guest areas.",
+    "skills": [
+      "Room cleaning",
+      "Linen handling",
+      "Public area maintenance",
+      "Hygiene standards",
+      "Guest service"
+    ],
+    "qp_code": "THC/Q0202",
+    "nos_codes": [
+      "THC/N0101",
+      "THC/N0102",
+      "THC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP THC/Q0202",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹16,000 / month",
+    "duration_hours": 350,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "housekeeping",
+      "cleaning"
+    ]
+  },
+  {
+    "id": 54,
+    "name": "CRM Domestic Voice",
+    "sector": "IT-ITES",
+    "job_role": "CRM Domestic Voice",
+    "min_education": "12th Pass",
+    "nsqf_level": 4,
+    "description": "Handles inbound and outbound customer calls for domestic clients, resolving queries and providing product information.",
+    "skills": [
+      "Voice communication",
+      "CRM software",
+      "Query resolution",
+      "Soft skills",
+      "Call handling"
+    ],
+    "qp_code": "SSC/Q2210",
+    "nos_codes": [
+      "SSC/N0101",
+      "SSC/N0102",
+      "SSC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP SSC/Q2210",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹22,000 / month",
+    "duration_hours": 400,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "customer service",
+      "communication"
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Colour Mixing Operator (Ceramics)",
+    "sector": "Handicrafts",
+    "job_role": "Colour Mixing Operator (Ceramics)",
+    "min_education": "5th Pass preferably",
+    "nsqf_level": 3,
+    "description": "Prepares and mixes colours and glazes for ceramic products as per specifications.",
+    "skills": [
+      "Colour mixing",
+      "Glaze preparation",
+      "Measurement",
+      "Quality consistency",
+      "Safety handling"
+    ],
+    "qp_code": "HCS/Q0801",
+    "nos_codes": [
+      "HCS/N0101",
+      "HCS/N0102",
+      "HCS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP HCS/Q0801",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹9,000 - ₹15,000 / month",
+    "duration_hours": 240,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "ceramics",
+      "pottery"
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Carving Artisan (Stonecraft)",
+    "sector": "Handicrafts",
+    "job_role": "Carving Artisan (Stonecraft)",
+    "min_education": "5th Pass preferably",
+    "nsqf_level": 4,
+    "description": "Performs stone carving and sculpting to create decorative and functional stone craft products.",
+    "skills": [
+      "Stone carving",
+      "Tool handling",
+      "Design interpretation",
+      "Finishing",
+      "Safety practices"
+    ],
+    "qp_code": "HCS/Q1506",
+    "nos_codes": [
+      "HCS/N0101",
+      "HCS/N0102",
+      "HCS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP HCS/Q1506",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "stone carving",
+      "sculpture"
+    ]
+  },
+  {
+    "id": 57,
+    "name": "Stringing Artisan (Fashion Jewellery)",
+    "sector": "Handicrafts",
+    "job_role": "Stringing Artisan",
+    "min_education": "5th Pass preferably",
+    "nsqf_level": 2,
+    "description": "Strings beads and components to create fashion jewellery products as per design.",
+    "skills": [
+      "Bead stringing",
+      "Design following",
+      "Finishing",
+      "Quality check",
+      "Tool use"
+    ],
+    "qp_code": "HCS/Q1101",
+    "nos_codes": [
+      "HCS/N0101",
+      "HCS/N0102",
+      "HCS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP HCS/Q1101",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹8,000 - ₹14,000 / month",
+    "duration_hours": 210,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "jewellery making",
+      "handicrafts"
+    ]
+  },
+  {
+    "id": 58,
+    "name": "Inlay Artisan (Stonecraft)",
+    "sector": "Handicrafts",
+    "job_role": "Inlay Artisan (Stonecraft)",
+    "min_education": "5th Pass preferably",
+    "nsqf_level": 4,
+    "description": "Creates intricate inlay work on stone surfaces using semi-precious stones and materials.",
+    "skills": [
+      "Inlay techniques",
+      "Stone cutting",
+      "Design layout",
+      "Polishing",
+      "Precision work"
+    ],
+    "qp_code": "HCS/Q1504",
+    "nos_codes": [
+      "HCS/N0101",
+      "HCS/N0102",
+      "HCS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP HCS/Q1504",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹12,000 - ₹22,000 / month",
+    "duration_hours": 250,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "inlay work",
+      "stone craft"
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Field Technician Computing and Peripherals",
+    "sector": "Electronics",
+    "job_role": "Field Technician - Computing and Peripherals",
+    "min_education": "10th/12th Pass or ITI",
+    "nsqf_level": 4,
+    "description": "Installs, troubleshoots and repairs computing devices and peripherals at customer sites.",
+    "skills": [
+      "Hardware installation",
+      "Troubleshooting",
+      "Peripheral setup",
+      "Customer interaction",
+      "Documentation"
+    ],
+    "qp_code": "ELE/Q4601",
+    "nos_codes": [
+      "ELE/N0101",
+      "ELE/N0102",
+      "ELE/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP ELE/Q4601",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹14,000 - ₹22,000 / month",
+    "duration_hours": 360,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "computer hardware",
+      "electronics"
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Mobile Phone Hardware Repair Technician",
+    "sector": "Electronics",
+    "job_role": "Mobile Phone Hardware Repair Technician",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Diagnoses and repairs hardware faults in mobile phones including component level repairs.",
+    "skills": [
+      "Mobile disassembly",
+      "Component replacement",
+      "Soldering",
+      "Software flashing",
+      "Testing"
+    ],
+    "qp_code": "ELE/Q8104",
+    "nos_codes": [
+      "ELE/N0101",
+      "ELE/N0102",
+      "ELE/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP ELE/Q8104",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 360,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "mobile repair",
+      "electronics"
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Helper Electrician",
+    "sector": "Construction",
+    "job_role": "Helper Electrician",
+    "min_education": "5th/8th Pass",
+    "nsqf_level": 2,
+    "description": "Assists electricians in installation and maintenance of electrical systems at construction sites.",
+    "skills": [
+      "Cable handling",
+      "Tool assistance",
+      "Basic wiring support",
+      "Safety compliance",
+      "Material handling"
+    ],
+    "qp_code": "CON/Q0602",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP CON/Q0602",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹10,000 - ₹15,000 / month",
+    "duration_hours": 250,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "electrical helper",
+      "wiring"
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Dairy Farmer / Entrepreneur",
+    "sector": "Agriculture",
+    "job_role": "Dairy Farmer",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Manages dairy animals for milk production including feeding, health care, milking and basic enterprise activities.",
+    "skills": [
+      "Animal feeding",
+      "Milking practices",
+      "Health monitoring",
+      "Clean milk production",
+      "Basic entrepreneurship"
+    ],
+    "qp_code": "AGR/Q4101",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q4101",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹15,000 - ₹30,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "dairy",
+      "animal husbandry"
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Poultry Farmer",
+    "sector": "Agriculture",
+    "job_role": "Poultry Farmer",
+    "min_education": "8th Pass",
+    "nsqf_level": 4,
+    "description": "Manages poultry farm operations including housing, feeding, disease prevention and marketing of eggs/birds.",
+    "skills": [
+      "Poultry housing",
+      "Feed management",
+      "Disease prevention",
+      "Record keeping",
+      "Marketing"
+    ],
+    "qp_code": "AGR/Q4301",
+    "nos_codes": [
+      "AGR/N0101",
+      "AGR/N0102",
+      "AGR/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP AGR/Q4301",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹12,000 - ₹25,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "poultry",
+      "farming"
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Handloom Weaver",
+    "sector": "Textiles & Handloom",
+    "job_role": "Handloom Weaver",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Operates handloom to weave fabric as per design specifications and quality requirements.",
+    "skills": [
+      "Handloom operation",
+      "Warp preparation",
+      "Weaving techniques",
+      "Defect identification",
+      "Finishing"
+    ],
+    "qp_code": "TSC/Q2203",
+    "nos_codes": [
+      "TSC/N0101",
+      "TSC/N0102",
+      "TSC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP TSC/Q2203",
+    "wage_employment": false,
+    "self_employment": true,
+    "estimated_salary": "₹9,000 - ₹16,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "self_employment",
+    "traditional_allied_skills": [
+      "weaving",
+      "handloom"
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Powerloom Operator",
+    "sector": "Textiles & Handloom",
+    "job_role": "Powerloom Operator",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Operates powerlooms for fabric production ensuring quality and productivity.",
+    "skills": [
+      "Loom operation",
+      "Yarn handling",
+      "Quality monitoring",
+      "Machine settings",
+      "Safety"
+    ],
+    "qp_code": "TSC/Q2201",
+    "nos_codes": [
+      "TSC/N0101",
+      "TSC/N0102",
+      "TSC/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP TSC/Q2201",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹11,000 - ₹18,000 / month",
+    "duration_hours": 300,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "weaving",
+      "machine operation"
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Hair Stylist",
+    "sector": "Beauty & Wellness",
+    "job_role": "Hair Stylist",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Provides professional hair cutting, styling, colouring and treatment services in salons.",
+    "skills": [
+      "Hair cutting",
+      "Styling",
+      "Colouring",
+      "Hair treatments",
+      "Client consultation"
+    ],
+    "qp_code": "BWS/Q0202",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q0202",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹25,000 / month",
+    "duration_hours": 510,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "hair dressing",
+      "grooming"
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Assistant Hair Dresser & Stylist",
+    "sector": "Beauty & Wellness",
+    "job_role": "Assistant Hair Dresser & Stylist",
+    "min_education": "8th Pass",
+    "nsqf_level": 3,
+    "description": "Assists hair dressers in shampooing, basic styling and salon support activities.",
+    "skills": [
+      "Shampooing",
+      "Basic styling",
+      "Tool preparation",
+      "Hygiene",
+      "Client assistance"
+    ],
+    "qp_code": "BWS/Q0201",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q0201",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹9,000 - ₹15,000 / month",
+    "duration_hours": 390,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "hair assistance",
+      "salon work"
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Rural Mason",
+    "sector": "Construction",
+    "job_role": "Rural Mason",
+    "min_education": "8th Pass or Assistant Mason with experience",
+    "nsqf_level": 4,
+    "description": "Performs rural construction works including foundations, walls, sanitary fittings, IPS flooring and bamboo construction.",
+    "skills": [
+      "Rural masonry",
+      "Foundation work",
+      "Sanitary fixtures",
+      "Bamboo treatment",
+      "Seismic measures"
+    ],
+    "qp_code": "CON/Q3603",
+    "nos_codes": [
+      "CON/N0101",
+      "CON/N0102",
+      "CON/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP CON/Q3603",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹20,000 / month",
+    "duration_hours": 350,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "masonry",
+      "rural construction"
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Safai Karamchari",
+    "sector": "Green Jobs",
+    "job_role": "Safai Karamchari",
+    "min_education": "5th Pass",
+    "nsqf_level": 3,
+    "description": "Maintains cleanliness and hygiene of roads, public areas and buildings using manual and mechanized methods.",
+    "skills": [
+      "Road cleaning",
+      "Floor cleaning",
+      "Waste handling",
+      "Personal safety",
+      "Hygiene practices"
+    ],
+    "qp_code": "SGJ/Q6102",
+    "nos_codes": [
+      "SGJ/N0101",
+      "SGJ/N0102",
+      "SGJ/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP SGJ/Q6102",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹9,000 - ₹14,000 / month",
+    "duration_hours": 200,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "cleaning",
+      "sanitation"
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Nail Technician",
+    "sector": "Beauty & Wellness",
+    "job_role": "Nail Technician",
+    "min_education": "10th Pass",
+    "nsqf_level": 4,
+    "description": "Provides advanced nail care services including extensions, art and treatments.",
+    "skills": [
+      "Nail extensions",
+      "Nail art",
+      "Gel application",
+      "Hygiene",
+      "Client service"
+    ],
+    "qp_code": "BWS/Q0403",
+    "nos_codes": [
+      "BWS/N0101",
+      "BWS/N0102",
+      "BWS/N0103"
+    ],
+    "local_demand_districts": [
+      "West Godavari",
+      "East Godavari",
+      "Krishna",
+      "Guntur",
+      "Visakhapatnam",
+      "Kurnool",
+      "Anantapur",
+      "Chittoor",
+      "Prakasam",
+      "Nellore",
+      "Hyderabad",
+      "Warangal"
+    ],
+    "training_available_states": [
+      "Andhra Pradesh",
+      "Telangana",
+      "Karnataka",
+      "Tamil Nadu",
+      "Maharashtra"
+    ],
+    "scheme_gia_eligible": true,
+    "data_source": "NSDC/NCVET QP BWS/Q0403",
+    "wage_employment": true,
+    "self_employment": false,
+    "estimated_salary": "₹12,000 - ₹22,000 / month",
+    "duration_hours": 420,
+    "pathway_type": "wage_employment",
+    "traditional_allied_skills": [
+      "nail care",
+      "beauty"
+    ]
+  }
 ]
